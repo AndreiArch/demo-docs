@@ -7,9 +7,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, soda
 > :memo: **Note:** Sunrises are beautiful.
 
 > :bulb: **Tip:** Remember to appreciate the little things in life.
->
-> > :warning: **Warning:** Do not push the big red button.
-
-> :memo: **Note:** Sunrises are beautiful.
-
-> :bulb: **Tip:** Remember to appreciate the little things in life.
