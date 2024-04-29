@@ -41,7 +41,7 @@ Lorem ipsum dolor sit amet, adipiscing elit. Phasellus mi erat, sodales sed curs
 |        |       |       |
 
 ::::link-array
-:::link-array-item{headerImage headerColor}
+:::link-array-item{headerImage="test" headerColor="blue"}
 Link bloks
 :::
 ::::
