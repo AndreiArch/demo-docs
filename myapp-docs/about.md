@@ -16,7 +16,7 @@ pam pam
 
 | 1   | 2   | 3    |
 | :-- | :-- | :--- |
-| asp | bad | good |
+| asp 1| bad 1| good1 |
 |     |     |      |
 |     |     |      |
 
