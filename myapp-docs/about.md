@@ -10,8 +10,4 @@ Import <https://github.com/Archbee/demo-docs> in your Archbee Account and see it
 test
 :::
 
-text simple text
 
-adding something here
-
-another text
