@@ -6,7 +6,6 @@ Import <https://github.com/Archbee/demo-docs> in your Archbee Account and see it
 
 [Link to the file](./petstore-2.0.yaml)]
 
-
 | 1     | 2     | 3     |
 | :---- | :---- | :---- |
 | asp 1 | bad 1 | good1 |
