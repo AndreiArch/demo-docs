@@ -6,13 +6,9 @@ Import <https://github.com/Archbee/demo-docs> in your Archbee Account and see it
 
 [Link to the file](./petstore-2.0.yaml)]
 
-:::hint{type="info"}
+:::hint{type="success"}
 test
 :::
-
-ceva ceva aici
-jjjj
-pam pam
 
 | 1     | 2     | 3     |
 | :---- | :---- | :---- |
