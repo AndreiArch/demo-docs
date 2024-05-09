@@ -2,7 +2,7 @@
 
 Import <https://github.com/Archbee/demo-docs> in your Archbee Account and see it how it works!
 
-!!! aici adaug ceva
+
 
 [Link to the file](./petstore-2.0.yaml)]
 
