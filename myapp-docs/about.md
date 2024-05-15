@@ -2,11 +2,7 @@
 
 Import <https://github.com/Archbee/demo-docs> in your Archbee Account and see it how it works!
 
-Modificari!!!!
-
-:::hint{type="warning"}
-
-:::
+Test
 
 [Link to the file](./petstore-2.0.yaml)]
 
