@@ -8,8 +8,6 @@ Modificari!!!!
 
 :::
 
-
-
 [Link to the file](./petstore-2.0.yaml)]
 
 | 1     | 2     | 3     |
