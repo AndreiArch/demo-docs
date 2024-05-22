@@ -3,6 +3,6 @@ structure:
   summary: toc.md
   assets: assets
 shadowDocs: 
-  - "about.md"  
+  - "*"
 footerTemplate: ""
 headerIncludes: ""
