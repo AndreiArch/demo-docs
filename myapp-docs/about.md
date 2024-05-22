@@ -4,6 +4,14 @@ Import <https://github.com/Archbee/demo-docs> in your Archbee Account and see it
 
 Doar Github side
 
+\+ Modificare 🥰 PR
+
+:::hint{type="info"}
+
+:::
+
+
+
 [Link to the file](./petstore-2.0.yaml)]
 
 | 1     | 2     | 3     |
