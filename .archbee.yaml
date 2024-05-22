@@ -2,8 +2,7 @@ docsPath: ./myapp-docs
 structure:
   summary: toc.md
   assets: assets
+# This will include all code files from your repo
 shadowDocs: 
-  - "init/index.ts"
-root: ./myapp-docs
-footerTemplate: ""
-headerIncludes: ""
+  - "*"
+
