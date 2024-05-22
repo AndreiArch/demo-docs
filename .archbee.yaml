@@ -3,6 +3,7 @@ structure:
   summary: toc.md
   assets: assets
 shadowDocs: 
-  - "*"
+  - "init/index.ts"
+root: ./myapp-docs
 footerTemplate: ""
 headerIncludes: ""
