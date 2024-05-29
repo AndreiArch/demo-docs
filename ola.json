@@ -1,0 +1,11 @@
+{
+ "id": "k7vsxHuVK7Fdt5-Q6gz1o",
+ "name": "-aa11",
+ "createdAt": "2022-08-18T12:43:32.000Z",
+ "updatedAt": "2024-05-20T07:15:26.572Z"
+}
+{
+  "tabs": {
+    "YAML": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: mypod\n  labels:\n    app: myapp\nspec:\n  containers:\n    - name: mycontainer\n      image: myimage:latest\n      ports:\n        - containerPort: 80"
+  }
+}
