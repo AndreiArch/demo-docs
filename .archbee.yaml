@@ -10,5 +10,6 @@ shadowDocs:
   - docsPath: ./myapp-docs
   - docsPath: ./Folder1
   - docsPath: ./folderx
-  
+  - docsPath: Folder1
+  - docsPath: folderx
 
