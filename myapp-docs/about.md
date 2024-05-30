@@ -2,7 +2,7 @@
 
 mImport <https://github.com/Archbee/demo-docs> in your Archbee Account and see it how it works!
 
-aici aici Rapid Bucuresti estte maaa
+Rapdia ale ale
 
 :::hint{type="info"}
 
