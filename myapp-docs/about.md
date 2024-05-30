@@ -2,7 +2,7 @@
 
 mImport <https://github.com/Archbee/demo-docs> in your Archbee Account and see it how it works!
 
-aici aici Rapid Bucuresti
+Rapid Buc :X
 
 :::hint{type="info"}
 
