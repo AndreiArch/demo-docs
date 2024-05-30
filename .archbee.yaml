@@ -6,5 +6,9 @@ structure:
 shadowDocs: 
  - "*"
  - "ola.json"
+  sites: 
+  - docsPath: ./myapp-docs
+  - docsPath: ./Folder1
+  - docsPath: ./folderx
   
 
