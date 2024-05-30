@@ -1,4 +1,4 @@
-docsPath: ./myapp-docs
+docsPath: Folderx
 structure:
   summary: toc.md
   assets: assets
