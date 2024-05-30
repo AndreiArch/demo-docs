@@ -2,7 +2,7 @@
 
 mImport <https://github.com/Archbee/demo-docs> in your Archbee Account and see it how it works!
 
-Foerta rAPID :X
+Foerta rAPID \:X ALE ALE le
 
 :::hint{type="info"}
 
