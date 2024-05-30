@@ -4,12 +4,7 @@ structure:
   assets: assets
 # This will include all code files from your repo
 shadowDocs: 
- - "*"
- - "ola.json"
-  sites: 
-  - docsPath: ./myapp-docs
-  - docsPath: ./Folder1
-  - docsPath: ./folderx
-  - docsPath: Folder1
-  - docsPath: folderx
+  - "*"
+  - "ola.json"
+
 
