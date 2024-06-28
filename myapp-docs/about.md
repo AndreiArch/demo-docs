@@ -2,9 +2,7 @@
 
 mImport <https://github.com/Archbee/demo-docs> in your Archbee Account and see it how it works!
 
-89y78678678678iugbhuibh
 
-Aoasdasdassasdsaasshugvhuv hbhjbvh
 
 :::hint{type="info"}
 
