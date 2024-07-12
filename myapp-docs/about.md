@@ -4,10 +4,6 @@ muyuuuuuImport <https://github.com/Archbee/demo-docs> in your Archbee Account an
 
 
 
-:::hint{type="info"}
-
-:::
-
 [Link to the file](./petstore-2.0.yaml)]
 
 | 1     | 2     | 3     |
