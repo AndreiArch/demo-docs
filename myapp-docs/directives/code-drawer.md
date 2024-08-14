@@ -37,3 +37,11 @@ $something = "asdas";
 
 :::
 ::::
+
+### Heading inside collapsible
+
+Content inside collapsible section.
+
+- You can add lists
+- Images
+- Code blocks
