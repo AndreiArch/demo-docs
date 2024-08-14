@@ -38,10 +38,20 @@ $something = "asdas";
 :::
 ::::
 
-### Heading inside collapsible
+<details>
+<summary>Expandable Heading</summary>
 
-Content inside collapsible section.
+### This is the content under the expandable heading
 
-- You can add lists
-- Images
-- Code blocks
+You can add any content here, like text, lists, or even code blocks.
+
+- Example list item 1
+- Example list item 2
+
+```python
+# Example code block
+def hello_world():
+    print("Hello, World!")
+</details>
+```
+</details>
