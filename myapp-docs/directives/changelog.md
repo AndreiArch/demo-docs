@@ -44,5 +44,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, soda
 ::changelog-item{type="knownIssue" description="Lorem ipsum"}
 :::
 
-[]()&#x20;
-
+[]() &#x20;
