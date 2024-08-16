@@ -12,7 +12,7 @@
     - [Lists 2](syntax/lists-1.md)
 - [Tables](syntax/tables.md)
 - [Code editor](syntax/code-editor.md)
-- [API](directives/core-api-purchasing.yaml)
+- [API](directives/openapi.yaml)
   
 
 + [item separator list](syntax/an-item.md)
