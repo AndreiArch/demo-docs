@@ -12,6 +12,8 @@
     - [Lists 2](syntax/lists-1.md)
 - [Tables](syntax/tables.md)
 - [Code editor](syntax/code-editor.md)
+- [API](core-api-purchasing.yaml)
+  
 
 + [item separator list](syntax/an-item.md)
 
