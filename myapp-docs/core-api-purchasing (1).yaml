@@ -1,0 +1,1008 @@
+`fopenapi: 3.0.3
+info:
+  title: Purchasing API
+  contact:
+    email: support@sparklayer.io
+  version: 0.0.1
+tags:
+  - name: Purchasing
+    description: Covers all purchasing entities end to end entities such as a cart, a quote, awaiting order approval or an finalised order
+paths:
+  /api/v1/purchases/{lookupBy}/{identifier}:
+    parameters:
+      - schema:
+          type: string
+          enum:
+            - sparklayer
+            - platform
+            - internal
+            - visible
+          example: platform
+        name: lookupBy
+        in: path
+        required: true
+        description: Lookup by an identifier set within the purchase_identifiers object
+      - schema:
+          type: string
+          example: '123456789'
+          minLength: 1
+        name: identifier
+        in: path
+        required: true
+        description: Lookup by an identifier
+    get:
+      summary: Get Purchase
+      parameters:
+        - $ref: '#/components/parameters/Header.SiteId'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Purchase'
+        '404':
+          $ref: '#/components/responses/Default'
+        '500':
+          $ref: '#/components/responses/Default'
+      operationId: getPurchase
+      description: Retrieve an cart, quote, awaiting approval order or an finalised order
+      tags:
+        - Purchasing
+    delete:
+      tags:
+        - Purchasing
+      summary: Delete Purchase
+      operationId: deletePurchase
+      responses:
+        '204':
+          description: No Content
+        '404':
+          $ref: '#/components/responses/Default'
+        '500':
+          $ref: '#/components/responses/Default'
+      description: Delete an purchase
+    put:
+      tags:
+        - Purchasing
+      summary: Create/Update Purchase
+      operationId: createUpdatePurchase
+      description: Create/Update an purchase
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Purchase'
+        '403':
+          description: Trying to update purchase SparkLayer ID, which is immutable
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          $ref: '#/components/responses/Default'
+        '409':
+          description: A conflict has occurred
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          $ref: '#/components/responses/Default'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Purchase'
+  /api/v1/purchases:
+    get:
+      tags:
+        - Purchasing
+      summary: Get Purchase
+      description: This endpoint is designed to list any purchase with the ability to easily filter
+      parameters:
+        - $ref: '#/components/parameters/Header.SiteId'
+        - $ref: '#/components/parameters/Query.Limit'
+        - $ref: '#/components/parameters/Query.OrderBy'
+        - $ref: '#/components/parameters/Query.CustomerIdentifiersSparkLayer'
+        - $ref: '#/components/parameters/Query.CustomerIdentifiersSparkLayerImpersonator'
+        - $ref: '#/components/parameters/Query.CustomerIdentifiersSparkLayerSalesRep'
+        - $ref: '#/components/parameters/Query.PurchaseStatus'
+        - $ref: '#/components/parameters/Query.PurchaseType'
+        - $ref: '#/components/parameters/Query.DatesLastUpdatedLte'
+        - $ref: '#/components/parameters/Query.DatesLastUpdatedGte'
+        - $ref: '#/components/parameters/Query.DatesPlacedLte'
+        - $ref: '#/components/parameters/Query.DatesPlacedGte'
+        - $ref: '#/components/parameters/Query.DatesSubmittedLte'
+        - $ref: '#/components/parameters/Query.DatesSubmittedGte'
+      operationId: getPurchases
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PurchaseBase'
+        '500':
+          $ref: '#/components/responses/Default'
+  /api/v1/purchases-count:
+    parameters: []
+  /api/v1/purchases-count-by-type:
+    parameters: []
+  /api/v1/purchases/stats/order/sku:
+    get:
+      tags:
+        - Stats
+      summary: Get order stats for a customer
+      description: Provides stats on SKU orders within a date period
+      parameters:
+        - $ref: '#/components/parameters/Header.SiteId'
+        - name: spark_customer_id
+          in: query
+          description: SparkLayer Customer ID
+          required: true
+          schema:
+            type: string
+            minLength: 1
+        - name: start_date
+          in: query
+          description: Starting date-time from which to get stats - include user timezone or Z for UTC (RFC-3339)
+          required: true
+          schema:
+            type: string
+            format: date-time
+            example: '2020-01-01T00:00:00+02:00'
+        - name: end_date
+          in: query
+          description: Ending date-time until which to get stats - include user timezone or Z for UTC (RFC-3339)
+          required: true
+          schema:
+            type: string
+            format: date-time
+            example: '2020-04-30T23:59:59+02:00'
+        - name: date_period_type
+          in: query
+          description: Date period type to group stats by
+          required: true
+          schema:
+            type: string
+            enum:
+              - week
+              - month
+              - quarter
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sku:
+                      type: string
+                    periods:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          period_start_date:
+                            type: string
+                            format: date-time
+                            description: Start date of the period group - always returned as UTC (RFC-3339)
+                          sold_qty:
+                            type: integer
+                example:
+                  - sku: SKU999
+                    periods:
+                      - period_start_date: '2020-01-01T00:00:00Z'
+                        sold_qty: 8
+                      - period_start_date: '2020-02-01T00:00:00Z'
+                        sold_qty: 2
+                  - sku: SKU888
+                    periods:
+                      - period_start_date: '2020-01-01T00:00:00Z'
+                        sold_qty: 1
+                      - period_start_date: '2020-03-01T00:00:00Z'
+                        sold_qty: 8
+      operationId: getSKUSalesStats
+    parameters: []
+components:
+  parameters:
+    Header.SiteId:
+      name: Site-Id
+      description: Spark Layer Site ID
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 1
+      example: jones-climbing
+    Query.Limit:
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 500
+      in: query
+      name: limit
+      description: Limit the number of results returned
+    Query.OrderBy:
+      schema:
+        type: string
+        enum:
+          - created_at
+          - updated_at
+          - placed_at
+          - calculated_submitted_at
+        description: Order results by a field in descending order
+      in: query
+      name: order_by
+      description: Order by
+    Query.CustomerIdentifiersSparkLayer:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: customer_identifiers[sparklayer]
+      description: Filter by customer_identifiers[sparklayer]
+    Query.CustomerIdentifiersSparkLayerImpersonator:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: customer_identifiers[sparklayer_impersonator]
+      description: Filter by customer_identifiers[sparklayer_impersonator]
+    Query.CustomerIdentifiersSparkLayerSalesRep:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: customer_identifiers[sparklayer_sales_rep]
+      description: Filter by customer_identifiers[sparklayer_sales_rep]
+    Query.PurchaseStatus:
+      schema:
+        type: string
+        enum:
+          - incoming
+          - processing
+          - shipped
+          - part_shipped
+          - cancelled
+          - returned
+          - part_returned
+          - varied
+        example: shipped
+      in: query
+      name: status
+      description: Filter by status
+    Query.PurchaseType:
+      schema:
+        type: string
+        enum:
+          - order
+          - quote
+          - cart
+          - awaiting_approval
+          - awaiting_merchant
+          - archived
+        example: order
+      in: query
+      name: type
+      description: Filter by type
+    Query.DatesLastUpdatedLte:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: dates[last_updated][lte]
+      description: Filter by dates[last_updated][lte]
+    Query.DatesLastUpdatedGte:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: dates[last_updated][gte]
+      description: Filter by dates[last_updated][gte]
+    Query.DatesPlacedLte:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: dates[placed][lte]
+      description: Filter by dates[placed][lte]
+    Query.DatesPlacedGte:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: dates[placed][gte]
+      description: Filter by dates[placed][gte]
+    Query.DatesSubmittedLte:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: dates[submitted][lte]
+      description: Filter by dates[submitted][lte]
+    Query.DatesSubmittedGte:
+      schema:
+        type: string
+        minLength: 1
+      in: query
+      name: dates[submitted][gte]
+      description: Filter by dates[submitted][gte]
+  schemas:
+    PurchaseCount:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+          nullable: true
+        count:
+          type: integer
+        total:
+          $ref: '#/components/schemas/MonetaryObject'
+    MonetaryObject:
+      type: object
+      additionalProperties: false
+      required:
+        - number
+        - currency
+      properties:
+        number:
+          type: string
+          minLength: 1
+          description: The amount of currency in this currency, represented as a string
+          example: '15.99'
+        currency:
+          type: string
+          minLength: 3
+          maxLength: 3
+          example: GBP
+          description: The 3 letter currency code used for the prices in the purchase
+    PurchaseType:
+      type: string
+      enum:
+        - quote
+        - cart
+        - awaiting_approval
+        - order
+        - awaiting_merchant
+        - archived
+      example: order
+      title: PurchaseType
+    LineTotal:
+      title: Line Total
+      type: object
+      description: The total cost of this line of the order
+      required:
+        - total_net
+        - discount_net
+      properties:
+        total_net:
+          allOf:
+            - $ref: '#/components/schemas/MonetaryObject'
+            - description: The net cost of the line item. This should be the price after any discounts are applied
+        discount_net:
+          allOf:
+            - $ref: '#/components/schemas/MonetaryObject'
+            - description: The net discount that has already been applied to the total. This is just to show to the end user
+        tax_rate:
+          description: The tax rate to apply to the net total. The value represents a percentage e.g. 20 means 20%
+          type: number
+          nullable: true
+          format: double
+          default: 0
+          minimum: 0
+          example: 20
+    PurchaseFiles:
+      title: Purchase Files
+      type: object
+      required:
+        - identifiers
+        - data
+        - file_type
+      additionalProperties: false
+      properties:
+        identifiers:
+          type: object
+          properties:
+            internal:
+              type: string
+              minLength: 1
+              nullable: true
+              example: INV011
+              description: The identifier of the purchase file that is used by your system
+            visible:
+              type: string
+              nullable: true
+              default: INV011
+              description: The identifier of the purchase file that should be shown to the customer
+        data:
+          anyOf:
+            - properties:
+                uri:
+                  type: string
+                  format: uri
+                  nullable: true
+                type:
+                  type: string
+                  enum:
+                    - uri
+                  default: uri
+                  example: uri
+              required:
+                - type
+          type: object
+        file_type:
+          type: string
+          enum:
+            - credit
+            - invoice
+            - payment
+          example: invoice
+    PurchaseAddress:
+      title: Order Address
+      type: object
+      additionalProperties: false
+      nullable: true
+      required:
+        - address_line1
+        - city
+        - country_code
+      properties:
+        name:
+          type: string
+          nullable: true
+          example: Tom Jones
+        company:
+          type: string
+          nullable: true
+          example: Tom Jones Hardware Ltd
+        address_line1:
+          type: string
+          example: 7 Philosophy way
+        address_line2:
+          type: string
+          nullable: true
+          example: null
+        city:
+          type: string
+          example: Willerby
+        region_code:
+          type: string
+          nullable: true
+          example: null
+          minLength: 1
+        postal_code:
+          type: string
+          nullable: true
+          example: BJ6 9MK
+        country_code:
+          type: string
+          example: GB
+        phone:
+          type: string
+          nullable: true
+          example: '0123456789'
+        sparklayer_id:
+          type: string
+          nullable: true
+          example: ca_100
+          pattern: ^ca_\d+$
+      description: ''
+    PackageBase:
+      type: object
+      required:
+        - identifiers
+        - accounting_files
+        - line_items
+        - shipments
+      properties:
+        identifiers:
+          type: object
+          required:
+            - sparklayer_package_id
+          properties:
+            sparklayer_package_id:
+              type: string
+              example: 63428136-658f-48a6-beb7-7f333dfd9686
+              description: A UUID for the package that must be unique within the purchase. You must generate this yourself
+              format: uuid
+            platform:
+              type: string
+              nullable: true
+              example: '123456789'
+              description: The identifier for the package on the e-commerce platform
+              minLength: 1
+            internal:
+              type: string
+              nullable: true
+              description: The identifier for the package on your system
+              minLength: 1
+            visible:
+              type: string
+              nullable: true
+              description: The identifier that will be shown to the customer in their recent orders
+        accounting_files:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurchaseFiles'
+        line_items:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+              - identifiers
+              - name_parent
+              - quantity
+              - line_total
+            properties:
+              identifiers:
+                type: object
+                properties:
+                  sparklayer_item_key:
+                    type: string
+                    nullable: true
+                    minLength: 1
+                    description: Internally used for tracking line items. For orders, can be set to null
+                  sparklayer_variant_id:
+                    type: string
+                    nullable: true
+                    minLength: 1
+                    description: The ID of the variant on your e-commerce platform
+                    example: '45552423353839'
+                  sku:
+                    type: string
+                    nullable: true
+                    example: CAT-MUG
+                    maxLength: 128
+                  platform:
+                    type: string
+                    nullable: true
+                    example: '123456789'
+                    description: The identifier for the product on the e-commerce platform
+                    minLength: 1
+                  internal:
+                    type: string
+                    nullable: true
+                    description: The identifier for the product on your system
+                    minLength: 1
+                  visible:
+                    type: string
+                    nullable: true
+                    description: A human-readable identifier for the product
+              name_parent:
+                type: string
+                description: Name of the product
+                example: T-Shirt
+              name_child:
+                type: string
+                nullable: true
+                description: Name of the product variant/type
+                example: Red
+              quantity:
+                type: number
+                example: 4
+              custom_attributes:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - key
+                    - value
+                  properties:
+                    key:
+                      type: string
+                      nullable: false
+                      example: mug text
+                      description: Key or name of the attribute.
+                    value:
+                      type: string
+                      nullable: false
+                      example: best company ever
+                      description: Value of the attribute.
+              line_total:
+                $ref: '#/components/schemas/LineTotal'
+        shipping_method:
+          type: object
+          nullable: true
+          description: Details of how the package was/will be shipped
+          required:
+            - name
+            - line_total
+          properties:
+            sku:
+              type: string
+              minLength: 1
+              nullable: true
+              description: SKU that identifies the shipping method used
+              example: SHIP-ECO
+            name:
+              type: string
+              description: The friendly/human-readable name for the shipping method
+              example: Standard Shipping
+            line_total:
+              description: Cost of the shipment
+              allOf:
+                - $ref: '#/components/schemas/LineTotal'
+        shipping_address:
+          $ref: '#/components/schemas/PurchaseAddress'
+        shipments:
+          description: Carrier and tracking details for the shipment
+          type: array
+          items:
+            type: object
+            required:
+              - carrier
+              - carrier_id
+            properties:
+              carrier:
+                type: string
+                example: Carrier Company Ltd
+              carrier_id:
+                type: string
+                description: The tracking number/ID used by the carrier
+              tracking_url:
+                type: string
+                format: uri
+                nullable: true
+                description: The URL the customer can use to track their shipment
+    Shipment:
+      allOf:
+        - $ref: '#/components/schemas/PackageBase'
+        - type: object
+          required:
+            - type
+            - dates
+          properties:
+            type:
+              type: string
+              enum:
+                - shipment
+            dates:
+              type: object
+              required:
+                - shipped_at
+              properties:
+                shipped_at:
+                  type: string
+                  description: The date at which the package was shipped - include user timezone or Z for UTC (RFC-3339)
+                  format: date-time
+                  example: '2020-01-01T00:00:00+02:00'
+    Return:
+      allOf:
+        - $ref: '#/components/schemas/PackageBase'
+        - type: object
+          required:
+            - type
+            - dates
+          properties:
+            type:
+              type: string
+              enum:
+                - return
+            dates:
+              type: object
+              required:
+                - return_started_at
+              properties:
+                return_started_at:
+                  type: string
+                  description: The date at which the package return started - include user timezone or Z for UTC (RFC-3339)
+                  format: date-time
+                  example: '2020-01-01T00:00:00+02:00'
+                return_completed_at:
+                  type: string
+                  nullable: true
+                  description: The date at which the package return completed - include user timezone or Z for UTC (RFC-3339)
+                  format: date-time
+                  example: '2020-01-01T00:00:00+02:00'
+    Cancelled:
+      allOf:
+        - $ref: '#/components/schemas/PackageBase'
+        - type: object
+          required:
+            - type
+            - dates
+          properties:
+            type:
+              type: string
+              enum:
+                - cancelled
+            dates:
+              type: object
+              properties:
+                cancelled_at:
+                  type: string
+                  nullable: true
+                  description: The date at which the package was cancelled - include user timezone or Z for UTC (RFC-3339)
+                  format: date-time
+                  example: '2020-01-01T00:00:00+02:00'
+    Processing:
+      allOf:
+        - $ref: '#/components/schemas/PackageBase'
+        - type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - processing
+    Incoming:
+      allOf:
+        - $ref: '#/components/schemas/PackageBase'
+        - type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - incoming
+    Package:
+      type: object
+      additionalProperties: false
+      oneOf:
+        - $ref: '#/components/schemas/Incoming'
+        - $ref: '#/components/schemas/Processing'
+        - $ref: '#/components/schemas/Shipment'
+        - $ref: '#/components/schemas/Cancelled'
+        - $ref: '#/components/schemas/Return'
+    Purchase:
+      title: Purchase
+      additionalProperties: false
+      allOf:
+        - $ref: '#/components/schemas/PurchaseBase'
+        - type: object
+          required:
+            - packages
+            - accounting_files
+            - custom_fields
+          properties:
+            revision_date:
+              type: string
+              nullable: true
+              description: The date at which the purchase was last modified - include user timezone or Z for UTC (RFC-3339)
+              format: date-time
+              example: '2020-01-01T00:00:00+02:00'
+            billing_address:
+              $ref: '#/components/schemas/PurchaseAddress'
+            packages:
+              description: Packages contained within this purchase
+              type: array
+              items:
+                $ref: '#/components/schemas/Package'
+            accounting_files:
+              description: Any accounting files associated with this package e.g. invoices
+              type: array
+              items:
+                $ref: '#/components/schemas/PurchaseFiles'
+            custom_fields:
+              description: Extra information for the purchase. This will be shown to the customer in their recent orders
+              type: array
+              items:
+                type: object
+                required:
+                  - name
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                    description: Name/identifier for the custom field
+                    example: delivery-date
+                  value:
+                    type: string
+                    nullable: true
+                    description: Data for the custom field
+                    example: '2023-10-28'
+            metadata:
+              description: Extra information for the purchase. This not will be shown to the customer
+              type: array
+              items:
+                type: object
+                required:
+                  - name
+                  - value
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                    description: Name/identifier for the metadata
+                    example: example-key
+                  value:
+                    type: string
+                    description: Data for the metadata
+                    example: '1234'
+      description: SparkLayer purchase object
+    Error:
+      title: Error Message Response
+      description: Structure for returning RFC-7807 errors from API
+      type: object
+      additionalProperties: false
+      properties:
+        detail:
+          description: Human-readable summary of the error
+          type: string
+          example: Data Validation Failed
+        status:
+          description: HTTP Status code returned from API
+          type: integer
+          example: 400
+        title:
+          description: Machine-readable error code
+          type: string
+          example: invalid-api-request-contents
+        type:
+          type: string
+          example: https://hub.sparklayer.io/tech-docs
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                example: unique-constraint-violation
+                description: A machine-readable error message
+              property:
+                type: string
+                example: purchase_identifiers.sparklayer
+                description: The offending property
+              message:
+                type: string
+                example: Each stock level must have a unique stock location and sku combination
+                description: A human-readable summary of the error
+    PurchaseBase:
+      title: Purchase Base
+      type: object
+      required:
+        - type
+        - purchase_identifiers
+        - customer_identifiers
+        - dates
+      properties:
+        type:
+          $ref: '#/components/schemas/PurchaseType'
+        purchase_identifiers:
+          type: object
+          required:
+            - sparklayer
+          properties:
+            sparklayer:
+              type: string
+              nullable: true
+              example: 63428136-658f-48a6-beb7-7f333dfd9686
+              description: The identifier SparkLayer uses for the purchase. You will need to generate this if the purchase does not exist
+              format: uuid
+              minLength: 1
+            platform:
+              type: string
+              nullable: true
+              example: '123456789'
+              description: The identifier for the purchase on the e-commerce platform
+              minLength: 1
+            internal:
+              type: string
+              nullable: true
+              description: The identifier for the purchase on your system
+              minLength: 1
+            visible:
+              type: string
+              nullable: true
+              example: B2B01123
+              description: The identifier that will be shown to the customer in their recent orders
+        customer_identifiers:
+          type: object
+          properties:
+            sparklayer:
+              type: string
+              nullable: true
+              description: The ID of the customer that that order is for. Must be prefixed with `cu_`
+              pattern: ^cu_\d+$
+              example: cu_123
+            sparklayer_impersonator:
+              type: string
+              nullable: true
+              pattern: ^cu_\d+$
+              example: cu_123
+              description: The ID of the sales agent placing the order. Must be prefixed with `cu_`
+            sparklayer_child:
+              type: string
+              nullable: true
+              pattern: ^cu_\d+$
+              example: cu_123
+              description: The ID of the company user that placed the order. Must be prefixed with `cu_`
+        payment_method:
+          type: string
+          nullable: true
+          description: How the purchase was/will be paid for
+          enum:
+            - quote
+            - upfrontPayment
+            - paymentOnAccount
+            - paymentByInvoice
+        dates:
+          type: object
+          properties:
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+              description: The date the purchase was created in SparkLayer (RFC-3339). This is read only - it should not be sent to the API, but will be returned form it
+              example: '2020-01-01T00:00:00+02:00'
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+              description: The date the purchase was last updated in SparkLayer (RFC-3339). This is read only - it should not be sent to the API, but will be returned form it
+              example: '2020-01-01T00:00:00+02:00'
+            placed_at:
+              type: string
+              nullable: true
+              description: The date at which the purchase was placed - include user timezone or Z for UTC (RFC-3339)
+              format: date-time
+              example: '2020-01-01T00:00:00+02:00'
+            calculated_submitted_at:
+              type: string
+              format: date-time
+              readOnly: true
+              description: The date the purchase was submitted (RFC-3339). This is when the cart is converted into another purchase type. This is read only - it should not be sent to the API, but will be returned form it
+              example: '2020-01-01T00:00:00+02:00'
+        customer_reference:
+          type: string
+          nullable: true
+          description: Additional information that a customer adds to the order
+          example: PO Number
+        currency_code:
+          type: string
+          nullable: true
+          minLength: 3
+          maxLength: 3
+          example: GBP
+          description: The 3 letter currency code used for the prices in the purchase
+        calculated_shipping_address:
+          type: string
+          nullable: true
+          readOnly: true
+          description: A single string containing all the details of the shipping address. This is read only - it should not be sent to the API, but will be returned form it
+          example: John Spark, SparkLayer, SparkLayer HQ, Example City, 12345
+        calculated_total:
+          description: Gross total price of the purchase, calculated by SparkLayer based on package and shipment costs. This is read only - it should not be sent to the API, but will be returned form it
+          allOf:
+            - $ref: '#/components/schemas/MonetaryObject'
+        calculated_total_usd:
+          description: Gross total price in USD of the purchase, calculated by SparkLayer based on package and shipment costs. This is read only - it should not be sent to the API, but will be returned form it
+          allOf:
+            - $ref: '#/components/schemas/MonetaryObject'
+        calculated_fulfilment_status:
+          type: string
+          nullable: true
+          readOnly: true
+          description: The status of the order, calculated from the statuses of the individual packages. This is read only - it should not be sent to the API, but will be returned form it
+          enum:
+            - incoming
+            - processing
+            - shipped
+            - part_shipped
+            - cancelled
+            - returned
+            - part_returned
+            - varied
+          example: processing
+  responses:
+    Default:
+      description: Error Response
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Error'
