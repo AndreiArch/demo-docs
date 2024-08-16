@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: Optional
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/v1
+    description: Optional server description, e.g. Main (production) server
+security:
+  - Bearer: []
+paths:
+  /item/{id}:
+    get:
+      summary: Returns an item.
+      operationId: getItem
+      description: Get an item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                profiles:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/item"
+      deprecated: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/item"
+components:
+  schemas:
+    item:
+      description: Item desc
+      allOf:
+        - type: object
+          properties:
+            modelRef1:
+              type: object
+              properties:
+                id:
+                  type: string
+        - type: object
+          properties:
+            modelRef2:
+              type: object
+              properties:
+                id:
+                  type: string
+        - type: object
+          properties:
+            modelRef3:
+              type: object
+              properties:
+                id:
+                  type: string
+
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: AccessToken
