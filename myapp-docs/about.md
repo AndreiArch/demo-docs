@@ -2,7 +2,7 @@
 
 sadmuyuuuuuImport <https://github.com/Archbee/demo-docs> in your Archbee Account and see it how it works!
 
-[]()&#x20;
+&#x20;[Item separator list](./syntax/an-item.md)&#x20;
 
 | 1     | 2     | 3     |
 | :---- | :---- | :---- |
