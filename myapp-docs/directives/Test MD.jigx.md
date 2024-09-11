@@ -21,6 +21,7 @@ We're stoked to have you here :)
 *   [ ] Collections can be branded & shared on your own domain, and it looks like [docs.pathfix.com](https://docs.pathfix.com) or even our own docs [docs.archbee.io](https://docs.archbee.io).
 
 
+'**[Usuarios](https://app-v2.fu.do/#!/admin/users)**'
 
 >
 >
