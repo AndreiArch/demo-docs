@@ -30,7 +30,7 @@
 - [changelogs](directives/changelog.md)
 - [partial](directives/partial.md)
 
-   ### Advanced Topics
+ ### Advanced Topics
 
   - [Lists](syntax/lists.md)
   - [Lists 1](syntax/lists-1.md)
