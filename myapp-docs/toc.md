@@ -13,11 +13,6 @@
 - [Tables](syntax/tables.md)
 - [Code editor](syntax/code-editor.md)
 - [API](directives/openapi.yaml)
-  
-### Advanced
-
-- [Advanced Lists](syntax/advanced/advanced-lists.md)
-- [Advanced Tables](syntax/advanced/advanced-tables.md)
 
 ## Directives in page
 
@@ -31,6 +26,10 @@
 - [embeds](directives/embeds.md)
 - [changelogs](directives/changelog.md)
 - [partial](directives/partial.md)
+
+  ### test
+
+- [Advanced Lists](directives/test/abc.md)
 
 ## Advanced Topics
  - [Optimizing Performance](walkthroughs/advanced/01-optimizing-performance.md)
