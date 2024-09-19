@@ -12,7 +12,8 @@
     - [Lists 2](syntax/lists-1.md)
 - [Tables](syntax/tables.md)
 - [Code editor](syntax/code-editor.md)
-- [API](directives/openapi.yaml)
+
++ [item separator list](syntax/an-item.md)
 
 ## Directives in page
 
@@ -27,14 +28,3 @@
 - [changelogs](directives/changelog.md)
 - [partial](directives/partial.md)
 
-  ### test
-
-- [Advanced Lists](directives/test/abc.md)
-
-## Advanced Topics
- - [Optimizing Performance](walkthroughs/advanced/01-optimizing-performance.md)
- - [Customizing User Interfaces](walkthroughs/advanced/02-customizing-ui.md)
-    
-   ## Performance Subfolder
-   - [Memory Management](walkthroughs/advanced/performance/01-memory-management.md)
-       - [Speed Optimization](walkthroughs/advanced/performance/02-speed-optimization.md)
