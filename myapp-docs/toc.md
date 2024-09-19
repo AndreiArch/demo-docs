@@ -30,10 +30,10 @@
 - [changelogs](directives/changelog.md)
 - [partial](directives/partial.md)
 
- - ## Advanced Topics
+  ## Advanced Topics
     - [Optimizing Performance](walkthroughs/advanced/01-optimizing-performance.md)
     - [Customizing User Interfaces](walkthroughs/advanced/02-customizing-ui.md)
 
-      - ### Performance Subfolder
+       ### Performance Subfolder
         - [Memory Management](walkthroughs/advanced/performance/01-memory-management.md)
         - [Speed Optimization](walkthroughs/advanced/performance/02-speed-optimization.md)
