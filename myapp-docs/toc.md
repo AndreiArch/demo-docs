@@ -31,7 +31,7 @@
 - [partial](directives/partial.md)
 
  ### Advanced Topics
-   #### Extra folder
+   ### Extra folder
 
   - [Lists](syntax/lists.md)
   - [Lists 1](syntax/lists-1.md)
