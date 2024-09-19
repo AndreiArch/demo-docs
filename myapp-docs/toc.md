@@ -14,8 +14,10 @@
 - [Code editor](syntax/code-editor.md)
 - [API](directives/openapi.yaml)
   
+### Advanced
 
-+ [item separator list](syntax/an-item.md)
+- [Advanced Lists](syntax/advanced/advanced-lists.md)
+- [Advanced Tables](syntax/advanced/advanced-tables.md)
 
 ## Directives in page
 
