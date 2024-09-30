@@ -4,6 +4,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, soda
 
 ## Tag method
 
+`text`
+`**apullum**`
+
 :::hint{type="info"}
 We would love you to contribute to `@octokit/rest`, pull requests are very welcome! Please see CONTRIBUTING.md for more information.
 :::
