@@ -1,6 +1,6 @@
 # Hints
 
-test update
+Do you see this update lagging? 🤞
 
 ## Tag method
 
