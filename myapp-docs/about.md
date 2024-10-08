@@ -4,6 +4,10 @@ sa
 
 sdfdsfdsfds
 
+[Item separator list](./syntax/an-item.md)&#x20;
+
+[Alt nume pt acest titlu](./syntax/an-item.md)&#x20;
+
 test
 
 | 1     | 2     | 3     |
