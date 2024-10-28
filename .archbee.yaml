@@ -1,4 +1,4 @@
-docsPath: ./myapp-docs
+docsPath: myapp-docs
 structure:
   summary: toc.md
   assets: assets
