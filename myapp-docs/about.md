@@ -8,3 +8,28 @@
 this is a internal link example
 
 ihijhjhjikb
+
+
+:::expandable-heading
+# Heading 1
+
+bla bla bla
+
+
+:::
+
+:::expandable-heading
+## Heading 2
+
+bla bla bla
+
+
+:::
+
+:::expandable-heading
+### Heading 3
+
+bla bla bla
+
+
+:::
