@@ -35,3 +35,7 @@ bla bla bla
 :::
 
 apare ceva?
+
+:::cta-button{label="Click To Edit Button Label" docId docAnchorId externalHref openInNewTab="true"}
+
+:::
