@@ -9,33 +9,9 @@ this is a internal link example
 
 ihijhjhjikb
 
-
-:::expandable-heading
-# Heading 1
-
-bla bla bla
-
-
-:::
-
-:::expandable-heading
-## Heading 2
-
-bla bla bla
-
-
-:::
-
-:::expandable-heading
-### Heading 3
-
-bla bla bla
-
-
-:::
-
 apare ceva?
 
-:::cta-button{label="Click To Edit Button Label" docId docAnchorId externalHref openInNewTab="true"}
+:::image{src="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/q06vqsTYTK3FdbD1IyMVf_blue-arrow-right.png" signedSrc="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/q06vqsTYTK3FdbD1IyMVf_blue-arrow-right.png" size="48" width="22" height="19" position="center" caption}
 
 :::
+
