@@ -98,21 +98,18 @@ if something
 
 ::embed[]{url="https://www.loom.com/embed/f2d56eab6a304c83a367d7e529948e33"}
 
-
-
-
-
-
-
-
-
 ::embed[]{url="https://codepen.io/DragosBulugean/embed/vqrgYq"}
-
-
 
 ::embed[]{url="https://ko8vze9nzlr.typeform.com/to/IaAyThBA"}
 
-
-
 ::embed[]{url="https://docs.google.com/document/d/1jTM4gUFIjvxpC88HNsAI-hWDkf7EscDzQh1r_QFlvV8/edit#heading=h.f1pso1jruysd"}
+
+De aici incolo
+
+
+::embed[]{url="https://airtable.com/embed/shrLs9hfZvttkCwRq"}
+
+::embed[]{url="https://miro.com/app/embed/o9J_lU-qYRw=/"}
+
+::embed[]{url="https://trello.com/embed/card?id=O8PyoCeM"}
 
