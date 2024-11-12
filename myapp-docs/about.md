@@ -1,115 +1,78 @@
 # About
 
 :::expandable-heading
-# Expandable heading 1
+# Titlu unu expandat
 
-**text text**
+bla bla bla
+
+## Another titlu
 :::
 
-::::expandable-heading
-## Expandable Heading 2
 
-:::hint{type="info"}
-asdsadasdasdas
-:::
-::::
 
-:::cta-button{label="Custom text" docId docAnchorId externalHref="https://www.google.com" openInNewTab="true"}
+:::::expandable-heading
+# Titlu doi expandat
 
-:::
+### Another titlu
 
-:::::vertical-split{layout="left"}
+::::vertical-split{layout="middle"}
 :::vertical-split-item
-Test random
+Vertical left
 :::
 
-::::vertical-split-item
-:::hint{type="warning"}
-callout
+:::vertical-split-item
+Vertical right
 :::
 ::::
+
+
 :::::
+
+::::hint{type="info"}
+:::cta-button{label="butononelul magic" docId docAnchorId externalHref openInNewTab="true"}
+
+:::
+::::
+
+:::iframe{iframeHeight="0" code="<!-- <p>This is my iframe test code in comments</p> -->"}
+
+:::
 
 ```tex
 int_0^infty x^2 dx
 ```
 
-:::iframe{iframeHeight="500" code="test iframe1"}
-
-:::
-
 ::::::workflow-block
 :::workflow-block-item
-Test 1
+This is my first line
 :::
 
 :::workflow-block-item
-Test2&#x20;
-
-| a  | b  | c  |
-| :- | :- | :- |
-|    |    |    |
-|    |    |    |
-|    |    |    |
+# My second line
 :::
 
+::::workflow-block-item
+:::image{src="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/q06vqsTYTK3FdbD1IyMVf_blue-arrow-right.png" signedSrc="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/q06vqsTYTK3FdbD1IyMVf_blue-arrow-right.png" size="32" width="22" height="19" position="center" caption}
+
+:::
+::::
+
 :::workflow-block-item
-Test 3
+- [x] checked
 :::
 
 :::::workflow-block-item
 ::::link-array
-:::link-array-item{headerType="COLOR" headerColor="#06963d"}
+:::link-array-item{headerType="COLOR" headerColor="#920606"}
 [Item separator list](./syntax/an-item.md)&#x20;
 :::
 
-:::link-array-item{headerType="COLOR" headerColor="#23982b"}
+:::link-array-item{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/cmqc6S-Wefg5P3DxOQfdK_icon-important.png"}
 
 :::
 ::::
 
-:::image{src="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/pMGtTv-_k8UMEPPzTtL7X_image.png" signedSrc="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/pMGtTv-_k8UMEPPzTtL7X_image.png" size="10" width="150" height="136" position="flex-start" caption="Andrei" alt="Blondu"}
 
-:::
 :::::
 ::::::
-
-***
-
-::::tabs
-:::tab{title="Tab Name"}
-Test tab aici
-:::
-
-:::tab{title="Andu2"}
-test tab2
-:::
-::::
-
-:::codeblocktabs
-```javascript
-test
-```
-
-```c
-if something
-```
-:::
-
-::embed[]{url="https://www.loom.com/embed/f2d56eab6a304c83a367d7e529948e33"}
-
-::embed[]{url="https://codepen.io/DragosBulugean/embed/vqrgYq"}
-
-::embed[]{url="https://ko8vze9nzlr.typeform.com/to/IaAyThBA"}
-
-::embed[]{url="https://docs.google.com/document/d/1jTM4gUFIjvxpC88HNsAI-hWDkf7EscDzQh1r_QFlvV8/edit#heading=h.f1pso1jruysd"}
-
-De aici incolo
-
-
-::embed[]{url="https://airtable.com/embed/shrLs9hfZvttkCwRq"}
-
-::embed[]{url="https://miro.com/app/embed/o9J_lU-qYRw=/"}
-
-::embed[]{url="https://trello.com/embed/card?id=O8PyoCeM"}
 
