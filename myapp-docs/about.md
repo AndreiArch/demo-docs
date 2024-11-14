@@ -1,33 +1,12 @@
 # About
 
-This is my random text
+:::changelog{title="Title changelog"}
+::changelog-item{type="added" description="jknknjk"}
 
-[About]()&#x20;
+::changelog-item{type="fixed" description="jnkbkb"}
 
-[About]()&#x20;
+::changelog-item{type="added" description="jbnjkb"}
 
-[Create a pet]()&#x20;
+::changelog-item{type="added" description="jbnjk"}
+:::
 
-# Titlul nr 1
-
-afasdasd
-
-asdasdasdas
-
-dasdasdasdas
-
-### Titlul numarul 2
-
-asdasasd
-
-asdasdasdasd
-
-asdasdasdas
-
-# Titlul cu numarul 3
-
-asdasdasdas
-
-dasdasdasdasdsadas
-
-dasdasdasdasdas
