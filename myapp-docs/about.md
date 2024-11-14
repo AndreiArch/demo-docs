@@ -6,6 +6,8 @@ This is my random text
 
 [About]()&#x20;
 
+[Create a pet]()&#x20;
+
 # Titlul nr 1
 
 afasdasd
