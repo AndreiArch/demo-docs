@@ -1,14 +1,30 @@
 # About
 
-::::link-array
-:::link-array-item{headerImage headerColor}
-[Create a pet]()&#x20;
-:::
-::::
+This is my random text
 
-::::link-array
-:::link-array-item{headerImage headerColor}
-[custom info]()&#x20;
-:::
-::::
+[About]()&#x20;
+
+# Titlul nr 1
+
+afasdasd
+
+asdasdasdas
+
+dasdasdasdas
+
+### Titlul numarul 2
+
+asdasasd
+
+asdasdasdasd
+
+asdasdasdas
+
+# Titlul cu numarul 3
+
+asdasdasdas
+
+dasdasdasdasdsadas
+
+dasdasdasdasdas
 
