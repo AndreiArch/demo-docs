@@ -10,3 +10,13 @@
 ::changelog-item{type="added" description="jbnjk"}
 :::
 
+::::link-array
+:::link-array-item{headerImage headerColor}
+[Item separator list](./syntax/an-item.md)&#x20;
+:::
+
+:::link-array-item{headerImage headerColor}
+[Custom name](./syntax/an-item.md)&#x20;
+:::
+::::
+
