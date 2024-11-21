@@ -24,7 +24,7 @@
 :::
 
 :::link-array-item{headerImage headerColor}
-
+[Yes heading 2]()&#x20;
 :::
 ::::
 
