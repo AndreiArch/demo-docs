@@ -1,6 +1,3 @@
-# .archbee.yaml
-
-```yaml
 docsPath: myapp-docs
 structure:
   summary: toc.md
@@ -13,8 +10,3 @@ shadowDocs:
   - "*"
   - "ola.json"
 
-
-
-```
-
-asdasdasdasdasdasdasdasdasdsadasdasd
