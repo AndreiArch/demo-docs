@@ -1,54 +1,73 @@
 # About
 
-# Heading 1
+:::expandable-heading
+# Titlu unu expandat
 
-:::changelog{title="Title changelog"}
-::changelog-item{type="added" description="jknknjk"}
+bla bla bla
 
-::changelog-item{type="fixed" description="jnkbkb"}
-
-::changelog-item{type="added" description="jbnjkb"}
-
-::changelog-item{type="added" description="jbnjk"}
+## Another titlu
 :::
 
-## Heading 2
+:::::expandable-heading
+# Titlu doi expandat
 
+### Another titlu
+
+::::vertical-split{layout="middle"}
+:::vertical-split-item
+Vertical left
+:::
+
+:::vertical-split-item
+Vertical right
+:::
+::::
+:::::
+
+::::hint{type="info"}
+:::cta-button{label="butononelul magic" docId docAnchorId externalHref openInNewTab="true"}
+
+:::
+::::
+
+:::iframe{iframeHeight="0" code="<!-- <p>This is my iframe test code in comments</p> -->"}
+
+:::
+
+```tex
+int_0^infty x^2 dx
+```
+
+::::::workflow-block
+:::workflow-block-item
+This is my first line
+:::
+
+:::workflow-block-item
+# My second line
+:::
+
+::::workflow-block-item
+:::image{src="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/q06vqsTYTK3FdbD1IyMVf_blue-arrow-right.png" signedSrc="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/q06vqsTYTK3FdbD1IyMVf_blue-arrow-right.png" size="32" width="22" height="19" position="center" caption}
+
+:::
+::::
+
+:::workflow-block-item
+- [x] checked
+:::
+
+:::::workflow-block-item
 ::::link-array
-:::link-array-item{headerImage headerColor}
+:::link-array-item{headerType="COLOR" headerColor="#920606"}
 [Item separator list](./syntax/an-item.md)&#x20;
 :::
 
-:::link-array-item{headerImage headerColor}
-[Custom name](./syntax/an-item.md)&#x20;
-:::
+:::link-array-item{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/cmqc6S-Wefg5P3DxOQfdK_icon-important.png"}
 
-:::link-array-item{headerImage headerColor}
-[Yes heading 2]()&#x20;
 :::
 ::::
+:::::
+::::::
 
-[List all pets some pets]()&#x20;
-
-[About]()&#x20;
-
-:::cta-button{label="Click To Edit Button Label" docId docAnchorId externalHref openInNewTab="true"}
-
-:::
-
-::::workflow-block
-:::workflow-block-item
-dsfsdf
-:::
-
-:::workflow-block-item
-sdfdsfds
-:::
-::::
-
-:::changelog{title}
-::changelog-item{type="added" description}
-
-::changelog-item{type="fixed" description}
-:::
-
+/
