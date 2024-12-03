@@ -9,3 +9,6 @@
     "YAML": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: mypod\n  labels:\n    app: myapp\nspec:\n  containers:\n    - name: mycontainer\n      image: myimage:latest\n      ports:\n        - containerPort: 80"
   }
 }
+
+
+test file 
