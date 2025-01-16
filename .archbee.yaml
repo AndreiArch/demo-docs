@@ -1,4 +1,5 @@
 docsPath: myapp-docs
+docsPath: folderZ
 structure:
   summary: toc.md
   assets: assets
