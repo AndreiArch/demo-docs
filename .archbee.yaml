@@ -9,7 +9,5 @@ docTreeOptions:
 shadowDocs: 
   - "*"
   - "ola.json"
-sites:
-docsPath: folderZ
-docsPath: folderx
+
 
