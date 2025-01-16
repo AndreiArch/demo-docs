@@ -1,6 +1,4 @@
 docsPath: myapp-docs
-docsPath: folderZ
-docsPath: folderx
 structure:
   summary: toc.md
   assets: assets
@@ -11,4 +9,7 @@ docTreeOptions:
 shadowDocs: 
   - "*"
   - "ola.json"
+sites:
+docsPath: folderZ
+docsPath: folderx
 
