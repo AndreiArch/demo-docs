@@ -1,7 +1,8 @@
 # About
 
-[custom link 1](./syntax/an-item.md)&#x20;
+| 1                                                                                                                   | 2                                                                                                                   | 3                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| ![](https://archbee-image-uploads.s3.amazonaws.com/HCIek7I0UxvyNHQ0EFzVX-AtZrCnHlPoBY_u6sIYNQd-20240917-101246.svg) | ![](https://archbee-image-uploads.s3.amazonaws.com/HCIek7I0UxvyNHQ0EFzVX-1OOGkarW1c7-yuO_QMDpp-20240917-101149.svg) | ![](https://archbee-image-uploads.s3.amazonaws.com/HCIek7I0UxvyNHQ0EFzVX-gbOZ-wO5TadtCKdCLs3gV-20240905-141638.gif) |
+|                                                                                                                     |                                                                                                                     |                                                                                                                     |
+|                                                                                                                     |                                                                                                                     |                                                                                                                     |
 
-da da da
-
-[test page]()&#x20;
