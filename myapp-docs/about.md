@@ -1,12 +1,11 @@
-# About
+:::workflow-block-item
+**Bypass the security warning**
 
-T:comment[estez Iframely]{resolved="false" docCommentId="M5nB9FFu48XCDqkGq702G"}
-
-::iframely[]{embedUrl="https://www.facebook.com/reel/1617400455850932" html="<div class=&#x22;iframely-embed&#x22;><div class=&#x22;iframely-responsive&#x22; style=&#x22;padding-bottom: 56.25%;&#x22;><a href=&#x22;https://www.facebook.com/reel/1617400455850932&#x22; data-iframely-url=&#x22;//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.facebook.com%2Freel%2F1617400455850932&key=4c0a82cc3c6a5d4fcd08607ae370bd79&#x22;></a></div></div><script async src=&#x22;//cdn.iframe.ly/embed.js&#x22; charset=&#x22;utf-8&#x22;></script>" originalUrl="https://www.facebook.com/reel/1617400455850932" title="Analistii Axului Central"}
-
-::iframely[]{embedUrl="https://soundcloud.com/skinopage/300b" html="<div style=&#x22;left: 0; width: 100%; height: 400px; position: relative;&#x22;><iframe src=&#x22;https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2007695707&show_artwork=true&#x22; style=&#x22;top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;&#x22; allowfullscreen></iframe></div>" originalUrl="https://soundcloud.com/skinopage/300b" title="300B by Skino"}
-
-::iframely[]{embedUrl="https://www.youtube.com/watch?v=QkyeL78hen8" html="<div style=&#x22;left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;&#x22;><iframe src=&#x22;https://www.youtube.com/embed/QkyeL78hen8?rel=0&#x22; style=&#x22;top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;&#x22; allowfullscreen scrolling=&#x22;no&#x22; allow=&#x22;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;&#x22;></iframe></div>" originalUrl="https://www.youtube.com/watch?v=QkyeL78hen8" title="How Lexr uses Archbee."}
-
-::iframely[]{embedUrl="https://www.instagram.com/reel/DFHJurPJmS5/?igsh=ZjNzZDM5MGg5OTh1" html="<div class=&#x22;iframely-embed&#x22;><div class=&#x22;iframely-responsive&#x22; style=&#x22;height: 170px; padding-bottom: 0;&#x22;><a href=&#x22;https://www.instagram.com/reel/DFHJurPJmS5/&#x22; data-iframely-url=&#x22;//cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fwww.instagram.com%2Freel%2FDFHJurPJmS5%2F%3Figsh%3DZjNzZDM5MGg5OTh1&key=4c0a82cc3c6a5d4fcd08607ae370bd79&#x22;></a></div></div><script async src=&#x22;//cdn.iframe.ly/embed.js&#x22; charset=&#x22;utf-8&#x22;></script>" originalUrl="https://www.instagram.com/reel/DFHJurPJmS5/?igsh=ZjNzZDM5MGg5OTh1" title="Trevor Christensen (@bjj_laughs) • Instagram reel"}
-
+1. Open these URLs directly in your browser:
+- < a href = "https://localhost:3030" target = "_blank" > https\://localhost:3030 </ a >
+- < a href = "https://localhost:8642" target = "_blank" > https\://localhost:8642 </ a >
+2. A **"Your connection is not private"** warning appears.
+3. Click **Advanced** → **Proceed to localhost (unsafe)**.
+4. Reload the engine’s website.
+:::
+::::
