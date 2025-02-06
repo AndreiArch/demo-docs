@@ -1,15 +1,20 @@
 # About
 
-::::workflow-block
-:::workflow-block-item
-**Bypass the security warning**
+::::link-array
+:::link-array-item{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/kDP5_vTUJuIOq3vEaQ6e3_image.png"}
+Test 1
+:::
 
-1. Open these URLs directly in your browser:
-   - test1
-   - test2
-2. A **"Your connection is not private"** warning appears.
-3. Click **Advanced** → **Proceed to localhost (unsafe)**.
-4. Reload the engine’s website.
+:::link-array-item{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/8SBnaATKuakSrt41POfp1_image.png"}
+Test 2
+:::
+
+:::link-array-item{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/UGhslKLrWTZJcYZSAR5rD_modal-header.png"}
+Test 3
+:::
+
+:::link-array-item{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/wb3IW36mTxf3wU6WbbBDz_auto-translate-alert.png"}
+Test 4
 :::
 ::::
 
