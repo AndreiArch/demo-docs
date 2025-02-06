@@ -23,7 +23,7 @@
 Test 1
 :::
 
-:::link-array-item{headerType="IMAGE" headerImage="assets/api-endpoint.png"}
+:::link-array-item{headerType="IMAGE" headerImage="[assets/api-endpoint.pn](https://archbee-doc-uploads.s3.us-east-1.amazonaws.com/https%3A//archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/MgQbthgXMtHDOUlv7ElJ__screenshot-2025-01-08-at-164603.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAYQNQCIXNIQWBC56C%2F20250206%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250206T174051Z&X-Amz-Expires=86400&X-Amz-Signature=5734968b38470ed44fde5b1d3522c552b0e9f8c9cd3afd27b959443ad0b3f01b&X-Amz-SignedHeaders=host&x-id=GetObject)g"}
 Test 2
 :::
 
