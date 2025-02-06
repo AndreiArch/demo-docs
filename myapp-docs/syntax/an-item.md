@@ -18,3 +18,4 @@
 7. ```javascript
    ```
 
+:::link-array-item{headerType="IMAGE" headerImage="assets/api-endpoint.png"} Test 2 :::
