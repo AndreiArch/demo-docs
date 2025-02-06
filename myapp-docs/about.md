@@ -5,7 +5,7 @@
 Test 1
 :::
 
-:::link-array-item{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/8SBnaATKuakSrt41POfp1_image.png"}
+:::link-array-item{headerType="IMAGE" headerImage="assets/api_endpoint.png"}
 Test 2
 :::
 
