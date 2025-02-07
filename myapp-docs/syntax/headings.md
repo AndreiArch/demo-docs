@@ -91,5 +91,17 @@
      2. Sub-step 4  
 
 
+## InfiniteReality example and explanation (In Markdown, the correct way to add context is by indenting the line with four spaces to prevent the list from restarting. This is a common method for providing additional context within a series of steps)
 
+# Example
+
+1. First step
+2. Second step:
+I need to add context to the second step.
+- This is content inside a list
+- More content here
+- Here's more content
+3. Third step
+THIS IS WRONG
+4. Fourth step
 
