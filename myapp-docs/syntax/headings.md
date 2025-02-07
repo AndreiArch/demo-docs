@@ -40,27 +40,53 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, soda
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, sodales sed cursus at, condimentum at neque. Vivamus sollicitudin felis nec commodo semper.
 
-# Example
+# Resources
 
-1. First step
-2. Second step:
-I need to add context to the second step.
-- This is content inside a list
-- More content here
-- Here's more content
-3. Third step
-THIS IS WRONG
-4. Fourth step
+A few resources that are helpful for building with Slate.
 
-  :::workflow-block-item
-**Bypass the security warning**xa
+## Libraries
 
-1. Open these URLs directly in your browser:
-- < a href = "https://localhost:3030" target = "_blank" > https\://localhost:3030 </ a >
-- < a href = "https://localhost:8642" target = "_blank" > https\://localhost:8642 </ a >
-2. A **"Your connection is not private"** warning appears.
-3. Click **Advanced** → **Proceed to localhost (unsafe)**.
-4. Reload the engine’s website.
-:::
-::::
+These libraries are helpful when developing with Slate:
+
+- [`is-hotkey`](https://github.com/ianstormtaylor/is-hotkey) is a simple way to check whether an `onKeyDown` handler should fire for a given hotkey, handling cross-platform concerns like cmd vs. ctrl keys for you automatically.
+
+## Products
+
+These products use Slate, and can give you an idea of what's possible:
+
+- [Archbee](https://archbee.io)
+ - [Cake](https://www.cake.co/)
+- [Chatterbug](https://chatterbug.com)
+ - [Clause](https://clause.io)
+  - [GitBook](https://www.gitbook.com/)
+  - [Discord](https://discord.com/)
+ - [Grafana](https://grafana.com/)
+- [GraphCMS](https://graphcms.com)
+ - [Guilded](https://www.guilded.gg)
+  - [Guru](https://www.getguru.com/)
+   - [Kitemaker](https://kitemaker.co)
+  - [Netlify CMS](https://www.netlifycms.org)
+  - [Prezly](https://www.prezly.com/)
+ - [Sanity.io](https://www.sanity.io)
+- [Slite](https://slite.com)
+- [Taskade](https://www.taskade.com/)
+- [TRPG Engine](https://trpg.moonrailgun.com)
+- [Yuque](https://www.yuque.com/)
+- [Thoughts](https://thoughts.teambition.com)
+
+## Editors
+
+These pre-packaged editors are built on top of Slate, and can be helpful to see how you might structure your code:
+
+- [Accord Project Markdown Editor](https://github.com/accordproject/web-components) is a WYSIWYG editor for [CommonMark](https://commonmark.org/).
+ - [Canner Editor](https://github.com/Canner/canner-slate-editor) is a rich text editor.
+  - [Chatterslate](https://github.com/chatterbugapp/chatterslate) helps teach language grammar and more at [Chatterbug](https://chatterbug.com).
+   - [French Press Editor](https://github.com/roast-cms/french-press-editor) is a customizeable editor with offline support.
+  - [Nossas Editor](http://slate-editor.bonde.org/) is a drop-in WYSIWYG editor.
+ - [ORY Editor](https://editor.ory.am/) is a self-contained, inline WYSIWYG editor library.
+- [React Force Slate Editor](https://github.com/nareshbhatia/react-force/tree/master/packages/slate-editor) is a light-weight medium-style editor with no editor chrome.
+- [Slate Plugins Next](https://github.com/zbeyens/slate-plugins-next) provides an editor with configurable and extendable plugins.
+
+\(Or, if you have their exact use case, can be a drop-in editor for you.\)
+
 
