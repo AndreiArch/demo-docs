@@ -75,19 +75,75 @@ These products use Slate, and can give you an idea of what's possible:
   - [Thoughts](https://thoughts.teambition.com)  
 
 
-## Editors
+## Numbered List inside a Numbered List
+1. Step One  
+   1. Sub-step A  
+   2. Sub-step B  
+2. Step Two  
+   1. Sub-step C  
+   2. Sub-step D  
 
-These pre-packaged editors are built on top of Slate, and can be helpful to see how you might structure your code:
+## Bulleted List inside a Bulleted List
+- Item One  
+  - Sub-item A  
+  - Sub-item B  
+- Item Two  
+  - Sub-item C  
+  - Sub-item D  
 
-- [Accord Project Markdown Editor](https://github.com/accordproject/web-components) is a WYSIWYG editor for [CommonMark](https://commonmark.org/).
- - [Canner Editor](https://github.com/Canner/canner-slate-editor) is a rich text editor.
-  - [Chatterslate](https://github.com/chatterbugapp/chatterslate) helps teach language grammar and more at [Chatterbug](https://chatterbug.com).
-   - [French Press Editor](https://github.com/roast-cms/french-press-editor) is a customizeable editor with offline support.
-  - [Nossas Editor](http://slate-editor.bonde.org/) is a drop-in WYSIWYG editor.
- - [ORY Editor](https://editor.ory.am/) is a self-contained, inline WYSIWYG editor library.
-- [React Force Slate Editor](https://github.com/nareshbhatia/react-force/tree/master/packages/slate-editor) is a light-weight medium-style editor with no editor chrome.
-- [Slate Plugins Next](https://github.com/zbeyens/slate-plugins-next) provides an editor with configurable and extendable plugins.
+## Bulleted List inside a Numbered List
+1. Step One  
+   - Sub-item A  
+   - Sub-item B  
+2. Step Two  
+   - Sub-item C  
+   - Sub-item D
+     
+## Numbered List inside a Bulleted List
+- Item One  
+  1. Sub-step A  
+  2. Sub-step B  
+- Item Two  
+  1. Sub-step C  
+  2. Sub-step D  
 
-\(Or, if you have their exact use case, can be a drop-in editor for you.\)
+## Three Levels Deep (Numbered + Bullets)
+1. Step One  
+   - Sub-item A  
+     - Sub-sub-item 1  
+     - Sub-sub-item 2  
+   - Sub-item B  
+2. Step Two  
+   - Sub-item C  
+     - Sub-sub-item 3  
+     - Sub-sub-item 4  
+
+## Three Levels Deep (Bulleted + Numbers)
+- Item One  
+  1. Step A  
+     1. Sub-step 1  
+     2. Sub-step 2  
+  2. Step B  
+- Item Two  
+  1. Step C  
+     1. Sub-step 3  
+     2. Sub-step 4  
+
+## Deeply Nested (Four Levels)
+1. Step One  
+   - Sub-item A  
+     1. Sub-step 1  
+        - Sub-detail a  
+        - Sub-detail b  
+     2. Sub-step 2  
+   - Sub-item B  
+2. Step Two  
+   - Sub-item C  
+     1. Sub-step 3  
+        - Sub-detail c  
+        - Sub-detail d  
+     2. Sub-step 4  
+
+
 
 
