@@ -127,8 +127,6 @@
 5. ASDASDASD
 6. ASDASDASDAS
 
-
-
 ::::workflow-block
 :::workflow-block-item
 asdasdasdas
@@ -149,15 +147,37 @@ asdasdasdas
 
 **Example from Them:**
 
-:::workflow-block-item
 **Bypass the security warning**
 
 1. Open these URLs directly in your browser:
-- < a href = "https://localhost:3030" target = "_blank" > https\://localhost:3030 </ a >
-- < a href = "https://localhost:8642" target = "_blank" > https\://localhost:8642 </ a >
-2. A **"Your connection is not private"** warning appears.
-3. Click **Advanced** → **Proceed to localhost (unsafe)**.
-4. Reload the engine’s website.
+
+- \< a href = "[https://localhost:3030](https://localhost:3030)" target = "\_blank" > https\://localhost:3030 \</ a >
+- \< a href = "[https://localhost:8642](https://localhost:8642)" target = "\_blank" > https\://localhost:8642 \</ a >
+
+1. A **"Your connection is not private"** warning appears.
+2. Click **Advanced** → **Proceed to localhost (unsafe)**.
+3. Reload the engine’s website.
+
+\::::
+
+::::workflow-block
+:::workflow-block-item
+Open these URLs directly in your browser:
+
+- <a href="https://localhost:3030" target="_blank">https\://localhost:3030</a>
+- <a href="https://localhost:8642" target="_blank">https\://localhost:8642</a>
+:::
+
+:::workflow-block-item
+A **"Your connection is not private"** warning appears.
+:::
+
+:::workflow-block-item
+Click **Advanced** → **Proceed to localhost (unsafe)**.
+:::
+
+:::workflow-block-item
+Reload the engine’s website.
 :::
 ::::
 
