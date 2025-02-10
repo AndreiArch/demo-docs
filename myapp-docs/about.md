@@ -5,7 +5,7 @@
 Test 1
 :::
 
-:::link-array-item{headerType="IMAGE" headerImage="assets/api-endpoint.png"}
+:::link-array-item{headerType="IMAGE" headerImage="assets/api-endpoint1.png"}
 Test 2
 :::
 
