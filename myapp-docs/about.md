@@ -5,7 +5,7 @@
 Test 1
 :::
 
-:::link-array-item{headerType="IMAGE" headerImage="assets/api-endpoint1.png"}
+:::link-array-item{headerType="IMAGE" headerImage="https://archbee-doc-uploads-qa.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/IRt5fIUgihmb7LoKfrnYX_api-endpoint.png" sha="309ae6bc74bcc91cb866e2bd8658f5d5aa7da71d" initialPath="assets/api-endpoint1.png" githubPath="myapp-docs/assets/api-endpoint1.png"}
 Test 2
 :::
 
@@ -18,3 +18,6 @@ Test 4
 :::
 ::::
 
+[Item separator list](./syntax/an-item.md)&#x20;
+
+[Item separator list](./syntax/an-item.md)&#x20;
