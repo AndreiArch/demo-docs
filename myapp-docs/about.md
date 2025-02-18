@@ -23,3 +23,18 @@ Test 4
 [Item separator list](./syntax/an-item.md)&#x20;
 
 yes yes
+
+## Link Array - Example
+
+::::link-array
+:::link-array-item{headerType="IMAGE" headerImage="https://placehold.co/600x400"}
+
+- list item 1
+- list item 2
+:::
+:::link-array-item{headerType="COLOR" headerColor="#ff00FF"}
+
+- [ ] unchecked list box
+- [x] checked list box
+:::
+::::
