@@ -24,6 +24,10 @@ Test 4
 
 yes yes
 
+[Lists](./syntax/headings.md)&#x20;
+
+
+
 ## Link Array - Example
 
 ::::LinkArray
