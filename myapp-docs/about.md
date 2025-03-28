@@ -31,6 +31,7 @@ yes yes
 kmlm
 
 Beta Rapid
+da da da
 [Go to section 1](./syntax/an-item.md)&#x20;
 
 ## Link Array - Example
