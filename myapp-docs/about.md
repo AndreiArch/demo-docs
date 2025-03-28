@@ -30,9 +30,7 @@ yes yes
 
 kmlm
 
-yes this is a test
-Beta test for no flow
-Am i right?
+Beta Rapid
 [Go to section 1](./syntax/an-item.md)&#x20;
 
 ## Link Array - Example
