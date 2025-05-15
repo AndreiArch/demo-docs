@@ -20,7 +20,17 @@ Test 4
 
 [Item separator list](./syntax/an-item.md)&#x20;
 
+asdasdasdasdas
+
+asdasdsadasda
+
 [Item separator list](./syntax/an-item.md)&#x20;
+
+:::hint{type="info"}
+asdasdasdasdsad
+:::
+
+
 
 asdasdasdas
 
