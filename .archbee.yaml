@@ -6,8 +6,3 @@ structure:
 docTreeOptions:
     showDownloadOpenApiFile: true
     shouldCreateSchemaCategory: true
-shadowDocs: 
-  - "*"
-  - "ola.json"
-
-
