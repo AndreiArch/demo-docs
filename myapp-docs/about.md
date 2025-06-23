@@ -20,6 +20,8 @@ Test 4
 
 /!hint
 
+kjnbjkbnjk
+
 content added
 
 :::hint{type="info"}
