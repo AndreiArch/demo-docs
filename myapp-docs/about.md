@@ -91,7 +91,7 @@ da da da111asdasdasdasdasdas
   </tr>
   <tr>
     <td selected="false" align="left">
-      <p>This is someting i tag within doc <a href="">Link-ul meu custom</a></p>
+      <p>This is someting i tag within doc <a href="">About</a> </p>
     </td>
     <td selected="false" align="left">
     </td>
@@ -103,5 +103,7 @@ da da da111asdasdasdasdasdas
 [About]()&#x20;
 
 [About](./#link-array---exampleasdasdasdsad)&#x20;
+
+[About]()&#x20;
 
 [Link custom, alt heading](./#link-array---exampleasdasdasdsad)&#x20;
