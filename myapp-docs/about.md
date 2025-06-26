@@ -57,46 +57,51 @@ da da da111asdasdasdasdasdas
 
 <table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="487,52">
   <tr>
-    <td selected="false">
+    <td selected="false" align="left">
       <p><strong>col1</strong></p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p><em>col2</em></p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p><em>col3</em></p>
     </td>
   </tr>
   <tr>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>This is where i want more space for my text</p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>a</p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>b</p>
     </td>
   </tr>
   <tr>
-    <td selected="false">
-      <p>This is something I can show <a href="./syntax/an-item.md">Item separator list</a> </p>
+    <td selected="false" align="left">
+      <p>This is something I can show <a href="./syntax/an-item.md">Item separator list</a></p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>1</p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>2</p>
     </td>
   </tr>
   <tr>
-    <td selected="false">
-      <p>This is someting i tag within doc <a href="">Link-ul meu custom</a> </p>
+    <td selected="false" align="left">
+      <p>This is someting i tag within doc <a href="">Link-ul meu custom</a></p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
     </td>
   </tr>
 </table>
 
+[About]()&#x20;
+
+[About](./#link-array---exampleasdasdasdsad)&#x20;
+
+[Link custom, alt heading](./#link-array---exampleasdasdasdsad)&#x20;
