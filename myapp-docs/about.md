@@ -20,7 +20,7 @@ Test 4
 
 [Item separator list](./syntax/an-item.md)&#x20;
 
-[test tab]()&#x20;
+[test tab](https://docs.archbee.com/create-a-document#e7bTn)&#x20;
 
 :::hint{type="info"}
 
