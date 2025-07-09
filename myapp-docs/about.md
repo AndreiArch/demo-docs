@@ -34,13 +34,11 @@ yes yes
 
 kmlm
 
-| [Turbine Platform Installer Release Notes]()                                         |   |   |
-| ------------------------------------------------------------------------------------ | - | - |
-| <a href="https://docs.archbee.com/learn-the-basics" target="_blank">aasdasdasdas</a> |   |   |
-|                                                                                      |   |   |
-|                                                                                      |   |   |
-
-
+|                                                                                                  |   |   |
+| ------------------------------------------------------------------------------------------------ | - | - |
+| <a href="https://docs.archbee.com/learn-the-basics" target="_blank">This is my external link</a> |   |   |
+|                                                                                                  |   |   |
+|                                                                                                  |   |   |
 
 Beta Rapid111
 da da da111asdasdasdasdasdas
