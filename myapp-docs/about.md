@@ -34,10 +34,16 @@ yes yes
 
 kmlm
 
-| This is my external link                    |   |   |
-| ------------------------------------------- | - | - |
-| [Item separator list](./syntax/an-item.md)  |   |   |
-|                                             |   |   |
+[Item separator list](./syntax/an-item.md)&#x20;
+
+[Turbine Platform Installer Release Notes]()&#x20;
+
+<a href="https://docs.archbee.com/learn-the-basics" target="_blank">asdasdasdas</a>
+
+| This is my external link |   |   |
+| ------------------------ | - | - |
+|                          |   |   |
+|                          |   |   |
 
 Beta Rapid111
 da da da111asdasdasdasdasdas
