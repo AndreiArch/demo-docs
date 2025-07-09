@@ -34,11 +34,10 @@ yes yes
 
 kmlm
 
-|                                                                                                  |   |   |
-| ------------------------------------------------------------------------------------------------ | - | - |
-| <a href="https://docs.archbee.com/learn-the-basics" target="_blank">This is my external link</a> |   |   |
-|                                                                                                  |   |   |
-|                                                                                                  |   |   |
+| This is my external link                    |   |   |
+| ------------------------------------------- | - | - |
+| [Item separator list](./syntax/an-item.md)  |   |   |
+|                                             |   |   |
 
 Beta Rapid111
 da da da111asdasdasdasdasdas
