@@ -38,7 +38,7 @@ kmlm
 
 [Turbine Platform Installer Release Notes]()&#x20;
 
-<a href="https://docs.archbee.com/learn-the-basics" target="_blank">asdasdasdas</a>
+[https://docs.archbee.com/learn-the-basics](https://docs.archbee.com/learn-the-basics)asdasdasdas
 
 | This is my external link |   |   |
 | ------------------------ | - | - |
@@ -63,4 +63,45 @@ da da da111asdasdasdasdasdas
 - [ ] 11111
 :::
 ::::
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="64,87">
+  <tr>
+    <td selected="false">
+      <p>asdasdas</p>
+    </td>
+    <td selected="false">
+      <p>asdasdsa</p>
+    </td>
+    <td selected="false">
+      <p>asdasdas</p>
+    </td>
+  </tr>
+  <tr>
+    <td selected="false">
+      <p>1</p>
+    </td>
+    <td selected="false">
+      <p>2</p>
+    </td>
+    <td selected="false">
+      <p>3</p>
+    </td>
+  </tr>
+  <tr>
+    <td selected="false">
+    </td>
+    <td selected="false">
+    </td>
+    <td selected="false">
+    </td>
+  </tr>
+  <tr>
+    <td selected="false">
+    </td>
+    <td selected="false">
+    </td>
+    <td selected="false">
+    </td>
+  </tr>
+</table>
 
