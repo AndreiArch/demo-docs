@@ -13,7 +13,7 @@ Test 2
 Test 3
 :::
 
-:::LinkArrayItem{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/511c8QBH-VHiwWnyzIwUb/wb3IW36mTxf3wU6WbbBDz_auto-translate-alert.png"}
+:::LinkArrayItem{headerImage headerColor}
 Test 4
 :::
 ::::
