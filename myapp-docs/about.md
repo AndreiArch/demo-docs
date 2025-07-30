@@ -2,11 +2,11 @@
 
 **Links example:**
 
-Simple Link in the same doc: [About]()&#x20;
+Simple Link in the same doc: [About](#)&#x20;
 
 Link in the same doc with other anchor: [About](./#link-array---exampleasdasdasdsad)&#x20;
 
-Link in the same doc with another custom name: [custom name]()&#x20;
+Link in the same doc with another custom name: [custom name](#)&#x20;
 
 Link in the same doc with another custom name and another anchor: [Custom name](./#link-array---exampleasdasdasdsad)&#x20;
 
@@ -16,9 +16,9 @@ Link to another doc from the same space: [Item separator list](./syntax/an-item.
 
 Link to another doc from the same space with custom details: [different title, different anchor](./syntax/an-item.md)&#x20;
 
-Link to an API doc from the same space: [List all pets some pets]()&#x20;
+Link to an API doc from the same space: [List all pets some pets](#)&#x20;
 
-Link to another space [Swimlane Content 2024 Release 2 Drop 1]()&#x20;
+Link to another space [Swimlane Content 2024 Release 2 Drop 1](#)&#x20;
 
 ::::LinkArray
 :::LinkArrayItem{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/h2dh5uKI29gK0YCpdIv5n-oVDN_bqXVmzv95rjzKX-T-20241205-094536.jpg"}
@@ -44,7 +44,7 @@ Test 4
 aici ->jknjkjknjkjknjknjkjnjk
 :::
 
-[Swimlane Content 2024 Release 2 Drop 1]()&#x20;
+[Swimlane Content 2024 Release 2 Drop 1](#)&#x20;
 
 [test tab](https://docs.archbee.com/create-a-document#e7bTn)&#x20;
 
@@ -62,7 +62,7 @@ kmlm
 
 [./syntax/an-item.md](./syntax/an-item.md)Item separator list&#x20;
 
-[Turbine Platform Installer Release Notes]()&#x20;
+[Turbine Platform Installer Release Notes](#)&#x20;
 
 [https://docs.archbee.com/learn-the-basics](https://docs.archbee.com/learn-the-basics)asdasdasdas
 
@@ -130,4 +130,3 @@ da da da111asdasdasdasdasdas
     </td>
   </tr>
 </table>
-
