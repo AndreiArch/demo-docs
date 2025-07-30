@@ -20,6 +20,12 @@ Test 4
 
 [Item separator list](./syntax/an-item.md)&#x20;
 
+:::hint{type="warning"}
+aici ->
+:::
+
+[Swimlane Content 2024 Release 2 Drop 1]()&#x20;
+
 [test tab](https://docs.archbee.com/create-a-document#e7bTn)&#x20;
 
 :::hint{type="info"}
@@ -66,41 +72,41 @@ da da da111asdasdasdasdasdas
 
 <table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="64,87">
   <tr>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>asdasdas</p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>asdasdsa</p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>asdasdas</p>
     </td>
   </tr>
   <tr>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>1</p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>2</p>
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
       <p>3</p>
     </td>
   </tr>
   <tr>
-    <td selected="false">
+    <td selected="false" align="left">
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
     </td>
   </tr>
   <tr>
-    <td selected="false">
+    <td selected="false" align="left">
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
     </td>
-    <td selected="false">
+    <td selected="false" align="left">
     </td>
   </tr>
 </table>
