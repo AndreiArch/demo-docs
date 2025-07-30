@@ -40,7 +40,7 @@ yes yes
 
 kmlm
 
-[Item separator list](./syntax/an-item.md)&#x20;
+<a href="./syntax/an-item.md" target="_blank">Item separator list</a>&#x20;
 
 [Turbine Platform Installer Release Notes]()&#x20;
 
