@@ -36,11 +36,11 @@ asdasdasdas
 
 yes yes
 
-[Lists](./syntax/headings.md)&#x20;
+[Lists1](./syntax/headings.md)&#x20;
 
 kmlm
 
-<a href="./syntax/an-item.md" target="_blank">Item separator list</a>&#x20;
+[./syntax/an-item.md](./syntax/an-item.md)Item separator list&#x20;
 
 [Turbine Platform Installer Release Notes]()&#x20;
 
