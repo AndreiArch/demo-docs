@@ -24,7 +24,7 @@ Test 4
 aici ->jknjkjknjkjknjknjkjnjk
 :::
 
-[Swimlane Content 2024 Release 2 Drop 1]()&#x20;
+[Swimlane Content 2024 Release 2 Drop 1](#)&#x20;
 
 [test tab](https://docs.archbee.com/create-a-document#e7bTn)&#x20;
 
@@ -42,7 +42,7 @@ kmlm
 
 [./syntax/an-item.md](./syntax/an-item.md)Item separator list&#x20;
 
-[Turbine Platform Installer Release Notes]()&#x20;
+[Turbine Platform Installer Release Notes](#)&#x20;
 
 [https://docs.archbee.com/learn-the-basics](https://docs.archbee.com/learn-the-basics)asdasdasdas
 
@@ -110,4 +110,3 @@ da da da111asdasdasdasdasdas
     </td>
   </tr>
 </table>
-
