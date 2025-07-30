@@ -18,7 +18,7 @@ Test 4
 :::
 ::::
 
-<a href="./syntax/an-item.md" target="_blank">ssssss</a>&#x20;
+[./syntax/an-item.md](./syntax/an-item.md)ssssss&#x20;
 
 :::hint{type="warning"}
 aici ->jknjkjknjkjknjknjkjnjk
