@@ -1,5 +1,6 @@
 - [About](about.md)
 - [Swagger API Petstore 2.0](petstore-2.0.yaml)
+- [API](example_bug.yaml)
 
 ## Syntax
 
