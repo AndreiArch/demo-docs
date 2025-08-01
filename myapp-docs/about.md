@@ -18,17 +18,19 @@ Link to another doc from the same space: [Item separator list](./syntax/an-item.
 
 Link to another doc from the same space with custom details: [different title, different anchor](./syntax/an-item.md) ✅
 
-Link to an API doc from the same space: [List all pets some pets]()  ⛔
+Link to an API doc from the same space: [get endpoint workers]()
+
+link to an API doc from the same space opening in a new tab <a href target="_blank">get endpoint workers</a>    ⛔
 
 **Links to other spaces:**
 
 Link to another space&#x20;
 
-| <a href="" target="_blank">Turbine Platform Installer Guide</a>                                                                                                                                                                                       |   |   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine |   |   |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine                                                                       |   |   |
-|                                                                                                                                                                                                                                                       |   |   |
+|  Turbine Platform Installer Guide                                                                                                                                                                                                                                                                                           |   |   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine |   |   |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine                                                                       |   |   |
+| [get endpoint workers]()                                                                                                                                                                                                                                                                                                    |   |   |
 
 **Links in other Archbee blocks:**
 
