@@ -24,11 +24,11 @@ Link to an API doc from the same space: [List all pets some pets]()  ⛔
 
 Link to another space&#x20;
 
-| [Turbine Platform Installer Guide]()                                      |   |   |
-| ------------------------------------------------------------------------- | - | - |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">Turbine </a>  |   |   |
-| [Turbine](https://en.wikipedia.org/wiki/API)                              |   |   |
-|                                                                           |   |   |
+| [Turbine Platform Installer Guide]()                                                                       |   |   |
+| ---------------------------------------------------------------------------------------------------------- | - | - |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>Turbine  |   |   |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">Turbine</a>                                    |   |   |
+|                                                                                                            |   |   |
 
 **Links in other Archbee blocks:**
 
