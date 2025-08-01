@@ -4,7 +4,7 @@
 
 Simple Link in the same doc: [About]() ⛔
 
-Link in the same doc with other anchor: <a href="./#-" target="_blank">About</a> ✅
+Link in the same doc with other anchor: [About](./#-) ✅
 
 Link in the same doc with another custom name: [custom name about]() ⛔
 
@@ -24,11 +24,11 @@ Link to an API doc from the same space: [List all pets some pets]()  ⛔
 
 Link to another space&#x20;
 
-| [Turbine Platform Installer Guide]()                                                                       |   |   |
-| ---------------------------------------------------------------------------------------------------------- | - | - |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>Turbine  |   |   |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">Turbine</a>                                    |   |   |
-|                                                                                                            |   |   |
+| [Turbine Platform Installer Guide]()                                                                                                                                            |   |   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine |   |   |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>Turbine                                                                       |   |   |
+|                                                                                                                                                                                 |   |   |
 
 **Links in other Archbee blocks:**
 
