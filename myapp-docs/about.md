@@ -24,11 +24,11 @@ Link to an API doc from the same space: [List all pets some pets]()  ⛔
 
 Link to another space&#x20;
 
-| [Turbine Platform Installer Guide]()                                                                                                                                            |   |   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine |   |   |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>Turbine                                                                       |   |   |
-|                                                                                                                                                                                 |   |   |
+| <a href="" target="_blank">Turbine Platform Installer Guide</a>                                                                                                                                                                                       |   |   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine |   |   |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine                                                                       |   |   |
+|                                                                                                                                                                                                                                                       |   |   |
 
 **Links in other Archbee blocks:**
 
