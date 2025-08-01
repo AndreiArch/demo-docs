@@ -20,17 +20,17 @@ Link to another doc from the same space with custom details: [different title, d
 
 Link to an API doc from the same space: [get endpoint workers]()
 
-link to an API doc from the same space opening in a new tab <a href target="_blank">get endpoint workers</a>    ⛔
+link to an API doc from the same space opening in a new tab <a href target="_blank">get endpoint workers</a>      ⛔
 
 **Links to other spaces:**
 
 Link to another space&#x20;
 
-|  Turbine Platform Installer Guide                                                                                                                                                                                                                                                                                           |   |   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine |   |   |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine                                                                       |   |   |
-| [get endpoint workers]()                                                                                                                                                                                                                                                                                                    |   |   |
+| Turbine Platform Installer Guide                                                                                                                                                                                                                                                                                                                                                                  |   |   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine |   |   |
+| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine                                                                       |   |   |
+| [get endpoint workers]()                                                                                                                                                                                                                                                                                                                                                                          |   |   |
 
 **Links in other Archbee blocks:**
 
