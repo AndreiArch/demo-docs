@@ -4,15 +4,13 @@
 
 Simple Link in the same doc: [About]() ⛔
 
-Link in the same doc with other anchor: [About](./#-) ✅
+Link in the same doc with other anchor: <a href="./#-" target="_blank">About</a> ✅
 
 Link in the same doc with another custom name: [custom name about]() ⛔
 
 Link in the same doc with another custom name and another anchor: [custom name anchor](./#-) ✅
 
 Link in the same doc with all above + opening in a new tab: <a href="./#-" target="_blank">custom name with anchor and opening in a new tab</a> ⛔
-
-
 
 **Links pointing to another docs from same space:**
 
@@ -26,13 +24,11 @@ Link to an API doc from the same space: [List all pets some pets]()  ⛔
 
 Link to another space&#x20;
 
-| [Turbine Platform Installer Guide]()  |   |   |
-| ------------------------------------- | - | - |
-|                                       |   |   |
-|                                       |   |   |
-|                                       |   |   |
-
-
+| [Turbine Platform Installer Guide]() |   |   |
+| ------------------------------------ | - | - |
+|                                      |   |   |
+|                                      |   |   |
+|                                      |   |   |
 
 **Links in other Archbee blocks:**
 
