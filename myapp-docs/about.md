@@ -4,13 +4,15 @@
 
 Simple Link in the same doc: [About]() ⛔
 
-Link in the same doc with other anchor: [About1]() ✅
+Link in the same doc with other anchor: [About](./#-) ✅
 
-Link in the same doc with another custom name: [custom name]() ⛔
+Link in the same doc with another custom name: [custom name about]() ⛔
 
-Link in the same doc with another custom name and another anchor: [Custom name]() ✅
+Link in the same doc with another custom name and another anchor: [custom name anchor](./#-) ✅
 
-Link in the same doc with all above + opening in a new tab: [./#link-array---exampleasdasdasdsad]()different title  ⛔
+Link in the same doc with all above + opening in a new tab: <a href="./#-" target="_blank">custom name with anchor and opening in a new tab</a> ⛔
+
+
 
 **Links pointing to another docs from same space:**
 
@@ -22,7 +24,15 @@ Link to an API doc from the same space: [List all pets some pets]()  ⛔
 
 **Links to other spaces:**
 
-Link to another space [Swimlane Content 2024 Release 2 Drop 1]()  ⛔
+Link to another space&#x20;
+
+| [Turbine Platform Installer Guide]()  |   |   |
+| ------------------------------------- | - | - |
+|                                       |   |   |
+|                                       |   |   |
+|                                       |   |   |
+
+
 
 **Links in other Archbee blocks:**
 
@@ -107,13 +117,13 @@ Examples Jigx:
 
 Welcome to the reference documentation for Jigx. This guide provides detailed information on the properties, actions, and states with practical code examples to help you effectively utilize our schema. This reference content is designed to be a comprehensive resource for all your needs, covering:
 
-|                                               | [Jig Types]()                  |
-| --------------------------------------------- | ------------------------------ |
-| [Turbine Platform Installer Release Notes]()  | [Actions]()                    |
-| [About]()                                     | [Custom templates]()           |
-| [Item separator list](./syntax/an-item.md)    | [Preview]()                    |
-| [Swimlane Cloud]()                            | [Notifications]()              |
-| [OpenAI integration]()                        | [Localization (Translation)]() |
+|                                              | [Jig Types]()                  |
+| -------------------------------------------- | ------------------------------ |
+| [Turbine Platform Installer Release Notes]() | [Actions]()                    |
+| [About]()                                    | [Custom templates]()           |
+| [Item separator list](./syntax/an-item.md)   | [Preview]()                    |
+| [Swimlane Cloud]()                           | [Notifications]()              |
+| [OpenAI integration]()                       | [Localization (Translation)]() |
 
 Our schema includes various properties that define the structure and characteristics of data entities. Each property is documented with its name, type, allowable values, and detailed description. This section ensures you have a clear understanding of how to use each property to successfully create a Jigx App.
 
