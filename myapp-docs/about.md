@@ -2,75 +2,141 @@
 
 **Links pointint to the same doc examples:**
 
-Simple Link in the same doc: [About]() ⛔
+Simple Link in the same doc: [**About**]() ⛔
 
-Link in the same doc with other anchor: [About](./#-) ✅
+Link in the same doc with other anchor: [**About**](./#-) ✅
 
-Link in the same doc with another custom name: [custom name about]() ⛔
+Link in the same doc with another custom name: [**custom name about**]() ⛔
 
-Link in the same doc with another custom name and another anchor: [custom name anchor](./#-) ✅
+Link in the same doc with another custom name and another anchor: [**custom name anchor**](./#-) ✅
 
-Link in the same doc with all above + opening in a new tab: <a href="./#-" target="_blank">custom name with anchor and opening in a new tab</a> ⛔
+Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="m8edBosENeoPOVFuNbztL" version="v2" docAnchorId="#77X0L" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
 
 **Links pointing to another docs from same space:**
 
-Link to another doc from the same space: [Item separator list](./syntax/an-item.md)  ✅
+Link to another doc from the same space: [**Item separator list**](./syntax/an-item.md)  ✅
 
-Link to another doc from the same space with custom details: [different title, different anchor](./syntax/an-item.md) ✅
+Link to another doc from the same space with custom details: [**different title, different anchor**](./syntax/an-item.md) ✅
 
-Link to an API doc from the same space: [get endpoint workers]()
+Link to an API doc from the same space: [**get endpoint workers**]()
 
-link to an API doc from the same space opening in a new tab <a href target="_blank">get endpoint workers</a>      ⛔
+link to an API doc from the same space opening in a new tab        ⛔
 
 **Links to other spaces:**
 
 Link to another space&#x20;
 
-| Turbine Platform Installer Guide                                                                                                                                                                                                                                                                                                                                                                  |   |   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine |   |   |
-| <a href="https://en.wikipedia.org/wiki/API" target="_blank">https\://en.wikipedia.org/wiki/API</a>[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)[https://en.wikipedia.org/wiki/API](https://en.wikipedia.org/wiki/API)Turbine                                                                       |   |   |
-| [get endpoint workers]()                                                                                                                                                                                                                                                                                                                                                                          |   |   |
+<table isTableHeaderOn="true" columnWidths="[object Object]">
+  <tr>
+    <td>
+      <p>Turbine Platform Installer Guide</p>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p></p><div><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a></div><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a>Turbine<p></p>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p></p><div><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a></div><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a>Turbine<p></p>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href=""><strong>get endpoint workers</strong></a></p>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
 
 **Links in other Archbee blocks:**
 
-# [Item separator list](./syntax/an-item.md)\* \*
+# [**Item separator list**](./syntax/an-item.md)\* \*
 
-- [Item separator list](./syntax/an-item.md)&#x20;
-- [custom name + anchor](./syntax/an-item.md)&#x20;
+- [**Item separator list**](./syntax/an-item.md)&#x20;
+- [**custom name + anchor**](./syntax/an-item.md)&#x20;
 
-1. [Item separator list](./syntax/an-item.md)&#x20;
-2. [./syntax/an-item.md](./syntax/an-item.md)custom name + anchor + opening in a new tab&#x20;
+1. [**Item separator list**](./syntax/an-item.md)&#x20;
+2. [**./syntax/an-item.md**](./syntax/an-item.md)custom name + anchor + opening in a new tab&#x20;
 
-- [x] [Item separator list](./syntax/an-item.md)&#x20;
+- [x] [**Item separator list**](./syntax/an-item.md)&#x20;
 
-| [Item separator list](./syntax/an-item.md)  | [Item separator list](./syntax/an-item.md) | [customname](./syntax/an-item.md) |
-| ------------------------------------------- | ------------------------------------------ | --------------------------------- |
-| [opening in a new tab](./syntax/an-item.md) |                                            |                                   |
-|                                             |                                            |                                   |
-|                                             |                                            |                                   |
+<table isTableHeaderOn="true" columnWidths="[object Object]">
+  <tr>
+    <td>
+      <p><a href="./syntax/an-item.md"><strong>Item separator list</strong></a></p>
+    </td>
+    <td>
+      <p><a href="./syntax/an-item.md"><strong>Item separator list</strong></a></p>
+    </td>
+    <td>
+      <p><a href="./syntax/an-item.md"><strong>customname</strong></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href="./syntax/an-item.md"><strong>opening in a new tab</strong></a></p>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
 
 :::hint{type="info"}
-[Item separator list](./syntax/an-item.md)  [custom name + anchor](./syntax/an-item.md)&#x20;
+[**Item separator list**](./syntax/an-item.md)  [**custom name + anchor**](./syntax/an-item.md)&#x20;
 :::
 
 ::::VerticalSplit{layout="middle"}
 :::VerticalSplitItem
-[Item separator list](./syntax/an-item.md)&#x20;
+[**Item separator list**](./syntax/an-item.md)&#x20;
 :::
 
 :::VerticalSplitItem
-[anchor+different title](./syntax/an-item.md)&#x20;
+[**anchor+different title**](./syntax/an-item.md)&#x20;
 :::
 ::::
 
-::::LinkArray
+::::LinkArray{contentSource="CUSTOM"}
 :::LinkArrayItem{headerImage headerColor}
-[Item separator list](./syntax/an-item.md)&#x20;
+[**Item separator list**](./syntax/an-item.md)&#x20;
 :::
 
 :::LinkArrayItem{headerImage headerColor}
-[./syntax/an-item.md](./syntax/an-item.md)Different title + anchor +opening in a new tab&#x20;
+[**./syntax/an-item.md**](./syntax/an-item.md)Different title + anchor +opening in a new tab&#x20;
 :::
 ::::
 
@@ -80,23 +146,23 @@ Link to another space&#x20;
 
 ::::WorkflowBlock
 :::WorkflowBlockItem
-[Item separator list](./syntax/an-item.md)&#x20;
+[**Item separator list**](./syntax/an-item.md)&#x20;
 :::
 
 :::WorkflowBlockItem
-[anchor +different title](./syntax/an-item.md)&#x20;
+[**anchor +different title**](./syntax/an-item.md)&#x20;
 :::
 
 :::WorkflowBlockItem
-[./syntax/an-item.md](./syntax/an-item.md)Item separator list&#x20;
+[**./syntax/an-item.md**](./syntax/an-item.md)Item separator list&#x20;
 :::
 ::::
 
 ::::Tabs
 :::Tab{title="Tab Name"}
-[Item separator list](./syntax/an-item.md)&#x20;
+[**Item separator list**](./syntax/an-item.md)&#x20;
 
-[./syntax/an-item.md](./syntax/an-item.md)different title + opening in a new tab&#x20;
+[**./syntax/an-item.md**](./syntax/an-item.md)different title + opening in a new tab&#x20;
 :::
 
 :::Tab{title="Second Tab Name"}
@@ -115,13 +181,55 @@ Examples Jigx:
 
 Welcome to the reference documentation for Jigx. This guide provides detailed information on the properties, actions, and states with practical code examples to help you effectively utilize our schema. This reference content is designed to be a comprehensive resource for all your needs, covering:
 
-|                                              | [Jig Types]()                  |
-| -------------------------------------------- | ------------------------------ |
-| [Turbine Platform Installer Release Notes]() | [Actions]()                    |
-| [About]()                                    | [Custom templates]()           |
-| [Item separator list](./syntax/an-item.md)   | [Preview]()                    |
-| [Swimlane Cloud]()                           | [Notifications]()              |
-| [OpenAI integration]()                       | [Localization (Translation)]() |
+<table isTableHeaderOn="true" columnWidths="[object Object]">
+  <tr>
+    <td>
+    </td>
+    <td>
+      <p><a href=""><strong>Jig Types</strong></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href=""><strong>Turbine Platform Installer Release Notes</strong></a></p>
+    </td>
+    <td>
+      <p><a href=""><strong>Actions</strong></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href=""><strong>About</strong></a></p>
+    </td>
+    <td>
+      <p><a href=""><strong>Custom templates</strong></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href="./syntax/an-item.md"><strong>Item separator list</strong></a></p>
+    </td>
+    <td>
+      <p><a href=""><strong>Preview</strong></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href=""><strong>Swimlane Cloud</strong></a></p>
+    </td>
+    <td>
+      <p><a href=""><strong>Notifications</strong></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href=""><strong>OpenAI integration</strong></a></p>
+    </td>
+    <td>
+      <p><a href=""><strong>Localization (Translation)</strong></a></p>
+    </td>
+  </tr>
+</table>
 
 Our schema includes various properties that define the structure and characteristics of data entities. Each property is documented with its name, type, allowable values, and detailed description. This section ensures you have a clear understanding of how to use each property to successfully create a Jigx App.
 
@@ -129,4 +237,82 @@ We have included practical code examples to help you implement and integrate the
 
 The code examples are downloadable to guide your development process. The **jigx-samples** solution includes most examples featured in this documentation, offering a hands-on experience to understand how each feature and functionality works.
 
-We provide three convenient options for accessing these resources, ensuring you have the flexibility to choose the method that best suits your needs. See [Setting up your solution]() for more information.
+We provide three convenient options for accessing these resources, ensuring you have the flexibility to choose the method that best suits your needs. See [**Setting up your solution**]() for more information.
+
+:::ApiMethodV2
+```json
+{
+  "name": "Get Cakes",
+  "method": "GET",
+  "url": "https://api.cakes.com",
+  "description": "Get a cake by its ID",
+  "tab": "examples",
+  "examples": {
+    "languages": [
+      {
+        "id": "WITtL4JWSzMEQJNZyQtex",
+        "language": "javascript",
+        "code": "var myHeaders = new Headers();\nmyHeaders.append(\"Accept\", \"application/json\");\nmyHeaders.append(\"Content-Type\", \"application/json\");\n\nvar raw = JSON.stringify({\n   \"id\": \"String\"\n});\n\nvar requestOptions = {\n   method: 'GET',\n   headers: myHeaders,\n   body: raw,\n   redirect: 'follow'\n};\n\nfetch(\"https://api.cakes.com\", requestOptions)\n   .then(response => response.text())\n   .then(result => console.log(result))\n   .catch(error => console.log('error', error));",
+        "customLabel": ""
+      }
+    ],
+    "selectedLanguageId": "WITtL4JWSzMEQJNZyQtex"
+  },
+  "results": {
+    "languages": [
+      {
+        "id": "pIMyUuQ51psElXIVsaLo0",
+        "language": "200",
+        "code": "{\n  \"name\": \"Cake's name\",\n}",
+        "customLabel": ""
+      },
+      {
+        "id": "QdAGsDxaAbxFMQcUSNF-Z",
+        "language": "404",
+        "code": "{\n  \"message\": \"Ain't no cake like that.\"\n}",
+        "customLabel": ""
+      }
+    ],
+    "selectedLanguageId": "pIMyUuQ51psElXIVsaLo0"
+  },
+  "request": {
+    "pathParameters": [],
+    "queryParameters": [],
+    "headerParameters": [],
+    "bodyDataParameters": [
+      {
+        "name": "id",
+        "kind": "required",
+        "type": "string",
+        "description": "ID of the cake to get"
+      }
+    ],
+    "formDataParameters": []
+  },
+  "currentNewParameter": {
+    "label": "Body Parameter",
+    "value": "bodyDataParameters"
+  },
+  "hasTryItOut": false
+}
+```
+:::
+
+:::Swagger
+```json
+{
+  "jsonFileLocation": "https://petstore.swagger.io/v2/swagger.json",
+  "headers": []
+}
+```
+:::
+
+:::GraphiQL
+```json
+{
+  "endpoint": "https://app.archbee.com/api/graphql",
+  "query": "{\n  status,\n  people\n}"
+}
+```
+:::
+
