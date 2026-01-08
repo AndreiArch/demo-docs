@@ -2,6 +2,10 @@
 
 **Links pointint to the same doc examples:**
 
+@item separator
+
+mkml
+
 Simple Link in the same doc: [**About**]() ⛔
 
 :::ContentSnippet{docRefId="0FP_tAWKMbokF52C3ER2g"}
@@ -14,7 +18,7 @@ Link in the same doc with another custom name: [**custom name about**]() ⛔
 
 Link in the same doc with another custom name and another anchor: [**custom name anchor**](./#-) ✅
 
-Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="qBEcHPDPF--iqisAtyNc0" version="v2" docAnchorId="#YQjaF" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
+Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="VIQ7aBA9g2jWD1M6bK_cv" version="v2" docAnchorId="#J2Nwc" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
 
 **Links pointing to another docs from same space:**
 
