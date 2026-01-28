@@ -1,8 +1,17 @@
 # About
 
-****
+***
 
 **Links pointint to the same doc examples:**
+
+:::Swagger
+```json
+{
+  "jsonFileLocation": "https://petstore.swagger.io/v2/swagger.json",
+  "headers": []
+}
+```
+:::
 
 Simple Link in the same doc: [**About**]() ⛔
 
@@ -82,7 +91,7 @@ Link in the same doc with another custom name: [**custom name about**]() ⛔
 
 Link in the same doc with another custom name and another anchor: [**custom name anchor**](./#-) ✅
 
-Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="vSPTjgzVDUS1xi8n1vPcc" version="v2" docAnchorId="#ItLFY" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
+Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="hHLKENQqChHoyzfM2rijf" version="v2" docAnchorId="#NS8xs" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
 
 **Links pointing to another docs from same space:**
 
