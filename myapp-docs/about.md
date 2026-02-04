@@ -1,85 +1,15 @@
 # About
 
-***
-
 **Links pointint to the same doc examples:**
 
-:::Swagger
-```json
-{
-  "jsonFileLocation": "https://petstore.swagger.io/v2/swagger.json",
-  "headers": []
-}
-```
-:::
+Simple Link in the same doc: [**About**]()&#x20;
 
-Simple Link in the same doc: [**About**]() ⛔
-
-her
+here
 Am adaugat niste content sa vad daca merge GitHub automatic sync
 \:::
 \:::
 
 App Production
-
-:::ApiMethodV2
-```json
-{
-  "name": "Get Cakes",
-  "method": "GET",
-  "url": "https://api.cakes.com",
-  "description": "Get a cake by its ID",
-  "tab": "examples",
-  "examples": {
-    "languages": [
-      {
-        "id": "lgEglMMU_mIkoUHlop13g",
-        "language": "javascript",
-        "code": "var myHeaders = new Headers();\nmyHeaders.append(\"Accept\", \"application/json\");\nmyHeaders.append(\"Content-Type\", \"application/json\");\n\nvar raw = JSON.stringify({\n   \"id\": \"string\"\n});\n\nvar requestOptions = {\n   method: 'GET',\n   headers: myHeaders,\n   body: raw,\n   redirect: 'follow'\n};\n\nfetch(\"https://api.cakes.com\", requestOptions)\n   .then(response => response.text())\n   .then(result => console.log(result))\n   .catch(error => console.log('error', error));",
-        "customLabel": ""
-      }
-    ],
-    "selectedLanguageId": "lgEglMMU_mIkoUHlop13g"
-  },
-  "results": {
-    "languages": [
-      {
-        "id": "_nM-NKlw6ALXNDGzMktm3",
-        "language": "200",
-        "code": "{\n  \"name\": \"Cake's name\",\n}",
-        "customLabel": ""
-      },
-      {
-        "id": "0xunyymEs0ijzlOHogb7c",
-        "language": "404",
-        "code": "{\n  \"message\": \"Ain't no cake like that.\"\n}",
-        "customLabel": ""
-      }
-    ],
-    "selectedLanguageId": "_nM-NKlw6ALXNDGzMktm3"
-  },
-  "request": {
-    "pathParameters": [],
-    "queryParameters": [],
-    "headerParameters": [],
-    "bodyDataParameters": [
-      {
-        "name": "id",
-        "kind": "required",
-        "type": "string",
-        "description": "ID of the cake to get"
-      }
-    ],
-    "formDataParameters": []
-  },
-  "currentNewParameter": {
-    "label": "Body Parameter",
-    "value": "bodyDataParameters"
-  },
-  "hasTryItOut": false
-}
-```
-:::
 
 :::ContentSnippet{docRefId="0FP_tAWKMbokF52C3ER2g"}
 
@@ -91,7 +21,7 @@ Link in the same doc with another custom name: [**custom name about**]() ⛔
 
 Link in the same doc with another custom name and another anchor: [**custom name anchor**](./#-) ✅
 
-Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="hHLKENQqChHoyzfM2rijf" version="v2" docAnchorId="#NS8xs" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
+Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="VCI9lbLGQwjm_Mgo5kx5G" version="v2" docAnchorId="#JSLeJ" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
 
 **Links pointing to another docs from same space:**
 
