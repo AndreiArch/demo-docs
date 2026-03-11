@@ -1,0 +1,176 @@
+{
+  "docsPath": "myapp-docs/",
+  "structure": {
+    "summary": "toc.md",
+    "assets": "assets",
+    "docsTree": [
+      {
+        "categoryName": "About",
+        "isCategory": false,
+        "path": "about.md",
+        "children": []
+      },
+      {
+        "categoryName": "Swagger API Petstore 2.0",
+        "isCategory": false,
+        "path": "petstore-2.0.yaml",
+        "children": []
+      },
+      {
+        "categoryName": "API",
+        "isCategory": true,
+        "path": "example_bug.yaml",
+        "children": []
+      },
+      {
+        "categoryName": "Syntax",
+        "isCategory": true,
+        "children": [
+          {
+            "categoryName": "Headings",
+            "isCategory": false,
+            "path": "syntax/headings.md",
+            "children": []
+          },
+          {
+            "categoryName": "Links",
+            "isCategory": false,
+            "path": "syntax/links.md",
+            "children": []
+          },
+          {
+            "categoryName": "Images",
+            "isCategory": false,
+            "path": "syntax/images.md",
+            "children": []
+          },
+          {
+            "categoryName": "Lists",
+            "isCategory": false,
+            "path": "syntax/lists.md",
+            "children": [
+              {
+                "categoryName": "Lists 1",
+                "isCategory": false,
+                "path": "syntax/lists-1.md",
+                "children": [
+                  {
+                    "categoryName": "Lists 2",
+                    "isCategory": false,
+                    "path": "syntax/lists-1.md",
+                    "children": [
+                      {
+                        "categoryName": "Lists 2",
+                        "isCategory": false,
+                        "path": "syntax/lists-1.md",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "categoryName": "Tables",
+            "isCategory": false,
+            "path": "syntax/tables.md",
+            "children": [
+              {
+                "categoryName": "Code editor",
+                "isCategory": false,
+                "path": "syntax/code-editor.md",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "item separator list",
+            "isCategory": false,
+            "path": "syntax/an-item.md",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Directives in page",
+        "isCategory": true,
+        "children": [
+          {
+            "categoryName": "links",
+            "isCategory": false,
+            "path": "directives/links.md",
+            "children": [
+              {
+                "categoryName": "emoji",
+                "isCategory": false,
+                "path": "directives/emoji.md",
+                "children": []
+              },
+              {
+                "categoryName": "hints",
+                "isCategory": false,
+                "path": "directives/hints.md",
+                "children": [
+                  {
+                    "categoryName": "link-arrays",
+                    "isCategory": false,
+                    "path": "directives/link-arrays.md",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "categoryName": "tabs",
+                "isCategory": false,
+                "path": "directives/tabs.md",
+                "children": []
+              },
+              {
+                "categoryName": "code-editor-tabs",
+                "isCategory": false,
+                "path": "directives/code-editor-tabs.md",
+                "children": [
+                  {
+                    "categoryName": "code-drawers",
+                    "isCategory": false,
+                    "path": "directives/code-drawer.md",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "categoryName": "embeds",
+                "isCategory": false,
+                "path": "directives/embeds.md",
+                "children": []
+              },
+              {
+                "categoryName": "changelogs",
+                "isCategory": false,
+                "path": "directives/changelog.md",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "partial",
+            "isCategory": false,
+            "path": "directives/partial.md",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
+      }
+    ]
+  },
+  "docTreeOptions": {
+    "showDownloadOpenApiFile": true,
+    "shouldCreateSchemaCategory": true
+  }
+}

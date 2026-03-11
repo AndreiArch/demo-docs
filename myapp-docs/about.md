@@ -1,7 +1,8 @@
 # About
 
 ***
-ihjnhjknkn
+
+ihjnhjknkna
 
 Helllloo World
 
@@ -94,7 +95,7 @@ Link in the same doc with another custom name: [**custom name about**]() ⛔
 
 Link in the same doc with another custom name and another anchor: [**custom name anchor**](./#-) ✅
 
-Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="s0gMNFbLx85rp2-Nvjdx4" version="v2" docAnchorId="#X-I4X" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
+Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="sk55l6XDQKTOJ85KZjVk2" version="v2" docAnchorId="#cgQnz" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
 
 **Links pointing to another docs from same space:**
 
@@ -110,7 +111,7 @@ link to an API doc from the same space opening in a new tab        ⛔
 
 Link to another space&#x20;
 
-<table isTableHeaderOn="true" columnWidths="[object Object]">
+<table isTableHeaderOn="true" columnWidths="220,220,221">
   <tr>
     <td>
       <p>Turbine Platform Installer Guide</p>
@@ -163,7 +164,7 @@ Link to another space&#x20;
 
 - [x] [**Item separator list**](./syntax/an-item.md)&#x20;
 
-<table isTableHeaderOn="true" columnWidths="[object Object]">
+<table isTableHeaderOn="true" columnWidths="220,220,221">
   <tr>
     <td>
       <p><a href="./syntax/an-item.md"><strong>Item separator list</strong></a></p>
@@ -267,7 +268,7 @@ Examples Jigx:
 
 Welcome to the reference documentation for Jigx. This guide provides detailed information on the properties, actions, and states with practical code examples to help you effectively utilize our schema. This reference content is designed to be a comprehensive resource for all your needs, covering:
 
-<table isTableHeaderOn="true" columnWidths="[object Object]">
+<table isTableHeaderOn="true" columnWidths="330,331">
   <tr>
     <td>
     </td>
