@@ -1,8 +1,8 @@
 ---
 title: About
 docTags: 
-createdAt: Tue Apr 07 2026 16:06:38 GMT+0000 (Coordinated Universal Time)
-updatedAt: Tue Apr 07 2026 16:06:58 GMT+0000 (Coordinated Universal Time)
+createdAt: Tue Mar 10 2026 10:05:52 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Apr 17 2026 11:35:06 GMT+0000 (Coordinated Universal Time)
 ---
 
 ***
@@ -104,7 +104,7 @@ Link in the same doc with another custom name: [**custom name about**]() ⛔
 
 Link in the same doc with another custom name and another anchor: [**custom name anchor**](./#-) ✅
 
-Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="Zzf-7nqKhrVBA6LCkOx8n" version="v2" docAnchorId="#M55Iu" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
+Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="qtGO-5cb5d_0ib0LFyI6A" version="v2" docAnchorId="#T9G8z" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
 
 **Links pointing to another docs from same space:**
 
