@@ -5,10 +5,6 @@
     "assets": "assets",
     "docsTree": [
       {
-        "path": "aE9u1foS-BEVg1Ndh6E7D.mdx",
-        "children": []
-      },
-      {
         "categoryName": "About",
         "isCategory": false,
         "path": "about.md",

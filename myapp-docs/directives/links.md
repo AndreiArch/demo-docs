@@ -1,8 +1,8 @@
 ---
 title: Links
 docTags: 
-createdAt: Tue Mar 10 2026 10:05:52 GMT+0000 (Coordinated Universal Time)
-updatedAt: Fri Apr 17 2026 12:02:35 GMT+0000 (Coordinated Universal Time)
+createdAt: Fri Apr 17 2026 11:29:32 GMT+0000 (Coordinated Universal Time)
+updatedAt: Fri Apr 17 2026 12:00:52 GMT+0000 (Coordinated Universal Time)
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, sodales sed cursus at, condimentum at neque. Vivamus sollicitudin felis nec commodo semper.## Download link[**Link File Name**]():::hint\{type="info"}
@@ -13,6 +13,12 @@ Archbee edits
 
 '[**Usuarios**](https://app-v2.fu.do/#!/admin/users)'
 
-[**About**](../about.md)&#x20;
+[ ](https://app.asana.com/1/1203225375088256/project/1203258491120266/task/1214133063854503?focus=true)
 
-[**custom about**](../about.md)&#x20;
+[ ](https://app.asana.com/1/1203225375088256/project/1203258491120266/task/1214133063854503?focus=true)
+
+[**About**]()&#x20;
+
+[**custom about**]()&#x20;
+
+[**about anchor(item)**]()&#x20;
