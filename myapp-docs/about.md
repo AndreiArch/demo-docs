@@ -1,8 +1,8 @@
 ---
 title: About
 docTags: 
-createdAt: Tue Mar 10 2026 10:05:52 GMT+0000 (Coordinated Universal Time)
-updatedAt: Fri Apr 17 2026 11:35:06 GMT+0000 (Coordinated Universal Time)
+createdAt: Fri Apr 17 2026 11:29:32 GMT+0000 (Coordinated Universal Time)
+updatedAt: Mon Apr 27 2026 10:56:05 GMT+0000 (Coordinated Universal Time)
 ---
 
 ***
@@ -12,6 +12,10 @@ ihjnhjknkn :inlineImage[]{src="https://api.archbee.com/api/optimize/fCt3n1oCa8rg
 🤞
 
 Helllloo World
+
+test inline image
+
+:inlineImage[]{src="https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/55Mo9m-hmz3RtLRTQEXky_image1.png" alt caption}
 
 By Bogdan(Hello)
 
@@ -26,7 +30,7 @@ By Bogdan(Hello)
 ```
 :::
 
-Simple Link in the same doc: [**About**]() ⛔
+Simple Link in the same doc: [About]() ⛔
 
 her
 Am adaugat niste content sa vad daca merge GitHub automatic sync
@@ -98,21 +102,21 @@ App Production
 
 :::
 
-Link in the same doc with other anchor: [**About**](./#-) ✅
+Link in the same doc with other anchor: :Link[About]{label="About" overridedLabel="About" spaceId docId="htOwdcg6odDIVZUxE583n" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="false" href="about.md"} ✅
 
-Link in the same doc with another custom name: [**custom name about**]() ⛔
+Link in the same doc with another custom name: [custom name about]() ⛔
 
-Link in the same doc with another custom name and another anchor: [**custom name anchor**](./#-) ✅
+Link in the same doc with another custom name and another anchor: :Link[custom name anchor]{label="custom name anchor" overridedLabel="custom name anchor" spaceId docId="htOwdcg6odDIVZUxE583n" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="false" href="about.md"} ✅
 
-Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="qtGO-5cb5d_0ib0LFyI6A" version="v2" docAnchorId="#T9G8z" loadingMethod="dynamic" newTab="true" href="./#-"} ⛔
+Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="htOwdcg6odDIVZUxE583n" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="true" href="about.md"} ⛔
 
 **Links pointing to another docs from same space:**
 
-Link to another doc from the same space: [**Item separator list**](syntax/an-item.md)  ✅
+Link to another doc from the same space: [Item separator list](syntax/an-item.md)  ✅
 
-Link to another doc from the same space with custom details: [**different title, different anchor**](syntax/an-item.md) ✅
+Link to another doc from the same space with custom details: [different title, different anchor](syntax/an-item.md) ✅
 
-Link to an API doc from the same space: [**get endpoint workers**]()
+Link to an API doc from the same space: [get endpoint workers]()
 
 link to an API doc from the same space opening in a new tab        ⛔
 
@@ -132,8 +136,8 @@ Link to another space&#x20;
   </tr>
   <tr>
     <td>
-      <p><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a>Turbine</p>
-      <p><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a></p>
+      <p><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a>Turbine</p>
+      <p><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a></p>
     </td>
     <td>
     </td>
@@ -142,8 +146,8 @@ Link to another space&#x20;
   </tr>
   <tr>
     <td>
-      <p><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a>Turbine</p>
-      <p><a href="https://en.wikipedia.org/wiki/API"><strong>https://en.wikipedia.org/wiki/API</strong></a></p>
+      <p><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a>Turbine</p>
+      <p><a href="https://en.wikipedia.org/wiki/API">https://en.wikipedia.org/wiki/API</a></p>
     </td>
     <td>
     </td>
@@ -152,7 +156,7 @@ Link to another space&#x20;
   </tr>
   <tr>
     <td>
-      <p><a href=""><strong>get endpoint workers</strong></a></p>
+      <p><a href="">get endpoint workers</a></p>
     </td>
     <td>
     </td>
@@ -163,31 +167,31 @@ Link to another space&#x20;
 
 **Links in other Archbee blocks:**
 
-# [**Item separator list**](syntax/an-item.md)\* \*
+# [Item separator list](syntax/an-item.md)\* \*
 
-- [**Item separator list**](syntax/an-item.md)&#x20;
-- [**custom name + anchor**](syntax/an-item.md)&#x20;
+- [Item separator list](syntax/an-item.md)&#x20;
+- [custom name + anchor](syntax/an-item.md)&#x20;
 
-1. [**Item separator list**](syntax/an-item.md)&#x20;
-2. [**./syntax/an-item.md**](syntax/an-item.md)custom name + anchor + opening in a new tab&#x20;
+1. [Item separator list](syntax/an-item.md)&#x20;
+2. [./syntax/an-item.md](syntax/an-item.md)custom name + anchor + opening in a new tab&#x20;
 
-- [x] [**Item separator list**](syntax/an-item.md)&#x20;
+- [x] [Item separator list](syntax/an-item.md)&#x20;
 
 <table isTableHeaderOn="true" columnWidths="221,221,221">
   <tr>
     <td>
-      <p><a href="syntax/an-item.md"><strong>Item separator list</strong></a></p>
+      <p><a href="syntax/an-item.md">Item separator list</a></p>
     </td>
     <td>
-      <p><a href="syntax/an-item.md"><strong>Item separator list</strong></a></p>
+      <p><a href="syntax/an-item.md">Item separator list</a></p>
     </td>
     <td>
-      <p><a href="syntax/an-item.md"><strong>customname</strong></a></p>
+      <p><a href="syntax/an-item.md">customname</a></p>
     </td>
   </tr>
   <tr>
     <td>
-      <p><a href="syntax/an-item.md"><strong>opening in a new tab</strong></a></p>
+      <p><a href="syntax/an-item.md">opening in a new tab</a></p>
     </td>
     <td>
     </td>
@@ -213,26 +217,26 @@ Link to another space&#x20;
 </table>
 
 :::hint{type="info"}
-[**Item separator list**](syntax/an-item.md)  [**custom name + anchor**](syntax/an-item.md)&#x20;
+[Item separator list](syntax/an-item.md)  [custom name + anchor](syntax/an-item.md)&#x20;
 :::
 
 ::::VerticalSplit{layout="middle"}
 :::VerticalSplitItem
-[**Item separator list**](syntax/an-item.md)&#x20;
+[Item separator list](syntax/an-item.md)&#x20;
 :::
 
 :::VerticalSplitItem
-[**anchor+different title**](syntax/an-item.md)&#x20;
+[anchor+different title](syntax/an-item.md)&#x20;
 :::
 ::::
 
 ::::LinkArray{contentSource="CUSTOM"}
 :::LinkArrayItem
-[**Item separator list**](syntax/an-item.md)&#x20;
+[Item separator list](syntax/an-item.md)&#x20;
 :::
 
 :::LinkArrayItem
-[**./syntax/an-item.md**](syntax/an-item.md)Different title + anchor +opening in a new tab&#x20;
+[./syntax/an-item.md](syntax/an-item.md)Different title + anchor +opening in a new tab&#x20;
 :::
 ::::
 
@@ -242,23 +246,23 @@ Link to another space&#x20;
 
 ::::WorkflowBlock
 :::WorkflowBlockItem
-[**Item separator list**](syntax/an-item.md)&#x20;
+[Item separator list](syntax/an-item.md)&#x20;
 :::
 
 :::WorkflowBlockItem
-[**anchor +different title**](syntax/an-item.md)&#x20;
+[anchor +different title](syntax/an-item.md)&#x20;
 :::
 
 :::WorkflowBlockItem
-[**./syntax/an-item.md**](syntax/an-item.md)Item separator list&#x20;
+[./syntax/an-item.md](syntax/an-item.md)Item separator list&#x20;
 :::
 ::::
 
 ::::Tabs
 :::Tab{title="Tab Name"}
-[**Item separator list**](syntax/an-item.md)&#x20;
+[Item separator list](syntax/an-item.md)&#x20;
 
-[**./syntax/an-item.md**](syntax/an-item.md)different title + opening in a new tab&#x20;
+[./syntax/an-item.md](syntax/an-item.md)different title + opening in a new tab&#x20;
 :::
 
 :::Tab{title="Second Tab Name"}
@@ -282,47 +286,47 @@ Welcome to the reference documentation for Jigx. This guide provides detailed in
     <td>
     </td>
     <td>
-      <p><a href=""><strong>Jig Types</strong></a></p>
+      <p><a href="">Jig Types</a></p>
     </td>
   </tr>
   <tr>
     <td>
-      <p><a href=""><strong>Turbine Platform Installer Release Notes</strong></a></p>
+      <p><a href="">Turbine Platform Installer Release Notes</a></p>
     </td>
     <td>
-      <p><a href=""><strong>Actions</strong></a></p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p><a href=""><strong>About</strong></a></p>
-    </td>
-    <td>
-      <p><a href=""><strong>Custom templates</strong></a></p>
+      <p><a href="">Actions</a></p>
     </td>
   </tr>
   <tr>
     <td>
-      <p><a href="syntax/an-item.md"><strong>Item separator list</strong></a></p>
+      <p><a href="">About</a></p>
     </td>
     <td>
-      <p><a href=""><strong>Preview</strong></a></p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p><a href=""><strong>Swimlane Cloud</strong></a></p>
-    </td>
-    <td>
-      <p><a href=""><strong>Notifications</strong></a></p>
+      <p><a href="">Custom templates</a></p>
     </td>
   </tr>
   <tr>
     <td>
-      <p><a href=""><strong>OpenAI integration</strong></a></p>
+      <p><a href="syntax/an-item.md">Item separator list</a></p>
     </td>
     <td>
-      <p><a href=""><strong>Localization (Translation)</strong></a></p>
+      <p><a href="">Preview</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href="">Swimlane Cloud</a></p>
+    </td>
+    <td>
+      <p><a href="">Notifications</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><a href="">OpenAI integration</a></p>
+    </td>
+    <td>
+      <p><a href="">Localization (Translation)</a></p>
     </td>
   </tr>
 </table>
@@ -333,7 +337,7 @@ We have included practical code examples to help you implement and integrate the
 
 The code examples are downloadable to guide your development process. The **jigx-samples** solution includes most examples featured in this documentation, offering a hands-on experience to understand how each feature and functionality works.
 
-We provide three convenient options for accessing these resources, ensuring you have the flexibility to choose the method that best suits your needs. See [**Setting up your solution**]() for more information.
+We provide three convenient options for accessing these resources, ensuring you have the flexibility to choose the method that best suits your needs. See [Setting up your solution]() for more information.
 
 :::ApiMethodV2
 ```json
