@@ -2,22 +2,12 @@
 title: About
 docTags: 
 createdAt: Fri Apr 17 2026 11:29:32 GMT+0000 (Coordinated Universal Time)
-updatedAt: Mon Apr 27 2026 10:56:05 GMT+0000 (Coordinated Universal Time)
+updatedAt: Mon Apr 27 2026 15:11:48 GMT+0000 (Coordinated Universal Time)
 ---
 
 ***
 
-ihjnhjknkn :inlineImage[]{src="https://api.archbee.com/api/optimize/fCt3n1oCa8rgNJ8fw9I2N-CNKHN6KIAeOKAUEyO3mLQ-20250414-095744.png" alt caption}
-
-🤞
-
-Helllloo World
-
-test inline image
-
 :inlineImage[]{src="https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/55Mo9m-hmz3RtLRTQEXky_image1.png" alt caption}
-
-By Bogdan(Hello)
 
 **Links pointint to the same doc examples:**
 
