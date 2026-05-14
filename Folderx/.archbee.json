@@ -1,0 +1,16 @@
+{
+  "docsPath": "Folderx/",
+  "structure": {
+    "summary": "toc.md",
+    "assets": "assets",
+    "docsTree": [
+      {
+        "path": "dada.mdx",
+        "children": []
+      },
+      {
+        "children": []
+      }
+    ]
+  }
+}
