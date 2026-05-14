@@ -10,6 +10,10 @@
       {
         "path": "test-page-2.mdx",
         "children": []
+      },
+      {
+        "path": "test-page-3.mdx",
+        "children": []
       }
     ]
   },
