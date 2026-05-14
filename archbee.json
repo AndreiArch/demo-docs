@@ -5,6 +5,10 @@
     "assets": "assets",
     "docsTree": [
       {
+        "path": "test-file.mdx",
+        "children": []
+      },
+      {
         "path": "test-new-file.mdx",
         "children": [],
         "isHidden": true
