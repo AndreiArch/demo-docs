@@ -1,0 +1,17 @@
+{
+  "docsPath": "FolderZ/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "path": "test-page-1.mdx",
+        "children": []
+      },
+      {
+        "path": "test-page-2.mdx",
+        "children": []
+      }
+    ]
+  },
+  "shadowDocs": []
+}
