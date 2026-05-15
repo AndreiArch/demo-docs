@@ -1,19 +1,13 @@
 ---
 title: About
 docTags: 
-createdAt: Thu May 14 2026 10:32:34 GMT+0000 (Coordinated Universal Time)
-updatedAt: Thu May 14 2026 10:35:38 GMT+0000 (Coordinated Universal Time)
+createdAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed May 13 2026 13:25:41 GMT+0000 (Coordinated Universal Time)
 ---
 
 ***
 
-asdasdasdasdasdasdasdas
-
-:::hint{type="info"}
-asdasdsadasdasdsaas
-:::
-
-
+:inlineImage[]{src="https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/55Mo9m-hmz3RtLRTQEXky_image1.png" alt caption}
 
 **Links pointint to the same doc examples:**
 
@@ -98,13 +92,13 @@ App Production
 
 :::
 
-Link in the same doc with other anchor: :Link[About]{label="About" overridedLabel="About" spaceId docId="dglRn8D71bj_AtepZEwg4" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="false" href="about.md"} ✅
+Link in the same doc with other anchor: :Link[About]{label="About" overridedLabel="About" spaceId docId="fpN2ochIiHKc4BSeaMA9B" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="false" href="about.md"} ✅
 
 Link in the same doc with another custom name: [custom name about]() ⛔
 
-Link in the same doc with another custom name and another anchor: :Link[custom name anchor]{label="custom name anchor" overridedLabel="custom name anchor" spaceId docId="dglRn8D71bj_AtepZEwg4" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="false" href="about.md"} ✅
+Link in the same doc with another custom name and another anchor: :Link[custom name anchor]{label="custom name anchor" overridedLabel="custom name anchor" spaceId docId="fpN2ochIiHKc4BSeaMA9B" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="false" href="about.md"} ✅
 
-Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="dglRn8D71bj_AtepZEwg4" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="true" href="about.md"} ⛔
+Link in the same doc with all above + opening in a new tab: :Link[custom name with anchor and opening in a new tab]{label="custom name with anchor and opening in a new tab" overridedLabel="custom name with anchor and opening in a new tab" spaceId docId="fpN2ochIiHKc4BSeaMA9B" version="v2" docAnchorId="#item-separator-list" loadingMethod="dynamic" newTab="true" href="about.md"} ⛔
 
 **Links pointing to another docs from same space:**
 

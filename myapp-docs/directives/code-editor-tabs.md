@@ -1,9 +1,13 @@
-# Code editor tabs
+---
+title: Code editor tabs
+docTags: 
+createdAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, sodales sed cursus at, condimentum at neque. Vivamus sollicitudin felis nec commodo semper. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, sodales sed cursus at, condimentum at neque. Vivamus sollicitudin felis nec commodo semper.
 
-:::::codeblocktabs
-
+:::CodeblockTabs
 ```php
 // PHP is the best.
 ```
@@ -19,6 +23,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, soda
 ```javascript
 // demo js
 ```
-
-:::::
-
+:::

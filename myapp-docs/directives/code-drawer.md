@@ -1,45 +1,27 @@
-# Code drawer
+---
+title: Code drawer
+docTags: 
+createdAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, sodales sed cursus at, condimentum at neque. Vivamus sollicitudin felis nec commodo semper. 
-
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi erat, sodales sed cursus at, condimentum at neque. Vivamus sollicitudin felis nec commodo semper.
 
 ## Code drawer example import via directive
 
-::::codedrawer{title="Code Section Title"}
-:::codeblocktabs-examples
-
+::::CodeDrawer{title="Code Section Title" codeEditorData="[object Object]" responsesEditorData="[object Object]" isResponseExpanded="true"}
+:::CodeblockTabsExamples
 ```javascript
-// this is javascript
-const wow = 'none'
 ```
-
-```none
-    some text
-```
-
-```php
-// this is php
-
-$something = "asdas";
-
-```
-
-```none
-    some text
-```
-
 :::
-:::codeblocktabs-responses
 
+:::CodeblockTabsResponses
+```javascript
 ```
-403 - forbidden
-```
-
 :::
 ::::
 
-<details>
-<summary>Expandable Heading</summary>
+Expandable Heading
 
 ### This is the content under the expandable heading
 
@@ -54,4 +36,4 @@ def hello_world():
     print("Hello, World!")
 </details>
 ```
-</details>
+
