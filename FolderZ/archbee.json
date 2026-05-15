@@ -4,16 +4,168 @@
     "assets": "assets/",
     "docsTree": [
       {
-        "path": "test-page-1.mdx",
+        "path": "elbz-links.mdx",
         "children": []
       },
       {
-        "path": "test-page-2.mdx",
+        "path": "WeKH-elbz-links.mdx",
         "children": []
       },
       {
-        "path": "test-page-3.mdx",
+        "path": "links.mdx",
         "children": []
+      },
+      {
+        "path": "test.mdx",
+        "children": []
+      },
+      {
+        "path": "myapp-docs/test-new-file.mdx",
+        "children": [],
+        "isHidden": true
+      },
+      {
+        "categoryName": "About",
+        "isCategory": false,
+        "path": "myapp-docs/about.md",
+        "children": []
+      },
+      {
+        "categoryName": "Syntax",
+        "isCategory": true,
+        "children": [
+          {
+            "categoryName": "Headings",
+            "isCategory": false,
+            "path": "myapp-docs/syntax/headings.md",
+            "children": []
+          },
+          {
+            "categoryName": "Links",
+            "isCategory": false,
+            "path": "myapp-docs/syntax/links.md",
+            "children": []
+          },
+          {
+            "categoryName": "Images",
+            "isCategory": false,
+            "path": "myapp-docs/syntax/images.md",
+            "children": []
+          },
+          {
+            "categoryName": "Lists",
+            "isCategory": false,
+            "path": "myapp-docs/syntax/lists.md",
+            "children": [
+              {
+                "categoryName": "Lists 1",
+                "isCategory": false,
+                "path": "myapp-docs/syntax/lists-1.md",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "Tables",
+            "isCategory": false,
+            "path": "myapp-docs/syntax/tables.md",
+            "children": [
+              {
+                "categoryName": "Code editor",
+                "isCategory": false,
+                "path": "myapp-docs/syntax/code-editor.md",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "item separator list",
+            "isCategory": false,
+            "path": "myapp-docs/syntax/an-item.md",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "API",
+        "isCategory": true,
+        "path": "myapp-docs/example_bug.yaml",
+        "children": []
+      },
+      {
+        "categoryName": "Directives in page",
+        "isCategory": true,
+        "children": [
+          {
+            "categoryName": "links",
+            "isCategory": false,
+            "path": "myapp-docs/directives/links.md",
+            "children": [
+              {
+                "categoryName": "emoji",
+                "isCategory": false,
+                "path": "myapp-docs/directives/emoji.md",
+                "children": []
+              },
+              {
+                "categoryName": "hints",
+                "isCategory": false,
+                "path": "myapp-docs/directives/hints.md",
+                "children": [
+                  {
+                    "categoryName": "link-arrays",
+                    "isCategory": false,
+                    "path": "myapp-docs/directives/link-arrays.md",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "categoryName": "tabs",
+                "isCategory": false,
+                "path": "myapp-docs/directives/tabs.md",
+                "children": []
+              },
+              {
+                "categoryName": "code-editor-tabs",
+                "isCategory": false,
+                "path": "myapp-docs/directives/code-editor-tabs.md",
+                "children": [
+                  {
+                    "categoryName": "code-drawers",
+                    "isCategory": false,
+                    "path": "myapp-docs/directives/code-drawer.md",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "categoryName": "embeds",
+                "isCategory": false,
+                "path": "myapp-docs/directives/embeds.md",
+                "children": []
+              },
+              {
+                "categoryName": "changelogs",
+                "isCategory": false,
+                "path": "myapp-docs/directives/changelog.md",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "partial",
+            "isCategory": false,
+            "path": "myapp-docs/directives/partial.md",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
       }
     ]
   },

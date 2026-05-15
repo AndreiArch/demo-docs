@@ -1,4 +1,9 @@
-# Hints
+---
+title: Hints
+docTags: 
+createdAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+---
 
 Do you see this update lagging? 🤞
 
@@ -37,4 +42,3 @@ We would love you to contribute to @octokit/rest, pull requests are very welcome
 :::hint{type="success"}
 We would love you to contribute to @octokit/rest, pull requests are very welcome! Please see CONTRIBUTING.md for more information.
 :::
-

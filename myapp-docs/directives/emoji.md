@@ -1,25 +1,25 @@
 ---
 title: Emoji
 docTags: 
-createdAt: Fri Apr 17 2026 11:29:32 GMT+0000 (Coordinated Universal Time)
-updatedAt: Fri Apr 17 2026 11:29:44 GMT+0000 (Coordinated Universal Time)
+createdAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
 ---
 
 # Heading 1## Heading 2### Heading 3- lista bulleted
 
 - Titlul imaginii\* \[ ] checklist
 
-[**About**]()&#x20;
+[About](#)&#x20;
 
-[**Custom about name**]()&#x20;
+[Custom about name](#)&#x20;
 
-[**item separator list**]()&#x20;
+[item separator list](#)&#x20;
 
 ![](https://api.archbee.com/api/optimize/nrfszeqYgQLCrqSuXCE_0/iw1aqyV3ORk1LZD5PWClR_screenshot-2024-04-29-at-164550.png)
 
 - [x] bifat
 -
-- [x] [**Daniel Stefan**]():::hint\{type="danger"}
+- [x] [Daniel Stefan](#):::hint\{type="danger"}
   Danger danger
 
 # Heading
@@ -50,5 +50,4 @@ example2
 Code editoare example
 ```
 
-::embed[::::[**https://www.youtube.com/watch?v=tvmUrOSahsc&list=RDMMtvmUrOSahsc&start_radio=1**](https://www.youtube.com/watch?v=tvmUrOSahsc&list=RDMMtvmUrOSahsc&start_radio=1):::codeblocktabs]{url="https://www.youtube.com/watch?v=tvmUrOSahsc&list=RDMMtvmUrOSahsc&start_radio=1"}
-
+::embed[::::[https://www.youtube.com/watch?v=tvmUrOSahsc&list=RDMMtvmUrOSahsc&start_radio=1](https://www.youtube.com/watch?v=tvmUrOSahsc&list=RDMMtvmUrOSahsc&start_radio=1):::codeblocktabs]{url="https://www.youtube.com/watch?v=tvmUrOSahsc&list=RDMMtvmUrOSahsc&start_radio=1"}

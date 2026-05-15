@@ -1,36 +1,41 @@
-# Lists
+---
+title: Lists
+docTags: 
+createdAt: Wed May 13 2026 12:03:51 GMT+0000 (Coordinated Universal Time)
+updatedAt: Wed May 13 2026 12:47:46 GMT+0000 (Coordinated Universal Time)
+---
 
-- [**Archbee**](https://archbee.io)
+- [Archbee](https://archbee.io)
 
 @tables
 
 :::Paragraph{listStyleType="disc" indent="2"}
-[**Cake**](https://www.cake.co/)
+[Cake](https://www.cake.co/)
 :::
 
 :::Paragraph{listStyleType="disc" listStart="2" indent="2"}
-[**Chatterbug**](https://chatterbug.com)
+[Chatterbug](https://chatterbug.com)
 :::
 
 :::Paragraph{listStyleType="disc" listStart="3" indent="2"}
-[**Clause**](https://clause.io)
+[Clause](https://clause.io)
 :::
 
-- [**GitBook**](https://www.gitbook.com/)
-  - [**Discord**](https://discord.com/)
-  - [**Grafana**](https://grafana.com)
-  - [**GraphCMS**](https://graphcms.com)
-- [**Guilded**](https://www.guilded.gg)
-  - [**Guru**](https://www.getguru.com/)
-  - [**Kitemaker**](https://kitemaker.co)
-  - [**Netlify CMS**](https://www.netlifycms.org)
-- [**Prezly**](https://www.prezly.com/)
-  - [**Sanity.io**](https://www.sanity.io)
-  - [**Slite**](https://slite.com)
-  - [**Taskade**](https://www.taskade.com/)
-- [**TRPG Engine**](https://trpg.moonrailgun.com)
-  - [**Yuque**](https://www.yuque.com/)
-  - [**Thoughts**](https://thoughts.teambition.com)
+- [GitBook](https://www.gitbook.com/)
+  - [Discord](https://discord.com/)
+  - [Grafana](https://grafana.com)
+  - [GraphCMS](https://graphcms.com)
+- [Guilded](https://www.guilded.gg)
+  - [Guru](https://www.getguru.com/)
+  - [Kitemaker](https://kitemaker.co)
+  - [Netlify CMS](https://www.netlifycms.org)
+- [Prezly](https://www.prezly.com/)
+  - [Sanity.io](https://www.sanity.io)
+  - [Slite](https://slite.com)
+  - [Taskade](https://www.taskade.com/)
+- [TRPG Engine](https://trpg.moonrailgun.com)
+  - [Yuque](https://www.yuque.com/)
+  - [Thoughts](https://thoughts.teambition.com)
 
 ## Numbered List inside a Numbered List
 
@@ -163,8 +168,8 @@ asdasdasdas
 
 1. Open these URLs directly in your browser:
 
-- \< a href = "[**https://localhost:3030**](https://localhost:3030)" target = "\_blank" > https\://localhost:3030 \</ a >
-- \< a href = "[**https://localhost:8642**](https://localhost:8642)" target = "\_blank" > https\://localhost:8642 \</ a >
+- \< a href = "[https://localhost:3030](https://localhost:3030)" target = "\_blank" > https\://localhost:3030 \</ a >
+- \< a href = "[https://localhost:8642](https://localhost:8642)" target = "\_blank" > https\://localhost:8642 \</ a >
 
 1. A **"Your connection is not private"** warning appears.
 2. Click **Advanced** → **Proceed to localhost (unsafe)**.
