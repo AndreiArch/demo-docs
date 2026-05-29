@@ -13,6 +13,13 @@ asdasdasdasdasdasdasdas
 asdasdsadasdasdsaas
 :::
 
+[About](docId\:YTD8BNm4MCSeavXhORpBp)  - normal internal link
+
+[About](docId\:YTD8BNm4MCSeavXhORpBp)  - internal link with anchor
+
+[Different name](docId\:YTD8BNm4MCSeavXhORpBp) - internal link with custom name
+
+[xternal ](https://www.youtube.com)- External link
 
 
 **Links pointint to the same doc examples:**
