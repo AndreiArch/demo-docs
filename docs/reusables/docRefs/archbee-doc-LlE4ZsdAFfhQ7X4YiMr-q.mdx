@@ -1,0 +1,603 @@
+---
+title: Fispan
+slug: fispan
+docTags: 
+createdAt: Tue Nov 11 2025 14:19:53 GMT+0000 (Coordinated Universal Time)
+---
+
+The Entity Bank Details (EBD) bundle integrates with the standard NetSuite Vendor Record to securely house all necessary information for submitting payments. Once installed, imported vendor and employee data are accessible via **Setup → Entity Bank Details → Overview**. Learn how to import, export, and update EBD for both vendors and employees in this guide.
+
+The process for importing and exporting records on the Vendor and Employee tabs is the same. The only difference is on the Vendor tab, which offers a specialized export utility for users with NetSuite’s Electronic Bank Payments bundle, allowing them to conveniently transfer and re-upload data into EBD.
+
+***
+
+## Import Entity Bank Data
+
+The process for importing EBD data is the same for both Vendor Records and Employee Records.
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    ### Go to the Import/Export Tab
+
+    Go to **Setup** **→** **Entity** **Bank Details** **→** **Import/Export**
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/MIHupM9-aG5UQ57uwzZYM_image.png" size="50" width="373" height="864" caption="Go to Import/Export" position="center"></Image>
+
+
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Import CSV template
+
+    Select **Template** to download a blank CSV template. Use this CSV to fill out Bank Details for bulk upload.
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/0PsnXhOrn0KDJLsUCOnIx_image.png" size="80" width="850" height="449" caption="Import Data section. Click on the Download Template button to get a blank CSV" position="center"></Image>
+
+    <hint type="info">
+      **NOTE:** Use this feature only to create new records. To update existing records, you must use the **Export CSV&#x20;**&#x66;eature, as it includes the necessary ID column, which is missing from the blank CSV template.
+    </hint>
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Format and Fill Out CSV
+
+    Please see the **Field Requirements for CSV** section of this page for a table containing all formatting requirements for the CSV file.
+
+    <hint type="info">
+      **NOTE:** Confirm that you use the IBAN country code (e.g., CA).
+    </hint>
+
+    <hint type="success">
+      **TIP:&#x20;**&#x48;ave leading zeroes in your data? Apostrophes \['] in front of any leading zeroes or formatting cells as "plain text" will keep leading zeroes in Microsoft Excel or Google Sheets, but NOT Apple Numbers.
+    </hint>
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Upload the Formatted CSV
+
+    In the same Import/Export screen, upload the formatted CSV document.
+
+    Confirm successful upload by checking the **Import** **Logs&#xA0;**&#x74;o ensure all records were uploaded successfully.
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/FIfztYwctm-BxjY-pFuc-_image.png" size="80" width="850" height="449" caption="Import Data section" position="center"></Image>
+
+    Select **Import logs** **→** **Execution logs** to confirm import completion.
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/plMbmKQh6CTM9ZNdOW2QZ_image.png" size="80" width="1536" height="953" caption="Execution Logs" position="center"></Image>
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Check Information
+
+    Prior to sending payments, check the **Entity** **Bank Details&#x20;**&#x74;ab of the Vendor Record to ensure all information is correctly updated.
+
+    <hint type="warning">
+      **IMPORTANT:** All Entity Bank Details for both Vendors and Employees, alongside all History logs, are stored in your NetSuite environment. Please ensure you are regularly exporting your Entity Bank Detail records and your History logs to prevent any potential loss, such as through uninstallation of the bundle.&#x20;
+    </hint>
+  </WorkflowBlockItem>
+</WorkflowBlock>
+
+## Export Entity Bank Data
+
+The process for exporting EBD data is the same for both Vendor Records and Employee Records.
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    ### Go to the Import/Export Tab
+
+    Go to **Setup** **→** **Entity** **Bank Details** **→** **Import/Export**
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/Ifk6eTGvcs5l7RfnGPeR4_image.png" size="60" width="746" height="1728" position="center" caption="Go to Import/Export"></Image>
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Export CSV template
+
+    Click on the **Generate Export File** button to trigger a CSV download of all records kept in EBD.&#x20;
+
+    <Image src="https://app.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/Mqx3APgsX67RNVB5iCr-K_image.png" size="80" width="1232" height="716" position="center" caption="Export Data section of the Import/Export page"></Image>
+
+    The table will display a history of all exports created, alongside timestamps and buttons to download each of these files.
+
+    Export Logs contains more information about the export files generated. This can be found under the **Execution Log** tab. For each line item, it will report who initiated the export, the number of records exported in the one file, as well as the file name for that particular export.
+  </WorkflowBlockItem>
+</WorkflowBlock>
+
+***
+
+## Update Existing EBD Records
+
+Use the Import/Export feature to bulk edit existing Entity Bank Details (EBD) for multiple Employee and Vendor Records at once.
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    ### Export CSV File
+
+    To update existing Entity Bank Details (EBD) records, you must first export a CSV file of those records.
+
+    The exported CSV file is crucial because it contains a unique ID column. This ID column is not present in the blank CSV import template and is necessary for the system to identify and update existing data.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Make edits to the CSV
+
+    Using your preferred application (such as Microsoft Excel or Google Sheets), open the exported CSV file to make your edits.&#x20;
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/nqJp5H0x9J81pH1Ypi-jW_image.png" size="70" width="1842" height="306" caption="EBD Vendor Export CSV opened in Numbers. Note the ID column on the far left" position="center"></Image>
+
+    Ensure the **ID** column on the far left remains untouched.
+
+    You can also add new records to the list; simply enter them as a new row at the bottom of the CSV file. The system will assign an ID to these new records upon import.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Import the edited Export file
+
+    After making edits to the previously exported file, you may now import the CSV file back into the Entity Bank Details bundle.&#x20;
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/jUXa0qjxDpjhujcAE4NP-_image.png" size="70" width="1194" height="710" caption="Import Data section. Click &#x22;Select a CSV file&#x22; or drag-and-drop a CSV file in this section to import your CSV file" position="center"></Image>
+
+    Either **Select a CSV file** to upload, or drag and drop one into the **Import Data&#x20;**&#x73;ection of the Import/Export page.
+  </WorkflowBlockItem>
+</WorkflowBlock>
+
+***
+
+## Troubleshooting Common Import Issues
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="358,358">
+  <tr>
+    <td align="left">
+      **Issue**
+    </td>
+    <td align="left">
+      **Resolution**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      No success message appears in NetSuite after importing Entity Bank Data.
+    </td>
+    <td align="left">
+      Check the import logs directly to verify the import status.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Records were successfully created but appear incomplete or inaccurate.
+    </td>
+    <td align="left">
+      Records can be created even if they are missing required fields or have incorrect formatting. Validate the imported records for accuracy after every upload.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Duplicate bank records are created for a vendor/employee.
+    </td>
+    <td align="left">
+      This happens if the same records are imported more than once. Ensure you are importing unique vendor or employee bank accounts with each import file.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      The international payment method is incorrectly set or missing.
+    </td>
+    <td align="left">
+      When importing, the payment method for all international wire accounts must be entered as INTERNATIONAL\_WIRE in the EBD template. Additionally, ensure bank accounts for international wire countries are not set to the DOMESTIC payment method in the vendor's NetSuite profile.
+    </td>
+  </tr>
+</table>
+
+### FAQs
+
+<ExpandableHeading>
+  **Is it possible to add additional fields?**
+
+  No. NetSuite does not currently allow the addition of fields to the EBD record.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  **Why are the Bank Balance and Balance As Of fields in the Match Bank Data page blank after a successful import?**
+
+  This is a NetSuite limitation. The system does not populate bank balance information because it relies on the usage of a bank feed, which is not integrated here.
+</ExpandableHeading>
+
+### Field Requirements for CSV
+
+Make sure your CSV Import file follows these requirements.
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**&#x45;nsure any data with leading zeroes is preceded by an apostrophe `'` or formatted as plain text in Microsoft Excel or Google Sheets.
+</hint>
+
+<hint type="info">
+  **NOTE:** If you are using payment methods that require mandatory country codes for Entity Bank Details, there may be additional columns that must be included in the import.&#x20;
+
+  To ensure a successful import, we recommend first manually adding the Entity Bank Details to the ERP system. Then, download the template; it will already display the correct columns needed for entering any remaining details.
+</hint>
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="238,238,240">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Values**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      id
+    </td>
+    <td align="left">
+      Numeric
+    </td>
+    <td align="left">
+      This is the ID number for this specific record. This column is not available on the Import Template as it is system-generated.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      vendor (or employee)
+    </td>
+    <td align="left">
+      NetSuite Vendor ID or Employee ID
+    </td>
+    <td align="left">
+      Required. The Vendor or Employee ID can be found in the URL of the entity record or on the EBD Overview page.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      label
+    </td>
+    <td align="left">
+      Anything
+    </td>
+    <td align="left">
+      Required. This can be entity or bank details. This field is used to differentiate the records when doing mass uploads.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      primary
+    </td>
+    <td align="left">
+      YES/NO, Y/N, TRUE/FALSE, T/F
+    </td>
+    <td align="left">
+      Required. T = True, F = False. If there are multiple bank details for a single payment method on a single vendor being imported, mark one as T and all others F.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      country
+    </td>
+    <td align="left">
+      2-letter ISO country code (e.g., US, CA, UK)
+    </td>
+    <td align="left">
+      Required. Field accepts upper, lower, and mixed case values.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      currency
+    </td>
+    <td align="left">
+      3-letter currency code required (e.g., USD, CAD)
+    </td>
+    <td align="left">
+      Required. Field accepts upper, lower, and mixed case values.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      method
+    </td>
+    <td align="left">
+      DOMESTIC, INTERNATIONAL\_WIRE
+    </td>
+    <td align="left">
+      Required. Has to be in the same format as it is case sensitive.
+      Please use INTERNATIONAL\_WIRE for bank accounts set up for international wire payments.
+      Please use DOMESTIC for US/Canada-based accounts.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      bankName
+    </td>
+    <td align="left">
+      Anything
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      address.line1
+    </td>
+    <td align="left">
+      Anything
+    </td>
+    <td align="left">
+      \{\{entitiyaddress}}&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      address.city
+    </td>
+    <td align="left">
+      Anything
+    </td>
+    <td align="left">
+      \{\{entitiyaddress}}&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      address.stateProvince
+    </td>
+    <td align="left">
+      Anything
+    </td>
+    <td align="left">
+      \{\{entitiyaddress}}&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      address.postalCode
+    </td>
+    <td align="left">
+      Anything
+    </td>
+    <td align="left">
+      \{\{entitiyaddress}}&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      bic
+    </td>
+    <td align="left">
+      Valid BIC or SWIFT code for the country and bank
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      accountType
+    </td>
+    <td align="left">
+      CHECKING, SAVINGS
+    </td>
+    <td align="left">
+      Field accepts upper, lower, and mixed case values.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      accountNumber
+    </td>
+    <td align="left">
+      Valid account number for this bank
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      localBranchCode
+    </td>
+    <td align="left">
+      Valid branch code for this bank
+    </td>
+    <td align="left">
+      Use this field for BSB codes if the country requires it.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      paymentDefaults.purposeMessage
+    </td>
+    <td align="left">
+      Anything
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      paymentDefaults.purposeCode
+    </td>
+    <td align="left">
+      Valid purpose code
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      paymentDefaults.paymentIsoCode
+    </td>
+    <td align="left">
+      Valid ISO code
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      paymentDefaults.paymentCodeword
+    </td>
+    <td align="left">
+      Valid payment code
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      paymentDefaults.paymentPartyType
+    </td>
+    <td align="left">
+      Valid party type
+    </td>
+    <td align="left">
+      P = Parent, T = Subsidiary, G = Group, N = Non-related
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      paymentDefaults.residentialStatus
+    </td>
+    <td align="left">
+      Valid residential status
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      bankCode
+    </td>
+    <td align="left">
+      Valid bank code for this bank
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      iban
+    </td>
+    <td align="left">
+      2-letter country code, followed by two check digits, and up to 35 alphanumeric characters
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      sortCode
+    </td>
+    <td align="left">
+      Valid sort code for this bank
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      institutionNumber
+    </td>
+    <td align="left">
+      Valid institution number for this bank
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      transitNumber
+    </td>
+    <td align="left">
+      Valid transit number for this bank
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      routingNumber
+    </td>
+    <td align="left">
+      Valid routing number for this bank
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+</table>
+
+***
+
+## Transferring Electronic Bank Payments Data&#x20;
+
+Before the Entity Bank Details (EBD) bundle is installed, you are limited to making only ACH and CPA payments. This is done through the bank plugin, using vendor information stored in NetSuite's Electronic Bank Payments (EBP) bundle.
+
+Once EBD is installed, the EBP bundle is no longer used to pull vendor banking data for bill payments. Instead, EBD becomes the new source of payment information.
+
+The EBD bundle provides the ability to transfer ACH and CPA vendor banking information from the EBP bundle via CSV.
+
+ACH and CPA banking information stored in the following default Payment File Formats are supported:
+
+- ACH - CCD/PPD
+- ACH - CTX (Free Text)
+- CPA-005
+
+Transferring ACH and CPA banking information that is stored in custom Payment File Formats is unsupported.
+
+To quickly transfer your supported data across bundles, follow the steps below.
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    ### Go to the Import/Export Tab
+
+    Go to **Set Up** **→** **Entity Bank Details** **→** **Import/Export**
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/hU7t7xkvUbOUebvgaxyOL_image.png" size="60" width="373" height="864" position="center" caption="Go to Import/Export"></Image>
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Generate CSV(s)
+
+    Select **Click to show Electronic Bank Payments export**
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/EHk3BvBSSxEDdcl7oxrdk_image.png" size="80" width="838" height="590" caption="Click to show Electronic Bank Payments export" position="center"></Image>
+
+    Select **Generate CSV File.** 
+
+    This will generate a CSV file(s) dependent on the **Number of Entries for Each File**, set below.&#x20;
+
+    NetSuite limits the number of records that can be pulled per file. For example, if you have 1100 records and set the number of entries to 200, the bundle will generate five CSVs containing 200 records and one CSV containing 100 records.
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/SVKiGha6pcyxb2Zbbsoev_image.png" size="80" width="1098" height="640" caption="Generate CSV file" position="center"></Image>
+
+    <hint type="info">
+      **NOTE:** Th&#x65;**&#x20;Generate Data from Electronic Bank Payments Bundle&#x20;**&#x63;an only extract ACH and CPA payment details. Any additional payment details must be transferred into the Entity Bank Details bundle either via manual entry or using the Import feature.
+    </hint>
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Import CSV(s)
+
+    **Select a CSV file…&#xA0;**&#x6F;r drag and drop the CSV file(s) into th&#x65;**&#x20;Import Data&#x20;**&#x62;ox.
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/8kHSpO7kQwE1ohrR6KjRj_image.png" size="80" width="850" height="449" caption="Import Data section" position="center"></Image>
+
+    Then, select **Import.&#x20;**
+
+    Wait a few moments for the import to complete.&#x20;
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    ### Confirm Import Completion
+
+    Once complete, select **Import logs** **→** **Execution logs** to confirm import completion.
+
+    <Image src="https://api.archbee.com/api/optimize/MM6nC_bKbIkwCRqiFZqEu/U4bk1YvcMd4AC84XLAgK6_image.png" size="82" width="632" height="358" caption="Confirm Status" position="center"></Image>
+
+    You can also check the following places to confirm bank details have been saved:
+
+    - Entity Bank Details tab on the Vendor or Employee Record
+    - Entity Bank Details Overview page
+    - Entity Bank Details History page
+  </WorkflowBlockItem>
+</WorkflowBlock>

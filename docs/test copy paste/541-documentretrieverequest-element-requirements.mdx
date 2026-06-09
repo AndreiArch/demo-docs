@@ -1,0 +1,139 @@
+---
+title: 5.4.1 DocumentRetrieveRequest Element Requirements
+slug: 541-documentretrieverequest-element-requirements
+docTags: 
+createdAt: Fri Feb 20 2026 13:48:42 GMT+0000 (Coordinated Universal Time)
+---
+
+**API Information**
+
+oknjknjknj
+
+The DocumentRetrieveRequest is a GET message that will use the following web service API endpoint information to retrieve a document through Surescripts.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="220,220,221">
+  <tr>
+    <td align="left">
+      **Operation**
+    </td>
+    <td align="left">
+      **API Endpoint Description**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Document Retrieve
+    </td>
+    <td align="left">
+      GET \[base]/Binary?documentID=\&repository Id>\&homeCommunityId=
+    </td>
+    <td align="left">
+      Returns the document in binary form.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note**: As a responder you will be responsible for defining the endpoint information and URL for others to retrieve documents from your system. That information is returned in the DocumentSearchResponse from your system.
+</hint>
+
+**Content Types and Encodings**
+
+According to Section 3.1.0.1.9 of the FHIR® specification Content Types and encodings,
+
+“The formal MIME-type for FHIR® resources is application/fhir+json or application/fhir+xml. The correct mime type SHALL be used by clients and servers.” Later in that same section, “UTF-8 encoding SHALL be used for the mime type application/fhir. This MAY be specified as a MIME type parameter to the application/fhir mime type, but is not required” because FHIR® uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1) defines a default character encoding of ISO-8859-1, requests and responses SHALL explicitly set the character encoding to UTF-8 using the charset parameter of the MIME-type in the Content-Type header. Requests MAY also specify this charset parameter in the Accept header and/or use the Accept-Charset header.”
+
+Because of these requirements, requests/responses will need to include a Content-Type in the HTTP header. Below is an example:
+
+- Content-Type: application/fhir+json; charset=utf-8
+
+<hint type="info">
+  **Note**: charset=utf-8 is not required by Surescripts, but is supported if sent.
+</hint>
+
+**Accept Header content v. the\_format Request Parameter**
+
+The FHIR R4 specifications state that documents should be returned based on how they were requested which could be either via Bundles with Base64 encoded contents within a bundle or as streamed content. The Accept request-header field within a document retrieve request can be used to specify the media types that are acceptable for each response.
+
+- If "application/fhir+xml" or "application/fhir+json" is specified in a request header’s Accept field, the document will be returned via FHIR bundles.
+  - Documents (ex: CCDAs, PLQs, binary files) that are returned to document requesters via bundles within the FHIR responses need to be Base64 encoded
+- If other, ex: "application/pdf" (or other binary types), the requested document will be streamed directly to the requester
+
+Alternatively, the FHIR® RLE product also supports the use of the “\_format” parameter as described in Section 3.1.0.1.11 of the FHIR® specification as a way for document requestors to specify their preference to receive requested documents in a format other than what is included in the HTTP header (for situations where a requesting application can control the contents of their requests, but not the HTTP header due to the use of 3rd party communication software or other limitations).
+
+
+
+Request example with “\_format” parameter:&#x20;
+
+https\://rle.surescripts.net/fhir/R4/Binary?documentId=CCDA123\&repositoryId=urn:
+
+oid:44.5555.66=urn\:oid:77.8888.99&
+
+\_format=application/fhir+json
+
+Be sure to note that use of the “\_format” parameter in the request overrides any media request types specified in a request’s message header Accept field.
+
+## 5.4.10 DocumentRetrieveRequest Example
+
+The following URL and HTTP header example would return a bundled response in the JSON format.
+
+https\://rle.surescripts.net/fhir/Binary?documentId=2.16.840.1.113883.3.2054.2.1.128118651\&amp;repositoryId=2.16.840.1.113883.3.2054.2.1\&amp;homeCommunityId=2.16.840.1.113883.3.2054.2.1
+
+<BlockQuote>
+  Accept: application/fhir+json
+  Accept-Encoding: gzip,deflate
+  Connection: keep-alive
+  Content-Type: application/fhir+json
+  Originator-Assigning-Authority: 2.11.222.3.444444.5.666.7.2
+  Originator-Home-Community-Id: urn\:oid\:aFRVAy
+  Originator-Message-Id: 3bb7cae9-e835-4844-a3ae-1c41abcea564
+  Originator-Organization-Name: ABC Medical Software
+  Originator-Patient-Identifier: 1002318246
+  Originator-User-Id: SMJO1234579 &#x20;
+  Originator-User-Name: ABC User
+  Originator-User-Role-Code: 106289002
+  Purpose-Of-Use-Code: TREATMENT
+  User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.5)
+  X-SSL-Client-Cert-Issuer: ABC Cert Issuer
+  X-SSL-Client-Cert-Subject: ABC Cert Subject
+</BlockQuote>
+
+## 5.4.11 DocumentRetrieveResponse Element Requirements
+
+Documents will be returned based on how they were requested (see DocumentRetrieveRequest) which could either be via Bundles with Base64 encoded contents within a bundle, or as content streamed directly to the requestor in the format (without encoding) that was specified by the contentType of the requested document.
+
+The table below outlines the requirements for the Bundle resource used in the DocumentRetrieveResponse message.
+
+<hint type="info">
+  **Note**: This guide includes data elements only where Surescripts has specific requirements or further explains the field usage. Refer to the Bundle FHIR resource for a complete list of fields.
+</hint>
+
+<ApiMethodV2 data="{&#x22;name&#x22;:&#x22;&#x22;,&#x22;method&#x22;:&#x22;GET&#x22;,&#x22;url&#x22;:&#x22;&#x22;,&#x22;description&#x22;:&#x22;Get a cake by its ID&#x22;,&#x22;tab&#x22;:&#x22;examples&#x22;,&#x22;examples&#x22;:{&#x22;languages&#x22;:[{&#x22;id&#x22;:&#x22;eY04UsiXTMhZuDTRsw0cw&#x22;,&#x22;language&#x22;:&#x22;javascript&#x22;,&#x22;code&#x22;:&#x22;&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;}],&#x22;selectedLanguageId&#x22;:&#x22;eY04UsiXTMhZuDTRsw0cw&#x22;},&#x22;results&#x22;:{&#x22;languages&#x22;:[{&#x22;id&#x22;:&#x22;8d1Z6G18CEuVrYUx9OqbY&#x22;,&#x22;language&#x22;:&#x22;200&#x22;,&#x22;code&#x22;:&#x22;{\n  \&#x22;name\&#x22;: \&#x22;Cake's name\&#x22;,\n}&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;},{&#x22;id&#x22;:&#x22;LxXZqMvbAoCITYaWOjoAS&#x22;,&#x22;language&#x22;:&#x22;404&#x22;,&#x22;code&#x22;:&#x22;{\n  \&#x22;message\&#x22;: \&#x22;Ain't no cake like that.\&#x22;\n}&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;}],&#x22;selectedLanguageId&#x22;:&#x22;8d1Z6G18CEuVrYUx9OqbY&#x22;},&#x22;request&#x22;:{&#x22;pathParameters&#x22;:[],&#x22;queryParameters&#x22;:[],&#x22;headerParameters&#x22;:[],&#x22;bodyDataParameters&#x22;:[{&#x22;name&#x22;:&#x22;resource type&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Identifies this as a Bundle resource.&#x22;,&#x22;&#x22;:&#x22;required&#x22;},{&#x22;name&#x22;:&#x22;id&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Logical identifier for the response bundle.&#x22;,&#x22;&#x22;:&#x22;Logical identifier for the response bundle.&#x22;},{&#x22;name&#x22;:&#x22;type&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Indicates the purpose of this bundle – how it is intended to be used.\nFixed value: searchset&#x22;,&#x22;&#x22;:&#x22;Indicates the purpose of this bundle – how it is intended to be used.\nFixed value: searchset&#x22;},{&#x22;name&#x22;:&#x22;entry &#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Search results returned by the DocumentSearch operation.&#x22;,&#x22;&#x22;:&#x22;Search results returned by the DocumentSearch operation.&#x22;},{&#x22;name&#x22;:&#x22;resource&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A resource that represents the data of a single raw artifact as digital content accessible in its native format. A Binary resource can contain any content, whether text, image, pdf, zip archive, etc.\nComments\nTypically, Binary resources are used for handling content such as:\n\t•\tCDA Documents (i.e. with XDS)\n\t•\tPDF Documents\n\t•\tImages (the Media resource is preferred for handling images, but not possible when the content is already binary - e.g. XDS).&#x22;,&#x22;&#x22;:&#x22;A resource that represents the data of a single raw artifact as digital content accessible in its native format. A Binary resource can contain any content, whether text, image, pdf, zip archive, etc.\nComments\nTypically, Binary resources are used for handling content such as:\n\t•\tCDA Documents (i.e. with XDS)\n\t•\tPDF Documents\n\t•\tImages (the Media resource is preferred for handling images, but not possible when the content is already binary - e.g. XDS).&#x22;},{&#x22;name&#x22;:&#x22;resourceType&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Fixed value: Binary&#x22;,&#x22;&#x22;:&#x22;Fixed value: Binary&#x22;},{&#x22;name&#x22;:&#x22;id&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Logical identifier for the Binary resource.&#x22;,&#x22;&#x22;:&#x22;Logical identifier for the Binary resource.&#x22;},{&#x22;name&#x22;:&#x22;contentType&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;MIME type of the document (e.g., image/jpeg, application/pdf).&#x22;,&#x22;&#x22;:&#x22;MIME type of the document (e.g., image/jpeg, application/pdf).&#x22;},{&#x22;name&#x22;:&#x22;data &#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Base64-encoded document content.&#x22;,&#x22;&#x22;:&#x22;Base64-encoded document content.&#x22;}],&#x22;formDataParameters&#x22;:[]},&#x22;currentNewParameter&#x22;:{&#x22;label&#x22;:&#x22;Body Parameter&#x22;,&#x22;value&#x22;:&#x22;bodyDataParameters&#x22;},&#x22;hasTryItOut&#x22;:false,&#x22;response&#x22;:[{&#x22;name&#x22;:&#x22;id&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;ID of the cake retrieved&#x22;}],&#x22;autoGeneratedAnchorSlug&#x22;:&#x22;iCEPs-n99Gyup3uJ_fE_t&#x22;,&#x22;legacyHash&#x22;:&#x22;iCEPs-n99Gyup3uJ_fE_t&#x22;}">
+
+</ApiMethodV2>
+
+
+
+## 5.4.12 DocumentRetrieveResponse Message Example
+
+```javascript
+{
+  "resourceType": "Bundle",
+  "id": "f98511eb-a5a2-4ecf-8ee9-c6d35bb3bb99",
+  "type": "searchset",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Binary",
+        "id": "16dade3d-e45b-4be4-889b-c0ca65bc9367",
+        "contentType": "image/jpeg",
+        "data": "iVBORw0KGgoAAAANSUhEUgAAAmQAAAC0CAYAAAA6sDC6…(Base64 content truncated for readability)…SUVORK5CYII="
+      }
+    }
+  ]
+}
+```
+

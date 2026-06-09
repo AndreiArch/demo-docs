@@ -1,0 +1,1691 @@
+---
+title: CrossRiver test page 3
+slug: crossriver-test-page-3
+docTags: 
+createdAt: Mon Feb 09 2026 13:01:04 GMT+0000 (Coordinated Universal Time)
+---
+
+Relevant webhooks
+
+For this endpoint be sure yoxu have **Accounts, cards and payment events** for this webhook:
+
+<File isUploading="false">
+
+</File>
+
+- :Link[Rtp.Payment.Received]{label="Webhook events: Instant payments" spaceId="FA4w-Ln42y5TMSsU_DRH8" docId="ffGq2OHYEbWPzn2old6Mc" version="v2" docAnchorId="#c123a" loadingMethod="dynamic" overridedLabel="Rtp.Payment.Received"}&#x20;
+- :Link[Rtp.Payment.Expired]{label="Webhook events: Instant payments" spaceId="FA4w-Ln42y5TMSsU_DRH8" docId="ffGq2OHYEbWPzn2old6Mc" version="v2" docAnchorId="#3Cm57" loadingMethod="dynamic" overridedLabel="Rtp.Payment.Expired"}
+- :Link[Rtp.Payment.Rejected]{label="Webhook events: Instant payments" spaceId="FA4w-Ln42y5TMSsU_DRH8" docId="ffGq2OHYEbWPzn2old6Mc" version="v2" docAnchorId="#npDxk" loadingMethod="dynamic" overridedLabel="Rtp.Payment.Rejected"}&#x20;
+
+![](https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/e0pOJMWqDY_ZAgiN0vM80-20260205-115706.svg)
+
+## API reference
+
+Initiates a request for payment (RfP)
+Allows the recipient to authorize and trigger an instant payment credit transfer. RfPs can be initiated from:
+
+- Master account
+- Deposit account (DDA)
+- Associated subledger
+
+<ApiMethodV2 data="{&#x22;name&#x22;:&#x22;Endpoint: /rtp/v1/payments/payment-request&#x22;,&#x22;method&#x22;:&#x22;POST&#x22;,&#x22;url&#x22;:&#x22;https://sandbox.crbcos.com/rtp/v1/payments/payment-request&#x22;,&#x22;description&#x22;:&#x22;&#x22;,&#x22;tab&#x22;:&#x22;examples&#x22;,&#x22;examples&#x22;:{&#x22;languages&#x22;:[{&#x22;id&#x22;:&#x22;tiU4cYZv2OBskCr5TaQ-D&#x22;,&#x22;language&#x22;:&#x22;curl&#x22;,&#x22;code&#x22;:&#x22;curl --location 'https://sandbox.crbcos.com/rtp/v1/payments/payment-request' \\\n--header 'Content-Type: application/json' \\\n--data '{\n    \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,\n    \&#x22;amount\&#x22;: 20000,\n    \&#x22;discount\&#x22;: 1000,\n    \&#x22;debtor\&#x22;: {\n        \&#x22;routingNumber\&#x22;: \&#x22;071212128\&#x22;,\n        \&#x22;accountNumber\&#x22;: \&#x22;2758463448\&#x22;,\n        \&#x22;name\&#x22;: \&#x22;Terry Tester\&#x22;,\n        \&#x22;birthCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n        \&#x22;birthCountry\&#x22;: \&#x22;US\&#x22;,\n        \&#x22;birthDate\&#x22;: \&#x22;1996-08-09\&#x22;,\n        \&#x22;addressStreetName\&#x22;: \&#x22;Linwood Ave\&#x22;,\n        \&#x22;addressBuildingNumber\&#x22;: \&#x22;2115\&#x22;,\n        \&#x22;addressCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n        \&#x22;addressState\&#x22;: \&#x22;NJ\&#x22;,\n        \&#x22;addressPostalCode\&#x22;: \&#x22;07024\&#x22;,\n        \&#x22;addressCountry\&#x22;: \&#x22;US\&#x22;\n    },\n    \&#x22;creditor\&#x22;: {\n        \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,\n        \&#x22;name\&#x22;: \&#x22;the creditor\&#x22;\n    },\n    \&#x22;purpose\&#x22;: \&#x22;Test Payment 2\&#x22;,\n    \&#x22;clientIdentifier\&#x22;: \&#x22;123456\&#x22;,\n    \&#x22;requestedExecutionDate\&#x22;: \&#x22;2025-08-10\&#x22;,\n    \&#x22;expiryDate\&#x22;: \&#x22;2025-08-16\&#x22;,\n    \&#x22;senderId\&#x22;: \&#x22;100000001\&#x22;,\n    \&#x22;useCase\&#x22;: \&#x22;BusinessToBusiness\&#x22;,\n    \&#x22;industryCategory\&#x22;: \&#x22;OnlineGaming\&#x22;\n}'&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;},{&#x22;id&#x22;:&#x22;2YWx4qreq-R5gXud3QE83&#x22;,&#x22;language&#x22;:&#x22;nodejs&#x22;,&#x22;code&#x22;:&#x22;var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://sandbox.crbcos.com/rtp/v1/payments/payment-request',\n  'headers': {\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,\n    \&#x22;amount\&#x22;: 20000,\n    \&#x22;discount\&#x22;: 1000,\n    \&#x22;debtor\&#x22;: {\n      \&#x22;routingNumber\&#x22;: \&#x22;071212128\&#x22;,\n      \&#x22;accountNumber\&#x22;: \&#x22;2758463448\&#x22;,\n      \&#x22;name\&#x22;: \&#x22;Terry Tester\&#x22;,\n      \&#x22;birthCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n      \&#x22;birthCountry\&#x22;: \&#x22;US\&#x22;,\n      \&#x22;birthDate\&#x22;: \&#x22;1996-08-09\&#x22;,\n      \&#x22;addressStreetName\&#x22;: \&#x22;Linwood Ave\&#x22;,\n      \&#x22;addressBuildingNumber\&#x22;: \&#x22;2115\&#x22;,\n      \&#x22;addressCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n      \&#x22;addressState\&#x22;: \&#x22;NJ\&#x22;,\n      \&#x22;addressPostalCode\&#x22;: \&#x22;07024\&#x22;,\n      \&#x22;addressCountry\&#x22;: \&#x22;US\&#x22;\n    },\n    \&#x22;creditor\&#x22;: {\n      \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,\n      \&#x22;name\&#x22;: \&#x22;the creditor\&#x22;\n    },\n    \&#x22;purpose\&#x22;: \&#x22;Test Payment 2\&#x22;,\n    \&#x22;clientIdentifier\&#x22;: \&#x22;123456\&#x22;,\n    \&#x22;requestedExecutionDate\&#x22;: \&#x22;2025-08-10\&#x22;,\n    \&#x22;expiryDate\&#x22;: \&#x22;2025-08-16\&#x22;,\n    \&#x22;senderId\&#x22;: \&#x22;100000001\&#x22;,\n    \&#x22;useCase\&#x22;: \&#x22;BusinessToBusiness\&#x22;,\n    \&#x22;industryCategory\&#x22;: \&#x22;OnlineGaming\&#x22;\n  })\n\n};\nrequest(options, function (error, response) {\n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;},{&#x22;id&#x22;:&#x22;YOHQfOuM8rgbNoWxp-x0u&#x22;,&#x22;language&#x22;:&#x22;python&#x22;,&#x22;code&#x22;:&#x22;import requests\nimport json\n\nurl = \&#x22;https://sandbox.crbcos.com/rtp/v1/payments/payment-request\&#x22;\n\npayload = json.dumps({\n  \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,\n  \&#x22;amount\&#x22;: 20000,\n  \&#x22;discount\&#x22;: 1000,\n  \&#x22;debtor\&#x22;: {\n    \&#x22;routingNumber\&#x22;: \&#x22;071212128\&#x22;,\n    \&#x22;accountNumber\&#x22;: \&#x22;2758463448\&#x22;,\n    \&#x22;name\&#x22;: \&#x22;Terry Tester\&#x22;,\n    \&#x22;birthCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n    \&#x22;birthCountry\&#x22;: \&#x22;US\&#x22;,\n    \&#x22;birthDate\&#x22;: \&#x22;1996-08-09\&#x22;,\n    \&#x22;addressStreetName\&#x22;: \&#x22;Linwood Ave\&#x22;,\n    \&#x22;addressBuildingNumber\&#x22;: \&#x22;2115\&#x22;,\n    \&#x22;addressCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n    \&#x22;addressState\&#x22;: \&#x22;NJ\&#x22;,\n    \&#x22;addressPostalCode\&#x22;: \&#x22;07024\&#x22;,\n    \&#x22;addressCountry\&#x22;: \&#x22;US\&#x22;\n  },\n  \&#x22;creditor\&#x22;: {\n    \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,\n    \&#x22;name\&#x22;: \&#x22;the creditor\&#x22;\n  },\n  \&#x22;purpose\&#x22;: \&#x22;Test Payment 2\&#x22;,\n  \&#x22;clientIdentifier\&#x22;: \&#x22;123456\&#x22;,\n  \&#x22;requestedExecutionDate\&#x22;: \&#x22;2025-08-10\&#x22;,\n  \&#x22;expiryDate\&#x22;: \&#x22;2025-08-16\&#x22;,\n  \&#x22;senderId\&#x22;: \&#x22;100000001\&#x22;,\n  \&#x22;useCase\&#x22;: \&#x22;BusinessToBusiness\&#x22;,\n  \&#x22;industryCategory\&#x22;: \&#x22;OnlineGaming\&#x22;\n})\nheaders = {\n  'Content-Type': 'application/json'\n}\n\nresponse = requests.request(\&#x22;POST\&#x22;, url, headers=headers, data=payload)\n\nprint(response.text)\n&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;},{&#x22;id&#x22;:&#x22;PO3dR-zN2juLY7vnhKT_l&#x22;,&#x22;language&#x22;:&#x22;ruby&#x22;,&#x22;code&#x22;:&#x22;require \&#x22;uri\&#x22;\nrequire \&#x22;json\&#x22;\nrequire \&#x22;net/http\&#x22;\n\nurl = URI(\&#x22;https://sandbox.crbcos.com/rtp/v1/payments/payment-request\&#x22;)\n\nhttps = Net::HTTP.new(url.host, url.port)\nhttps.use_ssl = true\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\&#x22;Content-Type\&#x22;] = \&#x22;application/json\&#x22;\nrequest.body = JSON.dump({\n  \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,\n  \&#x22;amount\&#x22;: 20000,\n  \&#x22;discount\&#x22;: 1000,\n  \&#x22;debtor\&#x22;: {\n    \&#x22;routingNumber\&#x22;: \&#x22;071212128\&#x22;,\n    \&#x22;accountNumber\&#x22;: \&#x22;2758463448\&#x22;,\n    \&#x22;name\&#x22;: \&#x22;Terry Tester\&#x22;,\n    \&#x22;birthCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n    \&#x22;birthCountry\&#x22;: \&#x22;US\&#x22;,\n    \&#x22;birthDate\&#x22;: \&#x22;1996-08-09\&#x22;,\n    \&#x22;addressStreetName\&#x22;: \&#x22;Linwood Ave\&#x22;,\n    \&#x22;addressBuildingNumber\&#x22;: \&#x22;2115\&#x22;,\n    \&#x22;addressCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n    \&#x22;addressState\&#x22;: \&#x22;NJ\&#x22;,\n    \&#x22;addressPostalCode\&#x22;: \&#x22;07024\&#x22;,\n    \&#x22;addressCountry\&#x22;: \&#x22;US\&#x22;\n  },\n  \&#x22;creditor\&#x22;: {\n    \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,\n    \&#x22;name\&#x22;: \&#x22;the creditor\&#x22;\n  },\n  \&#x22;purpose\&#x22;: \&#x22;Test Payment 2\&#x22;,\n  \&#x22;clientIdentifier\&#x22;: \&#x22;123456\&#x22;,\n  \&#x22;requestedExecutionDate\&#x22;: \&#x22;2025-08-10\&#x22;,\n  \&#x22;expiryDate\&#x22;: \&#x22;2025-08-16\&#x22;,\n  \&#x22;senderId\&#x22;: \&#x22;100000001\&#x22;,\n  \&#x22;useCase\&#x22;: \&#x22;BusinessToBusiness\&#x22;,\n  \&#x22;industryCategory\&#x22;: \&#x22;OnlineGaming\&#x22;\n})\n\nresponse = https.request(request)\nputs response.read_body\n&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;},{&#x22;id&#x22;:&#x22;PuudTHa7YBQRHtGMWLBRm&#x22;,&#x22;language&#x22;:&#x22;go&#x22;,&#x22;code&#x22;:&#x22;package main\n\nimport (\n  \&#x22;fmt\&#x22;\n  \&#x22;strings\&#x22;\n  \&#x22;net/http\&#x22;\n  \&#x22;io\&#x22;\n)\n\nfunc main() {\n\n  url := \&#x22;https://sandbox.crbcos.com/rtp/v1/payments/payment-request\&#x22;\n  method := \&#x22;POST\&#x22;\n\n  payload := strings.NewReader(`{`+\&#x22;\n\&#x22;+`\n    \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,`+\&#x22;\n\&#x22;+`\n    \&#x22;amount\&#x22;: 20000,`+\&#x22;\n\&#x22;+`\n    \&#x22;discount\&#x22;: 1000,`+\&#x22;\n\&#x22;+`\n    \&#x22;debtor\&#x22;: {`+\&#x22;\n\&#x22;+`\n        \&#x22;routingNumber\&#x22;: \&#x22;071212128\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;accountNumber\&#x22;: \&#x22;2758463448\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;name\&#x22;: \&#x22;Terry Tester\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;birthCity\&#x22;: \&#x22;Pine Brook\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;birthCountry\&#x22;: \&#x22;US\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;birthDate\&#x22;: \&#x22;1996-08-09\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;addressStreetName\&#x22;: \&#x22;Linwood Ave\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;addressBuildingNumber\&#x22;: \&#x22;2115\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;addressCity\&#x22;: \&#x22;Pine Brook\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;addressState\&#x22;: \&#x22;NJ\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;addressPostalCode\&#x22;: \&#x22;07024\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;addressCountry\&#x22;: \&#x22;US\&#x22;`+\&#x22;\n\&#x22;+`\n    },`+\&#x22;\n\&#x22;+`\n    \&#x22;creditor\&#x22;: {`+\&#x22;\n\&#x22;+`\n        \&#x22;accountNumber\&#x22;: \&#x22;2564791479\&#x22;,`+\&#x22;\n\&#x22;+`\n        \&#x22;name\&#x22;: \&#x22;the creditor\&#x22;`+\&#x22;\n\&#x22;+`\n    },`+\&#x22;\n\&#x22;+`\n    \&#x22;purpose\&#x22;: \&#x22;Test Payment 2\&#x22;,`+\&#x22;\n\&#x22;+`\n    \&#x22;clientIdentifier\&#x22;: \&#x22;123456\&#x22;,`+\&#x22;\n\&#x22;+`\n    \&#x22;requestedExecutionDate\&#x22;: \&#x22;2025-08-10\&#x22;,`+\&#x22;\n\&#x22;+`\n    \&#x22;expiryDate\&#x22;: \&#x22;2025-08-16\&#x22;,`+\&#x22;\n\&#x22;+`\n    \&#x22;senderId\&#x22;: \&#x22;100000001\&#x22;,`+\&#x22;\n\&#x22;+`\n    \&#x22;useCase\&#x22;: \&#x22;BusinessToBusiness\&#x22;,`+\&#x22;\n\&#x22;+`\n    \&#x22;industryCategory\&#x22;: \&#x22;OnlineGaming\&#x22;`+\&#x22;\n\&#x22;+`\n}`)\n\n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n\n  if err != nil {\n    fmt.Println(err)\n    return\n  }\n  req.Header.Add(\&#x22;Content-Type\&#x22;, \&#x22;application/json\&#x22;)\n\n  res, err := client.Do(req)\n  if err != nil {\n    fmt.Println(err)\n    return\n  }\n  defer res.Body.Close()\n\n  body, err := io.ReadAll(res.Body)\n  if err != nil {\n    fmt.Println(err)\n    return\n  }\n  fmt.Println(string(body))\n}&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;}],&#x22;selectedLanguageId&#x22;:&#x22;tiU4cYZv2OBskCr5TaQ-D&#x22;},&#x22;results&#x22;:{&#x22;languages&#x22;:[{&#x22;id&#x22;:&#x22;ZA7E-VGG1EUptPxfRE3CS&#x22;,&#x22;language&#x22;:&#x22;200&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;,&#x22;code&#x22;:&#x22;{\n    \&#x22;id\&#x22;: \&#x22;8ee74810-45fe-47ee-9569-b30500b8d6ae\&#x22;,\n    \&#x22;originalPaymentId\&#x22;: \&#x22;8ee74810-45fe-47ee-9569-b30500b8d6ae\&#x22;,\n    \&#x22;referenceId\&#x22;: \&#x22;R174OI808VYXJ\&#x22;,\n    \&#x22;accountNumber\&#x22;: \&#x22;2955057589\&#x22;,\n    \&#x22;clientIdentifier\&#x22;: \&#x22;123456\&#x22;,\n    \&#x22;amount\&#x22;: 19000,\n    \&#x22;direction\&#x22;: \&#x22;Outbound\&#x22;,\n    \&#x22;status\&#x22;: \&#x22;Created\&#x22;,\n    \&#x22;paymentType\&#x22;: \&#x22;RequestForPayment\&#x22;,\n    \&#x22;source\&#x22;: \&#x22;Api\&#x22;,\n    \&#x22;transactionAccountContext\&#x22;: \&#x22;NotSubmitted\&#x22;,\n    \&#x22;debtor\&#x22;: {\n        \&#x22;routingNumber\&#x22;: \&#x22;011000138\&#x22;,\n        \&#x22;accountNumber\&#x22;: \&#x22;2758463448\&#x22;,\n        \&#x22;name\&#x22;: \&#x22;Terry Tester\&#x22;,\n        \&#x22;birthCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n        \&#x22;birthCountry\&#x22;: \&#x22;US\&#x22;,\n        \&#x22;birthDate\&#x22;: \&#x22;1996-08-09\&#x22;,\n        \&#x22;addressStreetName\&#x22;: \&#x22;Linwood Ave\&#x22;,\n        \&#x22;addressBuildingNumber\&#x22;: \&#x22;2115\&#x22;,\n        \&#x22;addressCity\&#x22;: \&#x22;Pine Brook\&#x22;,\n        \&#x22;addressState\&#x22;: \&#x22;NJ\&#x22;,\n        \&#x22;addressPostalCode\&#x22;: \&#x22;07024\&#x22;,\n        \&#x22;addressCountry\&#x22;: \&#x22;US\&#x22;\n    },\n    \&#x22;creditor\&#x22;: {\n        \&#x22;routingNumber\&#x22;: \&#x22;021214891\&#x22;,\n        \&#x22;accountNumber\&#x22;: \&#x22;2955057589\&#x22;,\n        \&#x22;name\&#x22;: \&#x22;Dim Mak\&#x22;,\n        \&#x22;addressStreetName\&#x22;: \&#x22;400 Kelby St\&#x22;,\n        \&#x22;addressCity\&#x22;: \&#x22;Fort Lee\&#x22;,\n        \&#x22;addressState\&#x22;: \&#x22;NJ\&#x22;,\n        \&#x22;addressPostalCode\&#x22;: \&#x22;07024\&#x22;,\n        \&#x22;addressCountry\&#x22;: \&#x22;US\&#x22;\n    },\n    \&#x22;network\&#x22;: {\n        \&#x22;clearingSystemCode\&#x22;: \&#x22;TCH\&#x22;,\n        \&#x22;currency\&#x22;: \&#x22;USD\&#x22;,\n        \&#x22;endToEndId\&#x22;: \&#x22;6909c29416f0453fbdfdb30500b8d6ae\&#x22;,\n        \&#x22;instructionId\&#x22;: \&#x22;20250623021214273T1B19TS07136537534\&#x22;,\n        \&#x22;interbankSettlementAmount\&#x22;: 19000,\n        \&#x22;interbankSettlementDate\&#x22;: \&#x22;2025-06-23\&#x22;,\n        \&#x22;messageId\&#x22;: \&#x22;M20250623021214273T1BDQK15672530466\&#x22;,\n        \&#x22;numberOfTransactions\&#x22;: 1,\n        \&#x22;settlementMethod\&#x22;: \&#x22;CLRG\&#x22;,\n        \&#x22;businessMessageId\&#x22;: \&#x22;B20250623021214273T1BPRK46725920502\&#x22;,\n        \&#x22;toParticipantId\&#x22;: \&#x22;990000001S1\&#x22;,\n        \&#x22;fromParticipantId\&#x22;: \&#x22;021214273T1\&#x22;,\n        \&#x22;instructingRoutingNumber\&#x22;: \&#x22;021214891\&#x22;,\n        \&#x22;instructedRoutingNumber\&#x22;: \&#x22;011000138\&#x22;,\n        \&#x22;headerCreationDate\&#x22;: \&#x22;2025-06-23T07:12:58.6058948-04:00\&#x22;,\n        \&#x22;messageCreationDateTime\&#x22;: \&#x22;2025-06-23T07:12:58.6058948-04:00\&#x22;,\n        \&#x22;createdAt\&#x22;: \&#x22;2025-06-23T07:12:58.6058948-04:00\&#x22;\n    },\n    \&#x22;serviceLevelCode\&#x22;: \&#x22;SDVA\&#x22;,\n    \&#x22;localInstrumentProprietary\&#x22;: \&#x22;STANDARD\&#x22;,\n    \&#x22;categoryPurpose\&#x22;: \&#x22;CONSUMER\&#x22;,\n    \&#x22;currency\&#x22;: \&#x22;USD\&#x22;,\n    \&#x22;chargeBearer\&#x22;: \&#x22;SLEV\&#x22;,\n    \&#x22;paymentInfoId\&#x22;: \&#x22;20250623021214273T1B19TS07136537534\&#x22;,\n    \&#x22;reqExecutionDate\&#x22;: {\n        \&#x22;date\&#x22;: \&#x22;2025-08-10T00:00:00-04:00\&#x22;,\n        \&#x22;dateType\&#x22;: \&#x22;DtTm\&#x22;\n    },\n    \&#x22;expiryDate\&#x22;: {\n        \&#x22;date\&#x22;: \&#x22;2025-08-16T00:00:00-04:00\&#x22;,\n        \&#x22;dateType\&#x22;: \&#x22;DtTm\&#x22;\n    },\n    \&#x22;paymentConditions\&#x22;: {\n        \&#x22;amountModAllowed\&#x22;: false,\n        \&#x22;earlyPayAllowed\&#x22;: true,\n        \&#x22;acceptedAmount\&#x22;: 19000\n    },\n    \&#x22;purpose\&#x22;: \&#x22;Test Payment 2\&#x22;,\n    \&#x22;useCase\&#x22;: \&#x22;BusinessToBusiness\&#x22;,\n    \&#x22;industryCategory\&#x22;: \&#x22;OnlineGaming\&#x22;,\n    \&#x22;senderID\&#x22;: \&#x22;10000000000\&#x22;,\n    \&#x22;wasRefunded\&#x22;: false,\n    \&#x22;wasPaid\&#x22;: false,\n    \&#x22;createdAt\&#x22;: \&#x22;2025-06-23T07:12:58.6058948-04:00\&#x22;,\n    \&#x22;productId\&#x22;: \&#x22;29f3022a-ccfc-42eb-aa8f-b29500f13d00\&#x22;,\n    \&#x22;partnerId\&#x22;: \&#x22;1101a33d-fbd9-4b9e-b169-b29500f12407\&#x22;,\n    \&#x22;lastModifiedAt\&#x22;: \&#x22;2025-06-23T07:12:58.6380956-04:00\&#x22;,\n    \&#x22;sendAttemptCount\&#x22;: 0,\n    \&#x22;discounts\&#x22;: [\n        {\n            \&#x22;type\&#x22;: \&#x22;DSCT\&#x22;,\n            \&#x22;amount\&#x22;: 1000,\n            \&#x22;currency\&#x22;: \&#x22;USD\&#x22;\n        },\n        {\n            \&#x22;type\&#x22;: \&#x22;FULL\&#x22;,\n            \&#x22;amount\&#x22;: 20000,\n            \&#x22;currency\&#x22;: \&#x22;USD\&#x22;\n        }\n    ],\n    \&#x22;awaitingResponse\&#x22;: false,\n    \&#x22;networkPlatform\&#x22;: \&#x22;TCH\&#x22;\n}&#x22;},{&#x22;id&#x22;:&#x22;on1Q4ouoLk2zFiLK12wlc&#x22;,&#x22;language&#x22;:&#x22;400&#x22;,&#x22;code&#x22;:&#x22;{\n    \&#x22;errors\&#x22;: [\n        {\n            \&#x22;code\&#x22;: 2045,\n            \&#x22;message\&#x22;: \&#x22;Receiver does not support Request For Payment\&#x22;\n        }\n    ]\n}&#x22;,&#x22;customLabel&#x22;:&#x22;&#x22;}],&#x22;selectedLanguageId&#x22;:&#x22;ZA7E-VGG1EUptPxfRE3CS&#x22;},&#x22;request&#x22;:{&#x22;pathParameters&#x22;:[],&#x22;queryParameters&#x22;:[],&#x22;headerParameters&#x22;:[],&#x22;bodyDataParameters&#x22;:[{&#x22;name&#x22;:&#x22;accountNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Account from which the RfP is originated&#x22;},{&#x22;name&#x22;:&#x22;amount&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;Integer&#x22;,&#x22;description&#x22;:&#x22;Requested payment amount in positive integeral cents. For example, represent $1.00 as 100.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;purpose&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Internal CR field used to include a short description or purpose for the payment request. The RDFI does not see this field. 50 characters maximum.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;requestedExecutionDate&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Date when the payment request needs to be processed by the Debtor. Formatted as yyyy-mm-ddThh:mm:ss[.mmm].&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;expiryDate&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Expiration date and time of the RfP. If no time is specified, it expires at 12:00 AM on the given date. If a time is provided, it expires within one hour after the specified time on the same date. Formatted as yyyy-mm-ddThh:mm:ss[.mmm].&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;clientIdentifier&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Use this attribute to add your own unique identifying string to a payment call or COS record. This attribute is useful for idempotency purposes. 50 characters maximum.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;remittanceData&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A description of the payment request, meaning, the remittance advice. Use this field for any remittance information that doesn't have its own field. 140 characters maximum.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;remittanceLocation&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Remittance location information&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;method&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Method used to deliver the remittance advice information: EMAIL or URID&#x22;},{&#x22;name&#x22;:&#x22;eAddress&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The electronic address where the agent should send the remittance information. This is only populated if the method value is EMAIL.&#x22;}]},{&#x22;name&#x22;:&#x22;debtor&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Debtor Personal/Business information. Debtor is the individual receiving the Request for Payment. Please note: For the debtor, name and one additional element like [birthCity, birthCountry, birthdate], [orgLegalEntityId/LEI], OR [addressStreetName, addressCity, addressState, addressPostalCode, and addressCountryare] required as per RfP business rules.&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;accountNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account.&#x22;},{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Name of entity. 140 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;birthCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth city. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;birthcountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth country. 2-letter country code.&#x22;},{&#x22;name&#x22;:&#x22;birthDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth date. Formatted as yyyy-mm-dd.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressStreetName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number. 16 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;},{&#x22;name&#x22;:&#x22;routingNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;9-digit routing number of the financial institution&#x22;},{&#x22;name&#x22;:&#x22;phoneNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;10 characters maximum&#x22;}],&#x22;schema&#x22;:[{&#x22;name&#x22;:&#x22;accountNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account.&#x22;},{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Name of entity. 140 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;birthCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth city. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;birthcountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth country. 2-letter country code.&#x22;},{&#x22;name&#x22;:&#x22;birthDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth date. Formatted as yyyy-mm-dd.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressStreetName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number. 16 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;},{&#x22;name&#x22;:&#x22;routingNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;9-digit routing number of the financial institution&#x22;},{&#x22;name&#x22;:&#x22;phoneNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;10 characters maximum&#x22;}]},{&#x22;name&#x22;:&#x22;ultimateDebtor&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Ultimate Debtor Business/Individual Information. The final party receiving the RfP and responsible for initiating the credit transfer upon authorization. &#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Name of entity. 140 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;privateId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Unique and unambiguous identification of a person. For example, passport or driving license number.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressStreetName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number. 16 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;}]},{&#x22;name&#x22;:&#x22;creditor&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Creditor Business/Individual Information. The recipient of the payment, typically the party at CRB initiating the RfP. Depending on the configuration, this information may be populated automatically.&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;routingNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;9-digit routing number of the receiving financial institution&#x22;},{&#x22;name&#x22;:&#x22;accountNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account.&#x22;},{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Legal name of entity. 140 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;birthCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth city. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;birthCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth country. 2-letter country code.&#x22;},{&#x22;name&#x22;:&#x22;birthDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth date. Formatted as yyyy-mm-dd.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressStreetName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number. 16 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;adressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;},{&#x22;name&#x22;:&#x22;phoneNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;String&#x22;,&#x22;description&#x22;:&#x22;10 characters maximum&#x22;}],&#x22;schema&#x22;:[{&#x22;name&#x22;:&#x22;routingNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;9-digit routing number of the receiving financial institution&#x22;},{&#x22;name&#x22;:&#x22;accountNumber&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account.&#x22;},{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Legal name of entity. 140 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;birthCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth city. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;birthCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth country. 2-letter country code.&#x22;},{&#x22;name&#x22;:&#x22;birthDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth date. Formatted as yyyy-mm-dd.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressStreetName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number. 16 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;adressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;},{&#x22;name&#x22;:&#x22;phoneNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;String&#x22;,&#x22;description&#x22;:&#x22;10 characters maximum&#x22;}]},{&#x22;name&#x22;:&#x22;ultimateCreditor&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Ultimate Creditor Business/Individual Information. The final recipient of the payment. Depending on the configuration, this information may be populated automatically.&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Legal name of entity. 140 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;privateId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Unique and unambiguous identification of a person. For example, passport or driving license number.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressStreetNameadd&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number. 16 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;}],&#x22;schema&#x22;:[{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Legal name of entity. 140 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;privateId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Unique and unambiguous identification of a person. For example, passport or driving license number.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressStreetNameadd&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information. 70 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number. 16 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name. 35 characters maximum.&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;}]},{&#x22;name&#x22;:&#x22;useCase&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Use one of the following values for the useCase field:\n\n-BusinessToBusiness\n-ConsumerBillPay\n-AccountToAccount\n-DownPaymentOrFinalPayment\n-ConsumerToGovernment&#x22;,&#x22;&#x22;:&#x22;Use one of the following values for the useCase field:\n\n-BusinessToBusiness\n-ConsumerBillPay\n-AccountToAccount\n-DownPaymentOrFinalPayment\n-ConsumerToGovernment&#x22;},{&#x22;name&#x22;:&#x22;industryCategory&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Use one of the following values for the industryCategory field (optional when useCase is BusinessToBusiness or ConsumerToGovernment):\n\n-HomeUtilities\n-TelecomUtilities\n-Mortgage\n-Rent\n-InsurancePremiums\n-AutoLoans\n-PersonalLoans\n-CreditCardPayment\n-MediaSubscriptions\n-Memberships\n-FinancialInstitution\n-BrokerOrDealer\n-Medical\n-OnlineGaming\n-RealEstate\n-Government&#x22;,&#x22;&#x22;:&#x22;Use one of the following values for the industryCategory field (optional when useCase is BusinessToBusiness or ConsumerToGovernment):\n\n-HomeUtilities\n-TelecomUtilities\n-Mortgage\n-Rent\n-InsurancePremiums\n-AutoLoans\n-PersonalLoans\n-CreditCardPayment\n-MediaSubscriptions\n-Memberships\n-FinancialInstitution\n-BrokerOrDealer\n-Medical\n-OnlineGaming\n-RealEstate\n-Government&#x22;},{&#x22;name&#x22;:&#x22;senderID&#x22;,&#x22;kind&#x22;:&#x22;required&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Use the senderId field (optional when useCase is BusinessToBusiness or ConsumerToGovernment), provided by Cross River and generated by The Clearing House (TCH).\n\nValid senderID's for Sandbox Testing:\n-100000000001\n-100000000002\n-100000000003\n-100000000004\n-100000000005&#x22;,&#x22;&#x22;:&#x22;required&#x22;},{&#x22;name&#x22;:&#x22;amountModAllowed&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;boolean&#x22;,&#x22;description&#x22;:&#x22;Indicates whether the recipient is allowed to modify the requested amount in response to an RfP. If the field is not provided, the system defaults to true.\nIf true, the recipient may respond with a different amount\nIf false, the recipient must match the original amount; any mismatch will cause the payment to be rejected.\n&#x22;,&#x22;&#x22;:&#x22;Indicates whether the recipient is allowed to modify the requested amount in response to an RfP. If the field is not provided, the system defaults to true.\nIf true, the recipient may respond with a different amount\nIf false, the recipient must match the original amount; any mismatch will cause the payment to be rejected.\n&#x22;}],&#x22;formDataParameters&#x22;:[]},&#x22;currentNewParameter&#x22;:{&#x22;label&#x22;:&#x22;Body Parameter&#x22;,&#x22;value&#x22;:&#x22;bodyDataParameters&#x22;},&#x22;response&#x22;:[{&#x22;name&#x22;:&#x22;id&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The payment ID. This first appears in the initial response to the originate a payment request. This ID is in GUID format.&#x22;},{&#x22;name&#x22;:&#x22;originalPaymentId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Original payment ID (only relevant if a payment didn't go through for some reason).&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;referenceId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;This unique Cross River reference ID starts with the first letter of the payment rail. For Instant Payments, the ID begins with R to reflect the RTP API module.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;accountNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Account initiating the payment request&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;clientIdentifier&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique identifier assigned to the payment call or COS record. This value reflects the identifier provided in the original request and helps ensure idempotency.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;amount&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Integer&#x22;,&#x22;description&#x22;:&#x22;Dollar amount of payment request in positive integral cents. For example, write $1.00 as 100.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;operatorCoreTransactionId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The Instant Payments-related Cross River system transaction ID&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;authorizationTransactionId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The ID of an authorization transaction created when Cross River receives an inbound credit transfer that refunds a previously sent outbound transfer. This authorization confirms that Cross River can post the transaction to the creditor’s (receiver’s) COS account (e.g., no restrictions or account closures) and allows Cross River to notify the real-time payment network of acceptance.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;memoPostId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The ID of the memo post&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;memoPostRemovedAt&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The date and time the memo post was removed&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;direction&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Outbound for an outbound payment request or Inbound for an inbound payment request.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;status&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Transaction status:\n\n-Created\n-Pending\n-Processing\n-Completed\n-Rejected\n-Canceled\n-Hold\n-TimedOut\n-Finalizing\n-Failed\n-ResearchRequired\n-Expired\n-Authorized&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;paymentType&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Type of payment indicating how the transaction is funded:\n\n-RequestForPayment&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;source&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The source of the activity:\n-Api&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;transactionAccountContext&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Transaction account context:\n\n-NotSubmitted\n-Pending\n-Processing\n-Complete\n-Reversal\n-MemoPost\n-TimedOut\n-Canceled\n-Rejected\n-AuthOnly\n-NotSet&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;rtpTransactionStatus&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The payment status set by the receiving institution, applicable to Credit Transfers.\n\nThis value is only present for outbound payments. See available values here.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;debtor&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Debtor business/individual information. – The recipient of the RfP who will initiate the credit transfer upon authorization. Depending on the configuration, this information may be populated automatically.&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;routingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;9-digit routing number of the sending financial institution&#x22;},{&#x22;name&#x22;:&#x22;accountNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account.&#x22;},{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Name of entity&#x22;},{&#x22;name&#x22;:&#x22;birthCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth city&#x22;},{&#x22;name&#x22;:&#x22;birthCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth country. 2-letter country code.&#x22;},{&#x22;name&#x22;:&#x22;birthDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Debtor birth date. Formatted as yyyy-mm-dd.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions.&#x22;},{&#x22;name&#x22;:&#x22;proxyId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Identification used to represent the account under a different name or alias, such as a mobile number or email address.&#x22;},{&#x22;name&#x22;:&#x22;phoneNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;10-digit phone number&#x22;},{&#x22;name&#x22;:&#x22;addressStreetName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;}]},{&#x22;name&#x22;:&#x22;ultimateDebtor&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Ultimate debtor business/individual information. The final party responsible for initiating the credit transfer upon authorization. This information may be populated automatically based on the configuration.&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Name of entity&#x22;},{&#x22;name&#x22;:&#x22;privateId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Unique and unambiguous identification of a person, for example, a passport number&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions&#x22;},{&#x22;name&#x22;:&#x22;addressStreetName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;}]},{&#x22;name&#x22;:&#x22;creditor&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Creditor business/individual information. The recipient of the payment, typically the party at CRB initiating the RfP. Depending on the configuration, this information may be populated automatically.\n&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;routingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;9-digit routing number of the receiving financial institution&#x22;},{&#x22;name&#x22;:&#x22;accountNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account.&#x22;},{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Name of entity&#x22;},{&#x22;name&#x22;:&#x22;birthCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth city&#x22;},{&#x22;name&#x22;:&#x22;birthCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth country. 2-letter country code.&#x22;},{&#x22;name&#x22;:&#x22;birthDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Creditor birth date. Formatted as yyyy-mm-dd.&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions&#x22;},{&#x22;name&#x22;:&#x22;proxyId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Identification used to represent the account under a different name or alias, such as a mobile number or email address&#x22;},{&#x22;name&#x22;:&#x22;phoneNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;10-digit phone number&#x22;},{&#x22;name&#x22;:&#x22;addressStreetName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;}]},{&#x22;name&#x22;:&#x22;ultimateCreditor&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Ultimate creditor business/individual information. The final recipient of the payment. Depending on the configuration, this information may be populated automatically.&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;name&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Name of entity&#x22;},{&#x22;name&#x22;:&#x22;privateId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Unique and unambiguous identification of a person, for example, a passport number&#x22;},{&#x22;name&#x22;:&#x22;orgLegalEntityId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique global identifier for legal entities that are not consumers but are participating in financial transactions&#x22;},{&#x22;name&#x22;:&#x22;addressStreetNameadd&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address name information&#x22;},{&#x22;name&#x22;:&#x22;addressLine&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Additional address information&#x22;},{&#x22;name&#x22;:&#x22;addressBuildingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Street address building number&#x22;},{&#x22;name&#x22;:&#x22;addressCity&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;City full name&#x22;},{&#x22;name&#x22;:&#x22;addressState&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter code for the state&#x22;},{&#x22;name&#x22;:&#x22;addressPostalCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Postal or ZIP code&#x22;},{&#x22;name&#x22;:&#x22;addressCountry&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;2-letter country code&#x22;}]},{&#x22;name&#x22;:&#x22;network&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Network information&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;messageDefId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Contains the ISO 20022 Message Identifier specifying the business message&#x22;},{&#x22;name&#x22;:&#x22;businessMessageId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Unique identifier of the message&#x22;},{&#x22;name&#x22;:&#x22;messageId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Unique identifier of the message&#x22;},{&#x22;name&#x22;:&#x22;createdAt&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Indicates when the pain.013 message was created, formatted as yyyy-mm-ddThh:mm:ss[.mmm]&#x22;},{&#x22;name&#x22;:&#x22;numberOfTransactions&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Integer&#x22;,&#x22;description&#x22;:&#x22;The total count of transactions&#x22;},{&#x22;name&#x22;:&#x22;interbankSettlementAmount&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Integer&#x22;,&#x22;description&#x22;:&#x22;The total amount the Debtor FI must pay to the Creditor FI once the Creditor FI accepts the payment instructed by the credit transfer message&#x22;},{&#x22;name&#x22;:&#x22;currency&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Currency of the payment&#x22;},{&#x22;name&#x22;:&#x22;interbankSettlementDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The date linked to the reconciliation window, used in RTP alongside the clearing system reference to allocate a credit transfer to a specific reconciliation window&#x22;},{&#x22;name&#x22;:&#x22;settlementMethod&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The method used to settle an individual credit transfer processed through RTP&#x22;},{&#x22;name&#x22;:&#x22;clearingSystemCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The code used to specify the clearing system used to settle the credit transfer. For RTP the clearing system code is TCH.&#x22;},{&#x22;name&#x22;:&#x22;instructionId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The unique ID assigned by the instructing agent for the payment request while it remains active within the RTP system. \n\nThis ID serves as the unique identifier for the payment request within the Instant Payments network.&#x22;},{&#x22;name&#x22;:&#x22;endToEndId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The unique ID assigned by the initiating party to identify and track the transaction.&#x22;},{&#x22;name&#x22;:&#x22;transactionId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique string in GUID format that clearly identifies the transaction. This ID passes unchanged the whole interbank chain.\n\nThis ID serves as the unique identifier for the Credit Transfer within the Instant Payments network.&#x22;},{&#x22;name&#x22;:&#x22;clearingSystemRef&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Identifies the reconciliation window in which the credit transfer was settled&#x22;},{&#x22;name&#x22;:&#x22;fromParticipantId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The unique identifier of the participant sending the message on the Instant Payment network platform&#x22;},{&#x22;name&#x22;:&#x22;toParticipantId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The unique identifier of the participant receiving the message on the Instant Payment network platform&#x22;},{&#x22;name&#x22;:&#x22;fromBranchId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Identifies the specific branch of a financial institution that sent the message, used exclusively for routing purposes in Instant Payments&#x22;},{&#x22;name&#x22;:&#x22;toBranchId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Identifies the specific branch of a financial institution that receives the message, used exclusively for routing purposes in Instant Payments&#x22;},{&#x22;name&#x22;:&#x22;instructingRoutingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Sending bank routing number&#x22;},{&#x22;name&#x22;:&#x22;instructedRoutingNumber&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Receiving bank routing number&#x22;},{&#x22;name&#x22;:&#x22;headerCreationDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Internal to CR&#x22;},{&#x22;name&#x22;:&#x22;messageCreationDateTime&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The date and time when the payment request message was created, formatted as yyyy-mm-ddThh:mm:ss[.mmm]&#x22;},{&#x22;name&#x22;:&#x22;uetr&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A Unique End-to-end Transaction Reference (commonly known as a UETR) is a string of 36 unique characters featured in all payment instruction messages carried over Swift&#x22;}]},{&#x22;name&#x22;:&#x22;remittanceAdvice&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Remittance advice information&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;remittanceIdentification&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique identifier assigned by the initiating party to clearly distinguish the remittance information sent separately from the payment instruction, such as remittance advice&#x22;},{&#x22;name&#x22;:&#x22;origInstructionId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The original unique ID of the credit transfer, assigned by the Instructing Agent while it remains in the RTP system&#x22;},{&#x22;name&#x22;:&#x22;origEndToEndId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The original unique ID set by the initiating party to identify the transaction, referring to a previous payment message&#x22;},{&#x22;name&#x22;:&#x22;origTransactionId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique GUID-format string that clearly identifies the transaction, referring to a previous payment message. This ID remains unchanged throughout the entire interbank chain.&#x22;},{&#x22;name&#x22;:&#x22;origPaymentInfoId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique identifier assigned by the original sending party to clearly distinguish the original payment information group&#x22;},{&#x22;name&#x22;:&#x22;origInstructedAmount&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Integer&#x22;,&#x22;description&#x22;:&#x22;The amount of money specified in the original transaction to be transferred between the debtor and creditor, before any charges are deducted, expressed in the currency requested by the original initiating party.&#x22;},{&#x22;name&#x22;:&#x22;origInstructedAmountCurrency&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Currency of the original transaction&#x22;}]},{&#x22;name&#x22;:&#x22;transactionInfo&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Information about the transaction&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;status&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;String&#x22;,&#x22;description&#x22;:&#x22;The current status of a single payment instruction within the transaction process&#x22;},{&#x22;name&#x22;:&#x22;reasonCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A code that specifies the reason a transaction did not complete. Refer to the list of reason codes for details.&#x22;},{&#x22;name&#x22;:&#x22;additionalInfo&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Provides supplementary details regarding the status report&#x22;},{&#x22;name&#x22;:&#x22;reasonProprietary&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Indicates the local instrument by using a proprietary code&#x22;}]},{&#x22;name&#x22;:&#x22;serviceLevelCode&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Indicates a pre-arranged service or service level agreed upon between the parties&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;localInstrumentPropriety&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Specifies whether the Debtor is a business or consumer customer of the Debtor FI. This element also indicates if the Debtor is a domestic customer of the Debtor FI or a customer of a foreign branch or affiliate.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;categoryPurpose&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Details from the initiating party regarding payment processing, based on predefined categories. Certain values may initiate special processing by various parties involved in the payment chain.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;initiatingPartyName&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Name of initiating party/entity&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;currency&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Currency of the payment&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;chargeBearer&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Indicates the party (or parties) responsible for bearing the charges related to processing the payment request.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;remittanceIdentification&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A unique identifier assigned by the initiating party to clearly distinguish the remittance information sent separately from the payment instruction, such as remittance advice&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;remittanceData&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;A description of the payment request, serving as the remittance advice. This field is used for any remittance information that does not have a designated field.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;paymentInfoId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Payment information ID&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;reqExecutionDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Requested execution date information&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;date&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The requested date and time of the payment, formatted as yyyy-mm-ddThh:mm:ss[.mmm]&#x22;},{&#x22;name&#x22;:&#x22;dateType&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The date type&#x22;}]},{&#x22;name&#x22;:&#x22;expiryDate&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Expiry date information&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;date&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The expiry date and time of the payment, formatted as yyyy-mm-ddThh:mm:ss[.mmm]&#x22;},{&#x22;name&#x22;:&#x22;dateType&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The date type&#x22;}]},{&#x22;name&#x22;:&#x22;paymentConditions&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Payment conditions information&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;amountModAllowed&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Boolean&#x22;,&#x22;description&#x22;:&#x22;Indicates whether the requested payment amount can be modified by the debtor.&#x22;},{&#x22;name&#x22;:&#x22;earlyPayAllowed&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Boolean&#x22;,&#x22;description&#x22;:&#x22;Specifies if early payment is permitted before the due date.&#x22;},{&#x22;name&#x22;:&#x22;acceptedAmount&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Integer&#x22;,&#x22;description&#x22;:&#x22;The fixed amount (in cents) that the creditor is willing to accept for the payment request.&#x22;}]},{&#x22;name&#x22;:&#x22;purpose&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Internal Cross River field used to include a short description of the purpose of the payment. The RDFI does not see this field. &#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;wasRefunded&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Boolean&#x22;,&#x22;description&#x22;:&#x22;Indicates whether the payment was refunded. True if refunded, otherwise False.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;wasPaid&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Boolean&#x22;,&#x22;description&#x22;:&#x22;Indicates whether the payment was received. True if received, otherwise False.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;createdAt&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The date and time when the credit transfer was created, formatted as yyyy-mm-ddThh:mm:ss[.mmm]&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;productId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The GUID representing the ID of your specific product type associated with the account. This is provided by Cross River and identifies the Cross River account involved in the transfer.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;partnerId&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Your unique ID in the Cross River system. This ID is in GUID format.&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;lastModifiedAt&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Internal Cross River value. Date and time the database entry was last modified. In this case, the date and time are in this format: yyyy-mm-ddThh:mm:ss[.mmm]&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;sendAttemptCount&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Integer&#x22;,&#x22;description&#x22;:&#x22;The total count of attempts to send the payment request&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;discounts&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Object&#x22;,&#x22;description&#x22;:&#x22;Discounts array specifies applicable discounts for the request.&#x22;,&#x22;children&#x22;:[{&#x22;name&#x22;:&#x22;type&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The type of discount applied. \nPossible values include:\n- DSCT: A standard discount applied to the payment.\n- FULL: A full payment discount (for example, early payment incentive)&#x22;},{&#x22;name&#x22;:&#x22;amount&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Integer&#x22;,&#x22;description&#x22;:&#x22;Amount of discount in positive integral cents. For example, write $1.00 as 100.&#x22;},{&#x22;name&#x22;:&#x22;currency&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;Currency of the discount. For example USD.&#x22;}]},{&#x22;name&#x22;:&#x22;awaitingResponse&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;Boolean&#x22;,&#x22;description&#x22;:&#x22;Indicates whether a message response is pending. True if waiting, otherwise False.\n&#x22;,&#x22;children&#x22;:[]},{&#x22;name&#x22;:&#x22;networkPlatform&#x22;,&#x22;kind&#x22;:&#x22;optional&#x22;,&#x22;type&#x22;:&#x22;string&#x22;,&#x22;description&#x22;:&#x22;The payment network platform used to process the payment. Possible values are: TCH (for RTP via The Clearing House)&#x22;,&#x22;children&#x22;:[]}],&#x22;hasTryItOut&#x22;:false,&#x22;autoGeneratedAnchorSlug&#x22;:&#x22;endpoint-rtpv1paymentspayment-request&#x22;,&#x22;legacyHash&#x22;:&#x22;oknzrgL4CWQ1l_cySogjO&#x22;}">
+  ```json
+  {
+    "name": "Endpoint: /rtp/v1/payments/payment-request",
+    "method": "POST",
+    "url": "https://sandbox.crbcos.com/rtp/v1/payments/payment-request",
+    "description": "",
+    "tab": "examples",
+    "examples": {
+      "languages": [
+        {
+          "id": "tiU4cYZv2OBskCr5TaQ-D",
+          "language": "curl",
+          "code": "curl --location 'https://sandbox.crbcos.com/rtp/v1/payments/payment-request' \\\n--header 'Content-Type: application/json' \\\n--data '{\n    \"accountNumber\": \"2564791479\",\n    \"amount\": 20000,\n    \"discount\": 1000,\n    \"debtor\": {\n        \"routingNumber\": \"071212128\",\n        \"accountNumber\": \"2758463448\",\n        \"name\": \"Terry Tester\",\n        \"birthCity\": \"Pine Brook\",\n        \"birthCountry\": \"US\",\n        \"birthDate\": \"1996-08-09\",\n        \"addressStreetName\": \"Linwood Ave\",\n        \"addressBuildingNumber\": \"2115\",\n        \"addressCity\": \"Pine Brook\",\n        \"addressState\": \"NJ\",\n        \"addressPostalCode\": \"07024\",\n        \"addressCountry\": \"US\"\n    },\n    \"creditor\": {\n        \"accountNumber\": \"2564791479\",\n        \"name\": \"the creditor\"\n    },\n    \"purpose\": \"Test Payment 2\",\n    \"clientIdentifier\": \"123456\",\n    \"requestedExecutionDate\": \"2025-08-10\",\n    \"expiryDate\": \"2025-08-16\",\n    \"senderId\": \"100000001\",\n    \"useCase\": \"BusinessToBusiness\",\n    \"industryCategory\": \"OnlineGaming\"\n}'",
+          "customLabel": ""
+        },
+        {
+          "id": "2YWx4qreq-R5gXud3QE83",
+          "language": "nodejs",
+          "code": "var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://sandbox.crbcos.com/rtp/v1/payments/payment-request',\n  'headers': {\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    \"accountNumber\": \"2564791479\",\n    \"amount\": 20000,\n    \"discount\": 1000,\n    \"debtor\": {\n      \"routingNumber\": \"071212128\",\n      \"accountNumber\": \"2758463448\",\n      \"name\": \"Terry Tester\",\n      \"birthCity\": \"Pine Brook\",\n      \"birthCountry\": \"US\",\n      \"birthDate\": \"1996-08-09\",\n      \"addressStreetName\": \"Linwood Ave\",\n      \"addressBuildingNumber\": \"2115\",\n      \"addressCity\": \"Pine Brook\",\n      \"addressState\": \"NJ\",\n      \"addressPostalCode\": \"07024\",\n      \"addressCountry\": \"US\"\n    },\n    \"creditor\": {\n      \"accountNumber\": \"2564791479\",\n      \"name\": \"the creditor\"\n    },\n    \"purpose\": \"Test Payment 2\",\n    \"clientIdentifier\": \"123456\",\n    \"requestedExecutionDate\": \"2025-08-10\",\n    \"expiryDate\": \"2025-08-16\",\n    \"senderId\": \"100000001\",\n    \"useCase\": \"BusinessToBusiness\",\n    \"industryCategory\": \"OnlineGaming\"\n  })\n\n};\nrequest(options, function (error, response) {\n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n",
+          "customLabel": ""
+        },
+        {
+          "id": "YOHQfOuM8rgbNoWxp-x0u",
+          "language": "python",
+          "code": "import requests\nimport json\n\nurl = \"https://sandbox.crbcos.com/rtp/v1/payments/payment-request\"\n\npayload = json.dumps({\n  \"accountNumber\": \"2564791479\",\n  \"amount\": 20000,\n  \"discount\": 1000,\n  \"debtor\": {\n    \"routingNumber\": \"071212128\",\n    \"accountNumber\": \"2758463448\",\n    \"name\": \"Terry Tester\",\n    \"birthCity\": \"Pine Brook\",\n    \"birthCountry\": \"US\",\n    \"birthDate\": \"1996-08-09\",\n    \"addressStreetName\": \"Linwood Ave\",\n    \"addressBuildingNumber\": \"2115\",\n    \"addressCity\": \"Pine Brook\",\n    \"addressState\": \"NJ\",\n    \"addressPostalCode\": \"07024\",\n    \"addressCountry\": \"US\"\n  },\n  \"creditor\": {\n    \"accountNumber\": \"2564791479\",\n    \"name\": \"the creditor\"\n  },\n  \"purpose\": \"Test Payment 2\",\n  \"clientIdentifier\": \"123456\",\n  \"requestedExecutionDate\": \"2025-08-10\",\n  \"expiryDate\": \"2025-08-16\",\n  \"senderId\": \"100000001\",\n  \"useCase\": \"BusinessToBusiness\",\n  \"industryCategory\": \"OnlineGaming\"\n})\nheaders = {\n  'Content-Type': 'application/json'\n}\n\nresponse = requests.request(\"POST\", url, headers=headers, data=payload)\n\nprint(response.text)\n",
+          "customLabel": ""
+        },
+        {
+          "id": "PO3dR-zN2juLY7vnhKT_l",
+          "language": "ruby",
+          "code": "require \"uri\"\nrequire \"json\"\nrequire \"net/http\"\n\nurl = URI(\"https://sandbox.crbcos.com/rtp/v1/payments/payment-request\")\n\nhttps = Net::HTTP.new(url.host, url.port)\nhttps.use_ssl = true\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"Content-Type\"] = \"application/json\"\nrequest.body = JSON.dump({\n  \"accountNumber\": \"2564791479\",\n  \"amount\": 20000,\n  \"discount\": 1000,\n  \"debtor\": {\n    \"routingNumber\": \"071212128\",\n    \"accountNumber\": \"2758463448\",\n    \"name\": \"Terry Tester\",\n    \"birthCity\": \"Pine Brook\",\n    \"birthCountry\": \"US\",\n    \"birthDate\": \"1996-08-09\",\n    \"addressStreetName\": \"Linwood Ave\",\n    \"addressBuildingNumber\": \"2115\",\n    \"addressCity\": \"Pine Brook\",\n    \"addressState\": \"NJ\",\n    \"addressPostalCode\": \"07024\",\n    \"addressCountry\": \"US\"\n  },\n  \"creditor\": {\n    \"accountNumber\": \"2564791479\",\n    \"name\": \"the creditor\"\n  },\n  \"purpose\": \"Test Payment 2\",\n  \"clientIdentifier\": \"123456\",\n  \"requestedExecutionDate\": \"2025-08-10\",\n  \"expiryDate\": \"2025-08-16\",\n  \"senderId\": \"100000001\",\n  \"useCase\": \"BusinessToBusiness\",\n  \"industryCategory\": \"OnlineGaming\"\n})\n\nresponse = https.request(request)\nputs response.read_body\n",
+          "customLabel": ""
+        },
+        {
+          "id": "PuudTHa7YBQRHtGMWLBRm",
+          "language": "go",
+          "code": "package main\n\nimport (\n  \"fmt\"\n  \"strings\"\n  \"net/http\"\n  \"io\"\n)\n\nfunc main() {\n\n  url := \"https://sandbox.crbcos.com/rtp/v1/payments/payment-request\"\n  method := \"POST\"\n\n  payload := strings.NewReader(`{`+\"\n\"+`\n    \"accountNumber\": \"2564791479\",`+\"\n\"+`\n    \"amount\": 20000,`+\"\n\"+`\n    \"discount\": 1000,`+\"\n\"+`\n    \"debtor\": {`+\"\n\"+`\n        \"routingNumber\": \"071212128\",`+\"\n\"+`\n        \"accountNumber\": \"2758463448\",`+\"\n\"+`\n        \"name\": \"Terry Tester\",`+\"\n\"+`\n        \"birthCity\": \"Pine Brook\",`+\"\n\"+`\n        \"birthCountry\": \"US\",`+\"\n\"+`\n        \"birthDate\": \"1996-08-09\",`+\"\n\"+`\n        \"addressStreetName\": \"Linwood Ave\",`+\"\n\"+`\n        \"addressBuildingNumber\": \"2115\",`+\"\n\"+`\n        \"addressCity\": \"Pine Brook\",`+\"\n\"+`\n        \"addressState\": \"NJ\",`+\"\n\"+`\n        \"addressPostalCode\": \"07024\",`+\"\n\"+`\n        \"addressCountry\": \"US\"`+\"\n\"+`\n    },`+\"\n\"+`\n    \"creditor\": {`+\"\n\"+`\n        \"accountNumber\": \"2564791479\",`+\"\n\"+`\n        \"name\": \"the creditor\"`+\"\n\"+`\n    },`+\"\n\"+`\n    \"purpose\": \"Test Payment 2\",`+\"\n\"+`\n    \"clientIdentifier\": \"123456\",`+\"\n\"+`\n    \"requestedExecutionDate\": \"2025-08-10\",`+\"\n\"+`\n    \"expiryDate\": \"2025-08-16\",`+\"\n\"+`\n    \"senderId\": \"100000001\",`+\"\n\"+`\n    \"useCase\": \"BusinessToBusiness\",`+\"\n\"+`\n    \"industryCategory\": \"OnlineGaming\"`+\"\n\"+`\n}`)\n\n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n\n  if err != nil {\n    fmt.Println(err)\n    return\n  }\n  req.Header.Add(\"Content-Type\", \"application/json\")\n\n  res, err := client.Do(req)\n  if err != nil {\n    fmt.Println(err)\n    return\n  }\n  defer res.Body.Close()\n\n  body, err := io.ReadAll(res.Body)\n  if err != nil {\n    fmt.Println(err)\n    return\n  }\n  fmt.Println(string(body))\n}",
+          "customLabel": ""
+        }
+      ],
+      "selectedLanguageId": "tiU4cYZv2OBskCr5TaQ-D"
+    },
+    "results": {
+      "languages": [
+        {
+          "id": "ZA7E-VGG1EUptPxfRE3CS",
+          "language": "200",
+          "customLabel": "",
+          "code": "{\n    \"id\": \"8ee74810-45fe-47ee-9569-b30500b8d6ae\",\n    \"originalPaymentId\": \"8ee74810-45fe-47ee-9569-b30500b8d6ae\",\n    \"referenceId\": \"R174OI808VYXJ\",\n    \"accountNumber\": \"2955057589\",\n    \"clientIdentifier\": \"123456\",\n    \"amount\": 19000,\n    \"direction\": \"Outbound\",\n    \"status\": \"Created\",\n    \"paymentType\": \"RequestForPayment\",\n    \"source\": \"Api\",\n    \"transactionAccountContext\": \"NotSubmitted\",\n    \"debtor\": {\n        \"routingNumber\": \"011000138\",\n        \"accountNumber\": \"2758463448\",\n        \"name\": \"Terry Tester\",\n        \"birthCity\": \"Pine Brook\",\n        \"birthCountry\": \"US\",\n        \"birthDate\": \"1996-08-09\",\n        \"addressStreetName\": \"Linwood Ave\",\n        \"addressBuildingNumber\": \"2115\",\n        \"addressCity\": \"Pine Brook\",\n        \"addressState\": \"NJ\",\n        \"addressPostalCode\": \"07024\",\n        \"addressCountry\": \"US\"\n    },\n    \"creditor\": {\n        \"routingNumber\": \"021214891\",\n        \"accountNumber\": \"2955057589\",\n        \"name\": \"Dim Mak\",\n        \"addressStreetName\": \"400 Kelby St\",\n        \"addressCity\": \"Fort Lee\",\n        \"addressState\": \"NJ\",\n        \"addressPostalCode\": \"07024\",\n        \"addressCountry\": \"US\"\n    },\n    \"network\": {\n        \"clearingSystemCode\": \"TCH\",\n        \"currency\": \"USD\",\n        \"endToEndId\": \"6909c29416f0453fbdfdb30500b8d6ae\",\n        \"instructionId\": \"20250623021214273T1B19TS07136537534\",\n        \"interbankSettlementAmount\": 19000,\n        \"interbankSettlementDate\": \"2025-06-23\",\n        \"messageId\": \"M20250623021214273T1BDQK15672530466\",\n        \"numberOfTransactions\": 1,\n        \"settlementMethod\": \"CLRG\",\n        \"businessMessageId\": \"B20250623021214273T1BPRK46725920502\",\n        \"toParticipantId\": \"990000001S1\",\n        \"fromParticipantId\": \"021214273T1\",\n        \"instructingRoutingNumber\": \"021214891\",\n        \"instructedRoutingNumber\": \"011000138\",\n        \"headerCreationDate\": \"2025-06-23T07:12:58.6058948-04:00\",\n        \"messageCreationDateTime\": \"2025-06-23T07:12:58.6058948-04:00\",\n        \"createdAt\": \"2025-06-23T07:12:58.6058948-04:00\"\n    },\n    \"serviceLevelCode\": \"SDVA\",\n    \"localInstrumentProprietary\": \"STANDARD\",\n    \"categoryPurpose\": \"CONSUMER\",\n    \"currency\": \"USD\",\n    \"chargeBearer\": \"SLEV\",\n    \"paymentInfoId\": \"20250623021214273T1B19TS07136537534\",\n    \"reqExecutionDate\": {\n        \"date\": \"2025-08-10T00:00:00-04:00\",\n        \"dateType\": \"DtTm\"\n    },\n    \"expiryDate\": {\n        \"date\": \"2025-08-16T00:00:00-04:00\",\n        \"dateType\": \"DtTm\"\n    },\n    \"paymentConditions\": {\n        \"amountModAllowed\": false,\n        \"earlyPayAllowed\": true,\n        \"acceptedAmount\": 19000\n    },\n    \"purpose\": \"Test Payment 2\",\n    \"useCase\": \"BusinessToBusiness\",\n    \"industryCategory\": \"OnlineGaming\",\n    \"senderID\": \"10000000000\",\n    \"wasRefunded\": false,\n    \"wasPaid\": false,\n    \"createdAt\": \"2025-06-23T07:12:58.6058948-04:00\",\n    \"productId\": \"29f3022a-ccfc-42eb-aa8f-b29500f13d00\",\n    \"partnerId\": \"1101a33d-fbd9-4b9e-b169-b29500f12407\",\n    \"lastModifiedAt\": \"2025-06-23T07:12:58.6380956-04:00\",\n    \"sendAttemptCount\": 0,\n    \"discounts\": [\n        {\n            \"type\": \"DSCT\",\n            \"amount\": 1000,\n            \"currency\": \"USD\"\n        },\n        {\n            \"type\": \"FULL\",\n            \"amount\": 20000,\n            \"currency\": \"USD\"\n        }\n    ],\n    \"awaitingResponse\": false,\n    \"networkPlatform\": \"TCH\"\n}"
+        },
+        {
+          "id": "on1Q4ouoLk2zFiLK12wlc",
+          "language": "400",
+          "code": "{\n    \"errors\": [\n        {\n            \"code\": 2045,\n            \"message\": \"Receiver does not support Request For Payment\"\n        }\n    ]\n}",
+          "customLabel": ""
+        }
+      ],
+      "selectedLanguageId": "ZA7E-VGG1EUptPxfRE3CS"
+    },
+    "request": {
+      "pathParameters": [],
+      "queryParameters": [],
+      "headerParameters": [],
+      "bodyDataParameters": [
+        {
+          "name": "accountNumber",
+          "kind": "required",
+          "type": "string",
+          "description": "Account from which the RfP is originated"
+        },
+        {
+          "name": "amount",
+          "kind": "required",
+          "type": "Integer",
+          "description": "Requested payment amount in positive integeral cents. For example, represent $1.00 as 100.",
+          "children": []
+        },
+        {
+          "name": "purpose",
+          "kind": "optional",
+          "type": "string",
+          "description": "Internal CR field used to include a short description or purpose for the payment request. The RDFI does not see this field. 50 characters maximum.",
+          "children": []
+        },
+        {
+          "name": "requestedExecutionDate",
+          "kind": "required",
+          "type": "string",
+          "description": "Date when the payment request needs to be processed by the Debtor. Formatted as yyyy-mm-ddThh:mm:ss[.mmm].",
+          "children": []
+        },
+        {
+          "name": "expiryDate",
+          "kind": "required",
+          "type": "string",
+          "description": "Expiration date and time of the RfP. If no time is specified, it expires at 12:00 AM on the given date. If a time is provided, it expires within one hour after the specified time on the same date. Formatted as yyyy-mm-ddThh:mm:ss[.mmm].",
+          "children": []
+        },
+        {
+          "name": "clientIdentifier",
+          "kind": "optional",
+          "type": "string",
+          "description": "Use this attribute to add your own unique identifying string to a payment call or COS record. This attribute is useful for idempotency purposes. 50 characters maximum.",
+          "children": []
+        },
+        {
+          "name": "remittanceData",
+          "kind": "optional",
+          "type": "string",
+          "description": "A description of the payment request, meaning, the remittance advice. Use this field for any remittance information that doesn't have its own field. 140 characters maximum.",
+          "children": []
+        },
+        {
+          "name": "remittanceLocation",
+          "kind": "optional",
+          "type": "Object",
+          "description": "Remittance location information",
+          "children": [
+            {
+              "name": "method",
+              "kind": "optional",
+              "type": "string",
+              "description": "Method used to deliver the remittance advice information: EMAIL or URID"
+            },
+            {
+              "name": "eAddress",
+              "kind": "optional",
+              "type": "string",
+              "description": "The electronic address where the agent should send the remittance information. This is only populated if the method value is EMAIL."
+            }
+          ]
+        },
+        {
+          "name": "debtor",
+          "kind": "required",
+          "type": "Object",
+          "description": "Debtor Personal/Business information. Debtor is the individual receiving the Request for Payment. Please note: For the debtor, name and one additional element like [birthCity, birthCountry, birthdate], [orgLegalEntityId/LEI], OR [addressStreetName, addressCity, addressState, addressPostalCode, and addressCountryare] required as per RfP business rules.",
+          "children": [
+            {
+              "name": "accountNumber",
+              "kind": "required",
+              "type": "string",
+              "description": "Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account."
+            },
+            {
+              "name": "name",
+              "kind": "required",
+              "type": "string",
+              "description": "Name of entity. 140 characters maximum."
+            },
+            {
+              "name": "birthCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "Debtor birth city. 35 characters maximum."
+            },
+            {
+              "name": "birthcountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "Debtor birth country. 2-letter country code."
+            },
+            {
+              "name": "birthDate",
+              "kind": "optional",
+              "type": "string",
+              "description": "Debtor birth date. Formatted as yyyy-mm-dd."
+            },
+            {
+              "name": "orgLegalEntityId",
+              "kind": "optional",
+              "type": "string",
+              "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum."
+            },
+            {
+              "name": "addressStreetName",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address name information. 70 characters maximum."
+            },
+            {
+              "name": "addressLine",
+              "kind": "optional",
+              "type": "string",
+              "description": "Additional address information. 70 characters maximum."
+            },
+            {
+              "name": "addressBuildingNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address building number. 16 characters maximum."
+            },
+            {
+              "name": "addressCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "City full name. 35 characters maximum."
+            },
+            {
+              "name": "addressState",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter code for the state"
+            },
+            {
+              "name": "addressPostalCode",
+              "kind": "optional",
+              "type": "string",
+              "description": "Postal or ZIP code"
+            },
+            {
+              "name": "addressCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter country code"
+            },
+            {
+              "name": "routingNumber",
+              "kind": "required",
+              "type": "string",
+              "description": "9-digit routing number of the financial institution"
+            },
+            {
+              "name": "phoneNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "10 characters maximum"
+            }
+          ],
+          "schema": [
+            {
+              "name": "accountNumber",
+              "kind": "required",
+              "type": "string",
+              "description": "Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account."
+            },
+            {
+              "name": "name",
+              "kind": "required",
+              "type": "string",
+              "description": "Name of entity. 140 characters maximum."
+            },
+            {
+              "name": "birthCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "Debtor birth city. 35 characters maximum."
+            },
+            {
+              "name": "birthcountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "Debtor birth country. 2-letter country code."
+            },
+            {
+              "name": "birthDate",
+              "kind": "optional",
+              "type": "string",
+              "description": "Debtor birth date. Formatted as yyyy-mm-dd."
+            },
+            {
+              "name": "orgLegalEntityId",
+              "kind": "optional",
+              "type": "string",
+              "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum."
+            },
+            {
+              "name": "addressStreetName",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address name information. 70 characters maximum."
+            },
+            {
+              "name": "addressLine",
+              "kind": "optional",
+              "type": "string",
+              "description": "Additional address information. 70 characters maximum."
+            },
+            {
+              "name": "addressBuildingNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address building number. 16 characters maximum."
+            },
+            {
+              "name": "addressCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "City full name. 35 characters maximum."
+            },
+            {
+              "name": "addressState",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter code for the state"
+            },
+            {
+              "name": "addressPostalCode",
+              "kind": "optional",
+              "type": "string",
+              "description": "Postal or ZIP code"
+            },
+            {
+              "name": "addressCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter country code"
+            },
+            {
+              "name": "routingNumber",
+              "kind": "required",
+              "type": "string",
+              "description": "9-digit routing number of the financial institution"
+            },
+            {
+              "name": "phoneNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "10 characters maximum"
+            }
+          ]
+        },
+        {
+          "name": "ultimateDebtor",
+          "kind": "optional",
+          "type": "Object",
+          "description": "Ultimate Debtor Business/Individual Information. The final party receiving the RfP and responsible for initiating the credit transfer upon authorization. ",
+          "children": [
+            {
+              "name": "name",
+              "kind": "required",
+              "type": "string",
+              "description": "Name of entity. 140 characters maximum."
+            },
+            {
+              "name": "privateId",
+              "kind": "optional",
+              "type": "string",
+              "description": "Unique and unambiguous identification of a person. For example, passport or driving license number."
+            },
+            {
+              "name": "orgLegalEntityId",
+              "kind": "optional",
+              "type": "string",
+              "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum."
+            },
+            {
+              "name": "addressStreetName",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address name information. 70 characters maximum."
+            },
+            {
+              "name": "addressLine",
+              "kind": "optional",
+              "type": "string",
+              "description": "Additional address information. 70 characters maximum."
+            },
+            {
+              "name": "addressBuildingNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address building number. 16 characters maximum."
+            },
+            {
+              "name": "addressCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "City full name. 35 characters maximum."
+            },
+            {
+              "name": "addressState",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter code for the state"
+            },
+            {
+              "name": "addressPostalCode",
+              "kind": "optional",
+              "type": "string",
+              "description": "Postal or ZIP code"
+            },
+            {
+              "name": "addressCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter country code"
+            }
+          ]
+        },
+        {
+          "name": "creditor",
+          "kind": "optional",
+          "type": "Object",
+          "description": "Creditor Business/Individual Information. The recipient of the payment, typically the party at CRB initiating the RfP. Depending on the configuration, this information may be populated automatically.",
+          "children": [
+            {
+              "name": "routingNumber",
+              "kind": "required",
+              "type": "string",
+              "description": "9-digit routing number of the receiving financial institution"
+            },
+            {
+              "name": "accountNumber",
+              "kind": "required",
+              "type": "string",
+              "description": "Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account."
+            },
+            {
+              "name": "name",
+              "kind": "required",
+              "type": "string",
+              "description": "Legal name of entity. 140 characters maximum."
+            },
+            {
+              "name": "birthCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "Creditor birth city. 35 characters maximum."
+            },
+            {
+              "name": "birthCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "Creditor birth country. 2-letter country code."
+            },
+            {
+              "name": "birthDate",
+              "kind": "optional",
+              "type": "string",
+              "description": "Creditor birth date. Formatted as yyyy-mm-dd."
+            },
+            {
+              "name": "orgLegalEntityId",
+              "kind": "optional",
+              "type": "string",
+              "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum."
+            },
+            {
+              "name": "addressStreetName",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address name information. 70 characters maximum."
+            },
+            {
+              "name": "addressLine",
+              "kind": "optional",
+              "type": "string",
+              "description": "Additional address information. 70 characters maximum."
+            },
+            {
+              "name": "addressBuildingNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address building number. 16 characters maximum."
+            },
+            {
+              "name": "addressCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "City full name. 35 characters maximum."
+            },
+            {
+              "name": "adressState",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter code for the state"
+            },
+            {
+              "name": "addressPostalCode",
+              "kind": "optional",
+              "type": "string",
+              "description": "Postal or ZIP code"
+            },
+            {
+              "name": "addressCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter country code"
+            },
+            {
+              "name": "phoneNumber",
+              "kind": "optional",
+              "type": "String",
+              "description": "10 characters maximum"
+            }
+          ],
+          "schema": [
+            {
+              "name": "routingNumber",
+              "kind": "required",
+              "type": "string",
+              "description": "9-digit routing number of the receiving financial institution"
+            },
+            {
+              "name": "accountNumber",
+              "kind": "required",
+              "type": "string",
+              "description": "Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account."
+            },
+            {
+              "name": "name",
+              "kind": "required",
+              "type": "string",
+              "description": "Legal name of entity. 140 characters maximum."
+            },
+            {
+              "name": "birthCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "Creditor birth city. 35 characters maximum."
+            },
+            {
+              "name": "birthCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "Creditor birth country. 2-letter country code."
+            },
+            {
+              "name": "birthDate",
+              "kind": "optional",
+              "type": "string",
+              "description": "Creditor birth date. Formatted as yyyy-mm-dd."
+            },
+            {
+              "name": "orgLegalEntityId",
+              "kind": "optional",
+              "type": "string",
+              "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum."
+            },
+            {
+              "name": "addressStreetName",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address name information. 70 characters maximum."
+            },
+            {
+              "name": "addressLine",
+              "kind": "optional",
+              "type": "string",
+              "description": "Additional address information. 70 characters maximum."
+            },
+            {
+              "name": "addressBuildingNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address building number. 16 characters maximum."
+            },
+            {
+              "name": "addressCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "City full name. 35 characters maximum."
+            },
+            {
+              "name": "adressState",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter code for the state"
+            },
+            {
+              "name": "addressPostalCode",
+              "kind": "optional",
+              "type": "string",
+              "description": "Postal or ZIP code"
+            },
+            {
+              "name": "addressCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter country code"
+            },
+            {
+              "name": "phoneNumber",
+              "kind": "optional",
+              "type": "String",
+              "description": "10 characters maximum"
+            }
+          ]
+        },
+        {
+          "name": "ultimateCreditor",
+          "kind": "optional",
+          "type": "Object",
+          "description": "Ultimate Creditor Business/Individual Information. The final recipient of the payment. Depending on the configuration, this information may be populated automatically.",
+          "children": [
+            {
+              "name": "name",
+              "kind": "required",
+              "type": "string",
+              "description": "Legal name of entity. 140 characters maximum."
+            },
+            {
+              "name": "privateId",
+              "kind": "optional",
+              "type": "string",
+              "description": "Unique and unambiguous identification of a person. For example, passport or driving license number."
+            },
+            {
+              "name": "orgLegalEntityId",
+              "kind": "optional",
+              "type": "string",
+              "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum."
+            },
+            {
+              "name": "addressStreetNameadd",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address name information. 70 characters maximum."
+            },
+            {
+              "name": "addressLine",
+              "kind": "optional",
+              "type": "string",
+              "description": "Additional address information. 70 characters maximum."
+            },
+            {
+              "name": "addressBuildingNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address building number. 16 characters maximum."
+            },
+            {
+              "name": "addressCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "City full name. 35 characters maximum."
+            },
+            {
+              "name": "addressState",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter code for the state"
+            },
+            {
+              "name": "addressPostalCode",
+              "kind": "optional",
+              "type": "string",
+              "description": "Postal or ZIP code"
+            },
+            {
+              "name": "addressCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter country code"
+            }
+          ],
+          "schema": [
+            {
+              "name": "name",
+              "kind": "required",
+              "type": "string",
+              "description": "Legal name of entity. 140 characters maximum."
+            },
+            {
+              "name": "privateId",
+              "kind": "optional",
+              "type": "string",
+              "description": "Unique and unambiguous identification of a person. For example, passport or driving license number."
+            },
+            {
+              "name": "orgLegalEntityId",
+              "kind": "optional",
+              "type": "string",
+              "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions. 20 characters maximum."
+            },
+            {
+              "name": "addressStreetNameadd",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address name information. 70 characters maximum."
+            },
+            {
+              "name": "addressLine",
+              "kind": "optional",
+              "type": "string",
+              "description": "Additional address information. 70 characters maximum."
+            },
+            {
+              "name": "addressBuildingNumber",
+              "kind": "optional",
+              "type": "string",
+              "description": "Street address building number. 16 characters maximum."
+            },
+            {
+              "name": "addressCity",
+              "kind": "optional",
+              "type": "string",
+              "description": "City full name. 35 characters maximum."
+            },
+            {
+              "name": "addressState",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter code for the state"
+            },
+            {
+              "name": "addressPostalCode",
+              "kind": "optional",
+              "type": "string",
+              "description": "Postal or ZIP code"
+            },
+            {
+              "name": "addressCountry",
+              "kind": "optional",
+              "type": "string",
+              "description": "2-letter country code"
+            }
+          ]
+        },
+        {
+          "name": "useCase",
+          "kind": "required",
+          "type": "string",
+          "description": "Use one of the following values for the useCase field:\n\n-BusinessToBusiness\n-ConsumerBillPay\n-AccountToAccount\n-DownPaymentOrFinalPayment\n-ConsumerToGovernment",
+          "": "Use one of the following values for the useCase field:\n\n-BusinessToBusiness\n-ConsumerBillPay\n-AccountToAccount\n-DownPaymentOrFinalPayment\n-ConsumerToGovernment"
+        },
+        {
+          "name": "industryCategory",
+          "kind": "optional",
+          "type": "string",
+          "description": "Use one of the following values for the industryCategory field (optional when useCase is BusinessToBusiness or ConsumerToGovernment):\n\n-HomeUtilities\n-TelecomUtilities\n-Mortgage\n-Rent\n-InsurancePremiums\n-AutoLoans\n-PersonalLoans\n-CreditCardPayment\n-MediaSubscriptions\n-Memberships\n-FinancialInstitution\n-BrokerOrDealer\n-Medical\n-OnlineGaming\n-RealEstate\n-Government",
+          "": "Use one of the following values for the industryCategory field (optional when useCase is BusinessToBusiness or ConsumerToGovernment):\n\n-HomeUtilities\n-TelecomUtilities\n-Mortgage\n-Rent\n-InsurancePremiums\n-AutoLoans\n-PersonalLoans\n-CreditCardPayment\n-MediaSubscriptions\n-Memberships\n-FinancialInstitution\n-BrokerOrDealer\n-Medical\n-OnlineGaming\n-RealEstate\n-Government"
+        },
+        {
+          "name": "senderID",
+          "kind": "required",
+          "type": "string",
+          "description": "Use the senderId field (optional when useCase is BusinessToBusiness or ConsumerToGovernment), provided by Cross River and generated by The Clearing House (TCH).\n\nValid senderID's for Sandbox Testing:\n-100000000001\n-100000000002\n-100000000003\n-100000000004\n-100000000005",
+          "": "required"
+        },
+        {
+          "name": "amountModAllowed",
+          "kind": "optional",
+          "type": "boolean",
+          "description": "Indicates whether the recipient is allowed to modify the requested amount in response to an RfP. If the field is not provided, the system defaults to true.\nIf true, the recipient may respond with a different amount\nIf false, the recipient must match the original amount; any mismatch will cause the payment to be rejected.\n",
+          "": "Indicates whether the recipient is allowed to modify the requested amount in response to an RfP. If the field is not provided, the system defaults to true.\nIf true, the recipient may respond with a different amount\nIf false, the recipient must match the original amount; any mismatch will cause the payment to be rejected.\n"
+        }
+      ],
+      "formDataParameters": []
+    },
+    "currentNewParameter": {
+      "label": "Body Parameter",
+      "value": "bodyDataParameters"
+    },
+    "response": [
+      {
+        "name": "id",
+        "kind": "optional",
+        "type": "string",
+        "description": "The payment ID. This first appears in the initial response to the originate a payment request. This ID is in GUID format."
+      },
+      {
+        "name": "originalPaymentId",
+        "kind": "optional",
+        "type": "string",
+        "description": "Original payment ID (only relevant if a payment didn't go through for some reason).",
+        "children": []
+      },
+      {
+        "name": "referenceId",
+        "kind": "optional",
+        "type": "string",
+        "description": "This unique Cross River reference ID starts with the first letter of the payment rail. For Instant Payments, the ID begins with R to reflect the RTP API module.",
+        "children": []
+      },
+      {
+        "name": "accountNumber",
+        "kind": "optional",
+        "type": "string",
+        "description": "Account initiating the payment request",
+        "children": []
+      },
+      {
+        "name": "clientIdentifier",
+        "kind": "optional",
+        "type": "string",
+        "description": "A unique identifier assigned to the payment call or COS record. This value reflects the identifier provided in the original request and helps ensure idempotency.",
+        "children": []
+      },
+      {
+        "name": "amount",
+        "kind": "optional",
+        "type": "Integer",
+        "description": "Dollar amount of payment request in positive integral cents. For example, write $1.00 as 100.",
+        "children": []
+      },
+      {
+        "name": "operatorCoreTransactionId",
+        "kind": "optional",
+        "type": "string",
+        "description": "The Instant Payments-related Cross River system transaction ID",
+        "children": []
+      },
+      {
+        "name": "authorizationTransactionId",
+        "kind": "optional",
+        "type": "string",
+        "description": "The ID of an authorization transaction created when Cross River receives an inbound credit transfer that refunds a previously sent outbound transfer. This authorization confirms that Cross River can post the transaction to the creditor’s (receiver’s) COS account (e.g., no restrictions or account closures) and allows Cross River to notify the real-time payment network of acceptance.",
+        "children": []
+      },
+      {
+        "name": "memoPostId",
+        "kind": "optional",
+        "type": "string",
+        "description": "The ID of the memo post",
+        "children": []
+      },
+      {
+        "name": "memoPostRemovedAt",
+        "kind": "optional",
+        "type": "string",
+        "description": "The date and time the memo post was removed",
+        "children": []
+      },
+      {
+        "name": "direction",
+        "kind": "optional",
+        "type": "string",
+        "description": "Outbound for an outbound payment request or Inbound for an inbound payment request.",
+        "children": []
+      },
+      {
+        "name": "status",
+        "kind": "optional",
+        "type": "string",
+        "description": "Transaction status:\n\n-Created\n-Pending\n-Processing\n-Completed\n-Rejected\n-Canceled\n-Hold\n-TimedOut\n-Finalizing\n-Failed\n-ResearchRequired\n-Expired\n-Authorized",
+        "children": []
+      },
+      {
+        "name": "paymentType",
+        "kind": "optional",
+        "type": "string",
+        "description": "Type of payment indicating how the transaction is funded:\n\n-RequestForPayment",
+        "children": []
+      },
+      {
+        "name": "source",
+        "kind": "optional",
+        "type": "string",
+        "description": "The source of the activity:\n-Api",
+        "children": []
+      },
+      {
+        "name": "transactionAccountContext",
+        "kind": "optional",
+        "type": "string",
+        "description": "Transaction account context:\n\n-NotSubmitted\n-Pending\n-Processing\n-Complete\n-Reversal\n-MemoPost\n-TimedOut\n-Canceled\n-Rejected\n-AuthOnly\n-NotSet",
+        "children": []
+      },
+      {
+        "name": "rtpTransactionStatus",
+        "kind": "optional",
+        "type": "string",
+        "description": "The payment status set by the receiving institution, applicable to Credit Transfers.\n\nThis value is only present for outbound payments. See available values here.",
+        "children": []
+      },
+      {
+        "name": "debtor",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Debtor business/individual information. – The recipient of the RfP who will initiate the credit transfer upon authorization. Depending on the configuration, this information may be populated automatically.",
+        "children": [
+          {
+            "name": "routingNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "9-digit routing number of the sending financial institution"
+          },
+          {
+            "name": "accountNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account."
+          },
+          {
+            "name": "name",
+            "kind": "optional",
+            "type": "string",
+            "description": "Name of entity"
+          },
+          {
+            "name": "birthCity",
+            "kind": "optional",
+            "type": "string",
+            "description": "Debtor birth city"
+          },
+          {
+            "name": "birthCountry",
+            "kind": "optional",
+            "type": "string",
+            "description": "Debtor birth country. 2-letter country code."
+          },
+          {
+            "name": "birthDate",
+            "kind": "optional",
+            "type": "string",
+            "description": "Debtor birth date. Formatted as yyyy-mm-dd."
+          },
+          {
+            "name": "orgLegalEntityId",
+            "kind": "optional",
+            "type": "string",
+            "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions."
+          },
+          {
+            "name": "proxyId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Identification used to represent the account under a different name or alias, such as a mobile number or email address."
+          },
+          {
+            "name": "phoneNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "10-digit phone number"
+          },
+          {
+            "name": "addressStreetName",
+            "kind": "optional",
+            "type": "string",
+            "description": "Street address name information"
+          },
+          {
+            "name": "addressLine",
+            "kind": "optional",
+            "type": "string",
+            "description": "Additional address information"
+          },
+          {
+            "name": "addressBuildingNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "Street address building number"
+          },
+          {
+            "name": "addressCity",
+            "kind": "optional",
+            "type": "string",
+            "description": "City full name"
+          },
+          {
+            "name": "addressState",
+            "kind": "optional",
+            "type": "string",
+            "description": "2-letter code for the state"
+          },
+          {
+            "name": "addressPostalCode",
+            "kind": "optional",
+            "type": "string",
+            "description": "Postal or ZIP code"
+          },
+          {
+            "name": "addressCountry",
+            "kind": "optional",
+            "type": "string",
+            "description": "2-letter country code"
+          }
+        ]
+      },
+      {
+        "name": "ultimateDebtor",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Ultimate debtor business/individual information. The final party responsible for initiating the credit transfer upon authorization. This information may be populated automatically based on the configuration.",
+        "children": [
+          {
+            "name": "name",
+            "kind": "optional",
+            "type": "string",
+            "description": "Name of entity"
+          },
+          {
+            "name": "privateId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Unique and unambiguous identification of a person, for example, a passport number"
+          },
+          {
+            "name": "orgLegalEntityId",
+            "kind": "optional",
+            "type": "string",
+            "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions"
+          },
+          {
+            "name": "addressStreetName",
+            "kind": "optional",
+            "type": "string",
+            "description": "Street address name information"
+          },
+          {
+            "name": "addressLine",
+            "kind": "optional",
+            "type": "string",
+            "description": "Additional address information"
+          },
+          {
+            "name": "addressBuildingNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "Street address building number"
+          },
+          {
+            "name": "addressCity",
+            "kind": "optional",
+            "type": "string",
+            "description": "City full name"
+          },
+          {
+            "name": "addressState",
+            "kind": "optional",
+            "type": "string",
+            "description": "2-letter code for the state"
+          },
+          {
+            "name": "addressPostalCode",
+            "kind": "optional",
+            "type": "string",
+            "description": "Postal or ZIP code"
+          },
+          {
+            "name": "addressCountry",
+            "kind": "optional",
+            "type": "string",
+            "description": "2-letter country code"
+          }
+        ]
+      },
+      {
+        "name": "creditor",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Creditor business/individual information. The recipient of the payment, typically the party at CRB initiating the RfP. Depending on the configuration, this information may be populated automatically.\n",
+        "children": [
+          {
+            "name": "routingNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "9-digit routing number of the receiving financial institution"
+          },
+          {
+            "name": "accountNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "Account number. In CR, depending on the account type, the number of digits will vary. The first digit indicates the kind of account."
+          },
+          {
+            "name": "name",
+            "kind": "optional",
+            "type": "string",
+            "description": "Name of entity"
+          },
+          {
+            "name": "birthCity",
+            "kind": "optional",
+            "type": "string",
+            "description": "Creditor birth city"
+          },
+          {
+            "name": "birthCountry",
+            "kind": "optional",
+            "type": "string",
+            "description": "Creditor birth country. 2-letter country code."
+          },
+          {
+            "name": "birthDate",
+            "kind": "optional",
+            "type": "string",
+            "description": "Creditor birth date. Formatted as yyyy-mm-dd."
+          },
+          {
+            "name": "orgLegalEntityId",
+            "kind": "optional",
+            "type": "string",
+            "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions"
+          },
+          {
+            "name": "proxyId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Identification used to represent the account under a different name or alias, such as a mobile number or email address"
+          },
+          {
+            "name": "phoneNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "10-digit phone number"
+          },
+          {
+            "name": "addressStreetName",
+            "kind": "optional",
+            "type": "string",
+            "description": "Street address name information"
+          },
+          {
+            "name": "addressLine",
+            "kind": "optional",
+            "type": "string",
+            "description": "Additional address information"
+          },
+          {
+            "name": "addressBuildingNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "Street address building number"
+          },
+          {
+            "name": "addressCity",
+            "kind": "optional",
+            "type": "string",
+            "description": "City full name"
+          },
+          {
+            "name": "addressState",
+            "kind": "optional",
+            "type": "string",
+            "description": "2-letter code for the state"
+          },
+          {
+            "name": "addressPostalCode",
+            "kind": "optional",
+            "type": "string",
+            "description": "Postal or ZIP code"
+          },
+          {
+            "name": "addressCountry",
+            "kind": "optional",
+            "type": "string",
+            "description": "2-letter country code"
+          }
+        ]
+      },
+      {
+        "name": "ultimateCreditor",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Ultimate creditor business/individual information. The final recipient of the payment. Depending on the configuration, this information may be populated automatically.",
+        "children": [
+          {
+            "name": "name",
+            "kind": "optional",
+            "type": "string",
+            "description": "Name of entity"
+          },
+          {
+            "name": "privateId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Unique and unambiguous identification of a person, for example, a passport number"
+          },
+          {
+            "name": "orgLegalEntityId",
+            "kind": "optional",
+            "type": "string",
+            "description": "A unique global identifier for legal entities that are not consumers but are participating in financial transactions"
+          },
+          {
+            "name": "addressStreetNameadd",
+            "kind": "optional",
+            "type": "string",
+            "description": "Street address name information"
+          },
+          {
+            "name": "addressLine",
+            "kind": "optional",
+            "type": "string",
+            "description": "Additional address information"
+          },
+          {
+            "name": "addressBuildingNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "Street address building number"
+          },
+          {
+            "name": "addressCity",
+            "kind": "optional",
+            "type": "string",
+            "description": "City full name"
+          },
+          {
+            "name": "addressState",
+            "kind": "optional",
+            "type": "string",
+            "description": "2-letter code for the state"
+          },
+          {
+            "name": "addressPostalCode",
+            "kind": "optional",
+            "type": "string",
+            "description": "Postal or ZIP code"
+          },
+          {
+            "name": "addressCountry",
+            "kind": "optional",
+            "type": "string",
+            "description": "2-letter country code"
+          }
+        ]
+      },
+      {
+        "name": "network",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Network information",
+        "children": [
+          {
+            "name": "messageDefId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Contains the ISO 20022 Message Identifier specifying the business message"
+          },
+          {
+            "name": "businessMessageId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Unique identifier of the message"
+          },
+          {
+            "name": "messageId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Unique identifier of the message"
+          },
+          {
+            "name": "createdAt",
+            "kind": "optional",
+            "type": "string",
+            "description": "Indicates when the pain.013 message was created, formatted as yyyy-mm-ddThh:mm:ss[.mmm]"
+          },
+          {
+            "name": "numberOfTransactions",
+            "kind": "optional",
+            "type": "Integer",
+            "description": "The total count of transactions"
+          },
+          {
+            "name": "interbankSettlementAmount",
+            "kind": "optional",
+            "type": "Integer",
+            "description": "The total amount the Debtor FI must pay to the Creditor FI once the Creditor FI accepts the payment instructed by the credit transfer message"
+          },
+          {
+            "name": "currency",
+            "kind": "optional",
+            "type": "string",
+            "description": "Currency of the payment"
+          },
+          {
+            "name": "interbankSettlementDate",
+            "kind": "optional",
+            "type": "string",
+            "description": "The date linked to the reconciliation window, used in RTP alongside the clearing system reference to allocate a credit transfer to a specific reconciliation window"
+          },
+          {
+            "name": "settlementMethod",
+            "kind": "optional",
+            "type": "string",
+            "description": "The method used to settle an individual credit transfer processed through RTP"
+          },
+          {
+            "name": "clearingSystemCode",
+            "kind": "optional",
+            "type": "string",
+            "description": "The code used to specify the clearing system used to settle the credit transfer. For RTP the clearing system code is TCH."
+          },
+          {
+            "name": "instructionId",
+            "kind": "optional",
+            "type": "string",
+            "description": "The unique ID assigned by the instructing agent for the payment request while it remains active within the RTP system. \n\nThis ID serves as the unique identifier for the payment request within the Instant Payments network."
+          },
+          {
+            "name": "endToEndId",
+            "kind": "optional",
+            "type": "string",
+            "description": "The unique ID assigned by the initiating party to identify and track the transaction."
+          },
+          {
+            "name": "transactionId",
+            "kind": "optional",
+            "type": "string",
+            "description": "A unique string in GUID format that clearly identifies the transaction. This ID passes unchanged the whole interbank chain.\n\nThis ID serves as the unique identifier for the Credit Transfer within the Instant Payments network."
+          },
+          {
+            "name": "clearingSystemRef",
+            "kind": "optional",
+            "type": "string",
+            "description": "Identifies the reconciliation window in which the credit transfer was settled"
+          },
+          {
+            "name": "fromParticipantId",
+            "kind": "optional",
+            "type": "string",
+            "description": "The unique identifier of the participant sending the message on the Instant Payment network platform"
+          },
+          {
+            "name": "toParticipantId",
+            "kind": "optional",
+            "type": "string",
+            "description": "The unique identifier of the participant receiving the message on the Instant Payment network platform"
+          },
+          {
+            "name": "fromBranchId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Identifies the specific branch of a financial institution that sent the message, used exclusively for routing purposes in Instant Payments"
+          },
+          {
+            "name": "toBranchId",
+            "kind": "optional",
+            "type": "string",
+            "description": "Identifies the specific branch of a financial institution that receives the message, used exclusively for routing purposes in Instant Payments"
+          },
+          {
+            "name": "instructingRoutingNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "Sending bank routing number"
+          },
+          {
+            "name": "instructedRoutingNumber",
+            "kind": "optional",
+            "type": "string",
+            "description": "Receiving bank routing number"
+          },
+          {
+            "name": "headerCreationDate",
+            "kind": "optional",
+            "type": "string",
+            "description": "Internal to CR"
+          },
+          {
+            "name": "messageCreationDateTime",
+            "kind": "optional",
+            "type": "string",
+            "description": "The date and time when the payment request message was created, formatted as yyyy-mm-ddThh:mm:ss[.mmm]"
+          },
+          {
+            "name": "uetr",
+            "kind": "optional",
+            "type": "string",
+            "description": "A Unique End-to-end Transaction Reference (commonly known as a UETR) is a string of 36 unique characters featured in all payment instruction messages carried over Swift"
+          }
+        ]
+      },
+      {
+        "name": "remittanceAdvice",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Remittance advice information",
+        "children": [
+          {
+            "name": "remittanceIdentification",
+            "kind": "optional",
+            "type": "string",
+            "description": "A unique identifier assigned by the initiating party to clearly distinguish the remittance information sent separately from the payment instruction, such as remittance advice"
+          },
+          {
+            "name": "origInstructionId",
+            "kind": "optional",
+            "type": "string",
+            "description": "The original unique ID of the credit transfer, assigned by the Instructing Agent while it remains in the RTP system"
+          },
+          {
+            "name": "origEndToEndId",
+            "kind": "optional",
+            "type": "string",
+            "description": "The original unique ID set by the initiating party to identify the transaction, referring to a previous payment message"
+          },
+          {
+            "name": "origTransactionId",
+            "kind": "optional",
+            "type": "string",
+            "description": "A unique GUID-format string that clearly identifies the transaction, referring to a previous payment message. This ID remains unchanged throughout the entire interbank chain."
+          },
+          {
+            "name": "origPaymentInfoId",
+            "kind": "optional",
+            "type": "string",
+            "description": "A unique identifier assigned by the original sending party to clearly distinguish the original payment information group"
+          },
+          {
+            "name": "origInstructedAmount",
+            "kind": "optional",
+            "type": "Integer",
+            "description": "The amount of money specified in the original transaction to be transferred between the debtor and creditor, before any charges are deducted, expressed in the currency requested by the original initiating party."
+          },
+          {
+            "name": "origInstructedAmountCurrency",
+            "kind": "optional",
+            "type": "string",
+            "description": "Currency of the original transaction"
+          }
+        ]
+      },
+      {
+        "name": "transactionInfo",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Information about the transaction",
+        "children": [
+          {
+            "name": "status",
+            "kind": "optional",
+            "type": "String",
+            "description": "The current status of a single payment instruction within the transaction process"
+          },
+          {
+            "name": "reasonCode",
+            "kind": "optional",
+            "type": "string",
+            "description": "A code that specifies the reason a transaction did not complete. Refer to the list of reason codes for details."
+          },
+          {
+            "name": "additionalInfo",
+            "kind": "optional",
+            "type": "string",
+            "description": "Provides supplementary details regarding the status report"
+          },
+          {
+            "name": "reasonProprietary",
+            "kind": "optional",
+            "type": "string",
+            "description": "Indicates the local instrument by using a proprietary code"
+          }
+        ]
+      },
+      {
+        "name": "serviceLevelCode",
+        "kind": "optional",
+        "type": "string",
+        "description": "Indicates a pre-arranged service or service level agreed upon between the parties",
+        "children": []
+      },
+      {
+        "name": "localInstrumentPropriety",
+        "kind": "optional",
+        "type": "string",
+        "description": "Specifies whether the Debtor is a business or consumer customer of the Debtor FI. This element also indicates if the Debtor is a domestic customer of the Debtor FI or a customer of a foreign branch or affiliate.",
+        "children": []
+      },
+      {
+        "name": "categoryPurpose",
+        "kind": "optional",
+        "type": "string",
+        "description": "Details from the initiating party regarding payment processing, based on predefined categories. Certain values may initiate special processing by various parties involved in the payment chain.",
+        "children": []
+      },
+      {
+        "name": "initiatingPartyName",
+        "kind": "optional",
+        "type": "string",
+        "description": "Name of initiating party/entity",
+        "children": []
+      },
+      {
+        "name": "currency",
+        "kind": "optional",
+        "type": "string",
+        "description": "Currency of the payment",
+        "children": []
+      },
+      {
+        "name": "chargeBearer",
+        "kind": "optional",
+        "type": "string",
+        "description": "Indicates the party (or parties) responsible for bearing the charges related to processing the payment request.",
+        "children": []
+      },
+      {
+        "name": "remittanceIdentification",
+        "kind": "optional",
+        "type": "string",
+        "description": "A unique identifier assigned by the initiating party to clearly distinguish the remittance information sent separately from the payment instruction, such as remittance advice",
+        "children": []
+      },
+      {
+        "name": "remittanceData",
+        "kind": "optional",
+        "type": "string",
+        "description": "A description of the payment request, serving as the remittance advice. This field is used for any remittance information that does not have a designated field.",
+        "children": []
+      },
+      {
+        "name": "paymentInfoId",
+        "kind": "optional",
+        "type": "string",
+        "description": "Payment information ID",
+        "children": []
+      },
+      {
+        "name": "reqExecutionDate",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Requested execution date information",
+        "children": [
+          {
+            "name": "date",
+            "kind": "optional",
+            "type": "string",
+            "description": "The requested date and time of the payment, formatted as yyyy-mm-ddThh:mm:ss[.mmm]"
+          },
+          {
+            "name": "dateType",
+            "kind": "optional",
+            "type": "string",
+            "description": "The date type"
+          }
+        ]
+      },
+      {
+        "name": "expiryDate",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Expiry date information",
+        "children": [
+          {
+            "name": "date",
+            "kind": "optional",
+            "type": "string",
+            "description": "The expiry date and time of the payment, formatted as yyyy-mm-ddThh:mm:ss[.mmm]"
+          },
+          {
+            "name": "dateType",
+            "kind": "optional",
+            "type": "string",
+            "description": "The date type"
+          }
+        ]
+      },
+      {
+        "name": "paymentConditions",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Payment conditions information",
+        "children": [
+          {
+            "name": "amountModAllowed",
+            "kind": "optional",
+            "type": "Boolean",
+            "description": "Indicates whether the requested payment amount can be modified by the debtor."
+          },
+          {
+            "name": "earlyPayAllowed",
+            "kind": "optional",
+            "type": "Boolean",
+            "description": "Specifies if early payment is permitted before the due date."
+          },
+          {
+            "name": "acceptedAmount",
+            "kind": "optional",
+            "type": "Integer",
+            "description": "The fixed amount (in cents) that the creditor is willing to accept for the payment request."
+          }
+        ]
+      },
+      {
+        "name": "purpose",
+        "kind": "optional",
+        "type": "string",
+        "description": "Internal Cross River field used to include a short description of the purpose of the payment. The RDFI does not see this field. ",
+        "children": []
+      },
+      {
+        "name": "wasRefunded",
+        "kind": "optional",
+        "type": "Boolean",
+        "description": "Indicates whether the payment was refunded. True if refunded, otherwise False.",
+        "children": []
+      },
+      {
+        "name": "wasPaid",
+        "kind": "optional",
+        "type": "Boolean",
+        "description": "Indicates whether the payment was received. True if received, otherwise False.",
+        "children": []
+      },
+      {
+        "name": "createdAt",
+        "kind": "optional",
+        "type": "string",
+        "description": "The date and time when the credit transfer was created, formatted as yyyy-mm-ddThh:mm:ss[.mmm]",
+        "children": []
+      },
+      {
+        "name": "productId",
+        "kind": "optional",
+        "type": "string",
+        "description": "The GUID representing the ID of your specific product type associated with the account. This is provided by Cross River and identifies the Cross River account involved in the transfer.",
+        "children": []
+      },
+      {
+        "name": "partnerId",
+        "kind": "optional",
+        "type": "string",
+        "description": "Your unique ID in the Cross River system. This ID is in GUID format.",
+        "children": []
+      },
+      {
+        "name": "lastModifiedAt",
+        "kind": "optional",
+        "type": "string",
+        "description": "Internal Cross River value. Date and time the database entry was last modified. In this case, the date and time are in this format: yyyy-mm-ddThh:mm:ss[.mmm]",
+        "children": []
+      },
+      {
+        "name": "sendAttemptCount",
+        "kind": "optional",
+        "type": "Integer",
+        "description": "The total count of attempts to send the payment request",
+        "children": []
+      },
+      {
+        "name": "discounts",
+        "kind": "optional",
+        "type": "Object",
+        "description": "Discounts array specifies applicable discounts for the request.",
+        "children": [
+          {
+            "name": "type",
+            "kind": "optional",
+            "type": "string",
+            "description": "The type of discount applied. \nPossible values include:\n- DSCT: A standard discount applied to the payment.\n- FULL: A full payment discount (for example, early payment incentive)"
+          },
+          {
+            "name": "amount",
+            "kind": "optional",
+            "type": "Integer",
+            "description": "Amount of discount in positive integral cents. For example, write $1.00 as 100."
+          },
+          {
+            "name": "currency",
+            "kind": "optional",
+            "type": "string",
+            "description": "Currency of the discount. For example USD."
+          }
+        ]
+      },
+      {
+        "name": "awaitingResponse",
+        "kind": "optional",
+        "type": "Boolean",
+        "description": "Indicates whether a message response is pending. True if waiting, otherwise False.\n",
+        "children": []
+      },
+      {
+        "name": "networkPlatform",
+        "kind": "optional",
+        "type": "string",
+        "description": "The payment network platform used to process the payment. Possible values are: TCH (for RTP via The Clearing House)",
+        "children": []
+      }
+    ],
+    "hasTryItOut": false
+  }
+  ```
+</ApiMethodV2>
+

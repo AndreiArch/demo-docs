@@ -1,0 +1,5575 @@
+---
+title: test page Ocient
+slug: test-page-ocient
+docTags: 
+createdAt: Fri Dec 05 2025 14:45:17 GMT+0000 (Coordinated Universal Time)
+---
+
+The \{\{OcientHyperscaleDataWarehouse}} supports querying using the SQL syntax that follows ANSI SQL standards.
+
+# Ocient SQL Syntax
+
+@virtual
+
+This code block shows the general syntax to perform SQL querying in \{\{Ocient}} and the order in which commands should go.&#x20;
+
+For specific descriptions and syntax for the commands, see the respective SQL statement sections on this page.&#x20;
+
+**Syntax**
+
+```sql
+[ WITH ... ]
+SELECT ...
+    [ EXCEPT(...) ]
+[ FROM ...
+    [ JOIN ... ] ]   
+[ WHERE ... ]
+[ GROUP BY ... 
+    [ HAVING ... ] ]
+[ ORDER BY ... ] 
+[ LIMIT ... ]
+[ OFFSET ... ] 
+[ INTERSECT ... ]
+[ EXCEPT ... ]
+[ UNION ... ] ]         
+[ USING ... ]
+[ TRACE ... ] 
+[ TAG ... ]
+```
+
+# Default Schema
+
+Ocient identifies every table using a database and schema. For example, the fully qualified path to the `movies` table is `cinema.adventure.movies`, where `cinema` is the database and `adventure` is the schema.&#x20;
+
+When you do not fully qualify a table name, the Ocient System uses a default schema. When you first log into the system, the default schema is your fully qualified username. You can change the default schema using the :Link[SET SCHEMA]{label="Commands Supported by the Ocient JDBC CLI Program " spaceId="hoqblJqChKOc8DvhBF0dZ" docId="zyOjXip3zkuVr9SkpIyxO" version="v2" docAnchorId="#anXvZ" loadingMethod="dynamic" overridedLabel="SET SCHEMA"} command.
+
+# Querying SQL Statement Reference
+
+Ocient supports the following SQL statements. &#x20;
+
+## WITH
+
+Assigns a name to a common table expression, allowing an auxiliary query to be used in the main query. This is helpful for breaking down complex queries into smaller parts.&#x20;
+
+**Syntax**
+
+```sql
+WITH 
+    <cte_name> [ ( <cte_column> [ ,... ] ) ] 
+    AS ( <sub_query> )
+<select_query>  
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="152,100">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<cte_name>`
+    </td>
+    <td align="left">
+      A name for the common table expression populated with the result set from the `sub_query` statement.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<cte_column>`
+    </td>
+    <td align="left">
+      Optional.&#x20;
+      This is a list of column names for common table expressions populated with the `sub_query` result set. If no column names are provided, the column names are the same as the table referenced in the `sub_query` statement.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<sub_query>`
+    </td>
+    <td align="left">
+      An auxiliary query that collects data for a common table expression.&#x20;
+      `sub_query` can use regular query commands, including ORDER BY, LIMIT, OFFSET, UNION, INTERSECT, EXCEPT, WHERE, GROUP BY, and HAVING.
+      See the respective SQL statement reference sections for usage rules.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query>`
+    </td>
+    <td align="left">
+      The main SELECT query.&#x20;
+      Note that the `FROM` statement in the main `SELECT` query must also include the `cte_name` if the query uses its values.&#x20;
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+In this example, the subquery calculates the average budget for all rows in the `movies` table. The main query uses that average to find all movies that spent more.&#x20;
+
+```sql
+WITH avg_budget_table (average_budget) AS (
+    SELECT AVG(budget)
+    FROM movies
+)
+SELECT title,
+    budget,
+    revenue
+FROM movies,
+    avg_budget_table
+WHERE budget > avg_budget_table.average_budget;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="220,220,222">
+  <tr>
+    <td align="left">
+      title
+    </td>
+    <td align="left">
+      budget
+    </td>
+    <td align="left">
+      revenue
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CGI Why
+    </td>
+    <td align="left">
+      237000000
+    </td>
+    <td align="left">
+      2787965087
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Titania
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      1845034188
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Merchandise Vehicle 5
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      1066969703
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      The Tentpole
+    </td>
+    <td align="left">
+      220000000
+    </td>
+    <td align="left">
+      1519557910
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pirates of Palm Springs
+    </td>
+    <td align="left">
+      140000000
+    </td>
+    <td align="left">
+      655011224
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spyman 16
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      1108561013
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Frigid
+    </td>
+    <td align="left">
+      150000000
+    </td>
+    <td align="left">
+      1274219009
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Fury 7
+    </td>
+    <td align="left">
+      190000000
+    </td>
+    <td align="left">
+      1506249360
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Superhero 23
+    </td>
+    <td align="left">
+      250000000
+    </td>
+    <td align="left">
+      1084939099
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Triassic World
+    </td>
+    <td align="left">
+      150000000
+    </td>
+    <td align="left">
+      1513528810
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Iron Chef 3
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      1215439994
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      The Last Airman
+    </td>
+    <td align="left">
+      150000000
+    </td>
+    <td align="left">
+      318502923
+    </td>
+  </tr>
+</table>
+
+## SELECT
+
+Initiates a query statement or a subquery clause within other statements.&#x20;
+
+You can query the data of tables where you have the SELECT privilege.
+
+For information on using SELECT as a subquery for filtering or ordering results, see the :Link[WHERE]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax (cloned)" spaceId="wOlhkIZYVlwdyJyQXT8Jl" version="v2" docAnchorId="#tlwVa" loadingMethod="dynamic" overridedLabel="WHERE"} and :Link[HAVING]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax (cloned)" spaceId="wOlhkIZYVlwdyJyQXT8Jl" version="v2" docAnchorId="#bd3Pe" loadingMethod="dynamic" overridedLabel="HAVING"} sections.  &#x20;
+
+For information on using SELECT as a subquery for a common table expression, see the :Link[WITH]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#473tj" loadingMethod="dynamic" overridedLabel="WITH"} section.&#x20;
+
+**Syntax**
+
+```sql
+SELECT [ ALL | DISTINCT ] 
+    [ * [ EXCEPT ( column_name [ , ... ] ) ] 
+    | <select_list_entry> [ , ... ] ]
+    [ <from_clause> ]
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `ALL`
+    </td>
+    <td align="left">
+      `SELECT` and `SELECT ALL` are both the same.&#x20;
+      Returns all valid data rows from the database that meet the criteria of your query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `DISTINCT`
+    </td>
+    <td align="left">
+      `SELECT DISTINCT` returns only unique rows that do not match other rows based on the criteria of your query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `*`
+    </td>
+    <td align="left">
+      Returns all columns from the specified tables in the result set for the query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `EXCEPT`
+    </td>
+    <td align="left">
+      When used with `*`, `EXCEPT` allows specific columns to be excluded from the query results.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `column_name`
+    </td>
+    <td align="left">
+      The name of one or more columns from the specified table that you want to exclude (using `EXCEPT`) from your query results.&#x20;
+    </td>
+  </tr>
+</table>
+
+### **\<select\_list\_entry>**
+
+The `select_list_entry` defines a column or expression to include in your query result set.&#x20;
+
+**Syntax**
+
+```sql
+<select_list_entry> ::= 
+    column_name | expression [ AS new_name ] 
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `column_name`
+    </td>
+    <td align="left">
+      The name of one or more columns from the specified table that you want to include in your query results.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `expression`
+    </td>
+    <td align="left">
+      One or more expressions that you want to include in your query results.&#x20;
+      Expressions can be any combination of literal values, column names, arithmetic expressions, parentheses, and function calls.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `new_name`
+    </td>
+    <td align="left">
+      An alias, treated as an identifier, for an alternative name for the column or the results of the expression.&#x20;
+    </td>
+  </tr>
+</table>
+
+### **\<****from\_clause****>**
+
+For information on the `<from_clause>`, see the :Link[FROM]{label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" docId="Nw9vaVKey2v75MoXm_muO" version="v2" docAnchorId="#ubhG_" loadingMethod="dynamic" overridedLabel="FROM"} documentation.&#x20;
+
+**Examples**
+
+### Using SELECT \*&#x20;
+
+This example uses `SELECT *` to return all the columns in the `movies` table.&#x20;
+
+```sql
+SELECT * FROM movies LIMIT 5; 
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="100,100,100,100,100,100,100,100,100,100">
+  <tr>
+    <td align="left">
+      movie\_id
+    </td>
+    <td align="left">
+      title
+    </td>
+    <td align="left">
+      budget
+    </td>
+    <td align="left">
+      popularity
+    </td>
+    <td align="left">
+      release\_date
+    </td>
+    <td align="left">
+      revenue
+    </td>
+    <td align="left">
+      runtime
+    </td>
+    <td align="left">
+      movie\_status
+    </td>
+    <td align="left">
+      vote\_average
+    </td>
+    <td align="left">
+      vote\_count
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      211672
+    </td>
+    <td align="left">
+      Minnows
+    </td>
+    <td align="left">
+      74000000
+    </td>
+    <td align="left">
+      875.581305
+    </td>
+    <td align="left">
+      2015-06-17
+    </td>
+    <td align="left">
+      1156730962
+    </td>
+    <td align="left">
+      91
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      6.40
+    </td>
+    <td align="left">
+      4571
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      24
+    </td>
+    <td align="left">
+      Billy the Killy
+    </td>
+    <td align="left">
+      30000000
+    </td>
+    <td align="left">
+      79.754966
+    </td>
+    <td align="left">
+      2003-10-10
+    </td>
+    <td align="left">
+      180949000
+    </td>
+    <td align="left">
+      111
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.70
+    </td>
+    <td align="left">
+      4949
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      19995
+    </td>
+    <td align="left">
+      CGI Why
+    </td>
+    <td align="left">
+      237000000
+    </td>
+    <td align="left">
+      150.437577
+    </td>
+    <td align="left">
+      2009-12-10
+    </td>
+    <td align="left">
+      2787965087
+    </td>
+    <td align="left">
+      162
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.20
+    </td>
+    <td align="left">
+      11800
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      37724
+    </td>
+    <td align="left">
+      Spyman 16
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      93.004993
+    </td>
+    <td align="left">
+      2012-10-25
+    </td>
+    <td align="left">
+      1108561013
+    </td>
+    <td align="left">
+      143
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      6.90
+    </td>
+    <td align="left">
+      7604
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      24428
+    </td>
+    <td align="left">
+      The Tentpole
+    </td>
+    <td align="left">
+      220000000
+    </td>
+    <td align="left">
+      144.448633
+    </td>
+    <td align="left">
+      2012-04-25
+    </td>
+    <td align="left">
+      1519557910
+    </td>
+    <td align="left">
+      143
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.40
+    </td>
+    <td align="left">
+      11776
+    </td>
+  </tr>
+</table>
+
+### Using SELECT \* EXCEPT
+
+This example uses `SELECT * EXCEPT` to exclude certain columns from the result set.
+
+```sql
+SELECT *
+EXCEPT (movie_id, runtime, vote_average, vote_count)
+FROM movies
+LIMIT 5;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="165,165,165,167">
+  <tr>
+    <td align="left">
+      title
+    </td>
+    <td align="left">
+      budget
+    </td>
+    <td align="left">
+      release\_date
+    </td>
+    <td align="left">
+      revenue
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Swords & Scabbards
+    </td>
+    <td align="left">
+      94000000
+    </td>
+    <td align="left">
+      2003-12-01
+    </td>
+    <td align="left">
+      1118888979
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Billy the Killy
+    </td>
+    <td align="left">
+      30000000
+    </td>
+    <td align="left">
+      2003-10-10
+    </td>
+    <td align="left">
+      180949000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Merchandise Vehicle 5
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      2010-06-16
+    </td>
+    <td align="left">
+      1066969703
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CGI Why
+    </td>
+    <td align="left">
+      237000000
+    </td>
+    <td align="left">
+      2009-12-10
+    </td>
+    <td align="left">
+      2787965087
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Odyssey 6000
+    </td>
+    <td align="left">
+      10500000
+    </td>
+    <td align="left">
+      1968-04-10
+    </td>
+    <td align="left">
+      68700000
+    </td>
+  </tr>
+</table>
+
+### Using Lateral Column Aliases
+
+Ocient SQL queries support lateral column aliases, meaning you can immediately reuse aliases for calculations in the same query as new inputs. Hence, you can simplify queries that normally require subqueries and common table expressions.&#x20;
+
+These examples use the `products` table with these columns:
+
+- `product_id` —  Product identifier as an integer
+- `product_name` — Product name as a string
+- `price` — Price as a floating point number
+
+Create this table using the `CREATE TABLE` SQL statement.
+
+```sql
+CREATE TABLE products (
+    product_id INT,
+    product_name VARCHAR(100),
+    price DECIMAL(10, 2)
+    ); 
+```
+
+Insert four records into the `products` table.
+
+```sql
+INSERT INTO products (product_id, product_name, price) VALUES
+    (1, 'Laptop', 1000.00),
+    (2, 'Tablet', 500.00),
+    (3, 'Smartphone', 800.00),
+    (4, 'Monitor', 300.00);
+```
+
+Create a query to determine prices after discounts and taxes by using a common table expression subquery `DiscountedPrices`. Use the `WITH` keyword to create the subquery.
+
+```sql
+WITH DiscountedPrices AS (
+    SELECT 
+        product_id,
+        product_name,
+        price,
+        price * 0.90 AS discounted_price,
+        price * 0.90 * 1.05 AS total_price_after_tax
+    FROM 
+        products
+)
+SELECT 
+    product_id,
+    product_name,
+    price,
+    discounted_price,
+    total_price_after_tax
+FROM 
+    DiscountedPrices;
+```
+
+Lateral aliases allow the same calculations to be packaged in a single query.&#x20;
+
+This simpler query is essentially the same as the longer common table expression example, but the logic is condensed because you can reference the `discounted_price` alias immediately to calculate the `total_price_after_tax` value in the same query.&#x20;
+
+```sql
+SELECT 
+    product_id,
+    product_name,
+    price,
+    price * 0.90 AS discounted_price,
+    discounted_price * 1.05 AS total_price_after_tax
+FROM 
+    products;
+```
+
+## FROM
+
+Specifies the table or view to use in a `SELECT` statement.
+
+**Syntax**
+
+```sql
+<select_clause> FROM 
+    { table_name | ( <sub_query> ) } [ ,... ]
+    [ <join_clause> [ ,... ] ]
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="175,100">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_clause>`
+    </td>
+    <td align="left">
+      A query statement using the `SELECT` SQL statement. For details, see the :Link[SELECT]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#XS3Ek" loadingMethod="dynamic" overridedLabel="SELECT"} section.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `table_name`
+    </td>
+    <td align="left">
+      The names of one or more tables or views that you want to query.&#x20;
+      If you specify multiple tables in the `FROM` list, separated by commas, the effect is the same as if you explicitly perform a :Link[CROSS JOIN]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#_E1u_" loadingMethod="dynamic" overridedLabel="CROSS JOIN"} on all of those sources.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<sub_query>`
+    </td>
+    <td align="left">
+      One or more subqueries using the `SELECT` SQL statement. A subquery generates a table from which the `select_clause` query references data.&#x20;
+      Each subquery must be enclosed in parentheses with an optional correlation name.
+      For details, see the :Link[SELECT]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#XS3Ek" loadingMethod="dynamic" overridedLabel="SELECT"} section.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<join_clause>`
+    </td>
+    <td align="left">
+      A `JOIN` clause used to retrieve data from two or more tables for your query.&#x20;
+      For details, see the :Link[JOIN]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax (cloned)" spaceId="wOlhkIZYVlwdyJyQXT8Jl" version="v2" docAnchorId="#ymbNg" loadingMethod="dynamic" overridedLabel="JOIN"} section.&#x20;
+    </td>
+  </tr>
+</table>
+
+## JOIN
+
+Combines rows from multiple tables so they can be accessed by a query. &#x20;
+
+**Syntax**
+
+```sql
+<select_query> 
+    FROM <table_reference1> <join_operation> <table_reference2> 
+        ON table1_column <boolean_operator> table2_column  
+```
+**Parameter**
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query>`
+    </td>
+    <td align="left">
+      A valid `SELECT` query.&#x20;
+      For details, see :Link[SELECT]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax (cloned)" spaceId="wOlhkIZYVlwdyJyQXT8Jl" version="v2" docAnchorId="#XS3Ek" loadingMethod="dynamic" overridedLabel="SELECT"}. &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<table_reference1>`
+    </td>
+    <td align="left">
+      Either a table name or a full `SELECT` in parentheses
+      `table_reference1` takes precedence for returning rows for `LEFT OUTER JOIN`, `SEMI JOIN`, and `ANTI JOIN`. For specific rules, see :Link[Types of Join Operations]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax (cloned)" spaceId="wOlhkIZYVlwdyJyQXT8Jl" version="v2" docAnchorId="#hYvBQ" loadingMethod="dynamic" overridedLabel="Types of Join Operations"}.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<table_reference2>`
+    </td>
+    <td align="left">
+      Either a table name or a full `SELECT` in parentheses function. &#x20;
+      `table_reference2` takes precedence for returning rows for `RIGHT OUTER JOIN`. For specific rules, see :Link[Types of Join Operations]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax (cloned)" spaceId="wOlhkIZYVlwdyJyQXT8Jl" version="v2" docAnchorId="#hYvBQ" loadingMethod="dynamic" overridedLabel="Types of Join Operations"}.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `table1_column`
+    </td>
+    <td align="left">
+      A column from either `table_reference` &#x20;
+      The `JOIN` operation uses this column to match rows with `table2_column` to combine data for the result set.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<boolean_operator>`
+    </td>
+    <td align="left">
+      Join conditions can use any Boolean expression, including `=`, `!=`, `<`, `>`, `=>`, and `<=`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `table2_column`
+    </td>
+    <td align="left">
+      A column from the `table_reference` not used for `table1_column` &#x20;
+      The `JOIN` operation uses this column to match rows based on the `table1_column` to combine data for the result set.&#x20;
+    </td>
+  </tr>
+</table>
+
+### Types of Join Operations ( `<join_operation>` )
+
+Ocient supports the following types of `JOIN` operations.&#x20;
+
+**Syntax**
+
+```sql
+<join_operation> ::=   
+    { INNER JOIN
+    | LEFT [ OUTER ] JOIN
+    | RIGHT [ OUTER ] JOIN
+    | FULL [ OUTER ] JOIN
+    | CROSS JOIN
+    | SEMI JOIN 
+    | ANTI JOIN } 
+```
+
+### **JOIN Type Descriptions**
+
+<table columnWidths="181,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **JOIN Type**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `INNER JOIN`
+    </td>
+    <td align="left">
+      Returns all rows that exist in both tables. This join type is the default type of join.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `LEFT OUTER JOIN`
+    </td>
+    <td align="left">
+      Returns all rows from the first table regardless of whether there are matching rows in the second table.&#x20;
+      `LEFT JOIN` performs the same operation as `LEFT OUTER JOIN`. &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `RIGHT OUTER JOIN`
+    </td>
+    <td align="left">
+      Returns all rows from the second table regardless of whether there are matching rows in the first table.
+      &#x20;`RIGHT JOIN` performs the same operation as `RIGHT OUTER JOIN`. &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `FULL OUTER JOIN`
+    </td>
+    <td align="left">
+      Returns all matched and unmatched rows.
+      `FULL JOIN` performs the same operation as `FULL OUTER JOIN`. &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `CROSS JOIN`
+    </td>
+    <td align="left">
+      Returns the Cartesian product of the joined tables. Each row in the first table is joined with all rows in the second table. The result set contains the number of rows in the first table multiplied by the number of rows in the second table.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `SEMI JOIN`
+    </td>
+    <td align="left">
+      Returns the rows from the first table that have at least one match in the second table. No columns from the second table are available in the query.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `ANTI JOIN`
+    </td>
+    <td align="left">
+      Returns the rows from the first table that have no matches in the second table. No columns from the second table are available in the query.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  By default, `JOIN` statements that involve subqueries can operate laterally if necessary. This behavior allows subqueries to reference joined columns from the preceding items included in the `FROM` clause.   
+
+  For example, both parts of this join operation use subqueries that reference table `x`. The `LATERAL` keyword is optional; the join operation acts the same regardless of whether it is included.&#x20;
+
+  <BlockQuote>
+    SELECT \* FROM
+    &#x9;(
+    &#x9;SELECT
+    &#x9;	1 AS cx1,
+    &#x9;	2 AS cx2) AS x
+    INNER JOIN LATERAL (
+    &#x9;SELECT
+    &#x9;	x.cx1 AS cy1,
+    &#x9;	x.cx2 AS cy2) AS y&#x20;
+    ON
+    &#x9;x.cx1 = y.cy1;
+  </BlockQuote>
+
+  Lateral joins are primarily useful when a cross-referenced column is necessary for computing the rows to join. A common application is providing an argument value for a set-returning function. 
+</hint>
+
+**Examples**
+
+These examples join two tables:&#x20;
+
+- `games` — A table of video game titles and their genre\_ids. Note that some games have a NULL value assigned to their genre\_id. &#x20;
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      game\_name
+    </td>
+    <td align="left">
+      genre\_id
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Star Battle 6000
+    </td>
+    <td align="left">
+      9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Dwarf Simulator
+    </td>
+    <td align="left">
+      NULL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2002 Futbol
+    </td>
+    <td align="left">
+      11
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Fantasy Fool
+    </td>
+    <td align="left">
+      8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Blasto the Squirrel
+    </td>
+    <td align="left">
+      5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Trucker Quest
+    </td>
+    <td align="left">
+      7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Block, Stack, and Cry!
+    </td>
+    <td align="left">
+      6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Basketball Day
+    </td>
+    <td align="left">
+      11
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pizza Mutant
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Italian Plumber
+    </td>
+    <td align="left">
+      5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zombies!
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Ninjas
+    </td>
+    <td align="left">
+      12
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Moon Mayor
+    </td>
+    <td align="left">
+      10
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      NULL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zoom Tycoon
+    </td>
+    <td align="left">
+      12
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Porch Poacher
+    </td>
+    <td align="left">
+      6
+    </td>
+  </tr>
+</table>
+
+- `genre` — A table of video game genres, which are identified by IDs.&#x20;
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      genre\_name
+    </td>
+    <td align="left">
+      id
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Racing
+    </td>
+    <td align="left">
+      7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Puzzle
+    </td>
+    <td align="left">
+      6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Adventure
+    </td>
+    <td align="left">
+      2
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Simulation
+    </td>
+    <td align="left">
+      10
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Shooter
+    </td>
+    <td align="left">
+      9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Misc
+    </td>
+    <td align="left">
+      4
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Action
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Sports
+    </td>
+    <td align="left">
+      11
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Role-Playing
+    </td>
+    <td align="left">
+      8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Platform
+    </td>
+    <td align="left">
+      5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Strategy
+    </td>
+    <td align="left">
+      12
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Fighting
+    </td>
+    <td align="left">
+      3
+    </td>
+  </tr>
+</table>
+
+### INNER JOIN&#x20;
+
+This example uses an `INNER JOIN` operation to capture only the rows that exist in both tables. Games with NULL values for their `genre_id` are eliminated from the result set.
+
+```sql
+SELECT game_name,
+    genre_name
+FROM video_games.game
+    INNER JOIN video_games.genre ON game.genre_id = genre.id;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      game\_name
+    </td>
+    <td align="left">
+      genre\_name
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Fantasy Fool
+    </td>
+    <td align="left">
+      Role-Playing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Blasto the Squirrel
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Italian Plumber
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Porch Poacher
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Ninjas
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Basketball Day
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2002 Futbol
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Moon Mayor
+    </td>
+    <td align="left">
+      Simulation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Block, Stack, and Cry!
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zombies!
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pizza Mutant
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Trucker Quest
+    </td>
+    <td align="left">
+      Racing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zoom Tycoon
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+</table>
+
+### LEFT OUTER JOIN
+
+This example uses a `LEFT OUTER JOIN` operation to capture all rows from the left table (game), even if they have no matching row in the right table (genre).&#x20;
+
+```sql
+SELECT game_name,
+    genre_name
+FROM video_games.game
+    LEFT OUTER JOIN video_games.genre ON game.genre_id = genre.id;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      game\_name
+    </td>
+    <td align="left">
+      genre\_name
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Fantasy Fool
+    </td>
+    <td align="left">
+      Role-Playing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Ninjas
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zoom Tycoon
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zombies!
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pizza Mutant
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Trucker Quest
+    </td>
+    <td align="left">
+      Racing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Blasto the Squirrel
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2002 Futbol
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Basketball Day
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Italian Plumber
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Block, Stack, and Cry!
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Star Battle 6000
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Dwarf Simulator
+    </td>
+    <td align="left">
+      NULL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Moon Mayor
+    </td>
+    <td align="left">
+      Simulation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Porch Poacher
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      NULL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+</table>
+
+### RIGHT OUTER JOIN
+
+This example uses a `RIGHT`` OUTER JOIN` operation to capture all rows from the right table (genre), even if they have no matching row in the left table (game).&#x20;
+
+```sql
+SELECT game_name,
+    genre_name
+FROM video_games.game
+    RIGHT OUTER JOIN video_games.genre ON game.genre_id = genre.id;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      game\_name
+    </td>
+    <td align="left">
+      genre\_name
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NULL
+    </td>
+    <td align="left">
+      Adventure
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Trucker Quest
+    </td>
+    <td align="left">
+      Racing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pizza Mutant
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Moon Mayor
+    </td>
+    <td align="left">
+      Simulation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Fantasy Fool
+    </td>
+    <td align="left">
+      Role-Playing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NULL
+    </td>
+    <td align="left">
+      Misc
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Star Battle 6000
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Ninjas
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Porch Poacher
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Block, Stack, and Cry!
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Blasto the Squirrel
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Italian Plumber
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zoom Tycoon
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NULL
+    </td>
+    <td align="left">
+      Fighting
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zombies!
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2002 Futbol
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Basketball Day
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+</table>
+
+### FULL OUTER JOIN
+
+This example uses a `FULL OUTER JOIN` operation to capture all rows from both tables, even if they do not match.&#x20;
+
+```sql
+SELECT game_name,
+    genre_name
+FROM video_games.game
+    FULL OUTER JOIN video_games.genre ON game.genre_id = genre.id;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      game\_name
+    </td>
+    <td align="left">
+      genre\_name
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Basketball Day
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2002 Futbol
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zombies!
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Blasto the Squirrel
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Moon Mayor
+    </td>
+    <td align="left">
+      Simulation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Trucker Quest
+    </td>
+    <td align="left">
+      Racing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NULL
+    </td>
+    <td align="left">
+      Misc
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Star Battle 6000
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      NULL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NULL
+    </td>
+    <td align="left">
+      Adventure
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NULL
+    </td>
+    <td align="left">
+      Fighting
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Italian Plumber
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pizza Mutant
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Dwarf Simulator
+    </td>
+    <td align="left">
+      NULL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Fantasy Fool
+    </td>
+    <td align="left">
+      Role-Playing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Block, Stack, and Cry!
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Ninjas
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zoom Tycoon
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Porch Poacher
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+</table>
+
+### CROSS JOIN
+
+This example uses a `CROSS JOIN` operation to capture every possible combination of rows from both tables, regardless of whether they match. Note that unlike other `JOIN` operations, `CROSS JOIN` does not require an `ON` statement.&#x20;
+
+```sql
+SELECT game_name, 
+    genre_name 
+FROM video_games.genre 
+    CROSS JOIN video_games.game;
+```
+
+*Output*
+
+<hint type="info">
+  As the result set for this CROSS JOIN example is more than 200 rows, the results are abbreviated.&#x20;
+</hint>
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      genre\_name
+    </td>
+    <td align="left">
+      genre\_id
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Role-Playing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Misc
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Fighting
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Simulation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Racing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+    <td align="left">
+      Adventure
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Role-Playing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Misc
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Sports
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Platform
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Strategy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Shooter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Fighting
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Simulation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Racing
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Puzzle
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Attack!&#x20;
+    </td>
+    <td align="left">
+      Adventure
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ...
+    </td>
+    <td align="left">
+      ...
+    </td>
+  </tr>
+</table>
+
+### SEMI JOIN
+
+This example uses a `SEMI JOIN` operation to capture genre names that have at least one match in the games table. Rows are only included once, even if there are multiple matches.&#x20;
+
+```sql
+SELECT genre_name, 
+    id 
+FROM video_games.genre 
+    SEMI JOIN video_games.game ON genre.id = game.genre_id;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      genre\_name
+    </td>
+    <td align="left">
+      genre\_id
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Simulation
+    </td>
+    <td align="left">
+      10
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Shooter
+    </td>
+    <td align="left">
+      9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Racing
+    </td>
+    <td align="left">
+      7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Strategy
+    </td>
+    <td align="left">
+      12
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Puzzle
+    </td>
+    <td align="left">
+      6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Platform
+    </td>
+    <td align="left">
+      5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Action
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Sports
+    </td>
+    <td align="left">
+      11
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Role-Playing
+    </td>
+    <td align="left">
+      8
+    </td>
+  </tr>
+</table>
+
+### ANTI JOIN
+
+This example uses an `ANTI JOIN` operation to capture any rows in the game table that do not match any rows in the genre table.&#x20;
+
+```sql
+SELECT game_name
+FROM video_games.game 
+    ANTI JOIN video_games.genre ON game.genre_id = genre.id;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="662">
+  <tr>
+    <td align="left">
+      game\_name
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Spreadsheet Hero
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Dwarf Simulator
+    </td>
+  </tr>
+</table>
+
+## WHERE
+
+Filters rows based on a specified condition.&#x20;
+
+**Syntax**
+
+```sql
+<select_query> 
+    WHERE { column_name <filter_condition> filter_value | 
+    [ NOT ] EXISTS ( <sub_query> ) } 
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="145,100">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query>`
+    </td>
+    <td align="left">
+      A valid `SELECT` query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `column_name`
+    </td>
+    <td align="left">
+      A column used for grouping that is evaluated by the `filter_condition`.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `filter_value`
+    </td>
+    <td align="left">
+      A value used to evaluate the specified `column_name`.&#x20;
+      For details, see the :Link[\<filter\_condition>]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#5OBcq" loadingMethod="dynamic" overridedLabel="<filter_condition>"} section.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<sub_query>`
+    </td>
+    <td align="left">
+      A subquery with a filter condition that follows the `EXISTS` clause.&#x20;
+      For details, see the :Link[EXISTS]{label="General SQL Syntax" spaceId="_RIVPG6C91qqB76KHDBSV" docId="Nw9vaVKey2v75MoXm_muO" version="v2" docAnchorId="#sLEBK" loadingMethod="dynamic" overridedLabel="EXISTS"} section.&#x20;
+    </td>
+  </tr>
+</table>
+
+### \<filter\_condition>
+
+A logical combination of predicates used to evaluate the referenced `column_name` based on the `filter_value`.&#x20;
+
+**Syntax**
+
+```sql
+<filter_condition> ::= 
+  { =
+    | ==
+    | <>
+    | !=
+    | [ NOT ] EQUALS
+    | <
+    | <=
+    | >
+    | >=
+    | [ NOT ] IN
+    | [ NOT ] LIKE
+    | [ NOT ] SIMILAR TO
+    | BETWEEN
+    | FOR SOME
+    | FOR ALL
+    | IS [ NOT ] NULL
+    | IS [ NOT ] DISTINCT FROM 
+  }
+```
+
+**Definitions**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="100,338,100">
+  <tr>
+    <td align="left">
+      **Operator**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+    <td align="left">
+      **Example**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `=`, `==`, `EQUALS`
+    </td>
+    <td align="left">
+      Equal to.&#x20;
+    </td>
+    <td align="left">
+      `Author = 'Alcott'`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<>`, `!=`
+    </td>
+    <td align="left">
+      Not equal to
+    </td>
+    <td align="left">
+      `Dept <> 'Sales'`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `>`
+    </td>
+    <td align="left">
+      Greater than
+    </td>
+    <td align="left">
+      `Hire_Date > '2012-01-31'`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<`
+    </td>
+    <td align="left">
+      Less than
+    </td>
+    <td align="left">
+      `Bonus < 50000.00`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `>=`
+    </td>
+    <td align="left">
+      Greater than or equal
+    </td>
+    <td align="left">
+      `Dependents >= 2`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<=`
+    </td>
+    <td align="left">
+      Less than or equal
+    </td>
+    <td align="left">
+      `Rate <= 0.05`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `[ NOT ] LIKE`
+    </td>
+    <td align="left">
+      Begins with a character pattern to match.&#x20;
+      The pattern is enclosed in parentheses and can include the wildcard characters `%`, representing zero, one or multiple characters, and `_` representing a single character.&#x20;
+      To have a literal `%` or `_` that does not act as a wildcard on the right-hand side of a `LIKE` or `NOT LIKE` expression, put a backslash before the character.&#x20;
+    </td>
+    <td align="left">
+      `Full_Name LIKE 'Will%'`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `[ NOT ] SIMILAR TO`
+    </td>
+    <td align="left">
+      For usage information, see the :Link[SIMILAR TO Operator]{label="General SQL Syntax" spaceId="_RIVPG6C91qqB76KHDBSV" docId="Nw9vaVKey2v75MoXm_muO" version="v2" docAnchorId="#XOzvx" loadingMethod="dynamic" overridedLabel="SIMILAR TO Operator"} section.&#x20;
+    </td>
+    <td align="left">
+      `'abc' SIMILAR TO 'abc' `
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `BETWEEN value1 AND value2`
+    </td>
+    <td align="left">
+      Requires two values.&#x20;
+      The filter evaluates to TRUE if the specified column is within the range between the two values. `BETWEEN` bounds are inclusive.  Values can be times, numbers, or strings.&#x20;
+    </td>
+    <td align="left">
+      `Sales BETWEEN 1000 AND 5000`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `FOR_SOME()`&#x20;
+    </td>
+    <td align="left">
+      Evaluates an array to determine if at least one value meets the filter criteria.&#x20;
+      In the example, the `FOR_SOME()` operator would return all rows of the column `col_int_array` where at least one value is greater than 10.&#x20;
+      For details, see :Link[Array Filters]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#LZR6F" loadingMethod="dynamic" overridedLabel="Array Filters"}.
+    </td>
+    <td align="left">
+      `FOR_SOME(col_int_array) > 10`
+      `FOR_SOME(col_int_array) > 10`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `FOR_ALL()`
+    </td>
+    <td align="left">
+      Evaluates all values of an array to determine if all meet the filter criteria.&#x20;
+      In the example, the `FOR_ALL()` operator would return any rows of the column `col_int_array` where all values are greater than 10.&#x20;
+      For details, see :Link[Array Filters]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#LZR6F" loadingMethod="dynamic" overridedLabel="Array Filters"}.
+    </td>
+    <td align="left">
+      `FOR_ALL(col_int_array) > 10`
+      `FOR_ALL(col_int_array) = 1`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `[ NOT ] IN`
+    </td>
+    <td align="left">
+      Equal to one of multiple possible values
+    </td>
+    <td align="left">
+      `DeptCode IN (101, 103, 209)`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `IS [ NOT ] NULL`
+    </td>
+    <td align="left">
+      Compare to `NULL` (missing data)
+    </td>
+    <td align="left">
+      `Address IS NOT NULL`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `IS [ NOT ] DISTINCT FROM`
+    </td>
+    <td align="left">
+      Compares the equality of two expressions for a Boolean result, including comparisons that involve `NULL` values. This operator ensures reliable comparisons in scenarios where `NULL` values need to be treated as significant data points.
+      Normally, `NULL = NULL` evaluates to `false` because `NULL` represents an unknown value. However, the statement `a IS NOT DISTINCT FROM b` treats `NULL` as a comparable value and returns `true` when both values are `NULL` or when `a = b`.&#x20;
+      Inversely, `a IS DISTINCT FROM b` returns `true` if the values are different or if one value is `NULL` while the other is not `NULL`.&#x20;
+    </td>
+    <td align="left">
+      `Debt IS NOT DISTINCT FROM Receivables`
+    </td>
+  </tr>
+</table>
+
+### EXISTS
+
+An `EXISTS` clause used in a `WHERE` statement evaluates if a subquery returns any rows.&#x20;
+
+For each row that the database computes in the outer query, if the subquery returns at least one row, the `EXISTS` clause evaluates to `true`. In this outcome, the outer query returns its row.&#x20;
+
+If the subquery returns zero rows, the `EXISTS` clause evaluates to `false`, and the outer query excludes those rows.&#x20;
+
+The `NOT EXISTS` clause performs the opposite Boolean logic. In this case, the outer query returns rows only when the subquery has no matches.&#x20;
+
+**Examples**
+
+These examples use two tables, one for company departments and the other for employees who are assigned to those departments.&#x20;
+
+Create the `departments` table for department data.
+
+```sql
+CREATE TABLE departments (
+    id INT,
+    name VARCHAR(50)
+);
+```
+
+Create the `employees` table for employee data.
+
+```sql
+CREATE TABLE employees (
+    id INT,
+    name VARCHAR(50),
+    department_id INT
+);
+```
+
+Insert department data for three departments, `HR`, `IT`, and `Marketing`, into the `departments` table.
+
+```sql
+INSERT INTO departments (id, name) VALUES
+    (1, 'HR'),
+    (2, 'IT'),
+    (3, 'Marketing');
+```
+
+Insert employee data for four employees, `Alice`, `Bob`, `Charlie`, and `David`, into the `employees` table.&#x20;
+
+```sql
+INSERT INTO employees (id, name, department_id) VALUES
+    (1, 'Alice', 1),
+    (2, 'Bob', 2),
+    (3, 'Charlie', 2),
+    (4, 'David', 4);
+```
+
+**Find Employees Belonging to an Existing Department**
+
+This example uses an `EXISTS` clause to find any names from the `employees` table who are assigned to a department listed in the `departments` table.&#x20;
+
+```sql
+SELECT name
+FROM employees AS e
+WHERE EXISTS (
+    SELECT *
+    FROM departments AS d
+    WHERE e.department_id = d.id
+);
+```
+
+The query returns all employees except `David`, who is assigned to a department that does not exist in the `departments` table.&#x20;
+
+*Output*
+
+```none
+Bob 
+Charlie
+Alice
+```
+
+**Find Departments That Have Employees**
+
+This query returns departments that have at least one employee. The subquery uses `SELECT 1` to check whether any matching rows exist in the `employees` table. The output is the same if the query uses `SELECT *` instead.&#x20;
+
+```sql
+SELECT name 
+FROM departments AS d
+WHERE EXISTS (
+    SELECT 1 
+    FROM employees AS e 
+    WHERE e.department_id = d.id
+);
+```
+
+The query results exclude the `Marketing` department because no employees belong to it.&#x20;
+
+*Output*
+
+```none
+HR        
+IT 
+```
+
+**Filter Departments Based on an Uncorrelated Table**
+
+In this example, the outer query filters the `departments` table where `id != 3` (excluding the `Marketing` department). The subquery checks if there is at least one employee with a department identifier less than `4`.
+
+The query is uncorrelated because the subquery does not reference the `departments` table.
+
+```sql
+SELECT * 
+FROM departments d
+WHERE d.id != 3 
+AND EXISTS (
+    SELECT * 
+    FROM employees e 
+    WHERE e.department_id < 4
+);
+```
+
+*Output*
+
+```none
+HR        
+IT 
+```
+
+**Find Employees Without a Valid Department**
+
+This example uses a `NOT EXISTS` clause. The example returns only employees who are assigned to a department identifier `department_id` not listed in the `departments` table.&#x20;
+
+```sql
+SELECT name
+FROM employees AS e
+WHERE NOT EXISTS (
+    SELECT *
+    FROM departments AS d
+    WHERE e.department_id = d.id
+);
+```
+
+*Output:&#x20;*`David`
+
+### SIMILAR TO Operator
+
+`SIMILAR TO` is a keyword that extends the `LIKE` operator, adding more features for match filtering including many metacharacters used in regular expressions.&#x20;
+
+`%` and `_` both act as wildcard operators, but other supported metacharacters match traditional regular expressions.
+
+**Syntax**
+
+```sql
+WHERE string1 SIMILAR TO string2
+```
+
+This table describes the metacharacters supported by the `SIMILAR TO` keyword.
+
+<table columnWidths="134,497" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Metacharacter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `%`
+    </td>
+    <td align="left">
+      Repeated wildcard, matches any characters zero or more times. Equivalent usage to `LIKE`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `_`
+    </td>
+    <td align="left">
+      Wildcard, matches exactly one character. Equivalent usage to `LIKE`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `|`
+    </td>
+    <td align="left">
+      Alteration, meaning either of two alternatives (`a|b` represents `a` or `b`).
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `*`
+    </td>
+    <td align="left">
+      Repetition of zero or more times.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `+`
+    </td>
+    <td align="left">
+      Repetition of one or more times.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `?`
+    </td>
+    <td align="left">
+      Repetition of zero or one times.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `{m}`
+    </td>
+    <td align="left">
+      Repetition of exactly `m` times.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `{m,n}`
+    </td>
+    <td align="left">
+      Repetition between `m` and `n` times (inclusive).
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `{m,}`
+    </td>
+    <td align="left">
+      Repetition of at least `m` times.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `()`
+    </td>
+    <td align="left">
+      Logical grouping.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `[]`
+    </td>
+    <td align="left">
+      A character class, equivalent to character classes in regular expressions. Example: `[a-z]` is any lowercase English letter.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `^`
+    </td>
+    <td align="left">
+      Beginning of the line anchor and the negation in character classes.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `$`
+    </td>
+    <td align="left">
+      End of the line anchor.
+    </td>
+  </tr>
+</table>
+
+`SIMILAR TO` also supports escaping these metacharacters with `\` and certain escape sequences supported by C family languages.
+
+<table columnWidths="135,425" selectedRows="" selectedTable="false" selectedColumns="" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Metacharacter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\a`
+    </td>
+    <td align="left">
+      The alert/bell character.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\b`
+    </td>
+    <td align="left">
+      The backspace character.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\B`
+    </td>
+    <td align="left">
+      A single `\` character. Equivalent to `\\`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\cX`
+    </td>
+    <td align="left">
+      The character with the same five lower order bits as `X` with all zeros as higher order bits.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\e`
+    </td>
+    <td align="left">
+      The character with the numeric value 27, Esc.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\f`
+    </td>
+    <td align="left">
+      Form feed.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\n`
+    </td>
+    <td align="left">
+      Newline.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\r`
+    </td>
+    <td align="left">
+      Carriage return.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\t`
+    </td>
+    <td align="left">
+      Horizontal tab.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\uwxyz`
+    </td>
+    <td align="left">
+      `wxyz` represents four hexadecimal digits, including two characters: one with numeric value `wx`, and one with numeric value `yz`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\Uabcdefgh`
+    </td>
+    <td align="left">
+      `abcdefgh` represents eight hexadecimal digits, including four characters: numeric value `ab`, numeric value `cd`, numeric value `ef`, and numeric value `gh`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\v`
+    </td>
+    <td align="left">
+      Vertical tab.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\xd....`
+    </td>
+    <td align="left">
+      `d` is any number of hexadecimal digits. If the number of digits is odd, a 0 is added to the left of the sequence. Numeric characters with values represented by every group of two symbols from `d`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\0`
+    </td>
+    <td align="left">
+      NULL character 0.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\xy`
+    </td>
+    <td align="left">
+      `xy` are octal digits that represent the character with the numeric value `xy`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\xyz`
+    </td>
+    <td align="left">
+      `xyz` are octal digits that represent the character with the numeric value `xyz`. If `x` is greater than or equal to `4`, the database returns two characters: the numeric value `1` and the numeric value of the lower 8 bits of `xyz`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\d`
+    </td>
+    <td align="left">
+      Matches any digit.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\s`
+    </td>
+    <td align="left">
+      Matches any whitespace.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\w`
+    </td>
+    <td align="left">
+      Matches any alphanumeric character or `_`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\D`
+    </td>
+    <td align="left">
+      Matches any non-digit.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\S`
+    </td>
+    <td align="left">
+      Matches any non-whitespace.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\W`
+    </td>
+    <td align="left">
+      Matches any non-alphanumeric that is also not `_`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\A`
+    </td>
+    <td align="left">
+      The beginning of a line. Equivalent to `^`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\m`, `\M`, or `\y`
+    </td>
+    <td align="left">
+      The boundary of a word. Equivalent to `\b` in normal regular expressions.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\Y`
+    </td>
+    <td align="left">
+      Any position that is not the boundary of a word.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\Z`
+    </td>
+    <td align="left">
+      The end of a line. Equivalent to `$` in normal regular expressions.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\*`
+    </td>
+    <td align="left">
+      The star character.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\+`
+    </td>
+    <td align="left">
+      The plus character.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\?`
+    </td>
+    <td align="left">
+      The question mark character.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  - The database ignores any `\` metacharacter that does not precede a metacharacter (including `\`) or an escape sequence in the metacharacter table.
+  - Invalid expressions (unpreceded quantifiers, unclosed parentheses, etc.) result in query errors.
+  - The database does not recognize the `.` character as a metacharacter, unlike the behavior in traditional regular expressions.
+  - The database applies escape metacharacters that apply to string literals. To match a string containing a single `'\'`, you might need to use `'\\\\'`.
+</hint>
+
+**Examples**
+
+```sql
+'abc' SIMILAR TO 'abc'          true
+'abc' SIMILAR TO 'a'            false
+'abc' SIMILAR TO '%(b|d)%'      true
+'abc' SIMILAR TO '(b|c)%'       false
+'-abc-' SIMILAR TO '%\mabc\M%'  true
+'xabcy' SIMILAR TO '%\mabc\M%'  false
+```
+
+### Array Filters
+
+A filter expression can use the functions `FOR_SOME()` and `FOR_ALL()` to apply a predicate against all values of an input array. 
+
+Array filter functions have the following rules:&#x20;
+
+- They can only evaluate array types. 
+- They can go on either the left or right side of a boolean comparison expression, but not both sides at the same time. 
+- They must directly use a boolean comparison operator.
+- They cannot use the `SOME` and `ALL` SQL keywords. 
+
+**Filter Behavior with Empty Arrays**
+
+Array filter functions have unique behavior when evaluating empty arrays.&#x20;
+
+- `FOR_ALL()` evaluates an empty array as `TRUE`.&#x20;
+- `FOR_SOME()` evaluates an empty array as `FALSE`.
+
+If empty arrays must be evaluated for a different result, you can use the `ARRAY_LENGTH` function to specify a minimum array length. For example, this statement would evaluate an array as `TRUE` only if it is not empty and all values matched `%ocient%`:
+
+```sql
+ARRAY_LENGTH(array_col) > 0 AND FOR_ALL(array_col) LIKE '%ocient%
+```
+
+For details about array functions, see the :Link[Array Functions and Operators]{docId="XUK0Z8dmXPgMOgSzPDW6w" label="Array Functions and Operators" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} page.&#x20;
+
+**Filter Behavior with NULL rows**
+
+Filtering with array functions can have different outcomes depending on whether the array row is NULL or if the values contained in the array are NULL.&#x20;
+
+If `FOR_SOME()` or `FOR_ALL()` evaluate a NULL row (the row itself is NULL, not that the array contains NULL values), then the result is always `FALSE`. 
+
+To check an array for the presence of NULL values, you must use the `IS NULL` operator. For example:&#x20;
+
+```sql
+FOR_SOME(array_col) IS NULL
+```
+
+Array comparison operators, such as `@>`, `<@`, and `&&` do not adhere to Boolean logic for NULL values. For details, see the :Link[Array Functions and Operators]{docId="XUK0Z8dmXPgMOgSzPDW6w" label="Array Functions and Operators" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} page.
+
+## GROUP BY
+
+Groups rows with the same values into summary rows, based on a specified aggregate function. &#x20;
+
+**Syntax**
+
+```sql
+SELECT <select_list_clause> FROM table_name 
+    GROUP BY { column_name | expression | integer } [ , ... ]
+    [ HAVING <filter_condition> ] 
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_list_clause>`
+    </td>
+    <td align="left">
+      A list of one or more columns for the `SELECT` query.&#x20;
+      To use `GROUP BY` to summarize the query result set, at least one of the columns in `column_list` must include an aggregate function, such as `SUM()`, `COUNT()`, or `MAX()`.&#x20;
+      For a list of supported functions, see the :Link[Aggregate Functions]{docId="RoKa1CK6HNDMoD1SMej1s" label="Aggregate Functions" spaceId="IVveQLbBJeU-r82NRG4-0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} page.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `table_name`
+    </td>
+    <td align="left">
+      The table to use for the query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `column_name`
+    </td>
+    <td align="left">
+      The name of one or more columns to use to group the result set.&#x20;
+      If you specify multiple columns, the result set is grouped by each unique combination of values from the columns.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `expression`
+    </td>
+    <td align="left">
+      Any combination of literal values, column names, arithmetic expressions, parentheses, and function calls.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `integer`
+    </td>
+    <td align="left">
+      An integer representing the position of the columns referenced in the `column_list`. The first position starts at `1`.  &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<filter_condition>`
+    </td>
+    <td align="left">
+      A `HAVING` clause that filters the aggregated groups based on a specified condition.&#x20;
+      For details, see the :Link[\<filter\_condition>]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#5OBcq" loadingMethod="dynamic" overridedLabel="<filter_condition>"} section.&#x20;
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+This example uses a movie database to calculate the total amount spent on movie production per year.&#x20;
+
+```sql
+SELECT YEAR(release_date),
+    SUM(budget)
+FROM movies
+GROUP BY 1
+ORDER BY 1 ASC;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      year(release\_date)
+    </td>
+    <td align="left">
+      sum(budget)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1968
+    </td>
+    <td align="left">
+      10500000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1979
+    </td>
+    <td align="left">
+      31500000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1981
+    </td>
+    <td align="left">
+      18000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1982
+    </td>
+    <td align="left">
+      28000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1992
+    </td>
+    <td align="left">
+      14000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1997
+    </td>
+    <td align="left">
+      200000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2003
+    </td>
+    <td align="left">
+      264000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2009
+    </td>
+    <td align="left">
+      237000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2010
+    </td>
+    <td align="left">
+      350000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2012
+    </td>
+    <td align="left">
+      670000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2013
+    </td>
+    <td align="left">
+      350000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2015
+    </td>
+    <td align="left">
+      414000000
+    </td>
+  </tr>
+</table>
+
+## HAVING
+
+Filters aggregated rows based on a specified condition.&#x20;
+
+`HAVING` operates in a `GROUP BY` statement by setting a filter for the rows to be aggregated and grouped.&#x20;
+
+For information on using `GROUP BY` in a query statement, see :Link[GROUP BY]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="IVveQLbBJeU-r82NRG4-0" version="v2" docAnchorId="#w2GdS" loadingMethod="dynamic" overridedLabel="GROUP BY"}.&#x20;
+
+**Syntax**
+
+```sql
+GROUP BY column_name HAVING <filter_condition>
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `column_name`
+    </td>
+    <td align="left">
+      A column used for grouping that is evaluated by the `filter_condition`.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<filter_condition>`
+    </td>
+    <td align="left">
+      A logical combination of boolean predicates.&#x20;
+      For information on supported logical predicates, see :Link[\<filter\_condition>]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#5OBcq" loadingMethod="dynamic" overridedLabel="<filter_condition>"}.
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+This example calculates the total amount spent on movie production per year. The `HAVING` clause filters out any rows that do not have a sum of at least $100 million. &#x20;
+
+```sql
+SELECT YEAR(release_date),
+    SUM(budget)
+FROM movies
+GROUP BY 1
+HAVING SUM(budget) > 100000000
+ORDER BY 1 ASC;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      year(release\_date)
+    </td>
+    <td align="left">
+      sum(budget)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1997
+    </td>
+    <td align="left">
+      200000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2003
+    </td>
+    <td align="left">
+      264000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2009
+    </td>
+    <td align="left">
+      237000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2010
+    </td>
+    <td align="left">
+      350000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2012
+    </td>
+    <td align="left">
+      670000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2013
+    </td>
+    <td align="left">
+      350000000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2015
+    </td>
+    <td align="left">
+      414000000
+    </td>
+  </tr>
+</table>
+
+## ORDER BY
+
+Sorts the result set in ascending or descending order based on one or more specified columns. &#x20;
+
+If you specify multiple columns, they are sorted hierarchically from left to right. &#x20;
+
+**Syntax**
+
+```sql
+ORDER BY { column_position | column_name } [ ASC | DESC ] 
+    [ NULLS FIRST | NULLS LAST ] [ , ... ]
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="220,220,222">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Data Type**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `column_position`
+    </td>
+    <td align="left">
+      Integer
+    </td>
+    <td align="left">
+      The position of a column to be used for the `ORDER BY` sorting.&#x20;
+      Column positions start at `1`.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `column_name`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      The name of a column to be used for the `ORDER BY` sorting.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `ASC | DESC`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Optional.&#x20;
+      Specifies whether to sort the column in ascending (`ASC`) or descending (`DESC`) order.&#x20;
+      If unspecified, defaults to `ASC`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `NULLS FIRST | NULLS LAST`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Optional.&#x20;
+      `NULLS FIRST` means null values go at the start of the result set.&#x20;
+      `NULLS LAST` means null values go at the end of the result set.&#x20;
+      If unspecified, defaults to `NULLS FIRST`.
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+In this example, the `ORDER BY` statement orders the movies from newest to oldest. &#x20;
+
+```sql
+SELECT release_date, title 
+FROM movies 
+ORDER BY release_date DESC; 
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      release\_date
+    </td>
+    <td align="left">
+      title
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2015-06-17
+    </td>
+    <td align="left">
+      Minnows
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2015-06-09
+    </td>
+    <td align="left">
+      Triassic World
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2015-04-01
+    </td>
+    <td align="left">
+      Fury 7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2013-11-27
+    </td>
+    <td align="left">
+      Frigid
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2013-04-18
+    </td>
+    <td align="left">
+      Iron Chef 3
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2012-10-25
+    </td>
+    <td align="left">
+      Spyman 16
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2012-07-16
+    </td>
+    <td align="left">
+      Superhero 23
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2012-04-25
+    </td>
+    <td align="left">
+      The Tentpole
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2010-06-30
+    </td>
+    <td align="left">
+      The Last Airman
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2010-06-16
+    </td>
+    <td align="left">
+      Merchandise Vehicle 5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2009-12-10
+    </td>
+    <td align="left">
+      CGI Why
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2003-12-01
+    </td>
+    <td align="left">
+      Swords & Scabbards
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2003-10-10
+    </td>
+    <td align="left">
+      Billy the Killy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2003-07-09
+    </td>
+    <td align="left">
+      Pirates of Palm Springs
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1997-11-18
+    </td>
+    <td align="left">
+      Titania
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1992-08-07
+    </td>
+    <td align="left">
+      Bang Bang Western
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1982-06-25
+    </td>
+    <td align="left">
+      Blade Walker
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1981-06-12
+    </td>
+    <td align="left">
+      Raiders of the Jungle Temple
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1979-08-15
+    </td>
+    <td align="left">
+      Apocalypse None
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      1968-04-10
+    </td>
+    <td align="left">
+      Space Odyssey 6000
+    </td>
+  </tr>
+</table>
+
+## LIMIT
+
+Limits the number of returned rows from a query to a specified amount.&#x20;
+
+The returned rows are nondeterministic unless you use an :Link[ORDER BY]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#YvNk8" loadingMethod="dynamic" overridedLabel="ORDER BY"} clause.&#x20;
+
+**Syntax**
+
+```sql
+<select_query> LIMIT limit_number
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="166,100">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query>`
+    </td>
+    <td align="left">
+      A valid `SELECT` query.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `limit_number`
+    </td>
+    <td align="left">
+      The number of rows to return from the query, specified as a positive integer or any constant scalar expression that evaluates to a positive integer. &#x20;
+    </td>
+  </tr>
+</table>
+
+**Examples**
+
+**Limit Returned Rows Using a Number**
+
+This example uses `LIMIT` to restrict the number of returned movie titles to only three.&#x20;
+
+```sql
+SELECT title FROM movies LIMIT 3; 
+```
+
+*Output*
+
+```sql
+Minnows
+CGI Why
+Billy the Killy
+```
+
+**Limit Returned Rows Using an Expression**
+
+The `LIMIT` SQL statement can also accept expressions. This query uses the `1+2` expression with the `sys.dummy` table to create a table of three incrementing integers. For details, see :Link[Generate Tables Using sys.dummy]{label="Generate Tables Using sys.dummy" spaceId="_RIVPG6C91qqB76KHDBSV" docId="EtF0Ovy63hqZXjJT_yVOP" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+```sql
+SELECT c1 FROM sys.dummy10 LIMIT 1+2; 
+```
+
+*Output*
+
+```sql
+1
+2
+3
+```
+
+## OFFSET
+
+Skips a specified number of rows from the result set.&#x20;
+
+The returned rows are nondeterministic unless you use an :Link[ORDER BY]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#YvNk8" loadingMethod="dynamic" overridedLabel="ORDER BY"} clause.&#x20;
+
+**Syntax**
+
+```sql
+<select_query> OFFSET offset_number
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="160,100">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query>`
+    </td>
+    <td align="left">
+      A valid SELECT query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `offset_number`
+    </td>
+    <td align="left">
+      The number of rows to skip when returning results from the query, specified as a positive integer or any constant scalar expression that evaluates to a positive integer. &#x20;
+    </td>
+  </tr>
+</table>
+
+**Examples**
+
+**Skip Rows From the Result Set Using a Number**
+
+In this example, the `ORDER BY` statement orders the results chronologically. As a result, the `OFFSET` clause removes the oldest six movies from the result set.&#x20;
+
+```sql
+SELECT release_date,
+    title
+FROM movies
+ORDER BY release_date OFFSET 6;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      release\_date
+    </td>
+    <td align="left">
+      title
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2003-07-09
+    </td>
+    <td align="left">
+      Pirates of Palm Springs
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2003-10-10
+    </td>
+    <td align="left">
+      Billy the Killy
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2003-12-01
+    </td>
+    <td align="left">
+      Swords & Scabbards
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2009-12-10
+    </td>
+    <td align="left">
+      CGI Why
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2010-06-16
+    </td>
+    <td align="left">
+      Merchandise Vehicle 5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2010-06-30
+    </td>
+    <td align="left">
+      The Last Airman
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2012-04-25
+    </td>
+    <td align="left">
+      The Tentpole
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2012-07-16
+    </td>
+    <td align="left">
+      Superhero 23
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2012-10-25
+    </td>
+    <td align="left">
+      Spyman 16
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2013-04-18
+    </td>
+    <td align="left">
+      Iron Chef 3
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2013-11-27
+    </td>
+    <td align="left">
+      Frigid
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2015-04-01
+    </td>
+    <td align="left">
+      Fury 7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2015-06-09
+    </td>
+    <td align="left">
+      Triassic World
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2015-06-17
+    </td>
+    <td align="left">
+      Minnows
+    </td>
+  </tr>
+</table>
+
+**Skip Rows From the Result Set Using an Expression**
+
+The `OFFSET` SQL statement can also accept expressions. This query uses the expression `3+4` with the `sys.dummy` table to create a column of incrementing integers by skipping the first seven out of 10 rows. For details, see :Link[Generate Tables Using sys.dummy]{label="Generate Tables Using sys.dummy" spaceId="_RIVPG6C91qqB76KHDBSV" docId="EtF0Ovy63hqZXjJT_yVOP" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+```sql
+SELECT c1 FROM sys.dummy10 OFFSET 3+4; 
+```
+
+*Output*
+
+```sql
+8
+9
+10
+```
+
+## INTERSECT
+
+Returns any rows that match between two separate `SELECT` queries. To use `INTERSECT`, the two queries must be compatible, meaning they must return the same number of columns and have similar data types.  &#x20;
+
+By default, the SQL statement eliminates duplicate rows unless the query includes the optional `ALL` keyword.  Using the `DISTINCT` keyword is the same as this default behavior.&#x20;
+
+**Syntax**
+
+```sql
+<select_query1> INTERSECT [ ALL | DISTINCT ] <select_query2>
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query1>`
+    </td>
+    <td align="left">
+      A valid SELECT query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query2>`
+    </td>
+    <td align="left">
+      A valid SELECT query.&#x20;
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+This example has two `SELECT` queries with an `INTERSECT` statement. The full query retrieves movies that had a budget of at least $200 million, but also earned more than $1 billion in revenues.&#x20;
+
+```sql
+SELECT *
+FROM movies
+WHERE revenue > 1000000000
+INTERSECT
+SELECT *
+FROM movies
+WHERE budget > 20000000;
+```
+
+*Output*
+
+<table columnWidths="100,251,100,100,100,100,100,100,100,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      movie\_id
+    </td>
+    <td align="left">
+      title
+    </td>
+    <td align="left">
+      budget
+    </td>
+    <td align="left">
+      popularity
+    </td>
+    <td align="left">
+      release\_date
+    </td>
+    <td align="left">
+      revenue
+    </td>
+    <td align="left">
+      runtime
+    </td>
+    <td align="left">
+      movie\_status
+    </td>
+    <td align="left">
+      vote\_average
+    </td>
+    <td align="left">
+      vote\_count
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      597
+    </td>
+    <td align="left">
+      Titania
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      100.025899
+    </td>
+    <td align="left">
+      1997-11-18
+    </td>
+    <td align="left">
+      1845034188
+    </td>
+    <td align="left">
+      194
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.5
+    </td>
+    <td align="left">
+      7562
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      19995
+    </td>
+    <td align="left">
+      CGI Why
+    </td>
+    <td align="left">
+      237000000
+    </td>
+    <td align="left">
+      150.437577
+    </td>
+    <td align="left">
+      2009-12-10
+    </td>
+    <td align="left">
+      2787965087
+    </td>
+    <td align="left">
+      162
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.2
+    </td>
+    <td align="left">
+      11800
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      49026
+    </td>
+    <td align="left">
+      Superhero 23
+    </td>
+    <td align="left">
+      250000000
+    </td>
+    <td align="left">
+      112.31295
+    </td>
+    <td align="left">
+      2012-07-16
+    </td>
+    <td align="left">
+      1084939099
+    </td>
+    <td align="left">
+      165
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.6
+    </td>
+    <td align="left">
+      9106
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      10193
+    </td>
+    <td align="left">
+      Merchandise Vehicle 5
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      59.995418
+    </td>
+    <td align="left">
+      2010-06-16
+    </td>
+    <td align="left">
+      1066969703
+    </td>
+    <td align="left">
+      103
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.6
+    </td>
+    <td align="left">
+      4597
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      211672
+    </td>
+    <td align="left">
+      Minnows
+    </td>
+    <td align="left">
+      74000000
+    </td>
+    <td align="left">
+      875.581305
+    </td>
+    <td align="left">
+      2015-06-17
+    </td>
+    <td align="left">
+      1156730962
+    </td>
+    <td align="left">
+      91
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      6.4
+    </td>
+    <td align="left">
+      4571
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      122
+    </td>
+    <td align="left">
+      Swords & Scabbards
+    </td>
+    <td align="left">
+      94000000
+    </td>
+    <td align="left">
+      123.630332
+    </td>
+    <td align="left">
+      2003-12-01
+    </td>
+    <td align="left">
+      1118888979
+    </td>
+    <td align="left">
+      201
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      8.1
+    </td>
+    <td align="left">
+      8064
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      37724
+    </td>
+    <td align="left">
+      Spyman 16
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      93.004993
+    </td>
+    <td align="left">
+      2012-10-25
+    </td>
+    <td align="left">
+      1108561013
+    </td>
+    <td align="left">
+      143
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      6.9
+    </td>
+    <td align="left">
+      7604
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      109445
+    </td>
+    <td align="left">
+      Frigid
+    </td>
+    <td align="left">
+      150000000
+    </td>
+    <td align="left">
+      165.125366
+    </td>
+    <td align="left">
+      2013-11-27
+    </td>
+    <td align="left">
+      1274219009
+    </td>
+    <td align="left">
+      102
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.3
+    </td>
+    <td align="left">
+      5295
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      168259
+    </td>
+    <td align="left">
+      Furious 7
+    </td>
+    <td align="left">
+      190000000
+    </td>
+    <td align="left">
+      102.322217
+    </td>
+    <td align="left">
+      2015-04-01
+    </td>
+    <td align="left">
+      1506249360
+    </td>
+    <td align="left">
+      137
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.3
+    </td>
+    <td align="left">
+      4176
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      68721
+    </td>
+    <td align="left">
+      Iron Chef 3
+    </td>
+    <td align="left">
+      200000000
+    </td>
+    <td align="left">
+      77.68208
+    </td>
+    <td align="left">
+      2013-04-18
+    </td>
+    <td align="left">
+      1215439994
+    </td>
+    <td align="left">
+      130
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      6.8
+    </td>
+    <td align="left">
+      8806
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      135397
+    </td>
+    <td align="left">
+      Triassic World
+    </td>
+    <td align="left">
+      150000000
+    </td>
+    <td align="left">
+      418.708552
+    </td>
+    <td align="left">
+      2015-06-09
+    </td>
+    <td align="left">
+      1513528810
+    </td>
+    <td align="left">
+      124
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      6.5
+    </td>
+    <td align="left">
+      8662
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      24428
+    </td>
+    <td align="left">
+      The Tentpole
+    </td>
+    <td align="left">
+      220000000
+    </td>
+    <td align="left">
+      144.448633
+    </td>
+    <td align="left">
+      2012-04-25
+    </td>
+    <td align="left">
+      1519557910
+    </td>
+    <td align="left">
+      143
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.4
+    </td>
+    <td align="left">
+      11776
+    </td>
+  </tr>
+</table>
+
+## EXCEPT
+
+The `EXCEPT` keyword returns the result set of a first `SELECT` query minus any matching rows from a second `SELECT` query.
+
+`EXCEPT` requires the two queries to be compatible, meaning they must return the same number of columns and have similar data types. By default, the result set eliminates duplicate rows unless the query includes the optional `ALL` keyword.  Using the `DISTINCT` keyword is the same as this default behavior.&#x20;
+
+The `EXCEPT` keyword can also be used to exclude specific columns from a `SELECT *` query. For information on that alternate usage, see the :Link[SELECT]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="IVveQLbBJeU-r82NRG4-0" version="v2" docAnchorId="#XS3Ek" loadingMethod="dynamic" overridedLabel="SELECT"} syntax and example.   &#x20;
+
+**Syntax**
+
+```sql
+<select_query1> EXCEPT [ ALL | DISTINCT ] <select_query2>
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query1>`
+    </td>
+    <td align="left">
+      A valid SELECT query that is compared to `select_query2`.
+      The results of an EXCEPT statement are the rows in `select_query1` that do not match any row in `select_query2`. &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query2>`
+    </td>
+    <td align="left">
+      A valid SELECT query that is compared to `select_query1`.&#x20;
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+In this example, the first `SELECT` statement queries all rows in the `movies` table. The `EXCEPT` clause and the second `SELECT` statement eliminate from the results any rows with movies that had a budget greater than `20000000`.
+
+```sql
+SELECT *
+FROM movies
+EXCEPT
+SELECT *
+FROM movies
+WHERE budget > 20000000;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="100,100,100,100,100,100,100,100,100">
+  <tr>
+    <td align="left">
+      title
+    </td>
+    <td align="left">
+      budget
+    </td>
+    <td align="left">
+      popularity
+    </td>
+    <td align="left">
+      release\_date
+    </td>
+    <td align="left">
+      revenue
+    </td>
+    <td align="left">
+      runtime
+    </td>
+    <td align="left">
+      movie\_status
+    </td>
+    <td align="left">
+      vote\_average
+    </td>
+    <td align="left">
+      vote\_count
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Bang Bang Western
+    </td>
+    <td align="left">
+      14000000
+    </td>
+    <td align="left">
+      37.380435
+    </td>
+    <td align="left">
+      1992-08-07
+    </td>
+    <td align="left">
+      159157447
+    </td>
+    <td align="left">
+      131
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.7
+    </td>
+    <td align="left">
+      1113
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Odyssey 6000
+    </td>
+    <td align="left">
+      10500000
+    </td>
+    <td align="left">
+      86.201184
+    </td>
+    <td align="left">
+      1968-04-10
+    </td>
+    <td align="left">
+      68700000
+    </td>
+    <td align="left">
+      149
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.9
+    </td>
+    <td align="left">
+      2998
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Raiders of the Jungle Temple
+    </td>
+    <td align="left">
+      18000000
+    </td>
+    <td align="left">
+      68.159596
+    </td>
+    <td align="left">
+      1981-06-12
+    </td>
+    <td align="left">
+      389925971
+    </td>
+    <td align="left">
+      115
+    </td>
+    <td align="left">
+      Released
+    </td>
+    <td align="left">
+      7.7
+    </td>
+    <td align="left">
+      3854
+    </td>
+  </tr>
+</table>
+
+## UNION
+
+Returns the combined result set of two or more `SELECT` queries.&#x20;
+
+By default, `UNION` eliminates duplicate rows from the result set unless you specify the `ALL` keyword.  Using the `DISTINCT` keyword is the same as this default behavior.&#x20;
+
+**Syntax**
+
+```sql
+<select_query1> UNION [ ALL | DISTINCT ] <select_query2> [ ... ] 
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="148,100,100">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Data Type**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `select_query1`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      A valid `SELECT` query that is combined with `select_query2`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `select_query2`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      A valid `SELECT` query that is combined with `select_query1`.&#x20;
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+This example uses `UNION` to merge two separate queries for identical columns into the same result set.&#x20;
+
+```sql
+SELECT title,
+    popularity,
+    vote_average
+FROM movie
+WHERE popularity > 800
+UNION
+SELECT title,
+    popularity,
+    vote_average
+FROM movies.movie
+WHERE vote_average > 7.5;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="220,220,222">
+  <tr>
+    <td align="left">
+      title
+    </td>
+    <td align="left">
+      popularity
+    </td>
+    <td align="left">
+      vote\_average
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Raiders of the Jungle Temple
+    </td>
+    <td align="left">
+      68.159596
+    </td>
+    <td align="left">
+      7.7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Minnows
+    </td>
+    <td align="left">
+      875.581305
+    </td>
+    <td align="left">
+      6.4
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Apocalypse None
+    </td>
+    <td align="left">
+      49.973462
+    </td>
+    <td align="left">
+      8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Superhero 23
+    </td>
+    <td align="left">
+      112.31295
+    </td>
+    <td align="left">
+      7.6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Billy the Killy
+    </td>
+    <td align="left">
+      79.754966
+    </td>
+    <td align="left">
+      7.7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Bang Bang Western
+    </td>
+    <td align="left">
+      37.380435
+    </td>
+    <td align="left">
+      7.7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Blade Walker
+    </td>
+    <td align="left">
+      94.056131
+    </td>
+    <td align="left">
+      7.9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Swords & Scabbards
+    </td>
+    <td align="left">
+      123.630332
+    </td>
+    <td align="left">
+      8.1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Merchandise Vehicle 5
+    </td>
+    <td align="left">
+      59.995418
+    </td>
+    <td align="left">
+      7.6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Space Odyssey 6000
+    </td>
+    <td align="left">
+      86.201184
+    </td>
+    <td align="left">
+      7.9
+    </td>
+  </tr>
+</table>
+
+## USING
+
+Overrides various system configurations for processing a specified query.&#x20;
+
+The `USING` keyword is required for only the first query override, not for subsequent ones.&#x20;
+
+For descriptions of the supported query configurations, see the parameter table below.&#x20;
+
+**Syntax**
+
+```sql
+<select_query>
+USING 
+    [ SCHEDULING_PRIORITY = priority_value ] 
+    [ MAX_ROWS_RETURNED = max_rows ]
+    [ MAX_ELAPSED_TIME = max_elapsed_time ] 
+    [ MAX_TEMP_DISK_USAGE = max_temp_disk_usage ] 
+    [ CACHE_MAX_TIME = cache_max_time ]
+    [ CACHE_MAX_BYTES = cache_max_bytes ]
+    [ SERVICE CLASS service_class ] 
+```
+
+**Parameters**
+
+<table columnWidths="331,331" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query>`
+    </td>
+    <td align="left">
+      A valid `SELECT` query.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `priority_value`
+    </td>
+    <td align="left">
+      An optional clause that specifies the priority at which the query should run.&#x20;
+      The priority value is a floating point number, which indicates the priority compared to the other queries. The priority value does not specify any percentage of resources that the query takes or any specific degree of difference between queries.
+      If unspecified, defaults to `SCHEDULING_PRIORITY = 1.0`.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `max_rows`
+    </td>
+    <td align="left">
+      An optional clause that limits the number of rows returned by a query. If a query exceeds this number of rows, the system kills it.&#x20;
+      For example, `max_rows_returned = 10` kills any queries returning more than ten rows.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `max_elapsed_time`
+    </td>
+    <td align="left">
+      An optional clause that limits how long a query can run. If a query exceeds this time limit in seconds, the system kills it.&#x20;
+      For example, `max_elapsed_time = 10` kills any queries taking longer than 10 seconds.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `max_temp_disk_usage`
+    </td>
+    <td align="left">
+      An optional clause that limits the percentage of temporary disk used by a query. If a query exceeds this temporary disk limit, the system kills it.&#x20;
+      For example, `max_temp_disk_usage = 10` kills any queries taking more than 10% of temporary disk space.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `cache_max_time`
+    </td>
+    <td align="left">
+      An optional clause that affects whether a specified query uses results from the cache rather than executing the query. If there is a cached result with the same query text, executed less than `cache_max_time` seconds ago, the database uses that cached result. The default value is 0, and thus by default, the database does not return any cached results.
+      The cache considers all SQL Nodes, and if a potential cached result is only available on a different SQL Node, the database redirects the query to that node. If you specify the force attribute on the connection, which disables load balancing and redirection, the database considers only cached results on the current node.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `cache_max_bytes`
+    </td>
+    <td align="left">
+      An optional clause that controls whether the database stores the results of any specified query in the cache. The system stores the results of all queries executed using a service class specifying this attribute in the cache if the result size is smaller than this value. You can determine the size of a result set in bytes by querying the `bytes_returned` field of the `completed_queries` virtual table. The default value is 0, and thus by default, the database does not cache any results.
+      The database caches results in memory on the SQL Nodes. These results are not cached if there is insufficient memory available.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `service_class`
+    </td>
+    <td align="left">
+      An optional clause at the end of a query that sets a specific service class to run that query.
+      For details, see :Link[CREATE SERVICE CLASS]{docId="jYGPvMQcL3XgPbvftt4qp" label="Users, Groups, and Service Classes" spaceId="C0TRtFmQ9oOqRtkCB9A9i" version="v2" docAnchorId="#FTi5l" loadingMethod="dynamic" overridedLabel="CREATE SERVICE CLASS"}.&#x20;
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+```sql
+SELECT * FROM sys.dummy10 
+USING 
+    SCHEDULING_PRIORITY = 1.0 
+    MAX_ROWS_RETURNED = 10
+    MAX_ELAPSED_TIME = 10
+    MAX_TEMP_DISK_USAGE = 10; 
+```
+
+*Output*
+
+```sql
+c1         
+-----------
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+10 
+```
+
+## TRACE
+
+An optional clause that executes the query, but discards the original result set. Instead, `TRACE` returns a result set of tracing data that describe the execution of the query.
+
+Append the `TRACE` SQL statement to the end of a query. The statement can include optional parameters to control its frequency and level of detail.&#x20;
+
+To understand the results of this statement, see :Link[TRACE Results]{docId="Nw9vaVKey2v75MoXm_muO" label="General SQL Syntax" spaceId="IVveQLbBJeU-r82NRG4-0" version="v2" docAnchorId="#v0BJ8" loadingMethod="dynamic" overridedLabel="TRACE Results"}.&#x20;
+
+<hint type="info">
+  Trace queries have the same effect to the workload as a query run without the clause.
+</hint>
+
+<hint type="warning">
+  Contact Ocient Support for guidance in using the TRACE SQL statement.
+</hint>
+
+**Syntax**
+
+```sql
+<select_query> TRACE 
+    [ FREQUENCY frequency_int ] 
+    [ RESOLUTION resolution_int ] 
+```
+
+**Parameters**
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query>`
+    </td>
+    <td align="left">
+      A valid `SELECT` query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `frequency_int`
+    </td>
+    <td align="left">
+      Controls how often the database samples trace events during query execution in milliseconds.
+      If unspecified, defaults to 500 milliseconds.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `resolution_int`
+    </td>
+    <td align="left">
+      Determines the level of detail captured for a trace or event.&#x20;
+      If the resolution of a trace is greater than the resolution of an event, the database records the event.
+      If unspecified, defaults to 100 milliseconds.&#x20;
+    </td>
+  </tr>
+</table>
+
+### TRACE Results
+
+Each row of the trace output provides some information about what an operator instance has done in the time between the previous trace sample and the most current sample.
+
+<table columnWidths="331,331" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Column**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `plan_parent_id`
+    </td>
+    <td align="left">
+      The UUID of the parent of the operator instance in the query plan. If an operator has multiple parents, this field specifies the UUID of one of the parents.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `plan_op_id`
+    </td>
+    <td align="left">
+      The UUID of the operator in the query plan.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `operator_type`
+    </td>
+    <td align="left">
+      The type of operator that the database uses to sample trace events.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `node_id`
+    </td>
+    <td align="left">
+      The UUID of the node where this operator executes.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `code_id`
+    </td>
+    <td align="left">
+      The identifier of the VM core where this operator instance executes. Core identifiers are unique for each node.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `op_id`
+    </td>
+    <td align="left">
+      The identifier of the operator instance. Identifiers are unique for each node.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `time`
+    </td>
+    <td align="left">
+      The time in milliseconds when the database collects the information for the trace event relative to the start of the query.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `group`
+    </td>
+    <td align="left">
+      Group related trace events together.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `sample`
+    </td>
+    <td align="left">
+      The sample of trace event data. For possible values, see the following table.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `value`
+    </td>
+    <td align="left">
+      The value of trace event data.
+    </td>
+  </tr>
+</table>
+
+**Sample and Value Columns**
+
+The `sample` and `value` columns describe what occurred in a given trace period.
+
+<table columnWidths="331,331" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Sample**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `ROWS_IN`
+    </td>
+    <td align="left">
+      The number of rows an operator instance has read from its children operators.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `ROWS_OUT`
+    </td>
+    <td align="left">
+      The number of rows the operator instance returns.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `BLOOM_FILTERED_ROWS`
+    </td>
+    <td align="left">
+      The number of rows that this operator instance discards by using Bloom filters.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `SCHEDULE_CYCLE`
+    </td>
+    <td align="left">
+      The number of cycles in the schedule for this operator instance.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `OOM_CYCLE`
+    </td>
+    <td align="left">
+      The number of out-of-memory cycles in the schedule for this operator.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `INITIALIZE`
+    </td>
+    <td align="left">
+      The time when the database initializes the operator.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `FINALIZE`
+    </td>
+    <td align="left">
+      The time when the database finalizes the operator.
+    </td>
+  </tr>
+</table>
+
+**Example**
+
+```sql
+SELECT * FROM sys.dummy10 TRACE;
+```
+
+*Output*
+
+<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="100,100,100,100,100,100,100,100,100,100">
+  <tr>
+    <td align="left">
+      plan\_parent\_id &#x20;
+    </td>
+    <td align="left">
+      plan\_op\_id
+    </td>
+    <td align="left">
+      operator\_type
+    </td>
+    <td align="left">
+      node\_id
+    </td>
+    <td align="left">
+      core\_id
+    </td>
+    <td align="left">
+      op\_id
+    </td>
+    <td align="left">
+      time
+    </td>
+    <td align="left">
+      group
+    </td>
+    <td align="left">
+      sample
+    </td>
+    <td align="left">
+      value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      77041d2b-f7ca-49d5-a3f5-4b75b0782ed1
+    </td>
+    <td align="left">
+      498690cf-4a9b-4c1f-affa-417f31fddc2d
+    </td>
+    <td align="left">
+      RENAME\_OPERATOR
+    </td>
+    <td align="left">
+      08ca7b05-1e4d-455f-9f46-2174ed048d33
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      8441
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      xg::db::vm::operators::operatorTraceEvents
+    </td>
+    <td align="left">
+      ROWS\_IN
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      77041d2b-f7ca-49d5-a3f5-4b75b0782ed1
+    </td>
+    <td align="left">
+      498690cf-4a9b-4c1f-affa-417f31fddc2d
+    </td>
+    <td align="left">
+      RENAME\_OPERATOR
+    </td>
+    <td align="left">
+      08ca7b05-1e4d-455f-9f46-2174ed048d33
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      8441
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      xg::db::vm::operators::operatorTraceEvents
+    </td>
+    <td align="left">
+      ROWS\_OUT
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      77041d2b-f7ca-49d5-a3f5-4b75b0782ed1
+    </td>
+    <td align="left">
+      498690cf-4a9b-4c1f-affa-417f31fddc2d
+    </td>
+    <td align="left">
+      RENAME\_OPERATOR
+    </td>
+    <td align="left">
+      08ca7b05-1e4d-455f-9f46-2174ed048d33
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      8441
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      xg::db::vm::operators::operatorTraceEvents
+    </td>
+    <td align="left">
+      BLOOM\_FILTERED\_ROWS
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+</table>
+
+## TAG
+
+An optional clause that adds one or more tags to the SQL query. You can also add tags to a common table expression in the `WITH` clause. After you define tags, you can find them in the `sys.queries` and `sys.completed_queries` system catalog tables.
+
+**Syntax**
+
+```sql
+<select_query> <tag> [ ... ]
+
+<tag> ::= TAG <tag_identifier> 
+```
+
+**Parameters**
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="331,331">
+  <tr>
+    <td align="left">
+      **Parameter**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `<select_query>`
+    </td>
+    <td align="left">
+      A valid `SELECT` query.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `tag_identifier`
+    </td>
+    <td align="left">
+      Identifier of the tag for the query. Enclose the identifier in double quotes if it contains any special characters, such as spaces.&#x20;
+    </td>
+  </tr>
+</table>
+
+**Examples**
+
+**SQL Query with One Tag**
+
+Select the count of a table with one row and tag the query with the name `count1`.
+
+```sql
+SELECT COUNT(*) FROM sys.dummy1 TAG count1;
+```
+
+**SQL Query with Multiple Tags**
+
+Select the device model and tag this query with two names `device_model` and `phones`.
+
+```sql
+SELECT device_model 
+FROM system.adtech_flat 
+LIMIT 1 
+TAG device_model 
+TAG phones;
+```
+
+**Common Table Expression with One Tag**
+
+Define a common table expression with the `average_budget` tag. You can also add another tag for the whole query `overall_budget`.
+
+```sql
+WITH avg_budget_table (average_budget) AS (
+    SELECT AVG(budget)
+    FROM movies
+    TAG average_budget
+)
+SELECT title,
+    budget,
+    revenue
+FROM movies,
+    avg_budget_table
+WHERE budget > avg_budget_table.average_budget
+TAG overall_budget;
+```
+
+## String Literals and Escape Sequences
+
+All string literals in SQL statements must be enclosed in single quotes. To use a single quote within a string, you can use another single quote as an escape, `''`*.&#x20;*
+
+For other escape sequences, include an `e` character before the string literal, i.e., before the opening single quote. This directs the system to recognize escape sequences in the string literal. This means:&#x20;
+
+- All single `\` characters in the string now escape themselves.
+- Any subsequent character after the `\` is also escaped if it matches an escape sequence (see the table). &#x20;
+
+If you use escape sequences, be prepared that you might need to alter strings that include `\`, such as directory paths.&#x20;
+
+**Supported Escape Sequences**
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="165,100">
+  <tr>
+    <td align="left">
+      **Escape Sequence**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `''`
+    </td>
+    <td align="left">
+      Single quotation mark
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\"`
+    </td>
+    <td align="left">
+      Double quotation mark
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\n`
+    </td>
+    <td align="left">
+      Newline character
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\r`
+    </td>
+    <td align="left">
+      Carriage return character
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\f`
+    </td>
+    <td align="left">
+      Form feed character (i.e. page break)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\b`
+    </td>
+    <td align="left">
+      Backspace
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\\`
+    </td>
+    <td align="left">
+      Backslash
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `\t`
+    </td>
+    <td align="left">
+      Tab
+    </td>
+  </tr>
+</table>
+
+**Examples**
+
+These examples show how the system interprets strings with and without escape sequences.&#x20;
+
+**String Without an Escape Sequence**
+
+This example selects the simple string literal `'\my\directory\path'` that does not use escape sequences.&#x20;
+
+```sql
+SELECT '\my\directory\path';
+```
+
+*Output:&#x20;*`\my\directory\path`
+
+**String With an Escape Sequence**
+
+This example selects the simple string literal `'\my\directory\path'` and uses an escape sequence. The result omits the backslashes.&#x20;
+
+```sql
+SELECT e'\my\directory\path';
+```
+
+*Output:&#x20;*`mydirectorypath`
+
+**String With an Escape Sequence to Retain the Backslashes**
+
+This example uses the `'\\my\\directory\\path'` string with an escape sequence to include backslashes in the result. &#x20;
+
+```sql
+SELECT e'\\my\\directory\\path';
+```
+
+*Output:&#x20;*`\my\directory\path`
+
+**Escape Sequences with Regular Expressions**
+
+<hint type="info">
+  Be careful using escape sequences with strings that also use regular expressions. Escape sequences in SQL syntax override the escape sequences of regular expressions.&#x20;
+</hint>
+
+In this example, the :Link[REGEXP\_SUBSTR]{label="Character / Binary Functions" spaceId="_RIVPG6C91qqB76KHDBSV" docId="ja8cOnT33toNX-KTRuedJ" version="v2" docAnchorId="#z_x9P" loadingMethod="dynamic" overridedLabel="REGEXP_SUBSTR"} function uses the regular expression `\w+` to match any word characters.&#x20;
+
+```sql
+SELECT REGEXP_SUBSTR(
+    'abcdefghijklmnopqrstuvwxyz', 
+    '\w+'
+    );
+```
+
+*Output:&#x20;*`abcdefghijklmnopqrstuvwxyz`
+
+The function behaves differently if the regular expression is an escape sequence because it overrides the `\` character. The regular expression searches only for the character `w`.&#x20;
+
+```sql
+SELECT REGEXP_SUBSTR(
+    'abcdefghijklmnopqrstuvwxyz', 
+    e'\w+'
+    );
+```
+
+*Output:&#x20;*`w`
+
+# Related Links
+
+:Link[SQL Reference]{label="SQL Reference" spaceId="hoqblJqChKOc8DvhBF0dZ" docId="ZvFytm4ip4rWXSA17Tvk9" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+
+:Link[Data Control Language (DCL) Statement Reference]{label="Data Control Language (DCL) Statement Reference" spaceId="hoqblJqChKOc8DvhBF0dZ" docId="F55ngXtkI0f7kkmyatvuG" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+
+:Link[Data Definition Language (DDL) Statement Reference]{label="Data Definition Language (DDL) Statement Reference" spaceId="hoqblJqChKOc8DvhBF0dZ" docId="Jf-l-IE2LUPbjgrJw4Lqx" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
