@@ -1,0 +1,449 @@
+{
+  "docsPath": "docs/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "categoryName": "How to withdraw money from Wallet",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "How to withdraw money from Wallet/hoc2-how-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/g3yj-currency-conversion-during-withdrawal.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/how-to-create-a-withdrawal-request.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/Qh9b-ways-to-withdraw-money-from-wallet.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/o2Jr-what-amounts-can-be-withdrawn.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/how-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/wie-du-beim-anfragen-einer-auszahlung-einen-kontoauszug-und-eine-rechnung-herunterladst.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/como-descargar-el-extracto-o-la-factura-de-una-solicitud-de-retiro-de-dinero.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/OrPt-how-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/como-baixar-um-extrato-ou-fatura-de-uma-solicitacao-de-retirada.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/kak-skachat-vypisku-ili-invojs-po-zayavke-na-vyvod-deneg.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/R_ky-currency-conversion-during-withdrawal.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/wahrungsumrechnung-bei-geldabhebungen.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/conversion-de-moneda-a-la-hora-de-retirar-dinero.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/currency-conversion-during-withdrawal.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/conversao-de-moedas-ao-retirar-dinheiro.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/konvertaciya-valyuty-pri-vyvode-deneg.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/rJ_K-how-to-create-a-withdrawal-request.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/wie-du-eine-auszahlungsanfrage-erstellst.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/como-crear-la-solicitud-de-pago.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/49bZ-how-to-create-a-withdrawal-request.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/como-criar-uma-solicitacao-de-retirada.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/kak-sozdat-zayavku-na-vyvod-deneg.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/bInV-ways-to-withdraw-money-from-wallet.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/methoden-der-abhebung-aus-wallet.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/opciones-para-retirar-el-dinero-de-wallet.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/ways-to-withdraw-money-from-wallet.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/como-retirar-dinheiro-da-wallet.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/sposoby-vyvoda-deneg-iz-wallet.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/HzSL-what-amounts-can-be-withdrawn.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/welchen-betrag-du-abheben-kannst.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/cuanto-dinero-se-puede-retirar.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/what-amounts-can-be-withdrawn.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/qual-e-o-valor-minimo-e-maximo-de-retirada.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/kakuyu-summu-deneg-mozhno-vyvesti.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/guia-pessoa-fisica-pessoa-juridica-e-mei.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/SQXv-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/cuz2-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/Ps_P-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/h9nt-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How to withdraw money from Wallet/kak-samozanyatym-vyvesti-dengi-na-bankovskuyu-kartu.mdx",
+            "children": [],
+            "isHidden": false
+          }
+        ],
+        "isShadowDocs": false
+      },
+      {
+        "categoryName": "Tax information and billing details",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "Tax information and billing details/how-to-edit-or-delete-billing-details.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/billing-detail-statuses-and-what-they-mean.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/how-to-add-billing-details.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/k8t0-how-to-edit-or-delete-tax-information.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/tax-information-verification.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/HQxT-how-to-add-tax-information.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/ZfSD-how-to-edit-or-delete-billing-details.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/wie-du-zahlungsinformationen-bearbeitest-oder-loschst.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/como-editar-o-eliminar-los-datos-de-pago.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/1d3B-how-to-edit-or-delete-billing-details.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/como-alterar-ou-excluir-detalhes-de-pagamento.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/kak-otredaktirovat-ili-udalit-platezhnye-dannye.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/xKbr-billing-detail-statuses-and-what-they-mean.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/was-die-status-von-zahlungsinformationen-bedeuten.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/que-significan-los-estados-de-los-datos-de-pago.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/wU00-billing-detail-statuses-and-what-they-mean.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/o-que-significam-os-status-dos-detalhes-de-pagamento.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/chto-oznachayut-statusy-platezhnyh-dannyh.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/KQEt-how-to-add-billing-details.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/wie-du-zahlungsinformationen-hinzufugst.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/como-anadir-los-datos-de-pago.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/BFhY-how-to-add-billing-details.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/como-adicionar-detalhes-de-pagamento.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/kak-dobavit-platezhnye-dannye.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/how-to-edit-or-delete-tax-information.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/wie-du-steuerdaten-bearbeitest-oder-loschst.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/como-modificar-o-eliminar-la-informacion-fiscal.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/GISv-how-to-edit-or-delete-tax-information.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/como-alterar-ou-excluir-informacoes-fiscais.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/kak-otredaktirovat-ili-udalit-nalogovuyu-informaciyu.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/BCSX-tax-information-verification.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/prufung-der-steuerdaten.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/verificacion-de-la-informacion-fiscal.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/5rVl-tax-information-verification.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/verificacao-de-informacoes-fiscais.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/proverka-nalogovoj-informacii.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/how-to-add-tax-information.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/wie-du-steuerdaten-hinzufugst.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/como-anadir-la-informacion-fiscal.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/mbqi-how-to-add-tax-information.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/como-adicionar-informacoes-fiscais.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "Tax information and billing details/kak-dobavit-nalogovuyu-informaciyu.mdx",
+            "children": [],
+            "isHidden": false
+          }
+        ],
+        "isShadowDocs": false
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
+      }
+    ]
+  },
+  "shadowDocs": []
+}
