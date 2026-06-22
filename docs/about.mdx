@@ -1,0 +1,115 @@
+---
+title: About
+slug: about
+docTags: 
+createdAt: Mon Mar 30 2026 10:09:17 GMT+0000 (Coordinated Universal Time)
+---
+
+@test page
+
+This changelog documents **contractual and behavioral changes** to the **Retail API**. It is intended to help integrators understand how the API has evolved and assess the impact of changes on existing integrations.
+
+The OpenAPI reference remains the **single source of truth** for the current API contract. This changelog provides historical context and impact classification for changes reflected in the reference.
+
+:Link[Dinamo]{label="Dinamo" spaceId="l3EuwKPRlNog81eknxgFD" docId="7GlHQihMsQy2a_j9REIKY" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+
+<ExpandableHeading>
+  ## How to Read This Changelog
+
+
+</ExpandableHeading>
+
+***
+
+# Changelog Entries
+
+<ExpandableHeading>
+  ## Version 2.6 (Expanded authentication options)
+
+  **Type**: Backward-compatible
+
+  ### Added&#x20;
+
+  - Added support for **OAuth 2.0** (Client Credentials) authentication in addition to **Basic Authentication**
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Version 2.5 (Payment schema field relocation)
+
+  **Type**: Breaking
+
+  ### Changed&#x20;
+
+  - Moved `isPaymentRecurring` from the `paymentMethods` block to the payment block
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Version 2.4 (Authentication and payment enhancements)
+
+  **Type**: Breaking
+
+  ### Removed&#x20;
+
+  - Removed support for:&#x20;
+    - JWT Authentication
+    - Custom Authentication
+
+  ***
+
+  **Type**: Backward-compatible
+
+  ### Added&#x20;
+
+  - Added `secCard` as a payment type for corporate-issued payments used within secure payment portals
+  - Added `isRecurring` field to the `paymentMethods` object for subscription handling
+
+  ### Changed&#x20;
+
+  - Moved `accountStatus` and `hashedPassword` to the root level
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Version 2.3 (Authentication and token support)
+
+  **Type**: Backward-compatible
+
+  ### Added (backward-compatible)
+
+  - Added `authenticationMethod` field
+  - Added `cardToken` field to the `paymentMethods` block
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Version 2.2 (Guest checkout and documentation updates)
+
+  **Type**: Backward-compatible
+
+  ### Added&#x20;
+
+  - Added `isGuestCheckout` field
+
+  ***
+
+  **Type**: Documentation
+
+  ### Documentation&#x20;
+
+  - Updated payload example
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Version 2.1 (Authentication and regional support)
+
+  **Type**: Backward-compatible
+
+  ### Added&#x20;
+
+  - Introduced JWE authentication method
+  - Added notes for SCA optimization
+
+  ### Changed&#x20;
+
+  - Updated API paths to support US and EU transaction routing
+  - Updated response schema
+</ExpandableHeading>
+

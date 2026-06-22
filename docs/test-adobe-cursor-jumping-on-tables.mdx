@@ -1,0 +1,808 @@
+---
+title: Test Adobe cursor jumping on tables
+slug: test-adobe-cursor-jumping-on-tables
+docTags: 
+createdAt: Fri May 01 2026 11:17:03 GMT+0000 (Coordinated Universal Time)
+---
+
+## Segment 1: Intelligent Asset Management Foundation
+
+**Duration:** 25 minutes
+
+[Test doc](docs/baguette-parce-que-car-cela-ouais/test-doc.mdx)&#x20;
+
+This segment explores how AEM Assets combines folder organization, AI-powered metadata generation, and Workfront workflow metadata to create a searchable, governed asset repository. You will experience AI search capabilities including natural language queries, semantic search, and contextual search, and learn how to prepare assets for distribution.
+
+***
+
+## Exercise 1.1: Asset Organization and Folder Hierarchy
+
+**Duration:** 4 minutes
+
+**Understanding Folder Structure in AEM Assets**
+
+AEM Assets uses a structured folder hierarchy that mirrors your organizational needs, whether by brand, campaign, region, or asset type. This structure provides governance and permissions while AI makes everything searchable regardless of where assets reside. The folder hierarchy enables role-based access control and creates a foundation for both manual browsing and AI-powered discovery.
+
+**Value for Your Organization:**
+
+- Folder hierarchy enables role-based access control across teams
+- Consistent structure across campaigns simplifies navigation for all users
+- Supports compliance requirements with clear asset ownership
+
+**Reference Data: Folder Structure**
+
+<table isTableHeaderOn="true" columnWidths="131,280,177" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Level**
+    </td>
+    <td align="left">
+      **Example Path**
+    </td>
+    <td align="left">
+      **Purpose**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Brand
+    </td>
+    <td align="left">
+      /content/dam/sevoi
+    </td>
+    <td align="left">
+      Brand-level asset repository
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Campaign
+    </td>
+    <td align="left">
+      /content/dam/sevoi/campaigns/escape-beyond-ordinary
+    </td>
+    <td align="left">
+      Campaign-specific assets
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Region
+    </td>
+    <td align="left">
+      /content/dam/sevoi/campaigns/escape-beyond-ordinary/apac
+    </td>
+    <td align="left">
+      Regional variations
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Asset Type
+    </td>
+    <td align="left">
+      /content/dam/sevoi/campaigns/escape-beyond-ordinary/apac/photography
+    </td>
+    <td align="left">
+      Content categorization
+    </td>
+  </tr>
+</table>
+
+### Step-by-Step Instructions
+
+**Step 1: Open AEM Assets**
+
+- Log into your AEM as a Cloud Service environment
+- Navigate to the Assets view using the left navigation
+- The Assets view provides a streamlined, marketing-focused interface
+
+<Image src="https://api.archbee.com/api/optimize/1Jp0iolWv35Z_mkI7oUiT/lHxfKWB90dogcBnkGMPfq-20260504-195001.png" size="60" width="3966" height="2524" position="center" caption="Click to Preview" darkWidth="3966" darkHeight="2524"></Image>
+
+**Step 2: Navigate to the Sevoi Resorts brand folder**
+
+- In the Assets view, locate the content/dam folder structure
+- Click on the Sevoi brand folder
+- This is the brand-level repository for all Sevoi Resorts assets
+
+**Step 3: Expand the campaigns folder**
+
+- Click into the campaigns folder
+- Locate the "escape-beyond-ordinary" campaign folder
+- Click to open this campaign's asset repository
+
+**Step 4: Review the folder structure**
+
+- Observe the regional folders: APAC, EMEA, Americas, LATAM
+- Note how each region has consistent subfolders
+- This structure supports governance while enabling regional autonomy
+
+<Image src="https://api.archbee.com/api/optimize/1Jp0iolWv35Z_mkI7oUiT/j3YyWNjaymesJu1pqAvCm-20260504-195125.png" size="60" width="3966" height="2524" position="center" caption="Click to Preview" darkWidth="3966" darkHeight="2524"></Image>
+
+**Step 5: Navigate to the APAC region folder**
+
+- Click on the APAC folder
+- This contains assets targeted for the Asia-Pacific region
+- Regional teams have appropriate access to their designated folders
+
+**Step 6: Observe the asset type subfolders**
+
+- Note the photography and banners subfolders
+- This categorization helps teams find specific asset types quickly
+
+<BlockQuote>
+  **Checkpoint:** Can you navigate to the Bali campaign photography folder within the APAC region?
+</BlockQuote>
+
+<BlockQuote>
+  **Governance Benefit:** The folder hierarchy creates natural permission boundaries. Regional marketing teams can access their market's assets while brand governance teams maintain oversight of the entire structure. This reduces the risk of off-brand content usage while enabling team autonomy.
+</BlockQuote>
+
+***
+
+## Exercise 1.2: AI-Generated Metadata and Smart Crops
+
+**Duration:** 6 minutes
+
+**Understanding AI-Powered Asset Intelligence**
+
+When assets arrive in AEM Assets as a Cloud Service, Adobe AI immediately goes to work. It generates three distinct metadata fields automatically including a **Generated Title**, a **Generated Description**, and **Generated Keywords&#x20;**&#x77;hich appear in a dedicated **AI Generated tab** on the asset's Properties page. These are separate from any manually entered metadata; if no manual title is defined, AEM uses the AI-generated title by default across card and list views.
+
+Beyond metadata and tagging, **Smart Crop** which is powered by Adobe Sensei via Dynamic Media identifies the focal point of each image and pre-generates renditions for common aspect ratios automatically. This means channel-ready variations are available without generating separate stored files for each format.&#x20;
+
+**Value for Your Organization:**
+
+- AI-generated metadata provide broader taxonomy coverage for discovery and filtering
+- Smart Crops eliminate repetitive production work for common channel formats
+- Assets are immediately usable across channels without designer intervention
+
+**Reference Data: AI-Generated Metadata Fields**
+
+<table isTableHeaderOn="true" columnWidths="192,222,222" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Field**
+    </td>
+    <td align="left">
+      **Example Value**
+    </td>
+    <td align="left">
+      **Where It Appears**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Generated Title
+    </td>
+    <td align="left">
+      Tropical Sunset Pool
+    </td>
+    <td align="left">
+      AI Generated tab in asset Properties
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Generated Description
+    </td>
+    <td align="left">
+      Palm trees silhouetted against sunset reflecting in infinity pool at luxury resort
+    </td>
+    <td align="left">
+      AI Generated tab in asset Properties
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Generated Keywords
+    </td>
+    <td align="left">
+      Resort, Sunset, Palm, Pool, Tropical, Luxury, Travel, Vacation
+    </td>
+    <td align="left">
+      AI Generated tab in asset Properties
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Smart Crop
+    </td>
+    <td align="left">
+      2:1 (banner), 1:1 (social square), 4:5 (portrait social), 5:8 (story)
+    </td>
+    <td align="left">
+      Dynamic Media Smart Crop renditions
+    </td>
+  </tr>
+</table>
+
+<BlockQuote>
+  **Note on Smart Crops and Dynamic Renditions:** Smart Crop renditions are distinct from static renditions like thumbnails. Static renditions are pre-generated files stored in the DAM. Smart Crop renditions are delivered dynamically and the crop coordinates are stored and applied at delivery time, meaning one source file serves all channel formats without generating separate stored copies.
+</BlockQuote>
+
+### Step-by-Step Instructions
+
+**Step 1: Select a Bali resort photography asset**
+
+- Navigate to the photography folder within the Bali campaign
+- Click on one of the high-resolution resort images
+- Select an image with strong visual elements (sunset, pool, architecture)
+
+<Image src="https://api.archbee.com/api/optimize/1Jp0iolWv35Z_mkI7oUiT/cak4307r0UKWDSRq71rfA-20260504-201453.png" size="60" width="3966" height="2524" position="center" caption="Click to Preview" darkWidth="3966" darkHeight="2524"></Image>
+
+**Step 2: Open the asset details panel**
+
+- With the asset selected, the details panel should appear in the top menubar
+- This panel shows all metadata associated with the asset
+
+**Step 3: Locate the AI Generated metadata tab**
+
+- In asset Properties, look for the AI Generated tab
+- This tab is separate from the Basic tab where manual metadata lives
+- The fields here were populated automatically when the asset was uploaded
+
+<Image src="https://api.archbee.com/api/optimize/1Jp0iolWv35Z_mkI7oUiT/5UZ48W6N3eXng4zXxlXVw-20260504-201627.png" size="60" width="3966" height="2524" position="center" caption="Click to Preview" darkWidth="3966" darkHeight="2524"></Image>
+
+**Step 4: Review the Generated Title and Generated Description**
+
+- Read the AI-generated title which should describe the core subject of the image clearly
+- Review the description for scene accuracy and detail
+
+**Step 5: Examine the Generated Keywords**
+
+- Find the Generated Keywords field in the AI Generated tab
+- Review the list of AI-generated terms representing the asset's main themes
+- These keywords are indexed for search alongside Smart Tags
+- You can add or modify keywords manually if any relevant terms are missing
+
+<Image src="https://api.archbee.com/api/optimize/1Jp0iolWv35Z_mkI7oUiT/MmxF_KU6X2JbFOsDZIzgb-20260504-201806.png" size="60" width="3966" height="2524" position="center" caption="Click to Preview" darkWidth="3966" darkHeight="2524"></Image>
+
+**Step 6: Click on the Smart Crops or Renditions section**
+
+- Locate the Renditions panel via the Dynamic Media icon in the right pane
+- Look for the Smart Crop renditions within the list
+
+**Step 7: Preview each pre-generated Smart Crop**
+
+- Click through the available Smart Crop renditions:
+  - 2:1 for web banners
+  - 1:1 for social media squares
+  - 4:5 for portrait social (Instagram feed)
+  - 5:8 for Stories format
+
+<Image src="https://api.archbee.com/api/optimize/1Jp0iolWv35Z_mkI7oUiT/LLzGVx_yQw-kQGpv3V-Ox-20260504-202356.png" size="60" width="4046" height="2526" position="center" caption="Click to Preview" darkWidth="4046" darkHeight="2526"></Image>
+
+**Step 8: Observe focal point consistency**
+
+- Compare how the main subject remains visible and centered across all crops
+- Each crop maintains the visual impact of the original without manual intervention
+- If needed, click Edit Smart Crop to adjust the focal point manually for any ratio
+
+<BlockQuote>
+  **Checkpoint:** Can you see the Smart Crop variations for your selected image? Do all crops maintain the focal point? Can you locate the Generated Title, Description, and Keywords in the AI Generated tab?
+</BlockQuote>
+
+<BlockQuote>
+  **Use Case Example:** A global hospitality brand uploads 500 images from a property photoshoot. AI has generates searchable metadata for every image and created 2,000 pre-cropped dynamic renditions (4 crops x 500 images). What would have taken a production team a week happens automatically, freeing creative resources for strategic work.
+</BlockQuote>
+
+***
+
+## Exercise 1.3: Workfront Metadata Integration
+
+**Duration:** 4 minutes
+
+**Understanding Workflow-Sourced Metadata**
+
+AI can tell us what is in an image, but it cannot tell us why it was created. That context comes from Workfront. When assets sync from the creative workflow via the native AEM-Workfront integration, they bring campaign metadata, brand information, regional targeting, and launch dates. This combination of AI-generated and workflow-sourced metadata creates a complete picture that powers governance, reporting, and downstream activation.
+
+**Value for Your Organization:**
+
+- Campaign context enables reporting and ROI measurement
+- Launch dates support content lifecycle management and expiration
+- Single source of truth from Workfront eliminates data silos
+
+**Reference Data: Enriched Metadata from Workfront**
+
+<table isTableHeaderOn="true" columnWidths="218,246.32497301964167,171.67502698035833" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Field**
+    </td>
+    <td align="left">
+      **Value**
+    </td>
+    <td align="left">
+      **Source**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Portfolio Name
+    </td>
+    <td align="left">
+      Hands-On Lab
+    </td>
+    <td align="left">
+      Workfront Project
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Program Name
+    </td>
+    <td align="left">
+      Customer Lab
+    </td>
+    <td align="left">
+      Workfront Project
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Project Name
+    </td>
+    <td align="left">
+      Ben - Escape Beyond Ordinary
+    </td>
+    <td align="left">
+      Workfront Project
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      Project Reference Number
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      24345
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Workfront Project
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      Campaign
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Escape Beyond Ordinary
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Workfront Planning
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Brand
+    </td>
+    <td align="left">
+      Sevoi
+    </td>
+    <td align="left">
+      Workfront Planning
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Launch Date
+    </td>
+    <td align="left">
+      April 14, 2026
+    </td>
+    <td align="left">
+      Workfront Planning
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      End Date
+    </td>
+    <td align="left">
+      October 14, 2026
+    </td>
+    <td align="left">
+      Workfront Planning
+    </td>
+  </tr>
+</table>
+
+### Step-by-Step Instructions
+
+**Step 1: Keep the asset details panel open**
+
+- With your previously selected asset still active
+- Click on the Info button in the right sidebar
+- Open the Tab for Planning
+
+<Image src="https://api.archbee.com/api/optimize/1Jp0iolWv35Z_mkI7oUiT/mjGyIxC-B4T8WJkbn3I-g-20260504-203902.png" size="60" width="4046" height="2526" position="center" caption="Click to Preview" darkWidth="4046" darkHeight="2526"></Image>
+
+**Step 2: Review the Campaign Planning fields**
+
+- Locate the Campaign field showing "Escape Beyond Ordinary"
+- This metadata came automatically from the Workfront workflow
+- Review the Brand field showing "Sevoi"
+- Review the campaign activation timing fields
+
+**Step 3: Compare AI-Generated and Planning/Execution fields**
+
+- Scroll between the AI Generated tab and the Workfront-sourced fields
+- Note how AI tells you "what" (sunset, pool, tropical)
+- Note how Workfront tells you "why" (campaign, audience, timing)
+- Together they create complete asset context
+
+<Image src="https://api.archbee.com/api/optimize/1Jp0iolWv35Z_mkI7oUiT/skO8GDR7j_eMokju8ymtt-20260504-204156.png" size="60" width="4046" height="2526" position="center" caption="Click to Preview" darkWidth="4046" darkHeight="2526"></Image>
+
+<BlockQuote>
+  **Checkpoint:** Can you see how the Workfront metadata adds business context to complement the visual metadata from AI?
+</BlockQuote>
+
+<BlockQuote>
+  **Governance Benefit:** With automated metadata enrichment, compliance teams can easily audit which assets are associated with which campaigns, verify brand usage across markets, and track asset utilization. When a campaign ends, the end date metadata can trigger automated review or archival workflows.
+</BlockQuote>
+
+***
+
+## Exercise 1.4: AI Search Capabilities
+
+**Duration:** 5 minutes
+
+**Understanding Intelligent Asset Discovery**
+
+AEM Assets provides multiple AI-powered search modes. **Omnisearch** (the standard search bar) factors Smart Tags and AI-generated metadata fields into results alongside standard metadata. **Contextual Search** allows users to type natural language text prompts and AEM automatically converts them into search filters. Search results that match all terms in metadata fields display first, followed by results that match terms in Smart Tags only.
+
+**Value for Your Organization:**
+
+- Contextual Search converts natural language prompts into search filters automatically
+- Global teams can search in their own language and terminology
+- Semantic search surfaces relevant content even without exact keyword matches
+
+**Reference Data: AI Search Capabilities**
+
+<table isTableHeaderOn="true" columnWidths="212,212,212" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Capability**
+    </td>
+    <td align="left">
+      **Example**
+    </td>
+    <td align="left">
+      **How It Works**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Synonym Understanding
+    </td>
+    <td align="left">
+      Search "ocean" finds assets tagged "beach," "sea," "coastline"
+    </td>
+    <td align="left">
+      Conceptual matching via Smart Tags and generated metadata
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Misspelling Tolerance
+    </td>
+    <td align="left">
+      "trupical" returns "tropical" assets
+    </td>
+    <td align="left">
+      Fuzzy matching in Omnisearch index
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Multilingual Search
+    </td>
+    <td align="left">
+      Spanish/German query finds English-tagged assets
+    </td>
+    <td align="left">
+      Natural language processing via Contextual Search
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Natural Language
+    </td>
+    <td align="left">
+      "pool umbrellas for summer social media"
+    </td>
+    <td align="left">
+      Contextual Search converts prompt to filters
+    </td>
+  </tr>
+</table>
+
+### Step-by-Step Instructions
+
+**Step 1: Click on the search bar in AEM Assets**
+
+- Locate the search bar at the top of the Assets view
+- Click to activate the search field
+- AI Search is enabled by default
+
+**Step 2: Search for Poolside Umbrella**
+
+- Type: poolside umbrella
+- Press Enter to execute the search
+
+**Step 3: Observe synonym matching results**
+
+- Review the search results that appear
+- Notice assets related to pools, patio umbrellas, and outdoor lounging scenes
+- AI understood "poolside umbrella" includes related concepts via Smart Tags and generated metadata
+
+**Step 4: Clear search and try a misspelling**
+
+- Clear the search field
+- Type: trupical paradise (intentional misspelling)
+- Press Enter to search
+- Observe that results still show tropical/paradise content
+
+**Step 5: Try a natural language search using Contextual Search**
+
+- Clear the search field
+- Type: pool umbrellas for summer social media
+- Press Enter and review results
+
+**Step 6: Search in another language (Spanish)**
+
+- Clear the search field
+- Type: sombrilla de piscina (Spanish for "pool umbrella")
+- Press Enter and observe results
+
+**Step 7: Try German search**
+
+- Clear the search field
+- Type: Poolschirm (German for "pool umbrella")
+- Verify results show luxury resort content tagged in English
+
+<BlockQuote>
+  **Checkpoint:** Could you find relevant assets even with the misspelling? Did the multilingual search return expected results?
+</BlockQuote>
+
+<BlockQuote>
+  **Use Case Example:** A multinational consumer goods company operates in 40 countries. Previously, regional marketers could not find assets unless they knew the exact English tags. With multilingual AI Search, the Japan team searches in Japanese, the Brazil team searches in Portuguese, and everyone finds the same relevant assets.
+</BlockQuote>
+
+***
+
+## Exercise 1.5: Collections for Internal Team Collaboration
+
+**Duration:** 3 minutes
+
+**Understanding Collections in AEM Assets**
+
+Collections allow teams to organize and share curated sets of assets without moving files or disrupting folder governance. Unlike folders, a collection can include assets from different locations across the DAM. AEM supports three types: **Lightbox** (a personal, per-user collection), **Standard Collections** (manually curated and shareable), and **Smart Collections** (dynamically populated based on saved search criteria).
+
+**Value for Your Organization:**
+
+- Standard Collections can be shared with configurable view or edit permissions
+- Smart Collections automatically surface the latest assets matching defined criteria
+- Collections work across folder boundaries, enabling cross-campaign curation
+
+**Reference Data: Collection Types**
+
+<table isTableHeaderOn="true" columnWidths="212,212,212" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Collection Type**
+    </td>
+    <td align="left">
+      **Behavior**
+    </td>
+    <td align="left">
+      **Best Use Case**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Standard Collection
+    </td>
+    <td align="left">
+      Manually curated, static, shareable
+    </td>
+    <td align="left">
+      One-time project deliverables, curated asset sets
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Smart Collection
+    </td>
+    <td align="left">
+      Dynamic, auto-updates based on saved search query
+    </td>
+    <td align="left">
+      Ongoing campaigns, approved regional asset pools
+    </td>
+  </tr>
+</table>
+
+### Step-by-Step Instructions
+
+**Step 1: Navigate to the Collections view**
+
+- In AEM Assets, locate the Collections option in the left navigation
+- Click to open the Collections interface
+- You will see existing collections organized by Standard and Smart Collection types
+
+**Step 2: Create a new Smart Collection**
+
+- Click the Create Collection button
+- Select Smart Collection as the collection type
+- Name it: APAC Campaign Approved Assets
+
+**Step 3: Add filter criteria**
+
+- In the smart collection configuration, apply the following filters:
+  - Brand = Sevoi
+  - Region = APAC
+  - Status = Approved
+- These criteria will dynamically include all matching assets from across the repository
+
+**Step 4: Save the collection**
+
+- Click Save to create the Smart Collection
+- The collection will immediately populate with matching assets
+- Note the count of assets included
+
+**Step 5: View the collection contents**
+
+- Click on your newly created collection
+- Review all assets that match the criteria
+- Note how assets from different folders appear together in one view
+
+**Step 6: Observe cross-folder aggregation**
+
+- Notice assets from both photography and banners folders appearing together
+- Users do not need to know folder structure to find the right assets
+
+**Step 7: Test dynamic updating**
+
+- Navigate back to an asset folder
+- Approve an additional APAC asset (if not already approved)
+
+**Step 8: Refresh the collection**
+
+- Return to your Smart Collection and refresh
+- Verify the newly approved asset automatically appears
+
+<BlockQuote>
+  **Checkpoint:** Can you see how your Smart Collection automatically includes approved APAC assets from multiple folders?
+</BlockQuote>
+
+<BlockQuote>
+  **Use Case Example:** A regional marketing manager in Singapore opens their "APAC Approved" Smart Collection and immediately sees every approved asset tagged for their region. When new assets are approved, they appear automatically in a living, always-current asset portal.
+</BlockQuote>
+
+***
+
+## Exercise 1.6: Asset Approval for Distribution
+
+**Duration:** 3 minutes
+
+**Understanding Approval Status as Governance**
+
+Not all assets in the repository are ready for broad distribution. In AEM Assets as a Cloud Service, each asset can be assigned one of three review states via the **Status** dropdown in the Basic tab of asset Properties: **Approved**, **Rejected**, or **No Status** (the default). When setting an asset to Approved, an **Approval Target** field appears, allowing you to direct the asset to Content Hub, Delivery (Dynamic Media with OpenAPI), or both, depending on your environment.
+
+**Value for Your Organization:**
+
+- Precise governance over which assets reach external distribution channels
+- Approval Target field directs assets to the correct downstream channel
+- Visual indicators make approval status immediately clear
+
+**Reference Data: Approval Status**
+
+<table isTableHeaderOn="true" columnWidths="212,212,212" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Status**
+    </td>
+    <td align="left">
+      **Purpose**
+    </td>
+    <td align="left">
+      **Access Level**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Approved
+    </td>
+    <td align="left">
+      Finalized, ready for distribution
+    </td>
+    <td align="left">
+      Content Hub users + AEM Assets users (per Approval Target)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rejected
+    </td>
+    <td align="left">
+      Flagged as non-compliant or off-brand
+    </td>
+    <td align="left">
+      AEM Assets internal users only
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      No Status
+    </td>
+    <td align="left">
+      Work in progress or awaiting review (default)
+    </td>
+    <td align="left">
+      AEM Assets internal users only
+    </td>
+  </tr>
+</table>
+
+<BlockQuote>
+  **Note:** When setting an asset to Approved, the Approval Target dropdown determines whether the asset is published to Content Hub, Dynamic Media with OpenAPI (Delivery), or both. The default target is determined by which services are enabled in your environment.
+</BlockQuote>
+
+### Step-by-Step Instructions
+
+**Step 1: Select a Bali resort photography asset**
+
+- Navigate to the campaign photography folder
+- Select one of the high-quality resort images
+- Choose an image you consider campaign-ready
+
+**Step 2: Open the asset properties panel**
+
+- With the asset selected, access the properties/details panel
+- Navigate to the Basic tab
+
+**Step 3: Locate the Status field**
+
+- Scroll through the Basic tab to find the Status dropdown
+- Note the current state (No Status by default)
+- This field controls distribution eligibility
+
+**Step 4: Change status to Approved**
+
+- Click on the Status dropdown
+- Select "Approved" from the options (Approved, Rejected, No Status)
+- If the Approval Target field appears, select Content Hub, Delivery, or both based on your environment
+
+**Step 5: Save the properties**
+
+- Click Save or Apply to commit the change
+- Wait for confirmation that the change was saved
+- The asset is now approved for distribution to the selected target
+
+**Step 6: Note the visual indicator**
+
+- Observe the visual badge showing approved status on the asset card
+- This makes status immediately visible when browsing
+- Other users can quickly identify approved assets
+
+**Step 7: Select 2-3 additional campaign assets**
+
+- Hold Ctrl/Cmd and click to select multiple assets
+- Choose assets that are campaign-ready
+
+**Step 8: Bulk approve the selected assets**
+
+- With multiple assets selected, access the Bulk Metadata Edit panel
+- Change the Status field to "Approved" for all selected
+- Save to apply the change to all assets simultaneously
+
+<BlockQuote>
+  **Checkpoint:** Can you see the approved status indicator on your selected assets?
+</BlockQuote>
+
+<BlockQuote>
+  **Governance Benefit:** Approval status creates a clear gate between work-in-progress content and distribution-ready assets. Creative teams can continue iterating without risk of premature usage. When assets receive approval, they automatically become available to broader audiences through Content Hub, enabling self-service while maintaining brand control.
+</BlockQuote>
+
+
+

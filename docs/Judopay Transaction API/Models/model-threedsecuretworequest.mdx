@@ -1,0 +1,38 @@
+---
+title: Model: threeDSecureTwoRequest
+slug: model-threedsecuretworequest
+docTags: 
+createdAt: Tue Feb 03 2026 08:51:00 GMT+0000 (Coordinated Universal Time)
+---
+
+### Code examples
+
+```json
+{
+  "cardHolderName": "",
+  "emailAddress": "",
+  "shippingAddress": {
+    "address1": "",
+    "address2": "",
+    "town": "",
+    "postCode": "",
+    "countryCode": "",
+    "isBillingAddress": false
+  },
+  "mobileNumber": "",
+  "phoneCountryCode": "44",
+  "threeDSecure": {
+    "authenticationSource": "",
+    "methodNotificationUrl": "https://api.judopay.com/order/3ds/methodNotification",
+    "challengeNotificationUrl": "https://api.judopay.com/order/3ds/challengeNotification",
+    "challengeRequestIndicator": "noPreference",
+    "scaExemption": ""
+  },
+  "threeDSecureMpi": {
+    "dsTransId": "",
+    "cavv": "",
+    "eci": "",
+    "threeDSecureVersion": ""
+  }
+}
+```

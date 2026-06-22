@@ -1,0 +1,444 @@
+---
+title: Lab Exercise Plan — LF Group HOL
+slug: lab-exercise-plan-lf-group-hol
+docTags: 
+createdAt: Thu May 21 2026 13:06:53 GMT+0000 (Coordinated Universal Time)
+---
+
+**Lab duration:** 1 day (7h in room, \~5h hands-on)
+**Total exercise time estimated:** \~245 min (≈ 4h 5min)
+**Buffer (Q\&A, transitions, technical issues):** \~55 min
+**Total templates required:** 16
+
+[Aruba 660-330 Linxusme3s](aruba-660-330-linxusme3s.mdx)&#x20;
+
+***
+
+## Module structure
+
+### Module 1 — Journey Foundation
+
+**Duration:** \~70 min
+**Concepts taught:** Journey canvas, entry events, wait nodes (static + dynamic), condition split (NTB/ETB), push channel + explicit consent management, audience qualification with Customer AI, path experimentation
+
+### Exercises
+
+- E1.1 — Create the journey + configure entry event + first wait node (30 min)
+- E1.2 — NTB/ETB split + push "Bentornato" + consent fallback + convergence wait (25 min)
+- E1.3 — Audience condition + path experimentation + dynamic wait (15 min)
+
+### Templates pre-configured for this module
+
+- T1.1 — Email "Benvenuto" NTB (complete — repetitive email pattern, participants will build one full email in Module 2)
+- T1.2 — Email fallback ETB (complete — same rationale)
+- T1.3 — Exit criteria configured on the journey (folded into E1.1 as a guided sub-step)
+
+<BlockQuote>
+  **Note on wait nodes:** wait nodes live inside the journey canvas and cannot be pre-loaded as a template — participants insert them as part of the relevant exercise. Mechanical config, but unavoidable.
+</BlockQuote>
+
+***
+
+### Module 2 — "Recap simulazione" Email Deep Dive
+
+**Duration:** \~90 min
+**Concepts taught:** Central master template + content locking, content fragments (HTML, expression, customizable), conditional content, Firefly asset generation with brand tokens, decision item + rule authoring, decisioning block embedding, content experimentation (A/B subject), send-time optimization, AJO Brands alignment score
+
+### Exercises
+
+- E2.1 — Template master + conditional content + Firefly hero image (35 min)
+- E2.2 — Build 1 decision item + 1 rule, then embed full decision policy + preview per-profile outcomes (35 min)
+- E2.3 — Content experimentation + send-time optimization + AJO Brands review (20 min)
+
+### Templates pre-configured for this module
+
+- T2.1 — Offer catalog: **7 of 8** decision items + **6 of 7** decision rules + ranking method + selection strategy + decision policy (pre-built and approved). Participants author the 8th decision item + 7th rule in E2.2 — teaches the authoring flow without the 3-4h of bulk catalog work.
+- T2.2 — Customizable fragment "Regional CTA" structure (pre-built; participants wire it to the lookup dataset in E2.1 — teaches the pattern without the structural boilerplate)
+- T2.3 — 4 content fragments (Header brand HTML, Footer brand HTML, Disclaimer expression, Saluto expression) — pre-built and locked; participants observe content locking, they don't configure it
+- T2.4 — **4 of 5** hero image assets (Firefly-generated, pre-loaded in asset library). Participants generate the 5th in E2.1 — teaches the Firefly + Brand tokens flow on one asset.
+
+***
+
+### Module 3 — Governance
+
+**Duration:** \~25 min
+**Concepts taught:** Frequency capping (business rules and rule sets), conflict management (journey priority — facilitator discussion only), AJO operational alerting, manual stop playbook (talking point)
+
+### Exercises
+
+- E3.1 — Frequency capping: configure the `Email capping` rule inside the `Marketing Rules` rule set, then activate the rule set (8 min)
+- *(E3.2 removed — conflict management is now a 5-min facilitator-led discussion point between E3.1 and E3.3. See facilitator notes.)*
+- E3.3 — Alerting: configure AJO operational alert subscription; CJA mentioned as alternative alerting surface (12 min)
+
+### Templates pre-configured for this module
+
+- T3.1 — Journey "Promo carta credito" (priority Medium, audience Mortgage hot leads) — pre-built; used by the facilitator to *show* the conflict scenario during the E3.2 discussion (no participant configuration).
+
+<BlockQuote>
+  **Note:** profile-level suppression tests for E3.1 are not feasible in the lab environment (timing + state setup overhead). Suppression behaviour is explained as a talking point. Conflict suppression is covered as a facilitator discussion only — see facilitator notes. A dedicated CJA exercise is deferred to Module 4.
+</BlockQuote>
+
+***
+
+### Module 4 — Test & Insights
+
+**Duration:** \~55 min
+**Concepts taught:** Journey test mode, per-profile branching verification, experimentation report reading, AJO journey reporting, CJA scheduled alerting
+
+### Exercises
+
+- E4.1 — Journey test mode with 5 test profiles (25 min)
+- E4.2 — Read experimentation report (path A vs B) + AJO journey reporting (15 min)
+- E4.3 — CJA scheduled alert on conversion drop (15 min)
+
+### Templates pre-configured for this module
+
+- T4.1 — 5 test profiles pre-loaded (ETB-young-Stockholm, ETB-senior-Göteborg, NTB-prime-Skåne, NTB-Östergötland, ETB-premium-Halland)
+- T4.2 — CJA workspace pre-connected to AJO dataset, seeded with enough historical data for a meaningful conversion-drop alert preview in E4.3
+
+***
+
+## Time summary
+
+<table isTableHeaderOn="true" columnWidths="221,221,221">
+  <tr>
+    <td>
+      Module
+    </td>
+    <td>
+      Exercises
+    </td>
+    <td>
+      Estimated time
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Module 1 — Journey Foundation
+    </td>
+    <td>
+      E1.1, E1.2, E1.3
+    </td>
+    <td>
+      70 min
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Module 2 — Recap Simulazione email
+    </td>
+    <td>
+      E2.1, E2.2, E2.3
+    </td>
+    <td>
+      90 min
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Module 3 — Governance
+    </td>
+    <td>
+      E3.1, E3.3 (+ E3.2 facilitator discussion)
+    </td>
+    <td>
+      25 min
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Module 4 — Test & Insights
+    </td>
+    <td>
+      E4.1, E4.2, E4.3
+    </td>
+    <td>
+      55 min
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Total**
+    </td>
+    <td>
+      **10 exercises**
+    </td>
+    <td>
+      **240 min**
+    </td>
+  </tr>
+</table>
+
+Buffer for transitions, Q\&A, technical issues: \~50 min → fits in 5h hands-on. ✓
+
+***
+
+## Rationale for major selection decisions
+
+- **Email "Benvenuto" + email ETB fallback → templates.** Participants will configure a complete email in Module 2. Building two additional emails first adds 30+ min of repetition before reaching the flagship exercise. Pedagogical value: zero marginal.
+- **Offer catalog (8 items + rules + ranking) → template.** Building the catalog correctly takes 3-4h minimum. The exercise that matters is *embedding* the decision policy in an email and *reading* the per-profile outcome — that's E2.2. The catalog is a prerequisite, not the lesson.
+- **Content fragments (Header, Footer, Disclaimer, Saluto) → templates, locked.** Participants *observe* content locking in E2.1 — they see they cannot edit these areas. That's the lesson. Building them adds time with no conceptual payoff.
+- **Path experimentation (E1.3) → short exercise.** The configuration is simple (set wait, assign path A/B, configure auto-scale condition). The pedagogical value is understanding *why* it's structured this way, not the UI steps. 10 min is right.
+- **Custom action webhook (Step 13a) → omitted from exercises.** Too infrastructure-specific; requires a live CRM endpoint to be meaningful; adds no AJO-conceptual value beyond what participants already learn from the journey condition (Step 12). Mentioned as a talking point in Module 4.
+- **Email "Avanza online" (Step 13b) → omitted as standalone exercise.** Folds into E4.1 (test mode) as an observed outcome. AJO Brands text generation covered in E2.3 — no need to repeat.
+- **Geolocation branch → dropped from lab.** Requires Places SDK configuration which adds significant environment complexity for low conceptual payoff in the time available.
+- **CJA exercise (E4.3) → placed in Module 4, not Module 3.** CJA alerting belongs with insights, not operational governance. AJO alerting (E3.3) is the operational tool; CJA is for analytical/scheduled detection on dataset trends. Two distinct surfaces, two distinct contexts.
+- **Profile-level suppression tests in E3.1 and E3.2 → dropped.** Not feasible in lab environment timing. Suppression behavior covered as talking point during exercises.
+- **E3.2 (conflict management) → demoted from hands-on exercise to facilitator-led discussion.** Setting a priority dropdown is a 30-second click; the conceptual content is the *conversation* about how priority decisions get made across competing campaigns. That conversation is worth 5 minutes of facilitator time, not a 10-minute hands-on slot. Frees budget and removes a stacked-suppression exercise that participants could not verify anyway.
+
+***
+
+## Templates — pre-lab sandbox setup checklist
+
+In dependency order (Alex / sandbox admin follows this sequence):
+
+1. XDM schema: all profile + event fields (incl. `conversionPropensityScore`, `lfCompanyId`, `branchAssigned`)
+2. AEP lookup dataset "LF Company Registry" (5 LF companies: Stockholm, Göteborg, Skåne, Östergötland, Halland)
+3. 5 test profiles loaded with all required attributes (propensity scores pre-populated statically)
+4. Audience "Mortgage hot leads" configured (behavioral + score >= 60)
+5. Customer AI — verify propensity scores on test profiles; if model not trained, static values in place
+6. AJO Brands profile: LF Group (tone, palette, logo, assets)
+7. **4 of 5** hero image assets generated (Firefly + LF Group brand) → loaded in asset library (participants generate the 5th in E2.1)
+8. Content fragment HTML: "Header brand" (master-locked)
+9. Content fragment HTML: "Footer brand" (master-locked)
+10. Expression fragment text: "Disclaimer legale" (master-locked)
+11. Expression fragment text: "Saluto" (master-locked)
+12. Template master "Mortgage Comms" — structure with content locking and empty slots for E2.1
+13. Customizable fragment "Regional CTA" — structure only (participants wire lookup in E2.1)
+14. Offer catalog: **7 of 8** decision items (approved) + **6 of 7** decision rules + ranking method + selection strategy + decision policy (participants author the missing item + rule in E2.2)
+15. ⚠️ Verify decision policy activation for Email channel (Limited Availability) with Adobe rep before lab
+16. Email "Benvenuto" NTB — complete (T1.1)
+17. Email fallback ETB — complete (T1.2)
+18. Journey "Promo carta credito" — complete, priority Medium (for Module 3 conflict exercise)
+19. Frequency capping business rule: category `mortgage`, max 3 / 7 days — **not yet active** (participants activate in E3.1)
+20. AJO alert subscription on mortgage journey — **not yet configured** (participants configure in E3.3)
+21. CJA workspace connected to AJO dataset, seeded with historical conversion data sufficient for a meaningful conversion-drop alert preview (E4.3) and for AJO journey reporting context (E4.2)
+
+***
+
+## Exercise list for Myrna
+
+<table isTableHeaderOn="true" columnWidths="132,132,132,132,135">
+  <tr>
+    <td>
+      ID
+    </td>
+    <td>
+      Title
+    </td>
+    <td>
+      Module
+    </td>
+    <td align="center">
+      Est. time
+    </td>
+    <td>
+      Key AJO feature(s)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E1.1
+    </td>
+    <td>
+      Create the journey + entry event + first wait
+    </td>
+    <td>
+      1
+    </td>
+    <td align="center">
+      30 min
+    </td>
+    <td>
+      Journey canvas, entry event, XDM payload, wait node (static), exit criteria, re-entrance rule
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E1.2
+    </td>
+    <td>
+      NTB/ETB split + push + consent + convergence wait
+    </td>
+    <td>
+      1
+    </td>
+    <td align="center">
+      25 min
+    </td>
+    <td>
+      Profile condition, push channel, consent condition + fallback, multi-brand tokens, branch convergence wait
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E1.3
+    </td>
+    <td>
+      Audience condition + path experimentation + dynamic wait
+    </td>
+    <td>
+      1
+    </td>
+    <td align="center">
+      15 min
+    </td>
+    <td>
+      Audience qualification, optimize activity, auto-scale winner, dynamic wait
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E2.1
+    </td>
+    <td>
+      Template master + conditional content + Firefly image
+    </td>
+    <td>
+      2
+    </td>
+    <td align="center">
+      35 min
+    </td>
+    <td>
+      Master template, content locking, fragments, customizable fragment, conditional content, lookup notation, Firefly + Brand tokens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E2.2
+    </td>
+    <td>
+      Author 1 decision item + 1 rule, embed policy + preview
+    </td>
+    <td>
+      2
+    </td>
+    <td align="center">
+      35 min
+    </td>
+    <td>
+      Decision item authoring, decision rule, decision policy embedding, per-profile offer preview, ranking formula
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E2.3
+    </td>
+    <td>
+      Content experimentation + STO + Brands
+    </td>
+    <td>
+      2
+    </td>
+    <td align="center">
+      20 min
+    </td>
+    <td>
+      A/B subject, content experimentation, send-time optimization, AJO Brands alignment score
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E3.1
+    </td>
+    <td>
+      Frequency capping business rule (config only)
+    </td>
+    <td>
+      3
+    </td>
+    <td align="center">
+      8 min
+    </td>
+    <td>
+      Business rules, category capping
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ~~E3.2~~
+    </td>
+    <td>
+      ~~Conflict management — set + verify priorities~~ — **removed; facilitator discussion only**
+    </td>
+    <td>
+      3
+    </td>
+    <td align="center">
+      5 min discussion
+    </td>
+    <td>
+      Journey priority concept (no hands-on)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E3.3
+    </td>
+    <td>
+      AJO operational alerting (CJA mentioned only)
+    </td>
+    <td>
+      3
+    </td>
+    <td align="center">
+      12 min
+    </td>
+    <td>
+      AJO alert subscription, manual stop playbook
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E4.1
+    </td>
+    <td>
+      Journey test mode with 5 profiles
+    </td>
+    <td>
+      4
+    </td>
+    <td align="center">
+      25 min
+    </td>
+    <td>
+      Test mode, per-profile outcome verification, branching
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E4.2
+    </td>
+    <td>
+      Experimentation report + journey reporting
+    </td>
+    <td>
+      4
+    </td>
+    <td align="center">
+      15 min
+    </td>
+    <td>
+      AJO experimentation report, journey live report
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E4.3
+    </td>
+    <td>
+      CJA scheduled alert on conversion drop
+    </td>
+    <td>
+      4
+    </td>
+    <td align="center">
+      15 min
+    </td>
+    <td>
+      CJA workspace, scheduled alerts, conversion metrics, alert preview
+    </td>
+  </tr>
+</table>
+

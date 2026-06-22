@@ -1,0 +1,217 @@
+{
+  "docsPath": "docs/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "path": "bardevhttp-apitransport-get.mdx",
+        "children": []
+      },
+      {
+        "path": "lab-exercise-plan-lf-group-hol.mdx",
+        "children": []
+      },
+      {
+        "path": "test-ddd.mdx",
+        "children": []
+      },
+      {
+        "path": "about.mdx",
+        "children": []
+      },
+      {
+        "path": "aruba-660-330-linxusme3s.mdx",
+        "children": []
+      },
+      {
+        "path": "test-adobe-cursor-jumping-on-tables.mdx",
+        "children": []
+      },
+      {
+        "path": "modifiying.mdx",
+        "children": []
+      },
+      {
+        "path": "cadent-toc-issue.mdx",
+        "children": []
+      },
+      {
+        "path": "541-documentsearchrequest-element-require.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "test copy paste",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "test copy paste/541-documentretrieverequest-element-requirements.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "path": "dairy-comp-pagevas-with-duplicated-content-cloned-with-children-cloned-with-children.mdx",
+        "children": []
+      },
+      {
+        "path": "vas-duplicate.mdx",
+        "children": []
+      },
+      {
+        "path": "testing-diacritics.mdx",
+        "children": []
+      },
+      {
+        "path": "crossriver-test-page-3.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Test folder",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "Test folder/testing-missing-toc-header.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "path": "crossriver-test-page.mdx",
+        "children": []
+      },
+      {
+        "path": "crossriver-test-page-2.mdx",
+        "children": [
+          {
+            "path": "docs/crossriver-test-page-2/i5rBrYkUx3QKUvqQZI0Kk.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "path": "retete.mdx",
+        "children": []
+      },
+      {
+        "path": "test.mdx",
+        "children": []
+      },
+      {
+        "path": "ashbyk-img-alt-text-dissapear.mdx",
+        "children": [
+          {
+            "path": "docs/ashbyk-img-alt-text-dissapear/kWSbyKwxImrU0dlQOZTY2.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "path": "this-is-a-h1-title.mdx",
+        "children": [],
+        "isHidden": false
+      },
+      {
+        "path": "baguette-parce-que-car-cela-ouais.mdx",
+        "children": [
+          {
+            "path": "docs/baguette-parce-que-car-cela-ouais/test-doc.mdx",
+            "children": [],
+            "isHidden": false
+          }
+        ],
+        "isFoldedByDefault": true,
+        "isHidden": false
+      },
+      {
+        "categoryName": "Indenting",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "Indenting/indenting/anotherpage.mdx",
+            "children": [
+              {
+                "path": "docs/Indenting/indenting/anotherpage/advanced-filtering.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Indenting/new-page.mdx",
+            "children": []
+          }
+        ],
+        "isFoldedByDefault": true
+      },
+      {
+        "children": [
+          {
+            "path": "y3CLnC0e8ZwYF4BriYps0/new-doc-pai.mdx",
+            "children": []
+          }
+        ],
+        "isHidden": true,
+        "isLink": true,
+        "linkTitle": "Bucuresti",
+        "linkHref": "https://www.google.com",
+        "linkOpensInNewTab": true
+      },
+      {
+        "path": "test-page-ocient.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Reminder",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "Reminder/2FaI-toxic-language.mdx",
+            "children": []
+          },
+          {
+            "path": "Reminder/asdasdsda.mdx",
+            "children": []
+          },
+          {
+            "path": "Reminder/test-numbering-on-images-issue-cloned.mdx",
+            "children": [
+              {
+                "path": "Reminder/Wq87PaS0VqdFnpH3IMDMI/asdsadas.mdx",
+                "children": []
+              },
+              {
+                "path": "Reminder/Wq87PaS0VqdFnpH3IMDMI/toxic-language.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Reminder/asdsadasdas-cloned.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "Shadow Docs/F5YOhTRyf2cB8bFPEu8Ta.mdx",
+            "children": []
+          }
+        ],
+        "isShadowDocs": true
+      },
+      {
+        "categoryName": "Virtual Account Number API Specification",
+        "isCategory": true,
+        "children": []
+      },
+      {
+        "categoryName": "Judopay Transaction API",
+        "isCategory": true,
+        "children": []
+      }
+    ]
+  },
+  "shadowDocs": []
+}

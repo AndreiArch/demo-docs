@@ -1,0 +1,962 @@
+---
+title: 5.4.1 DocumentSearchRequest Element Require
+slug: 541-documentsearchrequest-element-require
+docTags: 
+createdAt: Fri Feb 20 2026 14:55:20 GMT+0000 (Coordinated Universal Time)
+---
+
+# **Onboarding Step by Step Process**
+
+These steps outline the process to onboard a customer to Surescripts Data Solutions, from account setup through data downloads.
+
+ăndarăt
+
+***
+
+<hint type="info">
+  **Note**: This is Early Adopter documentation. Requirements and content are subject to change.
+</hint>
+
+![](https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/Reh05Ln3-6xzaPWPG2UN0_image-10.png)
+
+# Step 1: Verify Access to Data Package Builder in Workbench
+
+- For instructions on how to set up access, see the :Link[Setting Up Access to Workbench & Data Package Builder]{label="Getting Started" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="CK_HMjVq8Nl6ryMbeYwF9" version="v2" docAnchorId="#VRB1k" loadingMethod="dynamic" overridedLabel="Setting Up Access to Workbench & Data Package Builder" newTab="true"} instructions.
+
+# **Step 2: Generate  Keys**
+
+## **Step 2a: Generate RSA Key Pairs for Data Package Builder Authentication**
+
+To authenticate with the Data Package Builder API, you need to generate a 2048-bit RSA key pair and upload the public key through the Client Keys interface.&#x20;
+
+**Option 1: Using Open SSL (Recommended - Works on Linux, macOS, Windows)**
+
+1. Generate a 2048-bit RSA private key.
+2.
+
+<Image src="https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/ZBdVJaJ5MttcBKLxtAbqi_logo.png" size="100" width="664" height="176" position="center" indent="2"></Image>
+
+```powershell
+openssl genrsa -out private_key.pem 2048
+```
+
+2. Extract the public key.
+
+```powershell
+openssl req -new -x509 -key privatekey.pem -out publickey509.pem -subj '/CN=data-package-builder'
+```
+
+3. Verify your keys pairs.&#x20;
+
+```powershell
+# View the private key
+cat privatekey.pem
+# View the public key
+cat publickey509.pem
+```
+
+**Option 2: Using PowerShell (Windows)**
+
+1. Generate RSA key pair.
+
+```powershell
+$rsa = [System.Security.Cryptography.RSA]::Create(2048)
+```
+
+2. Export public key in X.509 SubjectPublicKeyInfo format.
+
+```powershell
+$publicKey = $rsa.ExportSubjectPublicKeyInfo()
+$publicPem = "-----BEGIN PUBLIC KEY-----`n" +
+             [Convert]::ToBase64String($publicKey, 'InsertLineBreaks') +
+             "`n-----END PUBLIC KEY-----"
+$publicPem | Out-File -FilePath "public_key.pem" -Encoding ASCII
+```
+
+3. Export private key.
+
+```powershell
+$privateKey = $rsa.ExportRSAPrivateKey()
+$privatePem = "-----BEGIN RSA PRIVATE KEY-----`n" +
+              [Convert]::ToBase64String($privateKey, 'InsertLineBreaks') +
+              "`n-----END RSA PRIVATE KEY-----"
+$privatePem | Out-File -FilePath "private_key.pem" -Encoding ASCII
+
+Write-Host "Keys generated successfully!"
+Write-Host "Public key is in X.509 SubjectPublicKeyInfo format"
+```
+
+<hint type="info">
+  **What You'll Get:**
+
+  ![](https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/wb3IW36mTxf3wU6WbbBDz_auto-translate-alert.png)
+
+  After generation of the key pair, you will have two files:
+
+  1. private\_key.pem - Your private key
+     \- **CRITICAL**: Keep this secure
+     \- Store it in a secure location (HSM, key vault, encrypted storage)
+     \- This will be used to sign a compact JWT to request an acess token from the authorization server
+  2. public\_key.pem - Your public key
+     \- This is what you upload to Data Package Builder
+     \- Safe to share (it's called "public" for a reason)
+     \- Example format:
+     \-----BEGIN PUBLIC KEY-----
+     MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0Z3VS5JJcds3...
+     \-----END PUBLIC KEY-----
+</hint>
+
+## Step 2b: Upload your Public Key
+
+1. Log in to **Data Package Builder**.
+2. Navigate to **Client Keys**.
+3. Paste the entire contents of **public\_key.pem** (including the BEGIN/END lines).
+4. Click **Create Client.&#x20;**
+   - **Note**: This will create the Client\_ID that the customer will later use in :Link[Build the Compact JWT Assertion]{label="Onboarding" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="tWxBSuhc9a0s7XIEhdO11" version="v2" docAnchorId="#kxN7J" loadingMethod="dynamic" overridedLabel="Build the Compact JWT Assertion"} section.
+
+<hint type="danger">
+  ⚠️ **Important:** Once you have created your **Client ID**, notify your Surescripts point of contact. Surescripts must configure your data package before you can proceed to the next steps.
+
+  You will not be able to continue until this configuration is complete.
+</hint>
+
+![](https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/p5EnKA6v5YazwNr5ZXqcJ_istockphoto-1158342659-612x612.jpg)
+
+<hint type="success">
+  **Security Best Practices**:
+
+  ✅ **DO**:
+
+  - Generate keys in a secure environment
+  - Store private keys in a key vault or HSM for production use
+  - Use strong file permissions on private key files (chmod 600 private\_key.pem on Unix)
+  - Rotate keys periodically
+
+  &#x20; ❌ **DON'T:**
+
+  - Share or commit private keys to version control
+  - Email private keys
+  - Store private keys in plaintext in application code
+  - Reuse the same key pair across multiple clients/applications
+</hint>
+
+## **Step 2c: Common errors**
+
+The below table includes information on common errors that can be encountered when creating key pairs.
+
+<table isTableHeaderOn="true" columnWidths="202,444" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left" lightBackgroundColor="#D8E5F5">
+      **Error**
+    </td>
+    <td align="left" lightBackgroundColor="#D8E5F5">
+      **Troubleshooting Information**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      "Invalid certificate/public key format" error
+    </td>
+    <td align="left">
+      - Ensure you're uploading the PUBLIC key, not the private key
+      - Verify the PEM headers are included
+      - Check for extra whitespace or line breaks
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Key appears to upload but authentication fails
+    </td>
+    <td align="left">
+      - Verify the corresponding private key is being used for signing requests
+      - Ensure the key is either 2048 or 4096 (1024 is not allowed and larger key
+        &#x20;sizes will not fit in our 8 KB JWT input limit)
+    </td>
+  </tr>
+</table>
+
+# **Step 3: Query Builder&#x20;**
+
+The **Query Builder&#x20;**&#x69;n Workbench helps you create an **OData query URL&#x20;**&#x74;hat defines exactly which prescribed medication data you want to retrieve from the Data Solutions API. You can build a query visually or edit it directly, depending on your preference.
+
+<hint type="info">
+  **Note**: The Query Builder is optional; experienced users may submit **manual OData queries&#x20;**&#x64;irectly.
+
+  OData is not the only type of request that is supported. For additional information on other uses for the Query Builder, see :Link[Query Builder Overview]{label="Query Builder Overview" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="UfqSG3e7HZr3byCCRTWhz" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} .
+
+  For additional information on OData, see [https://learn.microsoft.com/en-us/odata/overview](https://learn.microsoft.com/en-us/odata/overview)
+
+  ![](https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/6o4UZeOwJsHY3qqYcVNT-_bull-stock-market-icon.png)
+</hint>
+
+<hint type="warning">
+  **Important**: Before you begin:
+
+  - You must be able to **sign in to Workbench.**
+  - Your user must have access to **Data Package Builder** with the **Query Edit** role.
+  - You must be working with the **Prescribed Medication** product in Data Solutions.
+  - For instructions on this, see :Link[Setting Up Access to Workbench & Data Package Builder]{label="Getting Started" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="CK_HMjVq8Nl6ryMbeYwF9" version="v2" docAnchorId="#VRB1k" loadingMethod="dynamic" overridedLabel="Setting Up Access to Workbench & Data Package Builder"}.
+</hint>
+
+## Step 3a: Run the Query Builder (OData)
+
+1. Sign in to **Workbench** and open **Data Package Builder**.
+2. Select **Query Builder**.
+3. Choose the **Prescribed Medication** product.&#x20;
+4. Select the **columns** you want returned (these map to $select in OData).&#x20;
+5. Add **filters** to limit results.&#x20;
+   - A **PARTITION\_DAY** filter is required.&#x20;
+6. Select **Generate from Selections** to automatically build the OData query
+   &#x20;*(or manually edit the query if you’re familiar with OData).*&#x20;
+7. Copy the generated **OData query URL**.
+8. &#x20;Use the URL in your **Data Solutions API GET request** to retrieve Prescribed Medication data.
+
+<hint type="info">
+  **Note**: For information on how to run the Query Builder for other use cases, see :Link[Key Steps (Applies to All Use Cases)]{label="Query Builder Overview" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="UfqSG3e7HZr3byCCRTWhz" version="v2" docAnchorId="#sNQSf" loadingMethod="dynamic" overridedLabel="Key Steps (Applies to All Use Cases)"}
+</hint>
+
+# **Step 4: Determining PARTITION\_DAY Filter**
+
+To determine which PARTITION\_DAY filter to request, see the :Link[How to Use the Endpoints]{label="How to Use the Endpoints" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="1XvTa747xDt6ZTXVIBdLJ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} page.
+
+# **Step 5: Send REST Requests to Data Solutions API**
+
+## Authentication&#x20;
+
+Learn how to authenticate with the Data Solutions API using OAuth 2.0 Client Credentials Grant with JWT Bearer Assertion.
+
+## What You'll Do
+
+The Data Solutions API uses a two-step authentication process:
+
+1. **Build a JWT assertion** - Create and sign a JWT claim using your ClientID and private key
+2. **Request an access token** - Exchange the JWT assertion for an OAuth access token at the auth-server's `/connect/token` endpoint
+3. **Use the access token** - Include the access token in API requests
+
+<CodeblockTabs>
+  Data Solutions Authentication Process
+
+  ```none
+  ┌─────────────┐                                ┌─────────────┐
+  │   Client    │                                │ Auth Server │
+  └──────┬──────┘                                └──────┬──────┘
+         │                                              │
+         │ 1. Build JWT assertion                       │
+         │    (signed with private key)                 │
+         │                                              │
+         │ 2. POST /connect/token                       │
+         │    (client_assertion = JWT)                  │
+         ├─────────────────────────────────────────────>│
+         │                                              │
+         │ 3. Access token response                     │
+         │<─────────────────────────────────────────────┤
+         │                                              │
+         │                                              │
+         │                           ┌──────────────────┴─────┐
+         │                           │ Data Solutions API     │
+         │                           └──────────────────┬─────┘
+         │                                              │
+         │ 4. API request with access token             │
+         ├─────────────────────────────────────────────>│
+         │                                              │
+         │ 5. Data response                             │
+         │<─────────────────────────────────────────────┤
+         │                                              │
+  ```
+</CodeblockTabs>
+
+## Before You Begin
+
+Make sure you have:
+
+1. **Client ID** - A unique identifier for your application.
+2. **Private Key** - An RSA private key in **PKCS#8** PEM format.
+3. **Public Key Registration** - Your public key must be registered with the auth server for your Client ID.
+
+### Private Key Format
+
+Your private key must be in **PKCS#8 PEM format**:
+
+```javascript
+-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC...
+... base64 encoded key data ...
+-----END PRIVATE KEY-----
+```
+
+## Step 5a: Build the Compact JWT Assertion
+
+Create a JWT with the following structure, signed with your private key using the RS384 algorithm (RSASSA-PKCS1-v1\_5 with SHA-384). This JWT proves your identity to the auth server.
+
+### JWT Header
+
+```json
+{
+  "alg": "RS384",
+  "typ": "JWT"
+}
+```
+
+### JWT Payload
+
+```json
+{
+  "iss": "your-client-id",                                    // Issuer: your client ID
+  "sub": "your-client-id",                                    // Subject: your client ID
+  "aud": "ENVIRONMENT_AUTH_URL/connect/token",                // Audience: token endpoint URL
+  "jti": "550e8400-e29b-41d4-a716-446655440000",              // JWT ID: unique identifier (UUID)
+  "iat": 1706572800,                                          // Issued at: current Unix timestamp
+  "nbf": 1706572800,                                          // Not before: current Unix timestamp
+  "exp": 1706573100                                           // Expires: current timestamp + 5 minutes
+}
+```
+
+**Important field notes:**
+
+- `iss` and `sub` must both be your Client ID
+- `aud` must be the exact token endpoint URL (including `/connect/token`)
+- `jti` must be unique for each request (use a UUID)
+- `exp` should be 5 minutes from `iat` (recommended maximum)
+
+### Example: Building JWT in Python
+
+```python
+import jwt
+import uuid
+import time
+from datetime import datetime, timedelta
+
+# Your credentials
+client_id = "your-client-id"
+private_key = """-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC...
+-----END PRIVATE KEY-----"""
+token_endpoint = "ENVIRONMENT_AUTH_URL/connect/token"
+
+# Build the JWT payload
+now = int(time.time())
+payload = {
+    "iss": client_id,
+    "sub": client_id,
+    "aud": token_endpoint,
+    "jti": str(uuid.uuid4()),
+    "iat": now,
+    "nbf": now,
+    "exp": now + 300  # 5 minutes from now
+}
+
+# Sign the JWT with RS384
+client_assertion = jwt.encode(
+    payload,
+    private_key,
+    algorithm="RS384"
+)
+
+print(f"JWT Assertion: {client_assertion}")
+```
+
+### Example: Building JWT in C\#
+
+```csharp
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using Microsoft.IdentityModel.Tokens;
+
+// Your credentials
+var clientId = "your-client-id";
+var privateKeyPem = @"-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC...
+-----END PRIVATE KEY-----";
+var tokenEndpoint = "ENVIRONMENT_AUTH_URL/connect/token";
+
+// Load the private key
+using var rsa = RSA.Create();
+rsa.ImportFromPem(privateKeyPem);
+var signingCredentials = new SigningCredentials(
+    new RsaSecurityKey(rsa),
+    SecurityAlgorithms.RsaSha384
+);
+
+// Build the JWT
+var now = DateTime.UtcNow;
+var handler = new JwtSecurityTokenHandler();
+var token = handler.CreateJwtSecurityToken(
+    issuer: clientId,
+    audience: tokenEndpoint,
+    subject: new ClaimsIdentity(new[] { new Claim("sub", clientId) }),
+    notBefore: now,
+    expires: now.AddMinutes(5),
+    issuedAt: now,
+    signingCredentials: signingCredentials
+);
+
+// Add the jti claim
+token.Payload["jti"] = Guid.NewGuid().ToString();
+
+var clientAssertion = handler.WriteToken(token);
+Console.WriteLine($"JWT Assertion: {clientAssertion}");
+```
+
+### Example: Building JWT in JavaScript/Node.js
+
+```javascript
+const jwt = require('jsonwebtoken');
+const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
+
+// Your credentials
+const clientId = 'your-client-id';
+const privateKey = fs.readFileSync('private_key.pem', 'utf8');
+const tokenEndpoint = 'ENVIRONMENT_AUTH_URL/connect/token';
+
+// Build the JWT payload
+const now = Math.floor(Date.now() / 1000);
+const payload = {
+  iss: clientId,
+  sub: clientId,
+  aud: tokenEndpoint,
+  jti: uuidv4(),
+  iat: now,
+  nbf: now,
+  exp: now + 300 // 5 minutes
+};
+
+// Sign the JWT with RS384
+const clientAssertion = jwt.sign(payload, privateKey, {
+  algorithm: 'RS384'
+});
+
+console.log(`JWT Assertion: ${clientAssertion}`);
+```
+
+## Step 5b: Request Access Token
+
+Send a POST request to the auth server's `/connect/token` endpoint with the JWT assertion.
+
+### Request Format
+
+```http
+POST /connect/token HTTP/1.1
+Host: ENVIRONMENT_AUTH_URL
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id=your-client-id
+&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+&client_assertion=<your-signed-jwt>
+&scope=DsaApi
+```
+
+**Parameters:**
+
+- `grant_type` - Must be `client_credentials`
+- `client_id` - Your client identifier
+- `client_assertion_type` - Must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
+- `client_assertion` - The signed JWT from Step 1
+- `scope` - Must be `DsaApi` to access the Data Solutions API
+
+### Example: Request Token in Python
+
+```python
+import requests
+
+# Build the token request
+token_url = "ENVIRONMENT_AUTH_URL/connect/token"
+data = {
+    "grant_type": "client_credentials",
+    "client_id": client_id,
+    "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+    "client_assertion": client_assertion,
+    "scope": "DsaApi"
+}
+
+# Request the access token
+response = requests.post(token_url, data=data)
+response.raise_for_status()
+
+token_response = response.json()
+access_token = token_response["access_token"]
+expires_in = token_response["expires_in"]
+
+print(f"Access Token: {access_token}")
+print(f"Expires in: {expires_in} seconds")
+```
+
+### Example: Request Token in C\#
+
+```csharp
+using System.Net.Http;
+
+var httpClient = new HttpClient();
+var tokenUrl = "ENVIRONMENT_AUTH_URL/connect/token";
+
+var requestData = new Dictionary<string, string>
+{
+    { "grant_type", "client_credentials" },
+    { "client_id", clientId },
+    { "client_assertion_type", "urn:ietf:params:oauth:client-assertion-type:jwt-bearer" },
+    { "client_assertion", clientAssertion },
+    { "scope", "DsaApi" }
+};
+
+var response = await httpClient.PostAsync(tokenUrl, new FormUrlEncodedContent(requestData));
+response.EnsureSuccessStatusCode();
+
+var tokenResponse = await response.Content.ReadFromJsonAsync<TokenResponse>();
+var accessToken = tokenResponse.AccessToken;
+var expiresIn = tokenResponse.ExpiresIn;
+
+Console.WriteLine($"Access Token: {accessToken}");
+Console.WriteLine($"Expires in: {expiresIn} seconds");
+
+// Token response model
+public class TokenResponse
+{
+    [JsonPropertyName("access_token")]
+    public string AccessToken { get; set; }
+
+    [JsonPropertyName("expires_in")]
+    public int ExpiresIn { get; set; }
+
+    [JsonPropertyName("token_type")]
+    public string TokenType { get; set; }
+}
+```
+
+### Example: Request Token in JavaScript/Node.js
+
+```javascript
+const axios = require('axios');
+const qs = require('querystring');
+
+const tokenUrl = 'ENVIRONMENT_AUTH_URL/connect/token';
+
+const requestData = {
+  grant_type: 'client_credentials',
+  client_id: clientId,
+  client_assertion_type: 'urn:ietf:params:oauth:client-assertion-type:jwt-bearer',
+  client_assertion: clientAssertion,
+  scope: 'DsaApi'
+};
+
+axios.post(tokenUrl, qs.stringify(requestData), {
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+})
+.then(response => {
+  const accessToken = response.data.access_token;
+  const expiresIn = response.data.expires_in;
+
+  console.log(`Access Token: ${accessToken}`);
+  console.log(`Expires in: ${expiresIn} seconds`);
+})
+.catch(error => {
+  console.error('Token request failed:', error.response?.data || error.message);
+});
+```
+
+### Successful Response
+
+```json
+{
+  "access_token": "eyJhbGciOiJSUzM4NCIsImtpZCI6IjEyMzQ1Njc4OTAiLCJ0eXAiOiJKV1QifQ...",
+  "expires_in": 3600,
+  "token_type": "Bearer",
+  "scope": "DsaApi"
+}
+```
+
+### Error Response
+
+```json
+{
+  "error": "invalid_client",
+  "error_description": "Invalid client or client credentials"
+}
+```
+
+**Common error codes:**
+
+- `invalid_client` - Client ID not found or public key mismatch
+- `invalid_grant` - JWT assertion validation failed
+- `invalid_scope` - Requested scope not available
+
+## Step 5c: Use Access Token in Data Solutions API Requests&#x20;
+
+Include the access token in the `Authorization` header of your API requests.
+
+### Request Format
+
+```http
+GET /api/v0/odata/PrescribedMedicationData?$filter=PARTITION_DAY eq '2025-01-30' HTTP/1.1
+Host: ENVIRONMENT_DATA_SOLUTIONS_URL
+Authorization: Bearer <your-access-token>
+```
+
+### Example: API Request in Python
+
+```python
+import requests
+
+api_url = "ENVIRONMENT_DATA_SOLUTIONS_URL/api/v0/odata/PrescribedMedicationData"
+headers = {
+    "Authorization": f"Bearer {access_token}"
+}
+params = {
+    "$filter": "PARTITION_DAY eq '2025-01-30'",
+    "$top": 10
+}
+
+response = requests.get(api_url, headers=headers, params=params)
+response.raise_for_status()
+
+data = response.json()
+print(f"Retrieved {len(data['value'])} records")
+```
+
+### Example: API Request in C\#
+
+```csharp
+var apiUrl = "ENVIRONMENT_DATA_SOLUTIONS_URL/api/v0/odata/PrescribedMedicationData";
+var httpClient = new HttpClient();
+httpClient.DefaultRequestHeaders.Authorization =
+    new AuthenticationHeaderValue("Bearer", accessToken);
+
+var queryParams = new Dictionary<string, string>
+{
+    { "$filter", "PARTITION_DAY eq '2025-01-30'" },
+    { "$top", "10" }
+};
+
+var queryString = string.Join("&", queryParams.Select(kvp =>
+    $"{Uri.EscapeDataString(kvp.Key)}={Uri.EscapeDataString(kvp.Value)}"));
+var requestUrl = $"{apiUrl}?{queryString}";
+
+var response = await httpClient.GetAsync(requestUrl);
+response.EnsureSuccessStatusCode();
+
+var data = await response.Content.ReadFromJsonAsync<ODataResponse>();
+Console.WriteLine($"Retrieved {data.Value.Count} records");
+```
+
+### Example: API Request in JavaScript/Node.js
+
+```javascript
+const axios = require('axios');
+
+const apiUrl = 'ENVIRONMENT_DATA_SOLUTIONS_URL/api/v0/odata/PrescribedMedicationData';
+const headers = {
+  'Authorization': `Bearer ${accessToken}`
+};
+const params = {
+  '$filter': "PARTITION_DAY eq '2025-01-30'",
+  '$top': 10
+};
+
+axios.get(apiUrl, { headers, params })
+  .then(response => {
+    console.log(`Retrieved ${response.data.value.length} records`);
+  })
+  .catch(error => {
+    console.error('API request failed:', error.response?.data || error.message);
+  });
+```
+
+## Step 5d: Handle Token Expiration
+
+Access tokens expire after the time specified in the `expires_in` field (typically 3600 seconds / 1 hour).
+
+**Best practices:**
+
+1. Store the token and its expiration time
+2. Check if the token is expired before each request
+3. Request a new token when the current one expires or is about to expire
+4. Add a buffer (e.g., refresh 5 minutes before actual expiration)
+
+### Example: Token Management in Python
+
+```python
+from datetime import datetime, timedelta
+
+class TokenManager:
+    def __init__(self, client_id, private_key, token_endpoint):
+        self.client_id = client_id
+        self.private_key = private_key
+        self.token_endpoint = token_endpoint
+        self.access_token = None
+        self.expires_at = None
+
+    def get_access_token(self):
+        # Return cached token if still valid
+        if self.access_token and datetime.utcnow() < self.expires_at:
+            return self.access_token
+
+        # Request new token
+        client_assertion = self._build_jwt()
+        response = requests.post(self.token_endpoint, data={
+            "grant_type": "client_credentials",
+            "client_id": self.client_id,
+            "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+            "client_assertion": client_assertion,
+            "scope": "DsaApi"
+        })
+        response.raise_for_status()
+
+        token_response = response.json()
+        self.access_token = token_response["access_token"]
+
+        # Set expiration with 5-minute buffer
+        expires_in = token_response["expires_in"]
+        self.expires_at = datetime.utcnow() + timedelta(seconds=expires_in - 300)
+
+        return self.access_token
+
+    def _build_jwt(self):
+        # JWT building logic from Step 1
+        now = int(time.time())
+        payload = {
+            "iss": self.client_id,
+            "sub": self.client_id,
+            "aud": self.token_endpoint,
+            "jti": str(uuid.uuid4()),
+            "iat": now,
+            "nbf": now,
+            "exp": now + 300
+        }
+        return jwt.encode(payload, self.private_key, algorithm="RS384")
+
+# Usage
+token_manager = TokenManager(client_id, private_key, token_endpoint)
+access_token = token_manager.get_access_token()
+```
+
+## Optional: Use DPoP for Enhanced Security
+
+The API supports DPoP (Demonstration of Proof-of-Possession) for enhanced security. DPoP binds access tokens to a specific key pair, preventing token theft.
+
+### DPoP Token Request
+
+Include a DPoP proof JWT in the `DPoP` header:
+
+```http
+POST /connect/token HTTP/1.1
+Host: auth-server.surescripts.net
+Content-Type: application/x-www-form-urlencoded
+DPoP: <dpop-proof-jwt>
+
+grant_type=client_credentials
+&client_id=your-client-id
+&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+&client_assertion=<your-signed-jwt>
+&scope=DsaApi
+&dpop_jkt=<jwk-thumbprint>
+```
+
+### DPoP Proof Structure
+
+**Header:**
+
+```json
+{
+  "typ": "dpop+jwt",
+  "alg": "RS256",
+  "jwk": {
+    "kty": "RSA",
+    "n": "<base64url-modulus>",
+    "e": "<base64url-exponent>"
+  }
+}
+```
+
+**Payload:**
+
+```json
+{
+  "htu": "ENVIRONMENT_AUTH_URL/connect/token",
+  "htm": "POST",
+  "iat": 1706572800,
+  "jti": "unique-id-here"
+}
+```
+
+### DPoP API Request
+
+When using a DPoP-bound token, include the DPoP proof in API requests:
+
+```http
+GET /api/v0/odata/PrescribedMedicationData HTTP/1.1
+Host: ENVIRONMENT_DATA_SOLUTIONS_URL
+Authorization: DPoP <access-token>
+DPoP: <dpop-proof-jwt>
+```
+
+The DPoP proof for resource requests must include the `ath` claim (access token hash):
+
+```json
+{
+  "htu": "ENVIRONMENT_DATA_SOLUTIONS_URL/api/v0/odata/PrescribedMedicationData",
+  "htm": "GET",
+  "iat": 1706572800,
+  "jti": "unique-id-here",
+  "ath": "<base64url-sha256-of-access-token>"
+}
+```
+
+For detailed DPoP implementation, see the [Postman Collection README]().
+
+## Troubleshooting
+
+### "invalid\_client" Error
+
+**Cause:** Client ID not found or public key mismatch
+
+**Solutions:**
+
+1. Verify your Client ID is correct
+2. Ensure your public key is registered with the auth server
+3. Confirm the private key matches the registered public key
+
+### "invalid\_grant" Error
+
+**Cause:** JWT assertion validation failed
+
+**Solutions:**
+
+1. Check JWT expiration (`exp` claim) - ensure it's in the future
+2. Verify `aud` claim matches the exact token endpoint URL
+3. Ensure `iss` and `sub` both contain your Client ID
+4. Confirm JWT is signed with RS384 algorithm
+5. Check that JWT `jti` is unique
+
+### 401 Unauthorized on API Requests
+
+**Cause:** Invalid or expired access token
+
+**Solutions:**
+
+1. Verify the token hasn't expired
+2. Check that you're using `Bearer` token type
+3. Ensure the token was requested with `scope=DsaApi`
+4. Confirm the `Authorization` header format: `Bearer <token>`
+
+### 403 Forbidden on API Requests
+
+**Cause:** Valid token but insufficient permissions
+
+**Solutions:**
+
+1. Verify your client has purchased the product/package
+2. Check if the columns you're selecting are in your package
+3. Ensure you're including a valid PARTITION\_DAY filter
+4. Review package filter restrictions
+
+### Token Request Timeout
+
+**Cause:** Network connectivity or server issues
+
+**Solutions:**
+
+1. Check network connectivity to the auth server
+2. Verify the auth server URL is correct
+3. Check firewall rules allow outbound HTTPS
+
+## Environment URLs
+
+<table isTableHeaderOn="true" columnWidths="469,469,469" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Environment**
+    </td>
+    <td align="left">
+      **Auth Server URL**
+    </td>
+    <td align="left">
+      **Data Solutions API URL**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Production
+    </td>
+    <td align="left">
+      `https://auth-server.surescripts.net`
+    </td>
+    <td align="left">
+      `https://data-solutions-api.surescripts.net`
+    </td>
+  </tr>
+</table>
+
+## Security Best Practices
+
+1. **Protect Private Keys**
+   - Never commit private keys to source control
+   - Store keys securely (e.g., environment variables, key vaults)
+   - Use different keys for different environments
+2. **Token Storage**
+   - Store tokens securely in memory or encrypted storage
+   - Never log or expose tokens in error messages
+   - Clear tokens when they expire
+3. **JWT Claims**
+   - Always use unique `jti` values (UUIDs)
+   - Keep expiration times short (5 minutes recommended)
+   - Validate token expiration before use
+4. **HTTPS Only**
+   - Always use HTTPS for token requests and API calls
+   - Verify SSL/TLS certificates
+5. **Error Handling**
+   - Implement retry logic for transient failures
+   - Log authentication failures for monitoring
+   - Don't expose sensitive details in client-facing errors
+
+# **Step 6: Download Data Files (Optional Formats)**
+
+The Data Solutions API supports optional file download formats that may be enabled for your data package. Available formats depend on your package configuration.
+
+## Supported Formats
+
+- **CSV** – Human‑readable format for simple downloads and manual review
+- **Parquet** – Binary, columnar format optimized for analytics and large‑scale processing
+
+<hint type="info">
+  **Note:** File format availability is controlled at the package level by Surescripts. If a format is not enabled for your package, it is not available for download.
+</hint>
+
+## **Before You Begin**
+
+Confirm that:
+
+- Your Client ID is configured with a package that supports the desired file format
+- You have completed authentication in **Step 5**
+- You have a valid **PARTITION\_DAY** value
+
+File format selection does **not** affect query construction or authentication.
+
+## Download CSV Data (For Enabled CSV Packages Only)
+
+Send a request to the following endpoint to download CSV data using a signed URL. The signed URL is active for 5 minutes and is only available is you are enabled for CSV downloads.
+
+**Prescribed Medication Data:**
+
+<CodeblockTabs>
+  CSV Download Endpoint
+
+  ```javascript
+  /api/v0/customer/product/PrescribedMedicationData/csv/signedurls/{PARTITION_DAY}
+  ```
+</CodeblockTabs>
+
+## Download Parquet Data (For Enabled Parquet Packages Only)
+
+Send a request to the following endpoint to download Parquet data using a signed URL. The signed URL is active for 5 minutes and is only available is you are enabled for Parquet downloads.
+
+**Prescribed Medication Data**:
+
+<CodeblockTabs>
+  Parquet Download Endpoint
+
+  ```javascript
+  /api/v0/customer/product/PrescribedMedicationData/parquet/signedurls/{PARTITION_DAY}
+  ```
+</CodeblockTabs>
+

@@ -1,0 +1,116 @@
+{
+  "test_var2": {
+    "contentVariableId": "WaSpVQNqT622PZ4_CdOJe",
+    "name": "test_var2",
+    "content": "Archbee v2",
+    "scope": "global",
+    "spaceTargetMap": {
+      "XYFqMaTKcZZwCtBGnsE_v": "Archbee vRandom"
+    },
+    "type": "variable"
+  },
+  "test_var": {
+    "contentVariableId": "4dgmBWFsYq08QuJUNBh6l",
+    "name": "test_var",
+    "content": "Archbee",
+    "scope": "global",
+    "spaceTargetMap": {},
+    "type": "variable"
+  },
+  "New_reusable": {
+    "contentVariableId": "xVMUMc3AEnseL8iLJUIsr",
+    "name": "New_reusable",
+    "content": "variabila",
+    "scope": "global",
+    "spaceTargetMap": {},
+    "type": "variable"
+  },
+  "CDCB": {
+    "contentVariableId": "XWr87ztBrlHdHTtxMlQtz",
+    "name": "CDCB",
+    "content": "CDCB",
+    "type": "glossary",
+    "description": "Council of Dairy Cattle Breeding is a non-profit organization that calculates and manages genetic evaluations and genomic predictions for dairy cattle.",
+    "scope": "global"
+  },
+  "masterVAS-Products.MyDC-short": {
+    "contentVariableId": "lZZDeWRnbKedPTnwtc_JV",
+    "name": "masterVAS-Products.MyDC-short",
+    "content": "MyDC",
+    "type": "variable",
+    "scope": "global",
+    "spaceTargetMap": {
+      "frca": "MyDC",
+      "fr": "MyDC",
+      "jp": "MyDC",
+      "es": "MyDC",
+      "it": "MyDC",
+      "de": "MyDC",
+      "ru": "MyDC",
+      "cn": "MyDC",
+      "pt": "MyDC",
+      "ptbr": "MyDC",
+      "pl": "MyDC"
+    }
+  },
+  "masterVAS-Terminology.S-ire-": {
+    "contentVariableId": "xgX9GFRjoCvPaXyMQA2lV",
+    "name": "masterVAS-Terminology.S-ire-",
+    "content": "Sire",
+    "type": "variable",
+    "scope": "global",
+    "spaceTargetMap": {
+      "frca": "Taureau",
+      "fr": "Taureau",
+      "jp": "父牛",
+      "es": "Toro",
+      "it": "Toro",
+      "de": "Vererber",
+      "ru": "Бык",
+      "cn": "公牛",
+      "pt": "Touro",
+      "ptbr": "Touro",
+      "pl": "Byk"
+    }
+  },
+  "JPI": {
+    "contentVariableId": "0GaLUHJxYNeXVzxNGTd3c",
+    "name": "JPI",
+    "content": "JPI",
+    "type": "glossary",
+    "description": "Jersey Performance Index",
+    "scope": "global"
+  },
+  "JUI": {
+    "contentVariableId": "sMyW6yuxl2m10t3Bssa-C",
+    "name": "JUI",
+    "content": "JUI",
+    "type": "glossary",
+    "description": "Jersey Udder Index",
+    "scope": "global"
+  },
+  "FS": {
+    "contentVariableId": "-EU3pXthglwwEwOEX8od7",
+    "name": "FS",
+    "content": "FS",
+    "type": "glossary",
+    "description": "Feed Saved (genomic trait)",
+    "scope": "global"
+  },
+  "HLV": {
+    "contentVariableId": "1Ioyz5nVEHV0rpX5dfh-v",
+    "name": "HLV",
+    "content": "HLV",
+    "type": "glossary",
+    "description": "Heifer Livability (genomic trait)",
+    "scope": "global"
+  },
+  "MSP": {
+    "contentVariableId": "0_YVpp5oVRGt38PA9oVPI",
+    "name": "MSP",
+    "content": "MSP",
+    "type": "glossary",
+    "description": "Milking Speed (genomic trait)",
+    "scope": "global"
+  }
+}
