@@ -1,0 +1,531 @@
+{
+  "docsPath": "Folderx/",
+  "structure": {
+    "summary": "toc.md",
+    "assets": "assets",
+    "docsTree": [
+      {
+        "categoryName": "How to withdraw money from Wallet",
+        "isCategory": true,
+        "children": [
+          {
+            "categoryName": "49bZ-how-to-create-a-withdrawal-request.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/49bZ-how-to-create-a-withdrawal-request.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "HzSL-what-amounts-can-be-withdrawn.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/HzSL-what-amounts-can-be-withdrawn.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "OrPt-how-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/OrPt-how-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Ps_P-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/Ps_P-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Qh9b-ways-to-withdraw-money-from-wallet.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/Qh9b-ways-to-withdraw-money-from-wallet.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "R_ky-currency-conversion-during-withdrawal.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/R_ky-currency-conversion-during-withdrawal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "SQXv-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/SQXv-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "BInV-ways-to-withdraw-money-from-wallet.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/bInV-ways-to-withdraw-money-from-wallet.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-baixar-um-extrato-ou-fatura-de-uma-solicitacao-de-retirada.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/como-baixar-um-extrato-ou-fatura-de-uma-solicitacao-de-retirada.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-crear-la-solicitud-de-pago.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/como-crear-la-solicitud-de-pago.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-criar-uma-solicitacao-de-retirada.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/como-criar-uma-solicitacao-de-retirada.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-descargar-el-extracto-o-la-factura-de-una-solicitud-de-retiro-de-dinero.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/como-descargar-el-extracto-o-la-factura-de-una-solicitud-de-retiro-de-dinero.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-retirar-dinheiro-da-wallet.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/como-retirar-dinheiro-da-wallet.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Conversao-de-moedas-ao-retirar-dinheiro.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/conversao-de-moedas-ao-retirar-dinheiro.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Conversion-de-moneda-a-la-hora-de-retirar-dinero.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/conversion-de-moneda-a-la-hora-de-retirar-dinero.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Cuanto-dinero-se-puede-retirar.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/cuanto-dinero-se-puede-retirar.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Currency-conversion-during-withdrawal.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/currency-conversion-during-withdrawal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Cuz2-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/cuz2-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "G3yj-currency-conversion-during-withdrawal.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/g3yj-currency-conversion-during-withdrawal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Guia-pessoa-fisica-pessoa-juridica-e-mei.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/guia-pessoa-fisica-pessoa-juridica-e-mei.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "H9nt-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/h9nt-how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Hoc2-how-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/hoc2-how-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "How-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/how-self-employed-persons-can-withdraw-money-to-a-bank-card.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "How-to-create-a-withdrawal-request.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/how-to-create-a-withdrawal-request.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "How-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/how-to-download-a-statement-or-invoice-for-a-withdrawal-request.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Kak-samozanyatym-vyvesti-dengi-na-bankovskuyu-kartu.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/kak-samozanyatym-vyvesti-dengi-na-bankovskuyu-kartu.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Kak-skachat-vypisku-ili-invojs-po-zayavke-na-vyvod-deneg.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/kak-skachat-vypisku-ili-invojs-po-zayavke-na-vyvod-deneg.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Kak-sozdat-zayavku-na-vyvod-deneg.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/kak-sozdat-zayavku-na-vyvod-deneg.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Kakuyu-summu-deneg-mozhno-vyvesti.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/kakuyu-summu-deneg-mozhno-vyvesti.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Konvertaciya-valyuty-pri-vyvode-deneg.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/konvertaciya-valyuty-pri-vyvode-deneg.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Methoden-der-abhebung-aus-wallet.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/methoden-der-abhebung-aus-wallet.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "O2Jr-what-amounts-can-be-withdrawn.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/o2Jr-what-amounts-can-be-withdrawn.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Opciones-para-retirar-el-dinero-de-wallet.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/opciones-para-retirar-el-dinero-de-wallet.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Qual-e-o-valor-minimo-e-maximo-de-retirada.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/qual-e-o-valor-minimo-e-maximo-de-retirada.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "RJ_K-how-to-create-a-withdrawal-request.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/rJ_K-how-to-create-a-withdrawal-request.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Sposoby-vyvoda-deneg-iz-wallet.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/sposoby-vyvoda-deneg-iz-wallet.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Wahrungsumrechnung-bei-geldabhebungen.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/wahrungsumrechnung-bei-geldabhebungen.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Ways-to-withdraw-money-from-wallet.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/ways-to-withdraw-money-from-wallet.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Welchen-betrag-du-abheben-kannst.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/welchen-betrag-du-abheben-kannst.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "What-amounts-can-be-withdrawn.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/what-amounts-can-be-withdrawn.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Wie-du-beim-anfragen-einer-auszahlung-einen-kontoauszug-und-eine-rechnung-herunterladst.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/wie-du-beim-anfragen-einer-auszahlung-einen-kontoauszug-und-eine-rechnung-herunterladst.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Wie-du-eine-auszahlungsanfrage-erstellst.mdx",
+            "isCategory": false,
+            "path": "How to withdraw money from Wallet/wie-du-eine-auszahlungsanfrage-erstellst.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Tax information and billing details",
+        "isCategory": true,
+        "children": [
+          {
+            "categoryName": "1d3B-how-to-edit-or-delete-billing-details.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/1d3B-how-to-edit-or-delete-billing-details.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "5rVl-tax-information-verification.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/5rVl-tax-information-verification.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "BCSX-tax-information-verification.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/BCSX-tax-information-verification.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "BFhY-how-to-add-billing-details.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/BFhY-how-to-add-billing-details.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "GISv-how-to-edit-or-delete-tax-information.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/GISv-how-to-edit-or-delete-tax-information.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "HQxT-how-to-add-tax-information.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/HQxT-how-to-add-tax-information.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "KQEt-how-to-add-billing-details.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/KQEt-how-to-add-billing-details.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "ZfSD-how-to-edit-or-delete-billing-details.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/ZfSD-how-to-edit-or-delete-billing-details.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Billing-detail-statuses-and-what-they-mean.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/billing-detail-statuses-and-what-they-mean.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Chto-oznachayut-statusy-platezhnyh-dannyh.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/chto-oznachayut-statusy-platezhnyh-dannyh.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-adicionar-detalhes-de-pagamento.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/como-adicionar-detalhes-de-pagamento.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-adicionar-informacoes-fiscais.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/como-adicionar-informacoes-fiscais.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-alterar-ou-excluir-detalhes-de-pagamento.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/como-alterar-ou-excluir-detalhes-de-pagamento.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-alterar-ou-excluir-informacoes-fiscais.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/como-alterar-ou-excluir-informacoes-fiscais.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-anadir-la-informacion-fiscal.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/como-anadir-la-informacion-fiscal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-anadir-los-datos-de-pago.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/como-anadir-los-datos-de-pago.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-editar-o-eliminar-los-datos-de-pago.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/como-editar-o-eliminar-los-datos-de-pago.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Como-modificar-o-eliminar-la-informacion-fiscal.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/como-modificar-o-eliminar-la-informacion-fiscal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "How-to-add-billing-details.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/how-to-add-billing-details.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "How-to-add-tax-information.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/how-to-add-tax-information.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "How-to-edit-or-delete-billing-details.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/how-to-edit-or-delete-billing-details.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "How-to-edit-or-delete-tax-information.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/how-to-edit-or-delete-tax-information.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "K8t0-how-to-edit-or-delete-tax-information.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/k8t0-how-to-edit-or-delete-tax-information.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Kak-dobavit-nalogovuyu-informaciyu.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/kak-dobavit-nalogovuyu-informaciyu.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Kak-dobavit-platezhnye-dannye.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/kak-dobavit-platezhnye-dannye.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Kak-otredaktirovat-ili-udalit-nalogovuyu-informaciyu.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/kak-otredaktirovat-ili-udalit-nalogovuyu-informaciyu.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Kak-otredaktirovat-ili-udalit-platezhnye-dannye.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/kak-otredaktirovat-ili-udalit-platezhnye-dannye.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Mbqi-how-to-add-tax-information.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/mbqi-how-to-add-tax-information.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "O-que-significam-os-status-dos-detalhes-de-pagamento.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/o-que-significam-os-status-dos-detalhes-de-pagamento.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Proverka-nalogovoj-informacii.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/proverka-nalogovoj-informacii.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Prufung-der-steuerdaten.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/prufung-der-steuerdaten.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Que-significan-los-estados-de-los-datos-de-pago.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/que-significan-los-estados-de-los-datos-de-pago.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Tax-information-verification.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/tax-information-verification.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Verificacao-de-informacoes-fiscais.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/verificacao-de-informacoes-fiscais.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Verificacion-de-la-informacion-fiscal.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/verificacion-de-la-informacion-fiscal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "WU00-billing-detail-statuses-and-what-they-mean.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/wU00-billing-detail-statuses-and-what-they-mean.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Was-die-status-von-zahlungsinformationen-bedeuten.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/was-die-status-von-zahlungsinformationen-bedeuten.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Wie-du-steuerdaten-bearbeitest-oder-loschst.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/wie-du-steuerdaten-bearbeitest-oder-loschst.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Wie-du-steuerdaten-hinzufugst.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/wie-du-steuerdaten-hinzufugst.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Wie-du-zahlungsinformationen-bearbeitest-oder-loschst.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/wie-du-zahlungsinformationen-bearbeitest-oder-loschst.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Wie-du-zahlungsinformationen-hinzufugst.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/wie-du-zahlungsinformationen-hinzufugst.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "XKbr-billing-detail-statuses-and-what-they-mean.mdx",
+            "isCategory": false,
+            "path": "Tax information and billing details/xKbr-billing-detail-statuses-and-what-they-mean.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
+      }
+    ]
+  }
+}
