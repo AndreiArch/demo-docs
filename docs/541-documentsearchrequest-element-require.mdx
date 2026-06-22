@@ -2,10 +2,10 @@
 title: 5.4.1 DocumentSearchRequest Element Require
 slug: 541-documentsearchrequest-element-require
 docTags: 
-createdAt: Fri Feb 20 2026 14:55:20 GMT+0000 (Coordinated Universal Time)
+createdAt: Mon Jun 22 2026 15:22:10 GMT+0000 (Coordinated Universal Time)
 ---
 
-# **Onboarding Step by Step Process**
+# Onboarding Step by Step Process
 
 These steps outline the process to onboard a customer to Surescripts Data Solutions, from account setup through data downloads.
 
@@ -23,18 +23,17 @@ These steps outline the process to onboard a customer to Surescripts Data Soluti
 
 - For instructions on how to set up access, see the :Link[Setting Up Access to Workbench & Data Package Builder]{label="Getting Started" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="CK_HMjVq8Nl6ryMbeYwF9" version="v2" docAnchorId="#VRB1k" loadingMethod="dynamic" overridedLabel="Setting Up Access to Workbench & Data Package Builder" newTab="true"} instructions.
 
-# **Step 2: Generate  Keys**
+# Step 2: Generate  Keys
 
-## **Step 2a: Generate RSA Key Pairs for Data Package Builder Authentication**
+## Step 2a: Generate RSA Key Pairs for Data Package Builder Authentication
 
 To authenticate with the Data Package Builder API, you need to generate a 2048-bit RSA key pair and upload the public key through the Client Keys interface.&#x20;
 
 **Option 1: Using Open SSL (Recommended - Works on Linux, macOS, Windows)**
 
 1. Generate a 2048-bit RSA private key.
-2.
 
-<Image src="https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/ZBdVJaJ5MttcBKLxtAbqi_logo.png" size="100" width="664" height="176" position="center" indent="2"></Image>
+<Image src="https://api.archbee.com/api/optimize/511c8QBH-VHiwWnyzIwUb/ZBdVJaJ5MttcBKLxtAbqi_logo.png" size="100" width="664" height="176" position="center" indent="2" showCaption="false"></Image>
 
 ```powershell
 openssl genrsa -out private_key.pem 2048
@@ -140,16 +139,16 @@ Write-Host "Public key is in X.509 SubjectPublicKeyInfo format"
   - Reuse the same key pair across multiple clients/applications
 </hint>
 
-## **Step 2c: Common errors**
+## Step 2c: Common errors
 
 The below table includes information on common errors that can be encountered when creating key pairs.
 
-<table isTableHeaderOn="true" columnWidths="202,444" selectedColumns="" selectedRows="" selectedTable="false">
+<table isTableHeaderOn="true" columnWidths="202,444">
   <tr>
-    <td align="left" lightBackgroundColor="#D8E5F5">
+    <td lightBackgroundColor="#D8E5F5" align="left">
       **Error**
     </td>
-    <td align="left" lightBackgroundColor="#D8E5F5">
+    <td lightBackgroundColor="#D8E5F5" align="left">
       **Troubleshooting Information**
     </td>
   </tr>
@@ -175,7 +174,7 @@ The below table includes information on common errors that can be encountered wh
   </tr>
 </table>
 
-# **Step 3: Query Builder&#x20;**
+# Step 3: Query Builder&#x20;
 
 The **Query Builder&#x20;**&#x69;n Workbench helps you create an **OData query URL&#x20;**&#x74;hat defines exactly which prescribed medication data you want to retrieve from the Data Solutions API. You can build a query visually or edit it directly, depending on your preference.
 
@@ -215,11 +214,11 @@ The **Query Builder&#x20;**&#x69;n Workbench helps you create an **OData query U
   **Note**: For information on how to run the Query Builder for other use cases, see :Link[Key Steps (Applies to All Use Cases)]{label="Query Builder Overview" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="UfqSG3e7HZr3byCCRTWhz" version="v2" docAnchorId="#sNQSf" loadingMethod="dynamic" overridedLabel="Key Steps (Applies to All Use Cases)"}
 </hint>
 
-# **Step 4: Determining PARTITION\_DAY Filter**
+# Step 4: Determining PARTITION\_DAY Filter
 
 To determine which PARTITION\_DAY filter to request, see the :Link[How to Use the Endpoints]{label="How to Use the Endpoints" spaceId="sfSHFL61IxzqPtu0PYS1d" docId="1XvTa747xDt6ZTXVIBdLJ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} page.
 
-# **Step 5: Send REST Requests to Data Solutions API**
+# Step 5: Send REST Requests to Data Solutions API
 
 ## Authentication&#x20;
 
@@ -802,7 +801,7 @@ The DPoP proof for resource requests must include the `ath` claim (access token 
 }
 ```
 
-For detailed DPoP implementation, see the [Postman Collection README]().
+For detailed DPoP implementation, see the [Postman Collection README](#).
 
 ## Troubleshooting
 
@@ -862,7 +861,7 @@ For detailed DPoP implementation, see the [Postman Collection README]().
 
 ## Environment URLs
 
-<table isTableHeaderOn="true" columnWidths="469,469,469" selectedColumns="" selectedRows="" selectedTable="false">
+<table isTableHeaderOn="true" columnWidths="469,469,469">
   <tr>
     <td align="left">
       **Environment**
@@ -909,7 +908,7 @@ For detailed DPoP implementation, see the [Postman Collection README]().
    - Log authentication failures for monitoring
    - Don't expose sensitive details in client-facing errors
 
-# **Step 6: Download Data Files (Optional Formats)**
+# Step 6: Download Data Files (Optional Formats)
 
 The Data Solutions API supports optional file download formats that may be enabled for your data package. Available formats depend on your package configuration.
 
@@ -922,7 +921,7 @@ The Data Solutions API supports optional file download formats that may be enabl
   **Note:** File format availability is controlled at the package level by Surescripts. If a format is not enabled for your package, it is not available for download.
 </hint>
 
-## **Before You Begin**
+## Before You Begin
 
 Confirm that:
 
@@ -959,4 +958,3 @@ Send a request to the following endpoint to download Parquet data using a signed
   /api/v0/customer/product/PrescribedMedicationData/parquet/signedurls/{PARTITION_DAY}
   ```
 </CodeblockTabs>
-

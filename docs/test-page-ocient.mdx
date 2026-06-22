@@ -2,7 +2,7 @@
 title: test page Ocient
 slug: test-page-ocient
 docTags: 
-createdAt: Fri Dec 05 2025 14:45:17 GMT+0000 (Coordinated Universal Time)
+createdAt: Mon Jun 22 2026 15:22:10 GMT+0000 (Coordinated Universal Time)
 ---
 
 The \{\{OcientHyperscaleDataWarehouse}} supports querying using the SQL syntax that follows ANSI SQL standards.
@@ -62,7 +62,7 @@ WITH
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="152,100">
+<table isTableHeaderOn="true" columnWidths="152,100">
   <tr>
     <td align="left">
       **Parameter**
@@ -128,7 +128,7 @@ WHERE budget > avg_budget_table.average_budget;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="220,220,222">
+<table isTableHeaderOn="true" columnWidths="220,220,222">
   <tr>
     <td align="left">
       title
@@ -295,7 +295,7 @@ SELECT [ ALL | DISTINCT ]
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -347,7 +347,7 @@ SELECT [ ALL | DISTINCT ]
   </tr>
 </table>
 
-### **\<select\_list\_entry>**
+### \<select\_list\_entry>
 
 The `select_list_entry` defines a column or expression to include in your query result set.&#x20;
 
@@ -360,7 +360,7 @@ The `select_list_entry` defines a column or expression to include in your query 
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -396,7 +396,7 @@ The `select_list_entry` defines a column or expression to include in your query 
   </tr>
 </table>
 
-### **\<****from\_clause****>**
+### \<**from\_clause**>
 
 For information on the `<from_clause>`, see the :Link[FROM]{label="General SQL Syntax" spaceId="C0TRtFmQ9oOqRtkCB9A9i" docId="Nw9vaVKey2v75MoXm_muO" version="v2" docAnchorId="#ubhG_" loadingMethod="dynamic" overridedLabel="FROM"} documentation.&#x20;
 
@@ -412,7 +412,7 @@ SELECT * FROM movies LIMIT 5;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="100,100,100,100,100,100,100,100,100,100">
+<table isTableHeaderOn="true" columnWidths="100,100,100,100,100,100,100,100,100,100">
   <tr>
     <td align="left">
       movie\_id
@@ -620,7 +620,7 @@ LIMIT 5;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="165,165,165,167">
+<table isTableHeaderOn="true" columnWidths="165,165,165,167">
   <tr>
     <td align="left">
       title
@@ -789,7 +789,7 @@ Specifies the table or view to use in a `SELECT` statement.
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="175,100">
+<table isTableHeaderOn="true" columnWidths="175,100">
   <tr>
     <td align="left">
       **Parameter**
@@ -848,7 +848,7 @@ Combines rows from multiple tables so they can be accessed by a query. &#x20;
         ON table1_column <boolean_operator> table2_column  
 ```
 **Parameter**
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -929,9 +929,9 @@ Ocient supports the following types of `JOIN` operations.&#x20;
     | ANTI JOIN } 
 ```
 
-### **JOIN Type Descriptions**
+### JOIN Type Descriptions
 
-<table columnWidths="181,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+<table isTableHeaderOn="true" columnWidths="181,100">
   <tr>
     <td align="left">
       **JOIN Type**
@@ -1029,7 +1029,7 @@ These examples join two tables:&#x20;
 
 - `games` — A table of video game titles and their genre\_ids. Note that some games have a NULL value assigned to their genre\_id. &#x20;
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       game\_name
@@ -1178,7 +1178,7 @@ These examples join two tables:&#x20;
 
 - `genre` — A table of video game genres, which are identified by IDs.&#x20;
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       genre\_name
@@ -1298,7 +1298,7 @@ FROM video_games.game
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       game\_name
@@ -1434,7 +1434,7 @@ FROM video_games.game
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       game\_name
@@ -1594,7 +1594,7 @@ FROM video_games.game
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       game\_name
@@ -1762,7 +1762,7 @@ FROM video_games.game
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       game\_name
@@ -1950,7 +1950,7 @@ FROM video_games.genre
   As the result set for this CROSS JOIN example is more than 200 rows, the results are abbreviated.&#x20;
 </hint>
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       genre\_name
@@ -2174,7 +2174,7 @@ FROM video_games.genre
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       genre\_name
@@ -2269,7 +2269,7 @@ FROM video_games.game
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="662">
+<table isTableHeaderOn="true" columnWidths="662">
   <tr>
     <td align="left">
       game\_name
@@ -2301,7 +2301,7 @@ Filters rows based on a specified condition.&#x20;
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="145,100">
+<table isTableHeaderOn="true" columnWidths="145,100">
   <tr>
     <td align="left">
       **Parameter**
@@ -2376,7 +2376,7 @@ A logical combination of predicates used to evaluate the referenced `column_name
 
 **Definitions**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="100,338,100">
+<table isTableHeaderOn="true" columnWidths="100,338,100">
   <tr>
     <td align="left">
       **Operator**
@@ -2708,7 +2708,7 @@ WHERE string1 SIMILAR TO string2
 
 This table describes the metacharacters supported by the `SIMILAR TO` keyword.
 
-<table columnWidths="134,497" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+<table isTableHeaderOn="true" columnWidths="134,497">
   <tr>
     <td align="left">
       **Metacharacter**
@@ -2825,7 +2825,7 @@ This table describes the metacharacters supported by the `SIMILAR TO` keyword.
 
 `SIMILAR TO` also supports escaping these metacharacters with `\` and certain escape sequences supported by C family languages.
 
-<table columnWidths="135,425" selectedRows="" selectedTable="false" selectedColumns="" isTableHeaderOn="true">
+<table isTableHeaderOn="true" columnWidths="135,425">
   <tr>
     <td align="left">
       **Metacharacter**
@@ -3140,7 +3140,7 @@ SELECT <select_list_clause> FROM table_name
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -3217,7 +3217,7 @@ ORDER BY 1 ASC;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       year(release\_date)
@@ -3340,7 +3340,7 @@ GROUP BY column_name HAVING <filter_condition>
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -3383,7 +3383,7 @@ ORDER BY 1 ASC;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       year(release\_date)
@@ -3465,7 +3465,7 @@ ORDER BY { column_position | column_name } [ ASC | DESC ]
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="220,220,222">
+<table isTableHeaderOn="true" columnWidths="220,220,222">
   <tr>
     <td align="left">
       **Parameter**
@@ -3541,7 +3541,7 @@ ORDER BY release_date DESC;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       release\_date
@@ -3726,7 +3726,7 @@ The returned rows are nondeterministic unless you use an :Link[ORDER BY]{docId="
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="166,100">
+<table isTableHeaderOn="true" columnWidths="166,100">
   <tr>
     <td align="left">
       **Parameter**
@@ -3801,7 +3801,7 @@ The returned rows are nondeterministic unless you use an :Link[ORDER BY]{docId="
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="160,100">
+<table isTableHeaderOn="true" columnWidths="160,100">
   <tr>
     <td align="left">
       **Parameter**
@@ -3843,7 +3843,7 @@ ORDER BY release_date OFFSET 6;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       release\_date
@@ -3996,7 +3996,7 @@ By default, the SQL statement eliminates duplicate rows unless the query include
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -4039,7 +4039,7 @@ WHERE budget > 20000000;
 
 *Output*
 
-<table columnWidths="100,251,100,100,100,100,100,100,100,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+<table isTableHeaderOn="true" columnWidths="100,251,100,100,100,100,100,100,100,100">
   <tr>
     <td align="left">
       movie\_id
@@ -4474,7 +4474,7 @@ The `EXCEPT` keyword can also be used to exclude specific columns from a `SELECT
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -4517,7 +4517,7 @@ WHERE budget > 20000000;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="100,100,100,100,100,100,100,100,100">
+<table isTableHeaderOn="true" columnWidths="100,100,100,100,100,100,100,100,100">
   <tr>
     <td align="left">
       title
@@ -4650,7 +4650,7 @@ By default, `UNION` eliminates duplicate rows from the result set unless you spe
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="148,100,100">
+<table isTableHeaderOn="true" columnWidths="148,100,100">
   <tr>
     <td align="left">
       **Parameter**
@@ -4706,7 +4706,7 @@ WHERE vote_average > 7.5;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="220,220,222">
+<table isTableHeaderOn="true" columnWidths="220,220,222">
   <tr>
     <td align="left">
       title
@@ -4854,7 +4854,7 @@ USING
 
 **Parameters**
 
-<table columnWidths="331,331" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -4991,7 +4991,7 @@ To understand the results of this statement, see :Link[TRACE Results]{docId="Nw9
 
 **Parameters**
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -5033,7 +5033,7 @@ To understand the results of this statement, see :Link[TRACE Results]{docId="Nw9
 
 Each row of the trace output provides some information about what an operator instance has done in the time between the previous trace sample and the most current sample.
 
-<table columnWidths="331,331" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Column**
@@ -5128,7 +5128,7 @@ Each row of the trace output provides some information about what an operator in
 
 The `sample` and `value` columns describe what occurred in a given trace period.
 
-<table columnWidths="331,331" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Sample**
@@ -5203,7 +5203,7 @@ SELECT * FROM sys.dummy10 TRACE;
 
 *Output*
 
-<table selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="" columnWidths="100,100,100,100,100,100,100,100,100,100">
+<table isTableHeaderOn="true" columnWidths="100,100,100,100,100,100,100,100,100,100">
   <tr>
     <td align="left">
       plan\_parent\_id &#x20;
@@ -5348,7 +5348,7 @@ An optional clause that adds one or more tags to the SQL query. You can also add
 
 **Parameters**
 
-<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="331,331">
+<table isTableHeaderOn="true" columnWidths="331,331">
   <tr>
     <td align="left">
       **Parameter**
@@ -5429,7 +5429,7 @@ If you use escape sequences, be prepared that you might need to alter strings th
 
 **Supported Escape Sequences**
 
-<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="165,100">
+<table isTableHeaderOn="true" columnWidths="165,100">
   <tr>
     <td align="left">
       **Escape Sequence**
