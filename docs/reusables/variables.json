@@ -1,30 +1,4 @@
 {
-  "test_var2": {
-    "contentVariableId": "WaSpVQNqT622PZ4_CdOJe",
-    "name": "test_var2",
-    "content": "Archbee v2",
-    "scope": "global",
-    "spaceTargetMap": {
-      "XYFqMaTKcZZwCtBGnsE_v": "Archbee vRandom"
-    },
-    "type": "variable"
-  },
-  "test_var": {
-    "contentVariableId": "4dgmBWFsYq08QuJUNBh6l",
-    "name": "test_var",
-    "content": "Archbee",
-    "scope": "global",
-    "spaceTargetMap": {},
-    "type": "variable"
-  },
-  "New_reusable": {
-    "contentVariableId": "xVMUMc3AEnseL8iLJUIsr",
-    "name": "New_reusable",
-    "content": "variabila",
-    "scope": "global",
-    "spaceTargetMap": {},
-    "type": "variable"
-  },
   "CDCB": {
     "contentVariableId": "XWr87ztBrlHdHTtxMlQtz",
     "name": "CDCB",
