@@ -221,5 +221,6 @@
       }
     ]
   },
-  "shadowDocs": []
+  "shadowDocs": [],
+  "autoMerge": false
 }
